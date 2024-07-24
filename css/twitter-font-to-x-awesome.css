@@ -1,0 +1,7 @@
+.fa.fa-twitter{
+	font-family:sans-serif;
+}
+.fa.fa-twitter::before{
+	content: "&#120143;";
+	font-size:1.2em;
+}

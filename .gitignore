@@ -1,0 +1,16 @@
+.htaccess
+sendemail.php
+*.swp
+.vs
+desktop.ini
+
+ehthumbs.db
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+*.der
+*.key
+*.pem
+
+.well-known/*

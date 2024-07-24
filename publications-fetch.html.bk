@@ -1,0 +1,3227 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+
+  <head>
+			<link rel="stylesheet" href="css/bib-publication-list.css"/>	<title>Publications</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114439443-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	    gtag('config', 'UA-114439443-1');
+  </script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="jENy3ocy5ni0dYJjv42rrZ85uz_oE0teegM_2JoajDQ" />
+  <meta property="og:image" content="http://prg.cs.umd.edu/img/thumbnail2.png" />
+	<style>
+	
+           #bg-color-sponsor {
+                background-color: lightgrey;
+           }
+
+
+	   html,body
+	   {
+	   width: 100%;
+	   height: 100%;
+	   margin: 0px;
+	   padding: 0px;
+	   overflow-x: hidden;
+	   border: thin solid black;
+	   }
+	 
+	   a:link {
+	   color: #ccc;
+	   }
+	   a:visited {
+	   color: #999999;
+	   }
+	   a:hover {
+	   color: #fff;
+	   }
+	   a:active {
+	   color: #000;
+	   }
+
+		#alumni a:link {color: #e00}
+		#alumni a:visited {color: #e00}
+		#alumni a:hover {color: #c00; text-decoration: underline}
+
+        #media li {color:#111; background: #e5e5e5;  margin: 2px 0;}
+        #media li:nth-child(odd) {color:#111; background: #eee;  margin: 2px 0;}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 0.5px solid #ddd;
+}
+th, td {
+    text-align: right;
+    padding: 16px;
+}
+th:first-child, td:first-child {
+    text-align: center;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+	/* Make the badge float in the top right corner of the button */
+		.button__badge {
+		    background-color: #fa3e3e;
+		    /*-background-color: #fa3e3e; */
+	   		border-radius: 1000px;
+	   		color: yellow;
+		   
+	  		padding: 6px 12px;
+	   		font-size: 8px;
+			    
+	   		position: absolute; /* Position the badge within the relatively positioned button */
+	   		top: 0;
+	   		right: 0;
+			}
+	
+		.column{
+			float: right;
+			width: 50%;
+			}
+		/* Clear Floats after the columns */
+	
+		.row:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+    
+
+	</style>
+
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=768px, initial-scale=0.6, maximum-scale=0.9">
+  		<meta property="og:image" content="http://prg.cs.umd.edu/img/thumbnail.png" />
+	    <meta name="description" content="">
+	    <meta name="author" content="">
+
+	    <title>Perception & Robotics Group at UMD</title>
+	    <!-- Team.css -->
+	    <link href="css/team.css" rel="stylesheet"> 
+	    <!-- Web Fonts -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+            <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+            <!-- Bootstrap Core CSS -->
+	    <link href="css/bootstrap.min.css" rel="stylesheet">
+	    <!-- Flaticon CSS -->
+	    <link href="fonts/flaticon/flaticon.css" rel="stylesheet">
+	    <!-- font-awesome CSS -->
+	    <link href="css/font-awesome.min.css" rel="stylesheet">
+	    <!-- Offcanvas CSS -->
+	    <link href="css/hippo-off-canvas.css" rel="stylesheet">
+	    <!-- animate CSS -->
+	    <link href="css/animate.css" rel="stylesheet">
+	    <!-- language CSS -->
+	    <link href="css/language-select.css" rel="stylesheet">
+	    <!-- owl.carousel CSS -->
+	    <link href="owl.carousel/assets/owl.carousel.css" rel="stylesheet">
+	    <!-- magnific-popup -->
+    	    <link href="css/magnific-popup.css" rel="stylesheet">
+    	    <!-- Main menu -->
+    	    <link href="css/menu.css" rel="stylesheet">
+    	    <!-- Template Common Styles -->
+    	    <link href="css/template.css" rel="stylesheet">
+	    <!-- Custom CSS -->
+	    <link href="css/style.css" rel="stylesheet">
+	    <!-- Responsive CSS -->
+	    <link href="css/responsive.css" rel="stylesheet">
+	    <!-- Research CSS -->
+	    <link href="css/research.css" rel="stylesheet">
+	    <!-- ai-font for Research Fonts like Google Scholar -->
+	    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+	    <script src="js/vendor/modernizr-2.8.1.min.js"></script>
+	    <!-- HTML5 Shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	    <!--[if lt IE 9]>
+		    <script src="js/vendor/html5shim.js"></script>
+		    <script src="js/vendor/respond.min.js"></script>
+	    <![endif]-->
+	</head>
+
+
+<!---------------------------------------------------------------------------->
+<!-- Menu -->
+
+<body id="page-top">
+<div id="st-container" class="st-container">
+    <div class="st-pusher">
+    <div class="st-content">
+
+
+<!-- ------------------ -->
+<!-- ------------------ -->
+<!-- HEADER BEGINS HERE -->
+<!-- ------------------ -->
+<!-- ------------------ -->
+
+
+	<header class="header">
+	<nav class="top-bar">
+	</nav><!-- /.top-bar -->
+
+
+	<nav class="navbar navbar-default" role="navigation">
+
+	    <div class="container mainnav">
+	    <div class="navbar-header">
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse navbar-collapse" align="center">
+
+		<!-- LOGO PLACE HOLDERS -->
+		<a href="/" title="Perception and Robotics Group"><img class="img-circle" src="img/logo/prg-white.png" style=" width: 11%; height: 11%; -webkit-border-radius:40px; -moz-border-radius: 40px;"></a> &#160
+		<a href="http://cs.umd.edu" title="Department of Computer Science at UMD"><img class="img-circle" src="img/logo/cs.png" style="width: 7%; height: 7%;  border-radius: 0px; -webkit-border-radius:0px; -moz-border-radius: 0px; padding:5px"></a> &#160 &#160 &#160
+		<a href="https://www.umd.edu/" title="University of Maryland"><img class="img-circle" src="img/logo/umd-logo-white.png" style=" width:9%; height: 9%; border-radius: 40px; -webkit-border-radius:40px; -moz-border-radius: 40px; padding:5px"></a> &#160 &#160 &#160
+		<ul class="nav navbar-nav navbar-right" align="center">
+
+		<!-- Home -->
+		<h3><center><a style="color:#FFF; font-weight: bold; font-size: 34px;" href="/" title="Perception and Robotics Group">Perception and Robotics Group  &#160 &#160</a>
+		<a href="mailto:info@prg.cs.umd.edu" title="Email"><p style="font-size:28px; color:#FFF" class="fa fa-envelope" aria-hidden="false"> &#160 &#160</p></a>
+		<a href="http://github.com/prgumd" title="GitHub"><p style="font-size:28px; color:#FFF" class="fa fa-github" aria-hidden="false"> &#160 &#160</p></a>
+		<a href="https://www.youtube.com/channel/UCfKOzwtjSL07Xi4Xa19b2JA?sub_confirmation=1" title="YouTube"><p style="font-size:28px; color:#FFF" class="fa fa-youtube" aria-hidden="false"></p></a>
+</center>
+</h3>
+
+
+
+		<li><a href="/" style="font-size:18px;">Home</a></li>
+<!-- /Home -->
+
+<!-- News -->
+<li class="dropdown"><a style="font-size:18px" font="color:#fff;">News<span class="button__badge" style="font-color:#fff">4</span><span class="fa fa-angle-down">&#160 &#160 &#160</span></a>
+    <!-- submenu-wrapper --> 
+    <div class="submenu-wrapper">
+    <div class="submenu-inner">
+	<ul class="dropdown-menu">
+	
+	
+	<li><a style="font-size:22px" href="https://www.youtube.com/watch?v=oVZnE46A804"><b><font color="red">PRG's INTERVIEW </font></b> with <b> Voice of America</b>.<a style="font-size:18px" href="https://www.voanews.com/episode/scientists-teach-robots-use-experience-perform-better-3935916">[VOA-News]</a><a style="font-size:18px" href="https://isr.umd.edu/news/news_story.php?id=12332">[ISR-UMD]</a></li>
+	
+	<li><a style="font-size:22px" href="http://prg.cs.umd.edu/EVDodge"><b><font color="red">EVDodge</font></b> paper available on arXiv.</a></li>
+	
+	<li><a style="font-size:22px" href="http://prg.cs.umd.edu/HAP"><b><font color="red">Hyperdimensional Active Perception</font></b> paper appeared in <br>Science Robotics.</a></li>
+	<li><a style="font-size:22px" href="http://prg.cs.umd.edu/EV-IMO"><b><font color="red">EV-IMO</font></b> paper is available here.</a></li>
+	
+	    <hr width="50%">
+
+	<li><a style="font-size:22px" href="http://prg.cs.umd.edu/ECN"><b><font color="red">Unsupervised Learning of Egomotion and Segmentation</font></b> paper <br> is available on arXiv.</a></li>
+	
+
+    <li><a style="font-size:22px" href="http://prg.cs.umd.edu/SalientDSO"><b><font color="red">SalientDSO</font></b> paper accepted in IEEE-TASE 2018</a></li>
+		
+    
+
+		<!--<li><a style="font-size:22px" href="articles/Autonomy.pdf"><b><font color="red">A Dialogue on Autonomy</font></b> has been published in <i>Advances in <br>  Cognitive Systems</i>, 2018.</font></b> <br> <b></b></a></li>-->
+	        
+		<!--	<li><a style="font-size:22px" href="https://arxiv.org/pdf/1806.10755.pdf"><b>A Computational Theory for Life-Long Learning of <font color="red">Semantics</font> paper accepted in Artificial General Intelligence.</a></li> -->
+		<li><a style="font-size:22px" href="https://arxiv.org/pdf/1807.00456.pdf">Evenly Cascaded Convolutional Networks has been awarded the<br> <b><font color="red">Best Student Paper Award </font></b>in Big Visual Dataset Construction Workshop <br> <b></b></a></li>
+        <li><a style="font-size:22px" href="https://www.hindawi.com/journals/complexity/2018/6953836/"><b><font color="red">Similarity Learning </font>using Reservoir Computing</b> paper published in<br> <b>Complexity Journal</b></a></li>
+		
+		<li><a style="font-size:22px" href="http://prg.cs.umd.edu/ECN"><b><font color="red">ECN</font></b> paper now available on <b>arXiv</b></a></li>
+		<li><a style="font-size:22px" href="GapFlyt"><b><font color="red">GapFlyt</font></b> featured in IEEE Spectrum, NVIDIA News, TechCrunch<br> and much more.</a></li>
+		<!--<li><a style="font-size:22px" href="https://github.com/kzampog/cilantro"><b><font color="red">cilantro</font></b>: a lean, versatile, and efficient library for point cloud <br> data processing is now released</a></li>
+		<li><a style="font-size:22px" href="http://legacydirs.umiacs.umd.edu/~aecins/projects/symseg/"><b><font color="red">Using symmetry to segment objects in cluttered environments<br></font></b> Code, video and dataset is now released</a></li>
+		<li><a style="font-size:22px" href="http://prg.cs.umd.edu/GapFlyt"><b><font color="red">GapFlyt</font></b> Code is now released</a></li>
+	<!--		<li><a style="font-size:22px" href="https://arxiv.org/pdf/1806.10755.pdf"><font color="">A</font> Computational Theory for <font color="red"><b>Life-Long Learning of Semantics</font></b> <br>accepted in Artificial General Intelligence, 2018</a></li>
+		<li><a style="font-size:22px" href="http://prg.cs.umd.edu/GapFlyt"><b><font color="red">GapFlyt</font></b> paper accepted in RAL and IROS 2018</a></li>
+		<li><a style="font-size:22px" href="http://prg.cs.umd.edu/BetterFlow"><b><font color="red">BetterFlow</font></b> paper accepted in IROS 2018</a></li> 
+		<li><a style="font-size:22px" href="https://twitter.com/umdcs/status/994575308450947072">Nitin J. Sanket, Chahat Deep Singh, Kanishka Ganguly and Anton <br>Mitrokhin wins <font color="red">Brin foundation prize</font> for  <font color="red"><b>PRGFlyt</font></b></a></li>
+		<li><a style="font-size:22px" href="http://prg.cs.umd.edu/Reservoir"><font color="red">Generalized Learning with Reservoir Computing</font>
+			is submitted to <br>Complexity journal.</a></li>-->
+	<!--	<li><a style="font-size:22px" href="https://ncos.github.io/amitrokh/">Anton Mitrokhin received a prize for his poster paper in <font color="red"><b>Northrop<br> Grumman Symposium 2018</font></b></a></li>
+	<li><a style="font-size:22px" href="http://prg.cs.umd.edu/BetterFlow"><b><font color="red">BetterFlow </font></b> paper now available on <b>arXiv</b>.</a></li>
+		<li><a style="font-size:22px" href="http://prg.cs.umd.edu/SalientDSO"><b><font color="red">SalientDSO</font></b> paper now available on <b>arXiv</b>.</a></li>
+		<li><a style="font-size:22px" href="http://prg.cs.umd.edu/GapFlyt"><b><font color="red">GapFlyt</font></b> paper now available on <b>arXiv</b></a></li>
+
+		<li><a href="https://researchfeatures.com/2018/03/07/understanding-the-world-as-a-robot/" style="font-size:19px"><b>Cornelia</b>’s work was featured in an issue of Women in Science in Research Features.</a></li>
+
+		<li><a href=" http://www.cs.umd.edu/article/2018/02/brin-family-gives-2-million-dollars-support-department" style="font-size:19px">On Feb 10 2018, we were fortunate to receive a gift from the <b>Brin Family <br>Foundation</b> for our research on the <b>active machine perception</b> in aerial robotics.</a></li>
+
+		<li><a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1750082" style="font-size:18px"> Our alumnus <b>Yezhou Yang</b>, Asst. Professor at Arizona State University, received <br> a <b>CAREER Award</b> from <b>NSF</b>.</a></li>
+
+		<li><a href="https://kanishkaganguly.github.io/" style="font-size:18px">On Oct 2-3 2017, we organized the <b>1st Int'l Workshop on ARC</b>.</a></li>
+
+	<li><a style="font-size:18px">Dr. Cornelia Ferm&#252ller received a grant from the UMD and the Northrop Grumman<br> Co. to investigate novel motion analysis algorithms based  on neuromorphic <br> bio-inspired sensors.	</a></li> -
+
+
+	<li><a style="font-size:18px"> Dr. Cornelia Fermüller was awarded a joint UMD-Northrop Grumman seed grant, entitled <br>
+	"Object Motion Analysis for Autonomous Systems"</a></li>-->
+
+	<li style="text-align:center"><a href="news" style="font-size:22px" align="center"><font color="red"><b>All News</b></font></a></li>
+	</ul>
+    </div>
+    </div>
+    <!-- /submenu-wrapper -->
+</li>
+<li> &#160 &#160 <li>
+<!-- Pages -->
+<li class="dropdown"><a style="font-size:18px;">Research<span class="fa fa-angle-down"></span></a>
+    <!-- submenu-wrapper -->
+    <div class="submenu-wrapper">
+    <div class="submenu-inner">
+	<ul class="dropdown-menu">
+	<li><a href="current-research"  style="font-size:20px;">Current Research</a></li>
+	<!--	<li><a href="representative_publications"  style="font-size:20px;">Representative Publications</a></li> -->
+	<li><a href="software" style="font-size:19px">Tutorials/Softwares/Datasets</a></li>
+	<li><a href="publications"  style="font-size:20px;">Publications</a></li>
+	<!-- <li><a href="videos"  style="font-size:20px;">Videos</a></li>-->
+	<li><a href="research-facilities"  style="font-size:20px;">Research Facilities</a></li>
+	<li><a href="media" style="font-size:19px">Media Coverage</a></li>
+	</ul>
+    </div>
+    </div>
+</li>
+
+<li><a href="/#people" style="font-size:18px">People</a></li>
+
+<li class="dropdown"><a style="font-size:18px">Teaching<span class="fa fa-angle-down"></span>&#160 &#160 &#160 &#160<span class="button__badge" style="font-color:#fff">2</span></a>
+    <!-- submenu-wrapper -->
+    <div class="submenu-wrapper">
+    <div class="submenu-inner">
+	<ul class="dropdown-menu">
+	<li><a href="enae788m" style="font-size:18px"><font color="white"><b>New</b>: Hands On Autonomous Aerial Robotics (Fall 2019)</font> </a></li>
+	<li><a href="cmsc426" style="font-size:18px"><font color="white"><b>New</b>: CMSC426: Computer Vision (Fall 2019)</font> </a></li>
+	<li><a href="cmsc733" style="font-size:20px"><font color="">CMSC733: Clasical and Deep Learning approaches<br> for Computer Vision (Spring 2019)</font> </a></li>
+	<li><a href="https://cmsc828t.github.io/"   style="font-size:18px">CMSC828T: Vision, Planning and Control in Aerial Robotics</a></li>
+	<li><a href="https://www.cs.umd.edu/class/spring2017/cmsc733/"   style="font-size:18px">CMSC733: Computer Processing of Pictorial Information</a></li>
+	<li><a href="https://www.cs.umd.edu/class/fall2016/cmsc426/"   style="font-size:18px">CMSC426: Image Processing</a></li>
+	<li><a href="https://amitrokh.github.io/CMSC498F/index"  style="font-size:18px">CMSC498F: design and programming of robotics systems</a></li>
+<!--	<li><a style="fon-tsize:18px">ENPM 673: Perception for Autonomous Robots</a></li>-->
+	</ul>
+    </div>
+    </div>
+    <!-- /submenu-wrapper -->
+</li>
+
+<li class="dropdown"><a href="open-positions" style="font-size:16px">Open &#160 &#160 &#160 &#160<br> Positions &#160 &#160 &#160 &#160<span class="button__badge" style="font-color:#fff">2</span></a></li>
+
+
+        </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+	</nav>
+	</header>
+
+
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+
+
+
+<!--------------------------------------------->
+<!--------------------------------------------->
+<!-- The Publication BibTex list starts here -->
+<!--------------------------------------------->
+<!--------------------------------------------->
+
+
+<br>
+<h2><center> All Publications</center></h2>
+    <noscript>
+      <!-- bibtex source hidden by default, show it if JS disabled -->
+      <style>
+ 
+<hr>
+     #bibtex { display: block;}
+      </style>
+    </noscript>
+
+
+<hr width="37.5%">
+<center>
+
+
+	<table id="pubTable" class="display"></table>
+        <pre id="bibtex" style="display:none;">
+
+
+
+
+@inproceedings{aloimonos1990purposive,
+  title={Purposive and qualitative active vision},
+  author={Aloimonos, John},
+  booktitle={Pattern Recognition, 1990. Proceedings., 10th International Conference on},
+  volume={1},
+  pages={346--360},
+  year={1990},
+  organization={IEEE}
+}
+
+@book{aloimonos1989integration,
+  title={Integration of visual modules: an extension of the Marr paradigm},
+  author={Aloimonos, John Yiannis and Shulman, David},
+  year={1989},
+  publisher={Academic Press Professional, Inc.}
+}
+
+@article{spetsakis1990structure,
+  title={Structure from motion using line correspondences},
+  author={Spetsakis, Minas E and Aloimonos, John},
+  journal={International Journal of Computer Vision},
+  volume={4},
+  number={3},
+  pages={171--183},
+  year={1990},
+  publisher={Springer Netherlands}
+}
+
+@article{aloimonos1988shape,
+  title={Shape from texture},
+  author={Aloimonos, John},
+  journal={Biological cybernetics},
+  volume={58},
+  number={5},
+  pages={345--360},
+  year={1988},
+  publisher={Springer-Verlag}
+}
+
+@article{aloimonos1990perspective,
+  title={Perspective approximations},
+  author={Aloimonos, John Y},
+  journal={Image and Vision Computing},
+  volume={8},
+  number={3},
+  pages={179--192},
+  year={1990},
+  publisher={Elsevier}
+}
+
+@article{nelson1988finding,
+  title={Finding motion parameters from spherical motion fields (or the advantages of having eyes in the back of your head)},
+  author={Nelson, Randal C and Aloimonos, John},
+  journal={Biological cybernetics},
+  volume={58},
+  number={4},
+  pages={261--273},
+  year={1988},
+  publisher={Springer-Verlag}
+}
+
+@inproceedings{spetsakis1990unified,
+  title={A unified theory of structure from motion},
+  author={Spetsakis, Minas E and Aloimonos, John},
+  booktitle={Proc. DARPA IU Workshop},
+  pages={271--283},
+  year={1990}
+}
+
+@article{spetsakis1991multi,
+  title={A multi-frame approach to visual motion perception},
+  author={Spetsakis, Minas and Aloimonos, John Yiannis},
+  journal={International Journal of Computer Vision},
+  volume={6},
+  number={3},
+  pages={245--255},
+  year={1991},
+  publisher={Kluwer Academic Publishers}
+}
+
+@article{aloimonos1988visual,
+  title={Visual shape computation},
+  author={Aloimonos, John},
+  journal={Proceedings of the IEEE},
+  volume={76},
+  number={8},
+  pages={899--916},
+  year={1988},
+  publisher={IEEE}
+}
+
+@inproceedings{aloimonos1984direct,
+  title={Direct processing of curvilinear sensor motion from a sequence of perspective images},
+  author={Aloimonos, John and Brown, Christopher M},
+  booktitle={Proc. Workshop on Computer Vision: Representation and Control},
+  volume={72},
+  pages={77},
+  year={1984}
+}
+
+@inproceedings{spetsakis1988optimal,
+  title={Optimal computing of structure from motion using point correspondences in two frames},
+  author={Spetsakis, Minas E and Aloimonos, John},
+  booktitle={Computer Vision., Second International Conference on},
+  pages={449--453},
+  year={1988},
+  organization={IEEE}
+}
+
+@article{aloimonos1991visual,
+  title={On the visual mathematics of tracking},
+  author={Aloimonos, John Yiannis and Tsakiris, Dimitris P},
+  journal={Image and Vision Computing},
+  volume={9},
+  number={4},
+  pages={235--251},
+  year={1991},
+  publisher={Elsevier}
+}
+
+@article{aloimonos1990correspondenceless,
+  title={Correspondenceless stereo and motion: planar surfaces},
+  author={Aloimonos, John and Herve, J-Y},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={12},
+  number={5},
+  pages={504--510},
+  year={1990},
+  publisher={IEEE}
+}
+
+@misc{aloimonos2013visual,
+  title={Visual navigation: from biological systems to unmanned ground vehicles},
+  author={Aloimonos, Yiannis},
+  year={2013},
+  publisher={Psychology Press}
+}
+
+@article{aloimonos1988shape,
+  title={Shape from patterns: Regularization},
+  author={Aloimonos, John and Swain, Michael},
+  journal={International Journal of Computer Vision},
+  volume={2},
+  number={2},
+  pages={171--187},
+  year={1988},
+  publisher={Kluwer Academic Publishers}
+}
+
+@article{wah1993report,
+  title={Report on workshop on high performance computing and communications for grand challenge applications: computer vision, speech and natural language processing, and artificial intelligence},
+  author={Wah, Benjamin W. and Huang, Thomas S. and Joshi, Aravind K. and Moldovan, Dan and Aloimonos, John and Bajcsy, Ruzena K and Ballard, Dana and DeGroot, Doug and DeJong, Kenneth and Dyer, Charles R. and others},
+  journal={IEEE Transactions on Knowledge and Data Engineering},
+  volume={5},
+  number={1},
+  pages={138--154},
+  year={1993},
+  publisher={IEEE}
+}
+
+@inproceedings{shulman1988non,
+  title={(Non-) rigid motion interpretation: a regularized approach},
+  author={Shulman, D and Aloimonos, JY},
+  booktitle={Proc. R. Soc. Lond. B},
+  volume={233},
+  number={1271},
+  pages={217--234},
+  year={1988},
+  organization={The Royal Society}
+}
+
+@article{bandyopadhyay1985perception,
+  title={Perception of rigid motion from spatio-temporal derivatives of optical flow},
+  author={Bandyopadhyay, Amit and Aloimonos, John},
+  year={1985}
+}
+
+@article{aloimonos1989learning,
+  title={Learning early-vision computations},
+  author={Aloimonos, John Yiannis and Shulman, David},
+  journal={JOSA A},
+  volume={6},
+  number={6},
+  pages={908--919},
+  year={1989},
+  publisher={Optical Society of America}
+}
+
+@inproceedings{ito1988correspondence,
+  title={Is correspondence necessary for the perception of structure from motion},
+  author={Ito, Eiki and Aloimonos, John},
+  booktitle={Science Applications International Corp, Proceedings: Image Understanding Workshop,},
+  volume={2},
+  year={1988}
+}
+
+@misc{aloimonos1985detection,
+  title={Detection of Surface Orientation and Motion from Texture: 1. The Case of Planes},
+  author={Aloimonos, John and Chou, Paul B},
+  year={1985},
+  publisher={Department of Computer Science, University of Rochester}
+}
+
+@inproceedings{basu1990approximate,
+  title={Approximate constrained motion planning},
+  author={Basu, Anup and Aloimonos, John},
+  booktitle={Robotics and Automation, 1990. Proceedings., 1990 IEEE International Conference on},
+  pages={1833--1838},
+  year={1990},
+  organization={IEEE}
+}
+
+@book{aloimonos1985perception,
+  title={Perception of structure from motion: lower bound results},
+  author={Aloimonos, John and Bandyopadhyay, Amit},
+  year={1985},
+  publisher={University of Rochester, Department of Computer Science}
+}
+
+@article{aloimonos1988robust,
+  title={Robust computation of intrinsic images from multiple cues},
+  author={Aloimonos, J and Brown, CHRISTOPHER M},
+  journal={Advances in Computer Vision},
+  volume={1},
+  pages={115--164},
+  year={1988},
+  publisher={ch}
+}
+
+@inproceedings{aloimonos1989unifying,
+  title={Unifying shading and texture through an active observer},
+  author={Aloimonos, JY},
+  booktitle={Proc. R. Soc. Lond. B},
+  volume={238},
+  number={1290},
+  pages={25--37},
+  year={1989},
+  organization={The Royal Society}
+}
+
+@inproceedings{aloimonos1987combining,
+  title={Combining Sources of Information in Vision I. Computing Shape from Shading and Motion.},
+  author={Aloimonos, Yiannis},
+  booktitle={IJCAI},
+  volume={87},
+  pages={738--741},
+  year={1987}
+}
+
+@article{bandopadhay1990image,
+  title={Image motion estimation by clustering},
+  author={Bandopadhay, Amit and Aloimonos, John Yiannis},
+  journal={International Journal of Imaging Systems and Technology},
+  volume={2},
+  number={4},
+  pages={345--355},
+  year={1990},
+  publisher={Wiley Online Library}
+}
+
+@inproceedings{sharma1990resolving,
+  title={Resolving the intractability of the'warehouseman's problem'using temporary storage space and other constraints},
+  author={Sharma, Rajeev and Aloimonos, J},
+  booktitle={Systems, Man and Cybernetics, 1990. Conference Proceedings., IEEE International Conference on},
+  pages={554--556},
+  year={1990},
+  organization={IEEE}
+}
+
+@inproceedings{herve1990shading,
+  title={Shading into texture and texture into shading: An active approach},
+  author={Herv{\'e}, Jean-Yves and Aloimonos, John Yiannis},
+  booktitle={European Conference on Computer Vision},
+  pages={586--588},
+  year={1990},
+  organization={Springer, Berlin, Heidelberg}
+}
+
+@inproceedings{aloimonos1980correspondence,
+  title={Correspondence from correspondence},
+  author={Aloimonos, John and Kamgar-Parsi, Behrooz},
+  booktitle={Optical Society of America, Topical Meeting on Machine Vision},
+  year={1980}
+}
+
+@inproceedings{basu1991navigating,
+  title={Navigating in the presence of moving obstacles.},
+  author={Basu, A and Aloimonos, J},
+  booktitle={International Symposium on Intelligent Robots},
+  pages={242--253},
+  year={1991}
+}
+
+@inproceedings{shulman1990probabilistic,
+  title={Probabilistic foundations for information fusion with applications to combining stereo and contour},
+  author={Shulman, David and Aloimonos, John Yiannis},
+  booktitle={Sensor Fusion II: Human and Machine Strategies},
+  volume={1198},
+  pages={356--361},
+  year={1990},
+  organization={International Society for Optics and Photonics}
+}
+
+@misc{aloimonos1987monocular,
+  title={On Monocular Stereopsis: A Note},
+  author={Aloimonos, John and Rosenfeld, Azriel},
+  year={1987},
+  publisher={University of Maryland. Computer Science}
+}
+
+@book{aloimonos1984one,
+  title={One Eye Suffices: A Computational Model of Monocular Robot Depth Perception},
+  author={Aloimonos, John},
+  year={1984},
+  publisher={University of Rochester, Department of Computer Science}
+}
+
+@book{aloimonos1987kinetic,
+  title={On the Kinetic Depth Effect: Lower bounds, regularization and learning},
+  author={Aloimonos, John and Papageorgiou, Anargyros},
+  year={1987},
+  publisher={University of Maryland}
+}
+
+@article{aloimonos1985detection,
+  title={Detection of surface orientation from texture (A)},
+  author={Aloimonos, John Yiannis and Chou, Paul},
+  journal={J. Opt. Soc. Am. A, vol. 2, page P51},
+  volume={2},
+  year={1985}
+}
+
+@inproceedings{aloimonos1991navigating,
+  title={Navigating in the presence of Moving Obstacles Anup Basu Alberta Center for Machine Intelligence and Robotics, Department of Computing Science. University of Alberta, Edmonton. Canada T6G 2HI},
+  author={Aloimonos, John},
+  booktitle={Intelligent robotics: proceedings of the International Symposium on Intelligent Robotics, January 2-5, 1991, Bangalore, India},
+  volume={1571},
+  pages={242},
+  year={1991},
+  organization={TATA McGraw-Hill Publishing Company}
+}
+
+@techreport{subrahmanian2006real,
+  title={Real-Time Distributed Algorithms for Visual and Battlefield Reasoning},
+  author={Subrahmanian, VS and Davis, Larry and Reggia, James and Basili, Victor and Aloimonos, John},
+  year={2006},
+  institution={MARYLAND UNIV COLLEGE PARK OFFICE OF RESEARCH ADMINISTRATION AND ADVANCEMENT}
+}
+
+@misc{duric1991passive,
+  title={Passive navigation: An active and purposive solution},
+  author={Duri{\'c}, Zoran and Aloimonos, John},
+  year={1991},
+  publisher={University of Maryland, Center for Automation Research, Computer Vision Laboratory}
+}
+
+@inproceedings{aloimonos1988maryland,
+  title={The Maryland approach to image understanding},
+  author={ALOIMONOS, JOHN and DAVIS, LARRYS and Rosenfeld, Azriel},
+  booktitle={Science Applications International Corp, Proceedings: Image Understanding Workshop,},
+  volume={1},
+  year={1988}
+}
+
+@inproceedings{rosenfeld1988image,
+  title={Image understanding research at the University of Maryland, December 1986-January 1988},
+  author={ROSENFELD, AZRIEL and DAVIS, LARRYS and ALOIMONOS, JOHN},
+  booktitle={Science Applications International Corp, Proceedings: Image Understanding Workshop,},
+  volume={1},
+  year={1988}
+}
+
+@article{aloimonos1989vision,
+  title={Vision in Dynamic Environments},
+  author={Aloimonos, John and Davis, Larry S and Rosenfeld, Azriel and others},
+  year={1989}
+}
+
+@misc{university1987structure,
+  title={Structure from Motion from Line Correspondencies: New Results},
+  author={University of Maryland at College Park. Department of Computer Science and Spetsakis, ME and Aloimonos, J},
+  year={1987}
+}
+
+@misc{aloimonos1985detection,
+  title={Detection of surface orientation and motion from texture},
+  author={Aloimonos, John and d Chou, Paul B},
+  year={1985},
+  publisher={University of Rochester, Department of Computer Science}
+}
+
+@techreport{bandyopadhyay1985perception,
+  title={Perception of rigid motion from spatio-temporal derivatives},
+  author={Bandyopadhyay, Amit and Aloimonos, John},
+  year={1985},
+  institution={Technical Report 157, University of Rochester, Departement of Computer Science}
+}
+
+@article{spetsakis1987spatiotemporal,
+  title={Spatiotemporal blur paths for image flow estimation (A)},
+  author={Spetsakis, Minas E and Aloimonos, John Yiannis},
+  journal={Journal of the Optical Society of America A},
+  volume={4},
+  year={1987}
+}
+
+@article{aloimonos1987non,
+  title={(Non) rigid motion interpretation: a regularized approach (A)},
+  author={Aloimonos, John Yiannis and Schulman, David},
+  journal={Journal of the Optical Society of America A},
+  volume={4},
+  year={1987}
+}
+
+@misc{michalski1994machine,
+  title={Machine Vision and Learning: Research Issues and Directions: a Report on the NSF/ARPA Workshop on Machine Learning and Vision, Harpers Ferry, WV, October 15-17, 1992},
+  author={Michalski, Ryszard Stanis{\l}aw and Rosenfeld, Azriel and Aloimonos, John},
+  year={1994},
+  publisher={Computer Vision Laboratory, Center for Automation Research, University of Maryland}
+}
+
+@article{shulman1990computer,
+  title={Computer Vision Laboratory, Center for Automation Research University of Maryland, College Park, MD 20742-3411},
+  author={Shulman, David and Aloimonos, John Yiannis},
+  journal={Sensor Fusion II: Human and Machine Strategies: 6-9 November 1989, Philadelphia, Pennsylvania},
+  pages={356},
+  year={1990},
+  publisher={SPIE-International Society for Optical Engineering}
+}
+
+@inproceedings{aloimonos1980determining,
+  title={Determining 3-D transformation parameters from images: Theory},
+  author={Aloimonos, John and Ito, I},
+  booktitle={Optical Society of America, Topical Meeting on Machine Vision},
+  year={1980}
+}
+
+@article{shulman1987linear,
+  title={Linear theory of boundary preserving regularization of low-level vision problems (A)},
+  author={Shulman, David and Aloimonos, John Yiannis},
+  journal={Journal of the Optical Society of America A},
+  volume={4},
+  year={1987}
+}
+
+@book{chou1987correspondenceless,
+  title={Correspondenceless Model Based and Active Perception of Shape from Contour},
+  author={Chou, Tsai-chia and Aloimonos, John and Rosenfeld, Azriel},
+  year={1987},
+  publisher={University of Maryland}
+}
+
+@inproceedings{rosenfeld1989image,
+  title={Image understanding research at the University of Maryland (January 1988--February 1989)},
+  author={Rosenfeld, Azriel and Davis, Larry S and Aloimonos, John},
+  booktitle={Proceedings of a workshop on Image understanding workshop},
+  pages={94--104},
+  year={1989},
+  organization={Morgan Kaufmann Publishers Inc.}
+}
+
+@misc{aloimonos2013active,
+  title={Active perception},
+  author={Aloimonos, Yiannis},
+  year={2013},
+  publisher={Psychology Press}
+}
+
+@techreport{dean1995artificial,
+  title={Artificial intelligence: theory and practice},
+  author={Dean, Thomas},
+  year={1995}
+}
+
+@incollection{ogale2007view,
+  title={View-invariant modeling and recognition of human actions using grammars},
+  author={Ogale, Abhijit S and Karapurkar, Alap and Aloimonos, Yiannis},
+  booktitle={Dynamical vision},
+  pages={115--126},
+  year={2007},
+  publisher={Springer, Berlin, Heidelberg}
+}
+
+@article{fermuller2001statistics,
+  title={The statistics of optical flow},
+  author={Ferm{\"u}ller, Cornelia and Shulman, David and Aloimonos, Yiannis},
+  journal={Computer Vision and Image Understanding},
+  volume={82},
+  number={1},
+  pages={1--32},
+  year={2001},
+  publisher={Academic Press}
+}
+
+@article{aloimonos1994estimating,
+  title={Estimating the heading direction using normal flow},
+  author={Aloimonos, Yiannis and Duric, Zoran},
+  journal={International Journal of Computer Vision},
+  volume={13},
+  number={1},
+  pages={33--56},
+  year={1994},
+  publisher={Springer Netherlands}
+}
+
+@article{aloimonos1994have,
+  title={What I have learned},
+  author={Aloimonos, Yiannis},
+  journal={CVGIP: Image Understanding},
+  volume={60},
+  number={1},
+  pages={74--85},
+  year={1994},
+  publisher={Academic Press}
+}
+
+@article{fermuller1995qualitative,
+  title={Qualitative egomotion},
+  author={Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  journal={International Journal of Computer Vision},
+  volume={15},
+  number={1-2},
+  pages={7--29},
+  year={1995},
+  publisher={Kluwer Academic Publishers}
+}
+
+@article{ogale2005shape,
+  title={Shape and the stereo correspondence problem},
+  author={Ogale, Abhijit S and Aloimonos, Yiannis},
+  journal={International Journal of Computer Vision},
+  volume={65},
+  number={3},
+  pages={147--162},
+  year={2005},
+  publisher={Kluwer Academic Publishers}
+}
+
+@article{ogale2005motion,
+  title={Motion segmentation using occlusions},
+  author={Ogale, Abhijit S and Fermuller, Cornelia and Aloimonos, Yiannis},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={27},
+  number={6},
+  pages={988--992},
+  year={2005},
+  publisher={IEEE}
+}
+
+@article{fermuller1995direct,
+  title={Direct perception of three-dimensional motion from patterns of visual motion},
+  author={Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  journal={Science},
+  volume={270},
+  number={5244},
+  pages={1973--1976},
+  year={1995},
+  publisher={American Association for the Advancement of Science}
+}
+
+@article{fermuller2000observability,
+  title={Observability of 3D motion},
+  author={Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  journal={International Journal of Computer Vision},
+  volume={37},
+  number={1},
+  pages={43--63},
+  year={2000},
+  publisher={Kluwer Academic Publishers}
+}
+
+@article{neumann2002spatio,
+  title={Spatio-temporal stereo using multi-resolution subdivision surfaces},
+  author={Neumann, Jan and Aloimonos, Yiannis},
+  journal={International Journal of Computer Vision},
+  volume={47},
+  number={1-3},
+  pages={181--193},
+  year={2002},
+  publisher={Kluwer Academic Publishers}
+}
+
+@inproceedings{ogale2004stereo,
+  title={Stereo correspondence with slanted surfaces: critical implications of horizontal slant},
+  author={Ogale, Abhijit S and Aloimonos, Yiannis},
+  booktitle={Computer Vision and Pattern Recognition, 2004. CVPR 2004. Proceedings of the 2004 IEEE Computer Society Conference on},
+  volume={1},
+  pages={I--I},
+  year={2004},
+  organization={IEEE}
+}
+
+@inproceedings{lymberopoulos2006sensory,
+  title={A sensory grammar for inferring behaviors in sensor networks},
+  author={Lymberopoulos, Dimitrios and Ogale, Abhijit S and Savvides, Andreas and Aloimonos, Yiannis},
+  booktitle={Proceedings of the 5th international conference on Information processing in sensor networks},
+  pages={251--259},
+  year={2006},
+  organization={ACM}
+}
+
+@article{fermuller1993role,
+  title={The role of fixation in visual motion analysis},
+  author={Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  journal={International Journal of Computer Vision},
+  volume={11},
+  number={2},
+  pages={165--186},
+  year={1993},
+  publisher={Kluwer Academic Publishers}
+}
+
+@article{pless2000detecting,
+  title={Detecting independent motion: The statistics of temporal continuity},
+  author={Pless, Robert and Brodsky, Tomas and Aloimonos, Yiannis},
+  journal={IEEE transactions on pattern analysis and machine intelligence},
+  volume={22},
+  number={8},
+  pages={768--773},
+  year={2000},
+  publisher={IEEE}
+}
+
+@article{cheong1998effects,
+  title={Effects of errors in the viewing geometry on shape estimation},
+  author={Cheong, LoongFah and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  journal={Computer Vision and Image Understanding},
+  volume={71},
+  number={3},
+  pages={356--372},
+  year={1998},
+  publisher={Academic Press}
+}
+
+@article{aloimonos1993introduction,
+  title={Introduction: Active vision revisited},
+  author={Aloimonos, Y},
+  journal={Active Perception, chapter 0},
+  year={1993},
+  publisher={Lawrence Erlbaum Associates, Publishers}
+}
+
+@article{fermuller1995vision,
+  title={Vision and action},
+  author={Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  journal={Image and vision computing},
+  volume={13},
+  number={10},
+  pages={725--744},
+  year={1995},
+  publisher={Elsevier}
+}
+
+@article{ogale2007roadmap,
+  title={A roadmap to the integration of early visual modules},
+  author={Ogale, Abhijit S and Aloimonos, Yiannis},
+  journal={International Journal of Computer Vision},
+  volume={72},
+  number={1},
+  pages={9--25},
+  year={2007},
+  publisher={Springer Netherlands}
+}
+
+@article{fermuller1998ambiguity,
+  title={Ambiguity in structure from motion: Sphere versus plane},
+  author={Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  journal={International Journal of Computer Vision},
+  volume={28},
+  number={2},
+  pages={137--154},
+  year={1998},
+  publisher={Kluwer Academic Publishers}
+}
+
+@article{sharma1996early,
+  title={Early detection of independent motion from active control of normal image flow patterns},
+  author={Sharma, Rajeev and Aloimonos, Yiannis},
+  journal={IEEE Transactions on Systems, Man, and Cybernetics, Part B (Cybernetics)},
+  volume={26},
+  number={1},
+  pages={42--52},
+  year={1996},
+  publisher={IEEE}
+}
+
+@article{fermuller1997geometry,
+  title={On the geometry of visual correspondence},
+  author={Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  journal={International Journal of Computer Vision},
+  volume={21},
+  number={3},
+  pages={223--247},
+  year={1997},
+  publisher={Kluwer Academic Publishers}
+}
+
+@article{guerra2007language,
+  title={A language for human action},
+  author={Guerra-Filho, Gutemberg and Aloimonos, Yiannis},
+  journal={Computer},
+  volume={40},
+  number={5},
+  pages={42--51},
+  year={2007},
+  publisher={IEEE}
+}
+
+@inproceedings{baker2001spherical,
+  title={A spherical eye from multiple cameras (makes better models of the world)},
+  author={Baker, Patrick and Fermuller, Cornelia and Aloimonos, Yiannis and Pless, Robert},
+  booktitle={Computer Vision and Pattern Recognition, 2001. CVPR 2001. Proceedings of the 2001 IEEE Computer Society Conference on},
+  volume={1},
+  pages={I--576},
+  year={2001},
+  organization={IEEE}
+}
+
+@inproceedings{neumann2003polydioptric,
+  title={Polydioptric camera design and 3d motion estimation},
+  author={Neumann, Jan and Fermuller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Computer Vision and Pattern Recognition, 2003. Proceedings. 2003 IEEE Computer Society Conference on},
+  volume={2},
+  pages={II--294},
+  year={2003},
+  organization={IEEE}
+}
+
+@article{fermuller2000ouchi,
+  title={The Ouchi illusion as an artifact of biased flow estimation},
+  author={Ferm{\"u}ller, Cornelia and Pless, Robert and Aloimonos, Yiannis},
+  journal={Vision Research},
+  volume={40},
+  number={1},
+  pages={77--95},
+  year={2000},
+  publisher={Pergamon}
+}
+
+@inproceedings{mishra2009active,
+  title={Active segmentation with fixation},
+  author={Mishra, Ajay and Aloimonos, Yiannis and Fah, Cheong Loong},
+  booktitle={Computer Vision, 2009 IEEE 12th International Conference on},
+  pages={468--475},
+  year={2009},
+  organization={IEEE}
+}
+
+@article{brodsky2000structure,
+  title={Structure from motion: Beyond the epipolar constraint},
+  author={Brodsk{\`y}, Tom{\'a}{\v{s}} and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  journal={International Journal of Computer Vision},
+  volume={37},
+  number={3},
+  pages={231--258},
+  year={2000},
+  publisher={Kluwer Academic Publishers}
+}
+
+@inproceedings{guerra2005discovering,
+  title={Discovering a language for human activity},
+  author={Guerra-Filho, Gutemberg and Fermuller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Proceedings of the AAAI 2005 fall symposium on anticipatory cognitive embodied systems, Washington, DC},
+  pages={10},
+  year={2005}
+}
+
+@article{aloimonos1995seeing,
+  title={Seeing and understanding: Representing the visual world},
+  author={Aloimonos, Yiannis and Fermueller, Cornelia and Rosenfeld, Azriel},
+  journal={ACM Computing Surveys (CSUR)},
+  volume={27},
+  number={3},
+  pages={307--309},
+  year={1995},
+  publisher={ACM}
+}
+
+@article{spetsakis1992optimal,
+  title={Optimal visual motion estimation: A note},
+  author={Spetsakis, Minas E and Aloimonos, Yiannis},
+  journal={IEEE Transactions on Pattern Analysis \& Machine Intelligence},
+  number={9},
+  pages={959--964},
+  year={1992},
+  publisher={IEEE}
+}
+
+@article{brodsky1998directions,
+  title={Directions of motion fields are hardly ever ambiguous},
+  author={Brodsky, Tomas and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  journal={International Journal of Computer Vision},
+  volume={26},
+  number={1},
+  pages={5--24},
+  year={1998},
+  publisher={Kluwer Academic Publishers}
+}
+
+@article{fermuller1997families,
+  title={Families of stationary patterns producing illusory movement: insights into the visual system},
+  author={Ferm{\"u}ller, Cornelia and Pless, Robert and Aloimonos, Yiannis},
+  journal={Proceedings of the Royal Society of London B: Biological Sciences},
+  volume={264},
+  number={1383},
+  pages={795--806},
+  year={1997},
+  publisher={The Royal Society}
+}
+
+@article{negahdaripour1995direct,
+  title={Direct motion stereo for passive navigation},
+  author={Negahdaripour, Shahriar and Hayashi, Brian Y and Aloimonos, Yiannis},
+  journal={IEEE transactions on robotics and automation},
+  volume={11},
+  number={6},
+  pages={829--843},
+  year={1995},
+  publisher={IEEE}
+}
+
+@inproceedings{baker2001eyes,
+  title={Eyes from eyes},
+  author={Baker, P., Pless, R. Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={SMILE Workshop},
+  year={2001},
+  organization={IEEE}
+}
+
+@inproceedings{domke2006probabilistic,
+  title={A Probabilistic Notion of Correspondence and the Epipolar Constraint.},
+  author={Domke, Justin and Aloimonos, Yiannis},
+  booktitle={3DPVT},
+  pages={41--48},
+  year={2006}
+}
+
+@inproceedings{baratoff1998changes,
+  title={Changes in surface convexity and topology caused by distortions of stereoscopic visual space},
+  author={Baratoff, Gregory and Aloimonos, Yiannis},
+  booktitle={European Conference on Computer Vision},
+  pages={226--240},
+  year={1998},
+  organization={Springer, Berlin, Heidelberg}
+}
+
+@article{sharma1993probabilistic,
+  title={Probabilistic analysis of some navigation strategies in a dynamic environment},
+  author={Sharma, Rajeev and Mount, David M and Aloimonos, Yiannis},
+  journal={IEEE transactions on systems, man, and cybernetics},
+  volume={23},
+  number={5},
+  pages={1465--1474},
+  year={1993},
+  publisher={IEEE}
+}
+
+@inproceedings{domke2008killed,
+  title={Who killed the directed model?},
+  author={Domke, Justin and Karapurkar, Alap and Aloimonos, Yiannis},
+  booktitle={Computer Vision and Pattern Recognition, 2008. CVPR 2008. IEEE Conference on},
+  pages={1--8},
+  year={2008},
+  organization={IEEE}
+}
+
+@inproceedings{fermuller1998computed,
+  title={What is computed by structure from motion algorithms?},
+  author={Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={European Conference on Computer Vision},
+  pages={359--375},
+  year={1998},
+  organization={Springer, Berlin, Heidelberg}
+}
+
+@inproceedings{domke2006deformation,
+  title={Deformation and Viewpoint Invariant Color Histograms.},
+  author={Domke, Justin and Aloimonos, Yiannis},
+  booktitle={BMVC},
+  pages={509--518},
+  year={2006}
+}
+
+@inproceedings{domke2007multiple,
+  title={Multiple view image reconstruction: A harmonic approach},
+  author={Domke, Justin and Aloimonos, Yiannis},
+  booktitle={Computer Vision and Pattern Recognition, 2007. CVPR'07. IEEE Conference on},
+  pages={1--8},
+  year={2007},
+  organization={IEEE}
+}
+
+@inproceedings{herve1992exploratory,
+  title={Exploratory active vision: theory},
+  author={Herve, J-Y and Aloimonos, Yiannis},
+  booktitle={Computer Vision and Pattern Recognition, 1992. Proceedings CVPR'92., 1992 IEEE Computer Society Conference on},
+  pages={10--15},
+  year={1992},
+  organization={IEEE}
+}
+
+@inproceedings{sharma1992visual,
+  title={Visual motion analysis under interceptive behavior},
+  author={Sharma, Rajeev and Aloimonos, Yiannis},
+  booktitle={Computer Vision and Pattern Recognition, 1992. Proceedings CVPR'92., 1992 IEEE Computer Society Conference on},
+  pages={148--153},
+  year={1992},
+  organization={IEEE}
+}
+
+@inproceedings{domke2006integration,
+  title={Integration of visual and inertial information for egomotion: a stochastic approach},
+  author={Domke, Justin and Aloimonos, Yiannis},
+  booktitle={Robotics and Automation, 2006. ICRA 2006. Proceedings 2006 IEEE International Conference on},
+  pages={2053--2059},
+  year={2006},
+  organization={IEEE}
+}
+
+@article{pastra2012minimalist,
+  title={The minimalist grammar of action},
+  author={Pastra, Katerina and Aloimonos, Yiannis},
+  journal={Philosophical Transactions of the Royal Society of London B: Biological Sciences},
+  volume={367},
+  number={1585},
+  pages={103--117},
+  year={2012},
+  publisher={The Royal Society}
+}
+
+@inproceedings{aloimonos1994principles,
+  title={Principles of computer vision},
+  author={Aloimonos, Yiannis and Rosenfeld, Azriel},
+  booktitle={Handbook of pattern recognition and image processing (vol. 2)},
+  pages={1--15},
+  year={1994},
+  organization={Academic Press, Inc.}
+}
+
+@article{domke2009image,
+  title={Image transformations and blurring},
+  author={Domke, Justin and Aloimonos, Yiannis},
+  journal={IEEE transactions on pattern analysis and machine intelligence},
+  volume={31},
+  number={5},
+  pages={1000--9999},
+  year={2009},
+  publisher={IEEE}
+}
+
+@inproceedings{li2010learning,
+  title={Learning shift-invariant sparse representation of actions},
+  author={Li, Yi and Fermuller, Cornelia and Aloimonos, Yiannis and Ji, Hui},
+  booktitle={Computer Vision and Pattern Recognition (CVPR), 2010 IEEE Conference on},
+  pages={2630--2637},
+  year={2010},
+  organization={IEEE}
+}
+
+@inproceedings{neumann2000talking,
+  title={Talking heads: Introducing the tool of 3d motion fields in the study of action},
+  author={Neumann, Jan and Aloimonos, Yiannis},
+  booktitle={Human Motion, 2000. Proceedings. Workshop on},
+  pages={25--30},
+  year={2000},
+  organization={IEEE}
+}
+
+@inproceedings{huang1992geometry,
+  title={The geometry of visual interception},
+  author={Huang, Liuqing and Aloimonos, Yiannis},
+  booktitle={Computer Vision and Pattern Recognition, 1992. Proceedings CVPR'92., 1992 IEEE Computer Society Conference on},
+  pages={741--743},
+  year={1992},
+  organization={IEEE}
+}
+
+@inproceedings{yi2009real,
+  title={Real-time shape retrieval for robotics using skip Tri-Grams},
+  author={Yi, Li and Bitsakos, Konstantinos and Fermuller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Intelligent Robots and Systems, 2009. IROS 2009. IEEE/RSJ International Conference on},
+  pages={4731--4738},
+  year={2009},
+  organization={IEEE}
+}
+
+@inproceedings{bitsakos2010experimental,
+  title={An experimental study of color-based segmentation algorithms based on the mean-shift concept},
+  author={Bitsakos, Konstantinos and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={European conference on Computer vision},
+  pages={506--519},
+  year={2010},
+  organization={Springer, Berlin, Heidelberg}
+}
+
+@inproceedings{stuart2000ray,
+  title={Ray carving with gradients and motion},
+  author={Stuart, Bradley and Aloimonos, Yiannis},
+  booktitle={Human Motion, 2000. Proceedings. Workshop on},
+  pages={81--87},
+  year={2000},
+  organization={IEEE}
+}
+
+@techreport{guerra2006learning,
+  title={Learning parallel grammar systems for a human activity language},
+  author={Guerra-Filho, Gutemberg and Aloimonos, Yiannis},
+  year={2006}
+}
+
+@inproceedings{yu2010attribute,
+  title={Attribute-based transfer learning for object categorization with zero/one training example},
+  author={Yu, Xiaodong and Aloimonos, Yiannis},
+  booktitle={European conference on computer vision},
+  pages={127--140},
+  year={2010},
+  organization={Springer, Berlin, Heidelberg}
+}
+
+@inproceedings{cheong1996spatiotemporal,
+  title={Spatiotemporal representations for visual navigation},
+  author={Cheong, LoongFah and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={European Conference on Computer Vision},
+  pages={671--684},
+  year={1996},
+  organization={Springer, Berlin, Heidelberg}
+}
+
+@inproceedings{bolle1995video,
+  title={Video representations},
+  author={Bolle, Ruud M and Aloimonos, Yiannis and Ferm{\"u}ller, Cornelia},
+  booktitle={Asian Conference on Computer Vision},
+  pages={33--41},
+  year={1995},
+  organization={Springer, Berlin, Heidelberg}
+}
+
+@inproceedings{ogale2004influence,
+  title={The influence of shape on image correspondence},
+  author={Ogale, Abhijit S and Aloimonos, Yiannis},
+  booktitle={3D Data Processing, Visualization and Transmission, 2004. 3DPVT 2004. Proceedings. 2nd International Symposium on},
+  pages={945--952},
+  year={2004},
+  organization={IEEE}
+}
+
+@inproceedings{fermueller1993recognizing,
+  title={Recognizing 3-D Motion},
+  author={Fermueller, Cornelia and Aloimonos, Yiannis},
+  booktitle={INTERNATIONAL JOINT CONFERENCE ON ARTIFICIAL INTELLIGENCE},
+  volume={13},
+  pages={1624--1624},
+  year={1993},
+  organization={LAWRENCE ERLBAUM ASSOCIATES LTD}
+}
+
+@incollection{ogale2005detecting,
+  title={Detecting independent 3D movement},
+  author={Ogale, Abhijit S and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Handbook of geometric computing},
+  pages={383--401},
+  year={2005},
+  publisher={Springer, Berlin, Heidelberg}
+}
+
+@article{aloimonos1999visual,
+  title={Visual space is not cognitively impenetrable},
+  author={Aloimonos, Yiannis and Ferm{\"u}ller, Cornelia},
+  journal={Behavioral and Brain Sciences},
+  volume={22},
+  number={3},
+  pages={366--367},
+  year={1999},
+  publisher={Cambridge University Press}
+}
+
+
+@article{sionti2010comparing,
+  title={Comparing linguistic classifications with sensorimotor data of English and Greek verbs of motion},
+  author={Sionti, Marietta and Claudino, Leonardo and Rose, Carolyn P and Markantonatou, Stella and Aloimonos, Yiannis},
+  journal={Proceedings of Verb 2010},
+  pages={70},
+  year={2010}
+}
+
+@inproceedings{fermuller1997geometry,
+  title={The geometry of visual space distortion},
+  author={Ferm{\"u}ller, Cornelia and Cheong, LoongFah and Aloimonos, Yiannis},
+  booktitle={International Workshop on Algebraic Frames for the Perception-Action Cycle},
+  pages={249--277},
+  year={1997},
+  organization={Springer, Berlin, Heidelberg}
+}
+
+@article{michalski1993machine,
+  title={Machine Learning and Vision: Research Issues and Promising Directions},
+  author={Michalski, Ryszard S and Pachowicz, Peter W and Rosenfeld, Azriel and Aloimonos, Yiannis and Michalski, Ryszard S and Pachowicz, Peter W and Rosenfeld, Azriel and Aloimonos, Yiannis},
+  year={1993}
+}
+
+@inproceedings{guerra2008grounding,
+  title={Grounding Concrete Motion Concepts with a Linguistic Framework},
+  author={Guerra-Filho, Gutemberg and Aloimonos, Yiannis},
+  booktitle={Hellenic Conference on Artificial Intelligence},
+  pages={1--12},
+  year={2008},
+  organization={Springer, Berlin, Heidelberg}
+}
+
+@incollection{neumann2000new,
+  title={A New Framework for Multi-camera Structure from Motion},
+  author={Neumann, Jan and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Mustererkennung 2000},
+  pages={75--82},
+  year={2000},
+  publisher={Springer, Berlin, Heidelberg}
+}
+
+@inproceedings{neumann2001spatio,
+  title={Spatio-temporal analysis of human faces using multi-resolution subdivision surfaces},
+  author={Neumann, Jan and Aloimonos, Yiannis},
+  booktitle={Joint Pattern Recognition Symposium},
+  pages={61--68},
+  year={2001},
+  organization={Springer, Berlin, Heidelberg}
+}
+
+@inproceedings{neumann20043d,
+  title={3D Ego motion estimation using compound eye sensors},
+  author={Neumann, Jan and Aloimonos, Yiannis},
+  booktitle={Dynamic Perception: Workshop of the GI Section" computer Vision," Eberhard Karls University T{\"u}bingen, Max Planck Institute for Biological Cybernetics, T{\"u}bingen, November 2004},
+  pages={51},
+  year={2004},
+  organization={IOS Press}
+}
+
+@inproceedings{yu2011active,
+  title={Active scene recognition with vision and language},
+  author={Yu, Xiaodong and Ferm{\"u}ller, Cornelia and Teo, Ching Lik and Yang, Yezhou and Aloimonos, Yiannis},
+  booktitle={Computer Vision (ICCV), 2011 IEEE International Conference on},
+  pages={810--817},
+  year={2011},
+  organization={IEEE}
+}
+
+@article{aloimonos1995perception,
+  title={Perception of 3D Motion Through Patterns of Visual Motion},
+  author={Aloimonos, Yiannis},
+  journal={Perception},
+  year={1995}
+}
+
+
+@inproceedings{brodsky1998beyond,
+  title={Beyond the Epipolar Constraint: Integrating 3D Motion and Structure Estimation},
+  author={Brodsk{\`y}, Tom{\'a}{\v{s}} and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={European Workshop on 3D Structure from Multiple Images of Large-Scale Environments},
+  pages={109--123},
+  year={1998},
+  organization={Springer, Berlin, Heidelberg}
+}
+
+@techreport{guerra2003approximate,
+  title={An Approximate Linear Approach for the Fundamental Matrix Computation},
+  author={Guerra-Filho, Gutemberg and Aloimonos, Yiannis},
+  year={2003}
+}
+
+@article{aloimonos1996explaining,
+  title={Explaining Human Visual Space Distortion Cornelia Ferm uller, LoongFah Cheong, and},
+  author={Aloimonos, Yiannis},
+  year={1996}
+}
+
+@article{aloimonos2003computational,
+  title={Computational video},
+  author={Aloimonos, Yiannis},
+  journal={The Visual Computer},
+  volume={19},
+  number={6},
+  pages={355--359},
+  year={2003},
+  publisher={Springer Berlin Heidelberg}
+}
+
+@article{aloimonos1998motion,
+  title={Motion Segmentation for a Binocular Observer},
+  author={Aloimonos, Yiannis},
+  year={1998},
+  publisher={Citeseer}
+}
+
+@techreport{michalski1997computer,
+  title={Computer Vision through Learning},
+  author={Michalski, RS and Rosenfeld, A and Aloimonos, Y and Duric, Z and Maloof, M},
+  year={1997},
+  institution={GEORGE MASON UNIV FAIRFAX VA}
+}
+
+@article{aloimonos1994car,
+  title={CAR-TR-722 CS-TR-3305 June 1994},
+  author={Aloimonos, Yiannis},
+  year={1994}
+}
+
+@article{fermiiller19976,
+  title={6 DIRECT MOTION PERCEPTION},
+  author={Fermiiller, Cornelia and Aloimonos, Yiannis},
+  journal={Visual Navigation: From Biological Systems to Unmanned Ground Vehicles},
+  volume={2},
+  pages={135},
+  year={1997},
+  publisher={Lawrence Erlbaum Associates}
+}
+
+
+@article{cheong1995car,
+  title={CAR-TR-779 CS-TR-3499},
+  author={Cheong, LoongFah and Aloimonos, Yiannis},
+  year={1995}
+}
+
+@article{aloimonos1996explaining,
+  title={Explaining Human Visual Space Distortion},
+  author={Aloimonos, Yiannis},
+  year={1996},
+  publisher={Citeseer}
+}
+
+@article{mishra2010image,
+  title={Image Segmentation: The View from Inside the Image},
+  author={Mishra, Ajay and Aloimonos, Yiannis},
+  journal={Pattern Recognition and Machine Vision},
+  volume={6},
+  pages={165},
+  year={2010},
+  publisher={River Publishers}
+}
+
+@inproceedings{teo2011corpus,
+  title={A Corpus-Guided Framework for Robotic Visual Perception.},
+  author={Teo, Ching Lik and Yang, Yezhou and Daum{\'e} III, Hal and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Language-Action Tools for Cognitive Artificial Agents},
+  year={2011}
+}
+
+
+@inproceedings{summers2010learning,
+  title={Learning to Recognize Objects in Images Using Anisotropic Nonparametric Kernels.},
+  author={Summers-Stay, Douglas and Aloimonos, Yiannis},
+  booktitle={BICA},
+  pages={163--168},
+  year={2010}
+}
+
+@inproceedings{brodsky1995information,
+  title={The information in the direction of image flow},
+  author={Brodsky, Tomas and Fermuller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Computer Vision, 1995. Proceedings., International Symposium on},
+  pages={461--466},
+  year={1995},
+  organization={IEEE}
+}
+
+@inproceedings{sharma1991navigation,
+  title={Navigation in a hazardous environment with distributed shelters},
+  author={Sharma, R and Mount, DM and Aloimonos, Y},
+  booktitle={Systems, Man, and Cybernetics, 1991.'Decision Aiding for Complex Systems, Conference Proceedings., 1991 IEEE International Conference on},
+  pages={883--888},
+  year={1991},
+  organization={IEEE}
+}
+
+@article{aloimonos1996car,
+  title={CAR-TR-773 CS-TR-3480 June 1996},
+  author={Aloimonos, Yiannis},
+  year={1996}
+}
+
+@techreport{claudino2011spatial,
+  title={Spatial and spatio-temporal characterization of movement for the analysis of actions and actors},
+  author={Claudino, Leonardo and Aloimonos, Yiannis},
+  year={2011}
+}
+
+@article{baker2002rotations,
+  title={Rotations, Lines, and Multilinear Constraints},
+  author={Baker, Patrick and Aloimonos, Yiannis},
+  year={2002}
+}
+
+@inproceedings{domke2007signals,
+  title={Signals on Pencils of Lines},
+  author={Domke, Justin and Aloimonos, Yiannis},
+  booktitle={Computer Vision, 2007. ICCV 2007. IEEE 11th International Conference on},
+  pages={1--7},
+  year={2007},
+  organization={IEEE}
+}
+
+@misc{nishigaki2012object,
+  title={Object detection apparatus, object detection method and object detection program},
+  author={Nishigaki, Morimichi and Aloimonos, Yiannis and Domke, Justin},
+  year={2012},
+  month=oct # "~30",
+  note={US Patent 8,300,887}
+}
+
+
+@inproceedings{nishigaki2010moving,
+  title={Moving obstacle detection using cameras for driver assistance system},
+  author={Nishigaki, Morimichi and Aloimonos, Yiannis},
+  booktitle={Intelligent Vehicles Symposium (IV), 2010 IEEE},
+  pages={805--812},
+  year={2010},
+  organization={IEEE}
+}
+
+@inproceedings{fermuller19953d,
+  title={3D motion representations in visual servo control},
+  author={Fermuller, Cornelia and Cheong, LoongFah and Aloimonos, Yiannis},
+  booktitle={Computer Vision, 1995. Proceedings., International Symposium on},
+  pages={61--66},
+  year={1995},
+  organization={IEEE}
+}
+
+
+@techreport{maloof1997computer,
+  title={Computer Vision through Learning},
+  author={Maloof, Marcus A and Rosenfeld, Azriel and Duric, Zoran and Aloimonos, Yiannis and Zhang, Qi and Michalski, Ryszard S},
+  year={1997}
+}
+
+@inproceedings{yu2011visual,
+  title={Visual scene interpretation as a dialogue between vision and language},
+  author={Yu, Xiaodong and Fermuller, Cornelia M and Aloimonos, Yiannis},
+  booktitle={Workshops at the Twenty-Fifth AAAI Conference on Artificial Intelligence},
+  year={2011}
+}
+
+
+@article{brodsky1995car,
+  title={CAR-TR-780 CS-TR-3501 July 1995},
+  author={Brodsky, Tomas and Aloimonos, Yiannis},
+  year={1995}
+}
+
+@inproceedings{fermuller1998shape,
+  title={Which shape from motion?},
+  author={Fermuller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Computer Vision, 1998. Sixth International Conference on},
+  pages={689--695},
+  year={1998},
+  organization={IEEE}
+}
+
+@incollection{brodsky1998video,
+  title={The video yardstick},
+  author={Brodsk{\`y}, Tom{\'a}{\v{s}} and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Modelling and Motion Capture Techniques for Virtual Environments},
+  pages={144--158},
+  year={1998},
+  publisher={Springer, Berlin, Heidelberg}
+}
+
+@article{aloimonos2005chromatic,
+  title={Chromatic induction and perspective distortion},
+  author={Aloimonos, Yiannis and Fermuller, Cornelia},
+  journal={Journal of Vision},
+  volume={5},
+  number={8},
+  pages={1026--1026},
+  year={2005},
+  publisher={The Association for Research in Vision and Ophthalmology}
+}
+
+@techreport{fermuller1995perception,
+  title={Perception of 3D Motion through Patterns of Visual Motion.},
+  author={Fermuller, Cornelia and Aloimonos, Yiannis},
+  year={1995},
+  institution={MARYLAND UNIV COLLEGE PARK CENTER FOR AUTOMATION RESEARCH}
+}
+
+@phdthesis{aloimonos2006holistic,
+  title={A holistic approach to structure from motion},
+  author={Aloimonos, Yiannis and Fermuller, Cornelia and others},
+  year={2006}
+}
+
+@inproceedings{yang2011corpus,
+  title={Corpus-guided sentence generation of natural images},
+  author={Yang, Yezhou and Teo, Ching Lik and Daum{\'e} III, Hal and Aloimonos, Yiannis},
+  booktitle={Proceedings of the Conference on Empirical Methods in Natural Language Processing},
+  pages={444--454},
+  year={2011},
+  organization={Association for Computational Linguistics}
+}
+
+@inproceedings{ogale2004occlusions,
+  title={Occlusions in motion processing},
+  author={Ogale, Abhijit and Fermuller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Proc. BMVA symposium on Spatiotemporal Image Processing},
+  year={2004}
+}
+
+@article{nelson1989obstacle,
+  title={Obstacle avoidance using flow field divergence},
+  author={Nelson, R and Aloimonos, J},
+  journal={EEE Transactions on Pattern Analysis and Machine Intelligence (1989) Volume: 11, Issue: 10, Pages: 1102-1106},
+  volume={11},
+  number={10},
+  pages={1102--1106},
+  year={1989},
+  publisher={IEEE}
+}
+
+@article{acton20012000,
+  title={2000 reviewers list},
+  author={Acton, Scott T and Aggarwal, Jake K and Ahuja, Narendra and Akiyama, Koichiro and Aloimonos, Yiannis and Alvarez, Luis and Amin, Adnan and Amini, Amir and Amir, Arnon and Amit, Yali and others},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={23},
+  number={1},
+  pages={91},
+  year={2001}
+}
+
+@inproceedings{teo2012towards,
+  title={Towards a watson that sees: Language-guided action recognition for robots},
+  author={Teo, Ching L and Yang, Yezhou and Daum{\'e}, Hal and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Robotics and Automation (ICRA), 2012 IEEE International Conference on},
+  pages={374--381},
+  year={2012},
+  organization={IEEE}
+}
+
+@article{sionti2017semantic,
+  title={Semantic Clusters Combined with Kinematics: The Case of English and Modern Greek Motion Verbs},
+  author={Sionti, Marietta and Claudino, Leonardo and Aloimonos, Yiannis and Rose, Carolyn P and Markantonatou, Stella},
+  journal={Selected papers on theoretical and applied linguistics},
+  volume={20},
+  number={1},
+  pages={495--510},
+  year={2017}
+}
+
+@article{d2012leadership,
+  title={Leadership in orchestra emerges from the causal relationships of movement kinematics},
+  author={D'Ausilio, Alessandro and Badino, Leonardo and Li, Yi and Tokay, Sera and Craighero, Laila and Canto, Rosario and Aloimonos, Yiannis and Fadiga, Luciano},
+  journal={PLoS one},
+  volume={7},
+  number={5},
+  pages={e35757},
+  year={2012},
+  publisher={Public Library of Science}
+}
+
+@article{agmon2012reports,
+  title={Reports of the AAAI 2011 Conference Workshops},
+  author={Agmon, Noa and Agrawal, Vikas and Aha, David W and Aloimonos, Yiannis and Buckley, Donagh and Doshi, Prashant and Geib, Christopher and Grasso, Floriana and Green, Nancy and Johnston, Benjamin and others},
+  journal={AI Magazine},
+  volume={33},
+  number={1},
+  pages={57--70},
+  year={2012}
+}
+
+@inproceedings{teo2012synergistic,
+  title={Synergistic methods for using language in robotics},
+  author={Teo, Ching L and Yang, Yezhou and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Proceedings of the Workshop on Performance Metrics for Intelligent Systems},
+  pages={82--88},
+  year={2012},
+  organization={ACM}
+}
+
+@article{appenzeller1998aggarwal,
+  title={Aggarwal, JK, 270},
+  author={Appenzeller, T and Ayache, N and Bartley, SH and Baumgartner, G},
+  journal={High-level Motion Processing: Computational, Neurobiological, and Psychophysical Perspectives},
+  pages={401},
+  year={1998},
+  publisher={MIT Press}
+}
+
+@article{basu1990robust,
+  title={A robust, correspondenceless, translation-determining algorithm},
+  author={Basu, Anup and Aloimonos, John},
+  journal={The International Journal of Robotics Research},
+  volume={9},
+  number={5},
+  pages={35--59},
+  year={1990},
+  publisher={Sage Publications Sage CA: Thousand Oaks, CA}
+}
+
+@article{aloimonos1998loongfah,
+  title={LoongFah Cheong},
+  author={Aloimonos, Yiannis},
+  journal={The International Journal of Robotics Research},
+  volume={17},
+  number={1},
+  pages={4--18},
+  year={1998}
+}
+
+@inproceedings{nelson1988using,
+  title={Using flow field divergence for obstacle avoidance: towards qualitative vision},
+  author={Nelson, Randal C},
+  booktitle={Computer Vision., Second International Conference on},
+  pages={188--196},
+  year={1988},
+  organization={IEEE}
+}
+
+@article{fermuller1997visual,
+  title={Visual space distortion},
+  author={Ferm{\"u}ller, Cornelia and Cheong, LoongFah and Aloimonos, Yiannis},
+  journal={Biological Cybernetics},
+  volume={77},
+  number={5},
+  pages={323--337},
+  year={1997},
+  publisher={Springer-Verlag}
+}
+
+@inproceedings{spetsakis1987closed,
+  title={Closed Form Solution to the Structure from Motion Problem from Line Correspondences.},
+  author={Spetsakis, Minas E and Aloimonos, Yiannis},
+  booktitle={AAAI},
+  pages={738--743},
+  year={1987}
+}
+
+@inproceedings{nelson1988using,
+  title={Using flow field divergence for obstacle avoidance in visual navigation},
+  author={NELSON, RANDALC and Aloimonos, John},
+  booktitle={Science Applications International Corp, Proceedings: Image Understanding Workshop,},
+  volume={2},
+  year={1988}
+}
+
+@inproceedings{aloimonos1992active,
+  title={Active egomotion estimation: A qualitative approach},
+  author={Aloimonos, Yiannis and Duric, Zoran},
+  booktitle={European Conference on Computer Vision},
+  pages={497--510},
+  year={1992},
+  organization={Springer, Berlin, Heidelberg}
+}
+
+
+@article{adam20082009,
+  title={2009 Index IEEE Transactions on Pattern Analysis and Machine Intelligence Vol. 31},
+  author={Adam, Amit and Aggarwal, Gaurav and Aizawa, Kunio and Akgul, Ceyhun Burak and Alcantara, Dan A and Aloimonos, Yiannis and Alon, Jonathan and Amenta, Nina and Amsaleg, Laurent and Asmundsson, Friorik Heioar and others},
+  journal={IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE},
+  volume={30},
+  number={12},
+  pages={1},
+  year={2008}
+}
+
+@misc{rivlin1991purposive,
+  title={Purposive recognition: A framework},
+  author={Rivlin, Ehud and Aloimonos, John and Rosenfeld, Azriel},
+  year={1991},
+  publisher={University of Maryland, Center for Automation Research, Computer Vision Laboratory}
+}
+
+@inproceedings{wilson2000mgmm,
+  title={MGMM: multiresolution Gaussian mixture models for computer vision},
+  author={Wilson, Roland},
+  booktitle={Pattern Recognition, 2000. Proceedings. 15th International Conference on},
+  volume={1},
+  pages={212--215},
+  year={2000},
+  organization={IEEE}
+}
+
+@article{aloimonos1994car,
+  title={CAR-TR-732 CS-TR-3341 July 1994},
+  author={Aloimonos, Yiannis},
+  year={1994}
+}
+
+@misc{aloimonos1988correspondenceless,
+  title={Correspondenceless detection of depth and motion for a planar surface},
+  author={Aloimonos, John and Herv{\'e}, Jean-Yves},
+  year={1988},
+  publisher={University of Maryland}
+}
+
+@misc{aloimonos1986combining,
+  title={Combining Shading and Motion to Compute Shape and Light Source Direction},
+  author={Aloimonos, John},
+  year={1986},
+  publisher={University of Maryland. Computer Science}
+}
+
+@article{aloimonos1988active,
+  title={Active Vision},
+  author={Aloimonos, J. and Weiss, I. and Bandopadhay, A.},
+  journal={Int'l Journal of Computer Vision 1:333-356},
+  volume={1},
+  number={4},
+  pages={333--356},
+  year={1988},
+  publisher={KLUWER}
+}
+
+@inproceedings{summers2012using,
+  title={Using a minimal action grammar for activity understanding in the real world},
+  author={Summers-Stay, Douglas and Teo, Ching L and Yang, Yezhou and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Intelligent Robots and Systems (IROS), 2012 IEEE/RSJ International Conference on},
+  pages={4104--4111},
+  year={2012},
+  organization={IEEE}
+}
+
+@article{bhowmick2009approximate,
+  title={Approximate matching of digital point sets using a novel angular tree},
+  author={Bhowmick, Partha and Bhattacharya, Bhargab},
+  journal={IEEE transactions on pattern analysis and machine intelligence},
+  volume={31},
+  number={5},
+  pages={769--782},
+  year={2009},
+  publisher={IEEE}
+}
+
+@inproceedings{bernard1996computer,
+  title={Computer vision ECCV 96},
+  author={Bernard, Buxton and Cipolla, Roberto},
+  booktitle={4th European conference on computer vision},
+  volume={1},
+  year={1996}
+}
+
+@inproceedings{yang2013detection,
+  title={Detection of manipulation action consequences (mac)},
+  author={Yang, Yezhou and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Computer Vision and Pattern Recognition (CVPR), 2013 IEEE Conference on},
+  pages={2563--2570},
+  year={2013},
+  organization={IEEE}
+}
+
+@inproceedings{teo2013embedding,
+  title={Embedding high-level information into low level vision: Efficient object search in clutter},
+  author={Teo, Ching L and Myers, Austin and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Robotics and Automation (ICRA), 2013 IEEE International Conference on},
+  pages={126--132},
+  year={2013},
+  organization={IEEE}
+}
+
+@inproceedings{yang2013robots,
+  title={Robots with language: Multi-label visual recognition using NLP},
+  author={Yang, Yezhou and Teo, Ching L and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Robotics and Automation (ICRA), 2013 IEEE International Conference on},
+  pages={4256--4262},
+  year={2013},
+  organization={IEEE}
+}
+
+@article{aach20132012,
+  title={2012 Index IEEE Transactions on Pattern Analysis and Machine Intelligence Vol. 34},
+  author={Aach, Til and Achanta, Radhakrishna and Adam, Amit and Agapito, Lourdes and Aggarwal, Charu and Akselrod, Polina and Alexe, Bogdan and Ali, Karim and Almansa, Andres and Aloimonos, Yiannis and others},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={35},
+  number={1},
+  pages={1},
+  year={2013}
+}
+
+
+@inproceedings{baker2000complete,
+  title={Complete calibration of a multi-camera network},
+  author={Baker, Patrick and Aloimonos, Yiannis},
+  booktitle={Omnidirectional Vision, 2000. Proceedings. IEEE Workshop on},
+  pages={134--141},
+  year={2000},
+  organization={IEEE}
+}
+
+@article{aloimonos2009active,
+  title={Active Segmentation},
+  author={Aloimonos, Ajay Mishra and Yiannis},
+  journal={Int'l Journal of Humanoid Robotics},
+  volume={6},
+  pages={361--386},
+  year={2009}
+}
+
+@article{eklundh1992edelman,
+  title={Edelman, Shimon, 22},
+  author={Eklundh, Jan-Olof and Aloimonos, Yiannis and Ayache, Nicholas and Bajcsy, Ruzena and Ballard, Dana H and Bleau, Andre and Brown, Christopher M and Campani, Marco and Campos, Mario and Cohen, Isaac and others},
+  year={1992}
+}
+
+@inproceedings{baker2003calibration,
+  title={Calibration of a multicamera network},
+  author={Baker, Patrick T and Aloimonos, Yiannis},
+  booktitle={Computer Vision and Pattern Recognition Workshop, 2003. CVPRW'03. Conference on},
+  volume={7},
+  pages={72--72},
+  year={2003},
+  organization={IEEE}
+}
+
+@inproceedings{neumann2003eye,
+  title={Eye design in the plenoptic space of light rays},
+  author={Neumann, Jan and Fermuller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Computer Vision, 2003. Proceedings. Ninth IEEE International Conference on},
+  pages={1160--1167},
+  year={2003},
+  organization={IEEE}
+}
+
+@techreport{aloimonos1986computing,
+  title={Computing Intrinsic Images.},
+  author={Aloimonos, John},
+  year={1986},
+  institution={ROCHESTER UNIV NY DEPT OF COMPUTER SCIENCE}
+}
+
+@article{huang1994normal,
+  title={How normal flow constrains relative depth for an active observer},
+  author={Huang, Liuqing and Aloimonos, Yiannis},
+  journal={Image and vision computing},
+  volume={12},
+  number={7},
+  pages={435--445},
+  year={1994},
+  publisher={Elsevier}
+}
+
+@article{aloimonos1994allan,
+  title={Allan, VH, Jones, RB, Lee, RM, and Allan, SJ Software Pipelining. Vol. 27, No. 3 (Sept.},
+  author={Aloimonos, Y and Fermuller, C and Rosenfeld, A and Andre, E and Andreoli, JM and Pareschi, R and Antonio, JK and Aref, WG and Kamel, I and Lopresti, DP and others},
+  journal={Computing},
+  volume={26},
+  number={4},
+  pages={345--420},
+  year={1994}
+}
+
+@inproceedings{yu2013action,
+  title={Action Attribute Detection from Sports Videos with Contextual Constraints.},
+  author={Yu, Xiaodong and Teo, Ching Lik and Yang, Yezhou and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={BMVC},
+  year={2013}
+}
+
+@article{mishra2012active,
+  title={Active visual segmentation},
+  author={Mishra, Ajay K and Aloimonos, Yiannis and Cheong, Loong-Fah and Kassim, Ashraf},
+  journal={Pattern Analysis and Machine Intelligence, IEEE Transactions On},
+  volume={34},
+  number={4},
+  pages={639--653},
+  year={2012},
+  publisher={IEEE}
+}
+
+@inproceedings{nelson1987finding,
+  title={Finding motion parameters from spherical flow fields},
+  author={Nelson, RC},
+  booktitle={Proc. Workshop on Computer Vision, 1987},
+  pages={145--150},
+  year={1987}
+}
+
+@article{baker2004argus,
+  title={The Argus eye: a new imaging system designed to facilitate robotic tasks of motion},
+  author={Baker, Patrick and Ogale, Abhijit S and Fermuller, Cornelia},
+  journal={IEEE Robotics \& Automation Magazine},
+  volume={11},
+  number={4},
+  pages={31--38},
+  year={2004},
+  publisher={IEEE}
+}
+
+@inproceedings{bitsakos2008measuring,
+  title={Measuring 1 st order stretchwith a single filter},
+  author={Bitsakos, Konstantinos and Domke, Justin and Fermuller, C and Aloimonos, Yiannis},
+  booktitle={Acoustics, Speech and Signal Processing, 2008. ICASSP 2008. IEEE International Conference on},
+  pages={909--912},
+  year={2008},
+  organization={IEEE}
+}
+
+@techreport{aloimonos1985determining,
+  title={Determining the 3-D Motion of a Rigid Surface Patch without Correspondence, under Perspective Projection. 1. Planar Surfaces. 2. Curved Surfaces.},
+  author={Aloimonos, John Y and Rigoutsos, Isidore},
+  year={1985},
+  institution={ROCHESTER UNIV NY DEPT OF COMPUTER SCIENCE}
+}
+
+@misc{dean2004人工智能,
+  title={人工智能——理论与实践},
+  author={Dean, Thomas and Allen, James and Aloimonos, Yiannis},
+  year={2004},
+  publisher={北京: 电子工业出版社}
+}
+
+@inproceedings{ecins2014shadow,
+  title={Shadow free segmentation in still images using local density measure},
+  author={Ecins, Aleksandrs and Fermuller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Computational Photography (ICCP), 2014 IEEE International Conference on},
+  pages={1--8},
+  year={2014},
+  organization={IEEE}
+}
+
+@article{yang2014cognitive,
+  title={A cognitive system for understanding human manipulation actions},
+  author={Yang, Yezhou and Guha, Anupam and Fermuller, C and Aloimonos, Yiannis},
+  journal={Advances in Cognitive Sysytems},
+  volume={3},
+  pages={67--86},
+  year={2014}
+}
+
+@inproceedings{teixeira2006lightweight,
+  title={A lightweight camera sensor network operating on symbolic information},
+  author={Teixeira, Thiago and Lymberopoulos, Dimitrios and Culurciello, Eugenio and Aloimonos, Yiannis and Savvides, Andreas},
+  booktitle={Proceedings of the 1st Workshop on Distributed Smart Cameras},
+  year={2006}
+}
+
+@article{barranco2014contour,
+  title={Contour motion estimation for asynchronous event-driven cameras},
+  author={Barranco, Francisco and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  journal={Proceedings of the IEEE},
+  volume={102},
+  number={10},
+  pages={1537--1556},
+  year={2014},
+  publisher={IEEE}
+}
+
+@inproceedings{yang2014manipulation,
+  title={Manipulation action tree bank: A knowledge resource for humanoids},
+  author={Yang, Yezhou and Guha, Anupam and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Humanoid Robots (Humanoids), 2014 14th IEEE-RAS International Conference on},
+  pages={987--992},
+  year={2014},
+  organization={IEEE}
+}
+
+@inproceedings{mao2014learning,
+  title={Learning hand movements from markerless demonstrations for humanoid tasks},
+  author={Mao, Ren and Yang, Yezhou and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis and Baras, John S},
+  booktitle={Humanoid Robots (Humanoids), 2014 14th IEEE-RAS International Conference on},
+  pages={938--943},
+  year={2014},
+  organization={IEEE}
+}
+
+@article{aloimonos2015cognitive,
+  title={The cognitive dialogue: A new model for vision implementing common sense reasoning},
+  author={Aloimonos, Yiannis and Ferm{\"u}ller, Cornelia},
+  journal={Image and Vision Computing},
+  volume={34},
+  pages={42--44},
+  year={2015},
+  publisher={Elsevier}
+}
+
+@article{yang2015robot,
+  title={Robot learning manipulation action plans by “watching” unconstrained videos from the world wide web},
+  author={Yang, Yezhou and Li, Yi and Fermuller, Cornelia, Aloimonos, Yiannis},
+  journal={AAAI 2015},
+  year={2015}
+}
+
+@inproceedings{aditya2015visual,
+  title={Visual common-sense for scene understanding using perception, semantic parsing and reasoning},
+  author={Aditya, Somak and Yang, Yezhou and Baral, Chitta and Fermuller, Cornelia and Aloimonos, Yiannis},
+  booktitle={2015 AAAI Spring Symposium Series},
+  year={2015}
+}
+
+@inproceedings{claudino2014studying,
+  title={Studying human behavior from infancy: On the acquisition of infant postural data},
+  author={Claudino, Leonardo and Aloimonos, Yiannis},
+  booktitle={Development and Learning and Epigenetic Robotics (ICDL-Epirob), 2014 Joint IEEE International Conferences on},
+  pages={256--261},
+  year={2014},
+  organization={IEEE}
+}
+
+@article{alba2015acknowledgement,
+  title={Acknowledgement to Reviewers of Robotics in 2014},
+  author={Alba-Flores, Rocio and Aloimonos, Yiannis and Anavatti, Sreenatha G and Ars{\'e}nio, Artur and Barrett, David and Ben-Tzvi, Pinhas and Andrea, Bertetto and Manuello Birkholz, M and Bj{\"o}rkman, M{\aa}rten and Bouchebout, Soukeyna and others},
+  year={2015}
+}
+
+@article{teo2015gestaltist,
+  title={A Gestaltist approach to contour-based object recognition: Combining bottom-up and top-down cues},
+  author={Teo, Ching L and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  journal={The International Journal of Robotics Research},
+  volume={34},
+  number={4-5},
+  pages={627--652},
+  year={2015},
+  publisher={SAGE Publications Sage UK: London, England}
+}
+
+@misc{shulman1988boundary,
+  title={Boundary Preserving Regularization},
+  author={Shulman, D and Aloimonos, J},
+  year={1988},
+  publisher={University of Maryland. Computer Science}
+}
+
+@inproceedings{myers2015affordance,
+  title={Affordance detection of tool parts from geometric features.},
+  author={Myers, Austin and Teo, Ching Lik and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={ICRA},
+  pages={1374--1381},
+  year={2015}
+}
+
+@inproceedings{yang2015grasp,
+  title={Grasp type revisited: A modern perspective on a classical feature for vision},
+  author={Yang, Yezhou and Fermuller, Cornelia and Li, Yi and Aloimonos, Yiannis},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  pages={400--408},
+  year={2015}
+}
+
+
+@inproceedings{teo2015fast,
+  title={Fast 2d border ownership assignment},
+  author={Teo, Ching L and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Computer Vision and Pattern Recognition (CVPR), 2015 IEEE Conference on},
+  pages={5117--5125},
+  year={2015},
+  organization={IEEE}
+}
+
+@article{aloimonos2012active,
+  title={Active Visual Segmentation},
+  author={Aloimonos, Y and Mishra, AK and Cheong, Loong Fah and Kassim, A},
+  journal={IEEE Transactions on Pattern Analysis \& Machine Intelligence},
+  number={4},
+  pages={639--653},
+  year={2012},
+  publisher={IEEE}
+}
+
+@inproceedings{zampogiannis2015learning,
+  title={Learning the spatial semantics of manipulation actions through preposition grounding},
+  author={Zampogiannis, Konstantinos and Yang, Yezhou and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Robotics and Automation (ICRA), 2015 IEEE International Conference on},
+  pages={1389--1396},
+  year={2015},
+  organization={IEEE}
+}
+
+@inproceedings{barranco2015bio,
+  title={Bio-inspired motion estimation with event-driven sensors},
+  author={Barranco, Francisco and Fermuller, Cornelia and Aloimonos, Yiannis},
+  booktitle={International Work-Conference on Artificial Neural Networks},
+  pages={309--321},
+  year={2015},
+  organization={Springer, Cham}
+}
+
+@inproceedings{claudino2015sb,
+  title={The SB-ST decomposition in the study of Developmental Coordination Disorder},
+  author={Claudino, Leonardo and Clark, Jane E and Aloimonos, Yiannis},
+  booktitle={Development and Learning and Epigenetic Robotics (ICDL-EpiRob), 2015 Joint IEEE International Conference on},
+  pages={143--149},
+  year={2015},
+  organization={IEEE}
+}
+
+@article{king2011investigating,
+  title={Investigating the'co-ordination'in developmental coordination disorder},
+  author={King, Brad and Claudino, L and Pangelinan, MM and Aloimonos, Y and Contreras-Vidal, JL and Clark, JE},
+  year={2011}
+}
+
+@article{hayden2012evaluating,
+  title={Evaluating dynamic software update safety using systematic testing},
+  author={Hayden, Christopher M and Smith, Edward K and Hardisty, Eric A and Hicks, Michael and Foster, Jeffrey S},
+  journal={IEEE Transactions on Software Engineering},
+  volume={38},
+  number={6},
+  pages={1340--1354},
+  year={2012},
+  publisher={IEEE}
+}
+
+@article{fermuller2015border,
+  title={Border ownership assignment in real images},
+  author={Fermuller, Cornelia and Teo, Ching Lik and Aloimonos, Yiannis},
+  journal={Journal of vision},
+  volume={15},
+  number={12},
+  pages={763--763},
+  year={2015},
+  publisher={The Association for Research in Vision and Ophthalmology}
+}
+
+@article{zhang2015does,
+  title={Does the grasp type reveal action intention?},
+  author={Zhang, Yi and Yang, Yezhou and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  journal={Journal of vision},
+  volume={15},
+  number={12},
+  pages={1153--1153},
+  year={2015}
+}
+
+@article{mishra2012visual,
+  title={Visual segmentation of “simple” objects for robots},
+  author={Mishra, Ajay K and Aloimonos, Yiannis},
+  journal={Robotics: Science and Systems VII},
+  pages={1--8},
+  year={2012},
+  publisher={MIT Press}
+}
+
+@article{aditya2015images,
+  title={From images to sentences through scene description graphs using commonsense reasoning and knowledge},
+  author={Aditya, Somak and Yang, Yezhou and Baral, Chitta and Fermuller, Cornelia and Aloimonos, Yiannis},
+  journal={arXiv preprint arXiv:1511.03292},
+  year={2015}
+}
+
+@article{yang2015learning,
+  title={Learning the semantics of manipulation action},
+  author={Yang, Yezhou and Aloimonos, Yiannis and Fermuller, Cornelia and Aksoy, Eren Erdal},
+  journal={arXiv preprint arXiv:1512.01525},
+  year={2015}
+}
+
+@inproceedings{teo2015detection,
+  title={Detection and segmentation of 2d curved reflection symmetric structures},
+  author={Teo, Ching L and Fermuller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Proceedings of the IEEE International Conference on Computer Vision},
+  pages={1644--1652},
+  year={2015}
+}
+
+@inproceedings{barranco2015contour,
+  title={Contour Detection and Characterization for Asynchronous Event Sensors},
+  author={Barranco, Francisco and Teo, Ching L and Fermuller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Proceedings of the IEEE International Conference on Computer Vision},
+  pages={486--494},
+  year={2015}
+}
+
+@article{yang2015neural,
+  title={Neural Self Talk: Image Understanding via Continuous Questioning and Answering},
+  author={Yang, Yezhou and Li, Yi and Fermuller, Cornelia and Aloimonos, Yiannis},
+  journal={arXiv preprint arXiv:1512.03460},
+  year={2015}
+}
+
+@misc{darzentas2008artificial,
+  title={Artificial Intelligence: Theories, Models and Applications: 5th Hellenic Conference on AI, SETN 2008, Syros, Greece, October 2-4, 2008, Proceedings},
+  author={Darzentas, John and Vouros, George and Vosinakis, Spyros and Arnellos, Argyris},
+  year={2008},
+  publisher={Springer}
+}
+
+@inproceedings{aloimonos1988using,
+  title={USING FLOW FIELD DIVERGENCE FOR OBSTACLE AVOIDANCE: TOWARDS QUALITATIVE VISION},
+  author={Aloimonos, John Yiannis},
+  booktitle={Second International Conference on Computer Vision: December 5-8, 1988, Innisbrook Resort, Tampa, Florida, USA},
+  pages={188},
+  year={1988},
+  organization={IEEE Computer Society Press}
+}
+
+
+@article{black1998we,
+  title={We describe a new method for computing the displacement vector field in time sequences of 2D or 3D images (4D data). The method is energy-minimizing on the space of correspondence functions; the energy is split into two terms, with one term matching differential singularities in the images, and the other constraining the regularity of the field. In order to reduce the computational time of the motion...},
+  author={Black, Michael J and Jepson, Allan D and Brodsky, Tomas and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  journal={International Journal of Computer Vision},
+  volume={26},
+  number={1},
+  pages={25--40},
+  year={1998}
+}
+
+@article{fermuller2000paper,
+  title={In this paper, we introduce a new deformable volume rendering algorithm. By embedding deformation into the visualization loop, we render the deformed volume directly without going through the expensive and non-interactive volume reconstruction process. The volume deformation is done using a radial basis function that is piecewise linearly approximated by an adaptive space subdivision of the octree...},
+  author={Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis and Brodský, Tomá{\v{s}}},
+  journal={Computational Geometry: Theory and Applications},
+  volume={15},
+  number={4},
+  pages={175--202},
+  year={2000}
+}
+
+
+@inproceedings{bolle1998toward,
+  title={Toward motion picture grammars},
+  author={Bolle, Ruud and Aloimonos, Yiannis and Ferm{\"u}ller, Cornelia},
+  booktitle={Asian Conference on Computer Vision},
+  pages={283--290},
+  year={1998},
+  organization={Springer, Berlin, Heidelberg}
+}
+
+@misc{savvides2014framework,
+  title={Framework of hierarchical sensory grammars for inferring behaviors using distributed sensors},
+  author={Savvides, Andreas and Lymberopoulos, Dimitrios and Aloimonos, Yiannis and Ogale, Abhijit S},
+  year={2014},
+  month=jan # "~14",
+  note={US Patent 8,630,965}
+}
+
+@inproceedings{cheong1995iso,
+  title={Iso-distortion contours and egomotion estimation},
+  author={Cheong, LoongFah and Aloimonos, Yiannis},
+  booktitle={Computer Vision, 1995. Proceedings., International Symposium on},
+  pages={55--60},
+  year={1995},
+  organization={IEEE}
+}
+
+@techreport{cheong1996interaction,
+  title={Interaction between 3D Shape and Motion: Theory and Applications.},
+  author={Cheong, LoongFah and Fermueller, Cornelia and Aloimonos, Yiannis},
+  year={1996},
+  institution={MARYLAND UNIV COLLEGE PARK COMPUTER VISION LAB}
+}
+
+@article{aloimonos2008hal,
+  title={HAL: human activity language},
+  author={Aloimonos, Yiannis},
+  journal={Journal of Vision},
+  volume={8},
+  number={6},
+  pages={1050--1050},
+  year={2008},
+  publisher={The Association for Research in Vision and Ophthalmology}
+}
+
+@inproceedings{ogale2004view,
+  title={View-invariant identification of pose sequences for action recognition},
+  author={Ogale, A and Karapurkar, Alap and Guerra-Filho, Gutemberg and Aloimonos, Yiannis},
+  booktitle={Video Analysis and Content Extraction Workshop (VACE)},
+  volume={14},
+  year={2004}
+}
+
+@inproceedings{aloimonos2006grounded,
+  title={Grounded Representations for Sensory-Motor Learning: A Linguistic Approach},
+  author={Aloimonos, Yiannis and Guerra-Filho, Gutemberg},
+  booktitle={Proceedings of the Annual Meeting of the Cognitive Science Society},
+  volume={28},
+  number={28},
+  year={2006}
+}
+
+
+@inproceedings{mishra2009active,
+  title={Active segmentation for robotics},
+  author={Mishra, Ajay and Aloimonos, Yiannis and Fermuller, Cornelia},
+  booktitle={Intelligent Robots and Systems, 2009. IROS 2009. IEEE/RSJ International Conference on},
+  pages={3133--3139},
+  year={2009},
+  organization={IEEE}
+}
+
+@article{ganguly2017combining,
+  title={Combining Visual Learning with a Generic Cognitive Model for Appliance Representation},
+  author={Ganguly, Kanishka and Zampogiannis, Konstantinos and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  journal={Cognitive Robot Architectures},
+  pages={54},
+  year={2017}
+}
+
+@article{ye2017importance,
+  title={On the Importance of Consistency in Training Deep Neural Networks},
+  author={Ye, Chengxi and Yang, Yezhou and Fermuller, Cornelia and Aloimonos, Yiannis},
+  journal={arXiv preprint arXiv:1708.00631},
+  year={2017}
+}
+
+@article{summers2012supplementary,
+  title={Supplementary Material: Using a Minimal Action Grammar for Activity Understanding in the Real World},
+  author={Summers-stay, Douglas and Teo, Ching L and Yang, Yezhou and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  year={2012}
+}
+
+@inproceedings{ecins2017detecting,
+  title={Detecting reflectional symmetries in 3d data through symmetrical fitting},
+  author={Ecins, Aleksandrs and Fermuller, Cornelia and Aloimonos, Yiannis},
+  booktitle={Proceedings, ICCV Workshop on Detecting Symmetry in the Wild, Venice},
+  volume={7},
+  pages={8},
+  year={2017}
+}
+
+@article{michalski1997distribution,
+  title={distribution ualiBitrt {\guillemotleft}},
+  author={Michalski, RS and Rosenfeld, A and Aloimonos, Y and Duric, Z},
+  year={1997}
+}
+
+@inproceedings{funk20172017,
+  title={2017 ICCV Challenge: Detecting Symmetry in the Wild},
+  author={Funk, Christopher and Lee, Seungkyu and Oswald, Martin R and Tsogkas, Stavros and Shen, Wei and Cohen, Andrea and Dickinson, Sven and Liu, Yanxi},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  pages={1692--1701},
+  year={2017}
+}
+
+
+@article{aditya2017image,
+  title={Image Understanding using vision and reasoning through Scene Description Graph},
+  author={Aditya, Somak and Yang, Yezhou and Baral, Chitta and Aloimonos, Yiannis and Ferm{\"u}ller, Cornelia},
+  journal={Computer Vision and Image Understanding},
+  year={2017},
+  publisher={Academic Press}
+}
+
+
+@article{agarwal90abdelzaher,
+  title={Abdelzaher, TE, see Stankovic, JA, PROC Jul 03 1002-1022 Abel, A., and W. Schwarz. Chaos communications-principles, schemes, and system analysis; PROC May 02 691-710 Abelson, LA, and GL Kerber. Superconductor integrated circuit fabrication technology; PROC Oct 04 1517-1533},
+  author={Agarwal, A and Agner, SC and Ahn, CH and Aihara, K and Akalu, R and Akasaki, I and Akay, M and Akemoto, M and Al-Asady, HA and Al-Dhahir, N and others},
+  journal={Proceedings of the IEEE},
+  volume={90},
+  pages={92}, 
+  year={2003}
+}
+
+
+@inproceedings{aloimonos1986detection,
+  title={Detection of Surface Orientation from Texture},
+  author={Aloimonos, JY},
+  booktitle={Proc. CVPR-86},
+  pages={584--593},
+  year={1986}
+}
+
+@article{aloimonos1993active,
+  title={Active vision revisited},
+  author={Aloimonos, Yiannis},
+  journal={Active perception},
+  pages={1--18},
+  year={1993},
+  publisher={Lawrence Erlbaum Associates, Pub}
+}
+
+@article{fermuller1993role,
+  title={THE ROLE OF FIXATION IN VISUAL-MOTION ANALYSIS},
+  author={Fermuller, Cornelia and Aloimonos, Yiannis},
+  journal={International Journal of Computer Vision},
+  volume={11},
+  number={2},
+  pages={165--186},
+  year={1993},
+  publisher={KLUWER ACADEMIC PUBL SPUIBOULEVARD 50, PO BOX 17, 3300 AA DORDRECHT, NETHERLANDS}
+}
+
+@article{sanket2018gapflyt,
+  title={GapFlyt: Active Vision Based Minimalist Structure-less Gap Detection For Quadrotor Flight},
+  author={Sanket, Nitin J and Singh, Chahat Deep and Ganguly, Kanishka and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  journal={IEEE Robotics and Automation Letters ( Volume: 3, Issue: 4, Oct. 2018)},
+  year={2018},
+  url = {https://ieeexplore.ieee.org/abstract/document/8371216/}
+}
+
+@article{1803.00127,
+Author = {Huai-Jen Liang and Nitin J Sanket and Cornelia Fermuller and Yiannis Aloimonos},
+Title = {SalientDSO: Bringing Attention to Direct Sparse Odometry},
+Year = {2018}
+}
+
+
+@article{mitrokhin2018event,
+title={Event-based Moving Object Detection and Tracking},
+author={Mitrokhin, Anton and Fermuller, Cornelia and Parameshwara, Chethan and Aloimonos, Yiannis},
+journal={arXiv preprint arXiv:1803.04523},
+year={2018}
+}
+
+<!------------------------------------------------------------------>
+<!----------------- Cornelia's papers ------------------------------>
+<!------------------------------------------------------------------>
+<!------------------------------------------------------------------>
+
+
+
+
+<!--
+@article{fermuller1995passive,
+  title={Passive navigation as a pattern recognition problem},
+  author={Ferm{\"u}ller, Cornelia},
+  journal={International Journal of Computer Vision},
+  volume={14},
+  number={2},
+  pages={147--158},
+  year={1995},
+  publisher={Springer Netherlands}
+}
+
+@article{fermuller2004uncertainty,
+  title={Uncertainty in visual processes predicts geometrical optical illusions},
+  author={Ferm{\"u}ller, Cornelia and Malm, Henrik},
+  journal={Vision research},
+  volume={44},
+  number={7},
+  pages={727--749},
+  year={2004},
+  publisher={Pergamon}
+}
+
+
+@article{xu2009viewpoint,
+  title={Viewpoint invariant texture description using fractal analysis},
+  author={Xu, Yong and Ji, Hui and Ferm{\"u}ller, Cornelia},
+  journal={International Journal of Computer Vision},
+  volume={83},
+  number={1},
+  pages={85--100},
+  year={2009},
+  publisher={Springer US}
+}
+
+@incollection{fermuller1993navigational,
+  title={Navigational Preliminaries},
+  author={Ferm{\"u}ller, Cornelia},
+  booktitle={Active perception},
+  volume={1},
+  pages={103},
+  year={1993},
+  publisher={Lawrence Erlbaum}
+}
+
+@article{neumann2003plenoptic,
+  title={Plenoptic video geometry},
+  author={Neumann, Jan and Ferm{\"u}ller, Cornelia},
+  journal={The Visual Computer},
+  volume={19},
+  number={6},
+  pages={395--404},
+  year={2003},
+  publisher={Springer Berlin Heidelberg}
+}
+
+@article{bitsakos2006depth,
+  title={Depth estimation using the compound eye of dipteran flies},
+  author={Bitsakos, Konstantinos and Ferm{\"u}ller, Cornelia},
+  journal={Biological cybernetics},
+  volume={95},
+  number={5},
+  pages={487--501},
+  year={2006},
+  publisher={Springer-Verlag}
+}
+
+@article{ji2006noise,
+  title={Noise causes slant underestimation in stereo and motion},
+  author={Ji, Hui and Ferm{\"u}ller, Cornelia},
+  journal={Vision Research},
+  volume={46},
+  number={19},
+  pages={3105--3120},
+  year={2006},
+  publisher={Pergamon}
+}
+
+@article{fermuller2010illusory,
+  title={Illusory motion due to causal time filtering},
+  author={Ferm{\"u}ller, Cornelia and Ji, Hui and Kitaoka, Akiyoshi},
+  journal={Vision research},
+  volume={50},
+  number={3},
+  pages={315--329},
+  year={2010},
+  publisher={Elsevier}
+}
+
+@article{ji2007better,
+  title={Better flow estimation from color images},
+  author={Ji, Hui and Ferm{\"u}ller, Cornelia},
+  journal={EURASIP Journal on Advances in Signal Processing},
+  volume={2007},
+  year={2007},
+  publisher={Hindawi Publishing Corporation}
+}
+
+@inproceedings{shulman1996qualitative,
+  title={Qualitative depth and FOE information via smoothed flow},
+  author={Shulman, David and Ferm{\"u}ller, Cornelia},
+  booktitle={Proceedings of the 20th workshop of the Austrian Association for Pattern Recognition (OAGM/AAPR) on Pattern recognition 1996},
+  pages={207--213},
+  year={1996},
+  organization={R. Oldenbourg Verlag GmbH}
+}
+
+@book{brodsky1997direct,
+  title={Direct Self-calibration},
+  author={Brodsk{\`y}, Tom{\'a}{\v{s}} and Ferm{\"u}ller, Cornelia},
+  year={1997},
+  publisher={Computer Vision Laboratory, Center for Automation Research, University of Maryland}
+}
+
+@article{baker2004new,
+  title={A New Imaging System Designed to Facilitate Robotic Tasks of Motion},
+  author={BAKER, PATRICK and OGALE, ABHIJIT S and FERM{\"U}LLER, CORNELIA},
+  journal={IEEE Robotics \& Automation Magazine},
+  pages={32},
+  year={2004}
+}
+
+
+@inproceedings{xu2006projective,
+  title={A projective invariant for textures},
+  author={Xu, Yong and Ji, Hui and Fermuller, Cornelia},
+  booktitle={Computer Vision and Pattern Recognition, 2006 IEEE Computer Society Conference on},
+  volume={2},
+  pages={1932--1939},
+  year={2006},
+  organization={IEEE}
+}
+
+
+@inproceedings{yu2007object,
+  title={Object Detection Using Shape Codebook.},
+  author={Yu, Xiaodong and Yi, Li and Ferm{\"u}ller, Cornelia and Doermann, David S},
+  booktitle={BMVC},
+  pages={1--10},
+  year={2007}
+}
+
+
+@article{brodsky2002self,
+  title={Self-calibration from image derivatives},
+  author={Brodsky, Tomas and Fermuller, Cornelia},
+  journal={International Journal of Computer Vision},
+  volume={48},
+  number={2},
+  pages={91--114},
+  year={2002},
+  publisher={Kluwer}
+}
+
+
+@article{ji2009robust,
+  title={Robust wavelet-based super-resolution reconstruction: theory and algorithm},
+  author={Ji, Hui and Fermuller, C},
+  journal={Pattern Analysis and Machine Intelligence, IEEE Transactions on},
+  volume={31},
+  number={4},
+  pages={649--660},
+  year={2009},
+  publisher={IEEE}
+}
+
+@article{baker2004argus,
+  title={The Argus eye: a new imaging system designed to facilitate robotic tasks of motion},
+  author={Baker, Patrick and Ogale, Abhijit S and Fermuller, Cornelia},
+  journal={IEEE Robotics \& Automation Magazine},
+  volume={11},
+  number={4},
+  pages={31--38},
+  year={2004},
+  publisher={IEEE}
+}
+
+@article{fermuller1994syntactic,
+  title={A syntactic approach to scale-space-based corner description},
+  author={Fermuller, C and Kropatsch, Walter},
+  journal={IEEE transactions on pattern analysis and machine intelligence},
+  volume={16},
+  number={7},
+  pages={748--751},
+  year={1994},
+  publisher={IEEE}
+}
+
+
+@incollection{fermuller1994multiresolution,
+  title={Multiresolution shape description by corners},
+  author={Ferm{\"u}ller, Cornelia and Kropatsch, Walter},
+  booktitle={Shape in Picture},
+  pages={539--548},
+  year={1994},
+  publisher={Springer, Berlin, Heidelberg}
+}
+
+
+@inproceedings{fermuller1992hierarchical,
+  title={Hierarchical curve representation},
+  author={Fermuller, Cornelia and Kropatsch, W},
+  booktitle={Pattern Recognition, 1992. Vol. III. Conference C: Image, Speech and Signal Analysis, Proceedings., 11th IAPR International Conference on},
+  pages={143--146},
+  year={1992},
+  organization={IEEE}
+}
+
+@article{ji20063d,
+  title={A 3D shape constraint on video},
+  author={Ji, Hui and Fermuller, Cornelia},
+  journal={IEEE transactions on pattern analysis and machine intelligence},
+  volume={28},
+  number={6},
+  pages={1018--1023},
+  year={2006},
+  publisher={IEEE}
+}
+
+
+@inproceedings{bitsakos2008bilateral,
+  title={Bilateral symmetry of object silhouettes under perspective projection},
+  author={Bitsakos, Konstantinos and Yi, Hyoungjune and Yi, Li and Fermuller, C},
+  booktitle={Pattern Recognition, 2008. ICPR 2008. 19th International Conference on},
+  pages={1--4},
+  year={2008},
+  organization={IEEE}
+}
+
+@inproceedings{fermuller1993motion,
+  title={Motion constraint patterns},
+  author={Fermuller, Cornelia},
+  booktitle={Qualitative Vision, 1993., Proceedings of IEEE Workshop on},
+  pages={128--139},
+  year={1993},
+  organization={IEEE}
+}
+
+@inproceedings{ji2005integration,
+  title={Integration of motion fields through shape},
+  author={Ji, Hui and Fermuller, Cornelia},
+  booktitle={Computer Vision and Pattern Recognition, 2005. CVPR 2005. IEEE Computer Society Conference on},
+  volume={2},
+  pages={663--669},
+  year={2005},
+  organization={IEEE}
+}
+
+@article{fermuller2003statistical,
+  title={Statistical bias predicts many illusions},
+  author={Fermuller, Cornelia M},
+  journal={Journal of Vision},
+  volume={3},
+  number={9},
+  pages={636--636},
+  year={2003},
+  publisher={The Association for Research in Vision and Ophthalmology}
+}
+
+@inproceedings{ji2003uncertainty,
+  title={Uncertainty in 3D shape estimation},
+  author={Ji, Hui and Fermuller, Cornelia},
+  booktitle={ICCV Workshop on Statistical and Computational Theories of Vision},
+  year={2003}
+}
+
+@article{fermuller2008view,
+  title={A view-point invariant texture descriptor},
+  author={Fermuller, Cornelia and Xu, Yong and Ji, Hui},
+  journal={Journal of Vision},
+  volume={8},
+  number={6},
+  pages={354--354},
+  year={2008},
+  publisher={The Association for Research in Vision and Ophthalmology}
+}
+
+@article{fermuller2005anisotropy,
+  title={On the anisotropy in the perception of stereoscopic slant},
+  author={Fermuller, Cornelia M and Ji, Hui},
+  journal={Journal of Vision},
+  volume={5},
+  number={8},
+  pages={516--516},
+  year={2005},
+  publisher={The Association for Research in Vision and Ophthalmology}
+}
+
+@article{aliaga2004robotics,
+  title={Robotics \& Automation Magazine Vol. 11},
+  author={Aliaga, DG and Allen, PK and Archibald, JK and Argyros, AA and Arkin, RC and Baker, C and Baker, P and Beard, RW and Bicchi, A and Birgmajer, B and others},
+  journal={IEEE Robotics \& Automation Magazine},
+  pages={132},
+  year={2004}
+}
+
+@inproceedings{bitsakos2007combining,
+  title={Combining motion from texture and lines for visual navigation},
+  author={Bitsakos, Konstantinos and Yi, Li and Fermuller, Cornelia},
+  booktitle={Intelligent Robots and Systems, 2007. IROS 2007. IEEE/RSJ International Conference on},
+  pages={232--239},
+  year={2007},
+  organization={IEEE}
+}
+
+@article{fermuller2010illusory,
+  title={Illusory lightness perception due to signal compression and reconstruction},
+  author={Fermuller, Cornelia and Li, Yi},
+  journal={Journal of Vision},
+  volume={10},
+  number={7},
+  pages={426--426},
+  year={2010},
+  publisher={The Association for Research in Vision and Ophthalmology}
+}
+
+@article{tzoukermann2011language,
+  title={Language Models for Semantic Extraction and},
+  author={Tzoukermann, Evelyne and Neumann, Jan and Kosecka, Jana and Ferm{\"u}ller, Cornelia and Perera, Ian and Ferraro, Frank and Sapp, Ben and Chaudhry, Rizwan and Singh, Gautam},
+  year={2011}
+}
+
+
+@inproceedings{ji2004bias,
+  title={Bias in shape estimation},
+  author={Ji, Hui and Ferm{\"u}ller, Cornelia},
+  booktitle={European Conference on Computer Vision},
+  pages={405--416},
+  year={2004},
+  organization={Springer, Berlin, Heidelberg}
+}
+
+@article{fermuller2007illusory,
+  title={Illusory motion due to causal time filtering},
+  author={Fermuller, Cornelia and Ji, Hui},
+  journal={Journal of Vision},
+  volume={7},
+  number={9},
+  pages={977--977},
+  year={2007},
+  publisher={The Association for Research in Vision and Ophthalmology}
+}
+
+@article{xu2012scale,
+  title={Scale-space texture description on SIFT-like textons},
+  author={Xu, Yong and Huang, Sibin and Ji, Hui and Ferm{\"u}ller, Cornelia},
+  journal={Computer Vision and Image Understanding},
+  volume={116},
+  number={9},
+  pages={999--1013},
+  year={2012},
+  publisher={Academic Press}
+}
+
+@inproceedings{nishigaki2012image,
+  title={The image torque operator: A new tool for mid-level vision},
+  author={Nishigaki, Morimichi and Ferm{\"u}ller, Cornelia and DeMenthon, Daniel},
+  booktitle={Computer Vision and Pattern Recognition (CVPR), 2012 IEEE Conference on},
+  pages={502--509},
+  year={2012},
+  organization={IEEE}
+}
+
+@inproceedings{xu2012contour,
+  title={Contour-based recognition},
+  author={Xu, Yong and Quan, Yuhui and Zhang, Zhuming and Ji, Hui and Ferm{\"u}ller, Cornelia and Nishigaki, Masakatsu and Dementhon, Daniel},
+  booktitle={Computer Vision and Pattern Recognition (CVPR), 2012 IEEE Conference on},
+  pages={3402--3409},
+  year={2012},
+  organization={IEEE}
+}
+
+@article{fermuller2012effect,
+  title={The effect of compression in the watercolor illusion},
+  author={Ferm{\"u}ller, Cornelia and Ji, Hui},
+  journal={Journal of Vision},
+  volume={12},
+  number={9},
+  pages={59--59},
+  year={2012},
+  publisher={Association for Research in Vision and Ophthalmology}
+}
+
+@article{bajaj2004haritaoglu,
+  title={Haritaoglu, Ismail, 97 Hern$\mu$ndez Esteban, Carlos, 367 Hongeng, Somboon, 129},
+  author={Bajaj, Chandrajit and Basu, Sankar and Boyd, Jeffrey E and Bremond, Francois and Chau, Chun-Pong and Chen, SW and Cherng, S and Cornelis, Kurt and Cortelazzo, Guido M and Davis, James W and others},
+  journal={Computer Vision and Image Understanding},
+  volume={96},
+  pages={472},
+  year={2004}
+}
+
+@article{fermuller2016motion,
+  title={Motion Illusions in Man and Machine},
+  author={Ferm{\"u}ller, Cornelia},
+  journal={The Oxford Compendium of Visual Illusions},
+  year={2016},
+  publisher={Oxford University Press}
+}
+
+@article{fermuller2012illusions,
+  title={Illusions in man and machine},
+  author={Ferm{\"u}ller, C},
+  journal={Perception ECVP abstract},
+  volume={41},
+  pages={8--8},
+  year={2012},
+  publisher={Pion Ltd}
+}
+
+
+@article{warrant2014bioinspired,
+  title={BIOINSPIRED IMAGING: DISCOVERY, EMULATION, AND FUTURE PROSPECTS},
+  author={Warrant, E and Oskarsson, M and Malm, H and Roberts, NW and How, MJ and Porter, ML and Temple, SE and Caldwell, RL and Powell, SB and Gruev, V and others},
+  journal={Proceedings of the IEEE},
+  volume={102},
+  number={10},
+  year={2014}
+}
+
+@inproceedings{kim2014towards,
+  title={Towards a robotic hand rehabilitation exoskeleton for stroke therapy},
+  author={Kim, Yeongjin and Cheng, Shing Shin and Ecins, Aleksandrs and Ferm{\"u}ller, Cornelia and Westlake, Kelly P and Desai, Jaydev P},
+  booktitle={ASME 2014 Dynamic Systems and Control Conference},
+  pages={V001T04A006--V001T04A006},
+  year={2014},
+  organization={American Society of Mechanical Engineers}
+}
+
+
+@article{brodsky1997direct,
+  title={Direct self-calibration},
+  author={Brodsky, Tomas and Ferm{\"u}ller, Cornelia},
+  year={1997}
+}
+
+@article{nishigaki2016image,
+  title={The Image Torque Operator for Contour Processing},
+  author={Nishigaki, Morimichi and Ferm{\"u}ller, Cornelia},
+  journal={arXiv preprint arXiv:1601.04669},
+  year={2016}
+}
+
+@inproceedings{ji2006wavelet,
+  title={Wavelet-based super-resolution reconstruction: theory and algorithm},
+  author={Ji, Hui and Ferm{\"u}ller, Cornelia},
+  booktitle={European Conference on Computer Vision},
+  pages={295--307},
+  year={2006},
+  organization={Springer, Berlin, Heidelberg}
+}
+
+
+@inproceedings{mao2016co,
+  title={Co-active learning to adapt humanoid movement for manipulation},
+  author={Mao, Ren and Baras, John S and Yang, Yezhou and Ferm{\"u}ller, Cornelia},
+  booktitle={Humanoid Robots (Humanoids), 2016 IEEE-RAS 16th International Conference on},
+  pages={372--378},
+  year={2016},
+  organization={IEEE}
+}
+
+@inproceedings{luan2016reliable,
+  title={Reliable attribute-based object recognition using high predictive value classifiers},
+  author={Luan, Wentao and Yang, Yezhou and Ferm{\"u}ller, Cornelia and Baras, John S},
+  booktitle={European Conference on Computer Vision},
+  pages={801--815},
+  year={2016},
+  organization={Springer, Cham}
+}
+
+@article{basri2016guest,
+  title={Guest Editorial: Special Section on CVPR 2014},
+  author={Basri, Ronen and Ferm{\"u}ller, Cornelia and Martinez, Aleix M and Vidal, Ren{\'e}},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={38},
+  number={7},
+  pages={1281--1282},
+  year={2016},
+  publisher={IEEE}
+}
+
+@article{fermuller2017prediction,
+  title={Prediction of manipulation actions},
+  author={Ferm{\"u}ller, Cornelia and Wang, Fang and Yang, Yezhou and Zampogiannis, Konstantinos and Zhang, Yi and Barranco, Francisco and Pfeiffer, Michael},
+  journal={International Journal of Computer Vision},
+  pages={1--17},
+  year={2017},
+  publisher={Springer US}
+}
+
+@inproceedings{fermuller1993global,
+  title={Global 3D motion estimation},
+  author={Fermuller, Cornelia},
+  booktitle={Computer Vision and Pattern Recognition, 1993. Proceedings CVPR'93., 1993 IEEE Computer Society Conference on},
+  pages={415--421},
+  year={1993},
+  organization={IEEE}
+}
+
+
+@inproceedings{luan2017fast,
+  title={Fast task-specific target detection via graph based constraints representation and checking},
+  author={Luan, Wentao and Yang, Yezhou and Ferm{\"u}ller, Cornelia and Baras, John S},
+  booktitle={Robotics and Automation (ICRA), 2017 IEEE International Conference on},
+  pages={3984--3991},
+  year={2017},
+  organization={IEEE}
+}
+
+
+
+@inproceedings{tzoukermann2011language,
+  title={Language models for semantic extraction and filtering in video action recognition},
+  author={Tzoukermann, Evelyne and Neumann, Jan and Kosecka, Jana and Fermuller, Cornelia and Perera, Ian and Ferraro, Frank and Sapp, Ben and Chaudhry, Rizwan and Singh, Gautam},
+  booktitle={Workshops at the Twenty-Fifth AAAI Conference on Artificial Intelligence},
+  year={2011}
+}
+
+@inproceedings{funk20172017,
+  title={2017 ICCV Challenge: Detecting Symmetry in the Wild},
+  author={Funk, Christopher and Lee, Seungkyu and Oswald, Martin R and Tsogkas, Stavros and Shen, Wei and Cohen, Andrea and Dickinson, Sven and Liu, Yanxi},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  pages={1692--1701},
+  year={2017}
+}
+
+
+@inproceedings{xu2009combining,
+  title={Combining powerful local and global statistics for texture description},
+  author={Xu, Yong and Huang, SiBin and Ji, Hui and Fermuller, Cornelia},
+  booktitle={Computer Vision and Pattern Recognition, 2009. CVPR 2009. IEEE Conference on},
+  pages={573--580},
+  year={2009},
+  organization={IEEE}
+}
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+  	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bib-list.js"></script>
+		<script type="text/javascript">
+		    $(document).ready(function() {
+        	bibtexify("#bibtex", "pubTable", {'tweet': 'aloimonos'});
+    		});
+		</script>
+	</body>
+</html>
