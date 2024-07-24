@@ -1,8 +1,0 @@
-@inproceedings{sanket2020evdodgenet,
-  title={EVDodgeNet: Deep dynamic obstacle dodging with event cameras},
-  author={Sanket, Nitin J and Parameshwara, Chethan M and Singh, Chahat Deep and Kuruttukulam, Ashwin V and Ferm{\"u}ller, Cornelia and Scaramuzza, Davide and Aloimonos, Yiannis},
-  booktitle={2020 IEEE International Conference on Robotics and Automation (ICRA)},
-  pages={10651--10657},
-  year={2020},
-  organization={IEEE}
-}
