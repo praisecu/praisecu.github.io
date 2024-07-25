@@ -57,7 +57,7 @@ headerTemplate.innerHTML = `
                   <div class="flex-container">
                 
                 
-                <div><a href="https://colorado.edu/" title="University of Colorado - Boulder"><img class="uni-logo"
+                <div><a href="https://colorado.edu/" title="University of Colorado - Boulder" target="_blank"><img class="uni-logo"
                   src="img/logo/boulder.webp"></a>&#160 &#160</div>
                 <div class="praise-header"><a href="/" title="PRAISe at CU Boulder">PRAISe Lab  &#160</div> <!-- <span class="fa fa-home">&#160</span> --> <!-- home logo -->
                 <div><a href="/" title="PRAISe at CU Boulder"><img class="uni-logo"
