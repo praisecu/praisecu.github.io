@@ -76,23 +76,23 @@ headerTemplate.innerHTML = `
   
           <!-- <li> <a href="news">News</a></li> -->
           <li class="dropdown">
-            <a href="publications" title="Reasearch at PRAISe, CU Boulder">Research <i class="fa fa-caret-down"></i></a>
+            <a href="../publications" title="Research at PRAISe, CU Boulder">Research <i class="fa fa-caret-down"></i></a>
             <div class="submenu-wrapper">
               <div class="submenu-inner">
                 <ul class="dropdown-menu">
-                  <li><a href="research-areas">Research Areas</a></li>
-                  <!-- <li><a href="software" style="font-size:19px">Tutorials/Softwares/Datasets</a></li> -->
-                  <li><a href="publications">Recent Publications</a></li>
-                  <!-- <li><a href="research-facilities" style="font-size:20px;">Research Facilities</a></li> -->
+                  <li><a href="../research-areas">Research Areas</a></li>
+                  <!-- <li><a href="../software" style="font-size:19px">Tutorials/Softwares/Datasets</a></li> -->
+                  <li><a href="../publications">Recent Publications</a></li>
+                  <!-- <li><a href="../research-facilities" style="font-size:20px;">Research Facilities</a></li> -->
                 </ul>
               </div>
             </div>
           </li>
-          <li> <a href="teaching" title="Look at our Graduate and Undergradutate Courses we offer">Teaching</a></li>
-          <li> <a href="team" title="People at PRAISe">Team</a></li>
-          <li><a href="media" title="Media Coverage">Media</span></a></li>
-          <li><a href="openings" title="Join Us: Openings for PhDs, Masters and Undergraduates">Openings</a></li>
-          <!-- <li><a href="seminar"><b>CU Boulder</b> Seminar</a></li> -->
+          <li> <a href="../teaching" title="Look at our Graduate and Undergraduate Courses we offer">Teaching</a></li>
+          <li> <a href="../team" title="People at PRAISe">Team</a></li>
+          <li><a href="../media" title="Media Coverage">Media</span></a></li>
+          <li><a href="../openings" title="Join Us: Openings for PhDs, Masters and Undergraduates">Openings</a></li>
+          <!-- <li><a href="../seminar"><b>CU Boulder</b> Seminar</a></li> -->
   
       </div>
   </div>
