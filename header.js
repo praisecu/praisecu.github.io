@@ -8,7 +8,7 @@ headerTemplate.innerHTML = `
 
     <meta property="og:title" content="PRAISe at CU Boulder">
     <meta property="og:description" content="Advancing robot autonomy through perception and AI research.">
-    <meta property="og:image" content="img/logo/praise.webp">
+    <meta property="og:image" content="img/logo/cuboulder.png">
 
 
     <link href="../css/team.css" rel="stylesheet"> 
