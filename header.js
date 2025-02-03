@@ -2,6 +2,15 @@ const headerTemplate = document.createElement('template');
 
 headerTemplate.innerHTML = `
 
+    <meta name="description" content="PRAISe Lab at CU Boulder - Research on Perception, Robotics, AI, and Sensing.">
+    <meta name="keywords" content="PRAISe, CU Boulder, Robotics, AI, Computer Vision">
+    <meta name="author" content="PRAISe Lab">
+
+    <meta property="og:title" content="PRAISe at CU Boulder">
+    <meta property="og:description" content="Advancing robot autonomy through perception and AI research.">
+    <meta property="og:image" content="img/logo/praise.webp">
+
+
     <link href="../css/team.css" rel="stylesheet"> 
     <!-- Web Fonts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
