@@ -1,20 +1,6 @@
 const headerTemplate = document.createElement('template');
 
 headerTemplate.innerHTML = `
-
-    <meta property="og:title" content="PRAISe Lab at CU Boulder">
-    <meta property="og:description" content="Welcome to Perception, Robotics, AI and Sensing (PRAISe) Lab led by Prof. Chahat Deep Singh. We work at the intersection of Perception, Robotics, AI and Computational Imaging to push the boundaries of robot autonomy.">
-    <meta property="og:image" content="https://praisecu.com/img/logo/cu-boulder.webp">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="300">
-    <meta property="og:image:height" content="300">	
-    <meta property="twitter:image" content="https://praisecu.com/img/logo/cu-boulder.webp">
-    <meta name="og:author" content="Chahat Deep Singh">
-    <meta property="title" content="PRAISe Lab at CU Boulder">
-    <meta property="description" content="Welcome to Perception, Robotics, AI and Sensing (PRAISe) Lab led by Prof. Chahat Deep Singh. We work at the intersection of Perception, Robotics, AI and Computational Imaging to push the boundaries of robot autonomy.">
-    <meta property="image" content="https://praisecu.com/img/logo/cu-boulder.webp">
-    <meta name="author" content="Chahat Deep Singh">
-
     
     <link href="../css/team.css" rel="stylesheet"> 
     <!-- Web Fonts -->
