@@ -71,7 +71,7 @@ footerTemplate.innerHTML = `
 				<!-- <font color="gray"><a href="/" title="Perception & Robotics Group"><img src="img/logo/praise.webp" style=" width: auto; height: 220px;"></a></font> -->
         <div class="praise-header"><a href="/" title="PRAISe at CU Boulder" style="color:black; font-size:60px">PRAISe Lab</div></a>
 				<br>
-				<h5 style="color: #777">
+				<h5 style="color: #aaa">
 					Lab: <b>ECES 1B14</b> and <b>DLC 2b40</b> | Office: ECES 152<br>Perception, Robotics, AI and Sensing Lab<br>University of Colorado, Boulder<br>Copyright &#169 2025 </font>
 					<hr width="30%">
 					<!-- Auto Year, Doesn't work in JS while loading header/footer from template -->
