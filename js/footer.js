@@ -1,4 +1,3 @@
-
 const footerTemplate = document.createElement('template');
 
 footerTemplate.innerHTML = 
