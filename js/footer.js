@@ -1,6 +1,7 @@
+
 const footerTemplate = document.createElement('template');
 
-footerTemplate.innerHTML = `
+footerTemplate.innerHTML = 
 
 	<link href="css/team.css" rel="stylesheet"> 
     <!-- Web Fonts -->
@@ -59,6 +60,8 @@ footerTemplate.innerHTML = `
 	<a href="https://github.com/chahatdeep/" title="Github"><span class="fa-brands fa-square-github" aria-hidden="true"></span></a>  &#160 &#160 &#160
 	<a href="https://www.google.com/maps/place/CU+Boulder+Engineering/@40.0071078,-105.2630886,18.8z/data=!4m6!3m5!1s0x876bedcb98970b19:0xa5dfeb8e8e2fbc8!8m2!3d40.0067943!4d-105.2628211!16s%2Fg%2F12xp_gt6y?entry=ttu" title="Location: CU Boulder"><span class="fa-solid fa-location-dot" aria-hidden="true"></span></a>
 </p><center>
+	<!-- <span style="color:#1c1c1c; background-color:#ffffff; font-size:28px; border-radius:8px">&#160 chahat[dot]singh[at]colorado[dot]edu &#160</span> -->
+<!--</div>-->
 </section>
 
 <!-- copyright-section start -->
@@ -70,14 +73,26 @@ footerTemplate.innerHTML = `
         <div class="praise-header"><a href="/" title="PRAISe at CU Boulder" style="color:black; font-size:60px">PRAISe Lab</div></a>
 				<br>
 				<h5 style="color: #aaa">
-					Lab: <b>ECES 1B14</b> and <b>DLC 2b40</b> | Office0: ECES 152<br>Perception, Robotics, AI and Sensing Lab<br>University of Colorado, Boulder<br>Copyright &#169; <span id="current-year" style="font-size:14px"></span>
+					Lab: <b>ECES 1B14</b> and <b>DLC 2b40</b> | Office: ECES 152<br>Perception, Robotics, AI and Sensing Lab<br>University of Colorado, Boulder<br>Copyright &#169 2025 </font>
 					<hr width="30%">
+					<!-- Auto Year, Doesn't work in JS while loading header/footer from template -->
+					<!--<script type="text/javascript">document.write( new Date().getFullYear() );</script>-->
+
 			</div>
 		</div>
 	</div> 
 </footer>
 <!-- FOOTER -->
-`;
+			
+
+<!-- Preloader -->
+ <!--<div id="preloader">
+  <div id="status">
+    <div class="status-mes"><center><h3>Loading...</h3><br><div class="loader"></center></div></div>
+  </div>
+</div>-->
+
+
 
 
 class Footer extends HTMLElement {
@@ -87,17 +102,12 @@ class Footer extends HTMLElement {
   
 	connectedCallback() {
 	  const shadowRoot = this.attachShadow({ mode: 'closed' });
-	  shadowRoot.appendChild(footerTemplate.content.cloneNode(true));
-	  
-	  // Automatically update year
-	  const yearElement = shadowRoot.querySelector("#current-year");
-	  if (yearElement) {
-		yearElement.textContent = new Date().getFullYear();
-	  }
-	}
-}
   
-customElements.define('footer-component', Footer);
+	  shadowRoot.appendChild(footerTemplate.content);
+	}
+  }
+  
+  customElements.define('footer-component', Footer);
 
 // Link:
 // https://www.freecodecamp.org/news/reusable-html-components-how-to-reuse-a-header-and-footer-on-a-website/
