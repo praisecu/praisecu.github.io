@@ -70,7 +70,7 @@ footerTemplate.innerHTML = `
         <div class="praise-header"><a href="/" title="PRAISe at CU Boulder" style="color:black; font-size:60px">PRAISe Lab</div></a>
 				<br>
 				<h5 style="color: #aaa">
-					Lab: <b>ECES 1B14</b> and <b>DLC 2b40</b> | Office0: ECES 152<br>Perception, Robotics, AI and Sensing Lab<br>University of Colorado, Boulder<br>Copyright &#169; <a style="font-size:6px"><span id="current-year"></span></a>
+					Lab: <b>ECES 1B14</b> and <b>DLC 2b40</b> | Office0: ECES 152<br>Perception, Robotics, AI and Sensing Lab<br>University of Colorado, Boulder<br>Copyright &#169; <span id="current-year" style="font-size:14px"></span>
 					<hr width="30%">
 			</div>
 		</div>
