@@ -1,6 +1,6 @@
 const footerTemplate = document.createElement('template');
 
-footerTemplate.innerHTML = 
+footerTemplate.innerHTML = `
 
 	<link href="css/team.css" rel="stylesheet"> 
     <!-- Web Fonts -->
@@ -91,7 +91,7 @@ footerTemplate.innerHTML =
   </div>
 </div>-->
 
-
+`
 
 
 class Footer extends HTMLElement {
