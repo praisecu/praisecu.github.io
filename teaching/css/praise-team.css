@@ -59,7 +59,7 @@
 	max-width: 1200px;
 	margin: 0 auto;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+	grid-template-columns: repeat(auto-fit, minmax(250px, auto));
 	align-items: center;
 	gap: 2rem;
 	text-align: center;
@@ -79,6 +79,7 @@
 .box{
 	padding: 16px;
 	max-width: 300px;
+	min-height: 350px;
 	background: radial-gradient(#ffffff,#ffffffff);;
 	border-radius: 20px;
 	border: 1px solid #ccc;
