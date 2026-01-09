@@ -60,7 +60,7 @@
 	margin: 0 auto;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	align-items: start;
+	align-items: center;
 	gap: 2rem;
 	text-align: center;
 	margin-top: 4rem;
