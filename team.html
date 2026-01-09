@@ -102,28 +102,28 @@
     <!-- <script src="js/vendor/html5shim.js"></script> -->
     <!-- <script src="js/vendor/respond.min.js"></script> -->
     <!-- <![endif] -->
-  </myimports>
+</myimports>
 
   <style>
-    .team-content{
+    #current-students .team-content{
       width: 96%;
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(4, 1fr) !important;
-      align-items: center !important;
+      align-items: start !important;
       gap: 2rem;
       text-align: center;
       margin-top: 4rem;
     }
-    .team-content img{
+    #current-students .team-content img{
       width: 200px !important;
       height: 200px !important;
       border-radius: 50%;
       margin-bottom: 15px;
       object-fit: cover !important;
     }
-    .box{
+    #current-students .box{
       padding: 16px;
       max-width: 300px;
       min-height: 400px !important;
@@ -131,6 +131,12 @@
       border-radius: 20px;
       border: 1px solid #ccc;
       transition: all .2s ease;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+    }
+    #current-students .box h3{
+      margin-top: auto !important;
     }
   </style>
  
@@ -188,6 +194,8 @@
 
 
 <center>
+
+<div id="current-students">
 <div class="team-content">
 			<div class="box">
 				<img src="img/team/xiaoao.png">
@@ -234,6 +242,7 @@
       <br>
 
 
+</div>
 </div>
 </center>
 
