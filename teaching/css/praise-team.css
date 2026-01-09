@@ -59,17 +59,18 @@
 	max-width: 1200px;
 	margin: 0 auto;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, auto));
-	align-items: center;
+	grid-template-columns: repeat(4, 1fr);
+	align-items: start;
 	gap: 2rem;
 	text-align: center;
 	margin-top: 4rem;
 }
 .team-content img{
-	width: 100%;
-	height: auto;
+	width: 200px;
+	height: 200px;
 	border-radius: 50%;
 	margin-bottom: 15px;
+	object-fit: cover;
 }
 .center h1{
 	color: #000000;
