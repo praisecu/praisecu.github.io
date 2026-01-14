@@ -1,13 +1,5 @@
 const footerTemplate = document.createElement('template');
 
-document.addEventListener("DOMContentLoaded", function() {
-    const footer = document.querySelector("#footer-year");
-    if (footer) {
-        footer.textContent = new Date().getFullYear();
-    }
-});
-
-
 footerTemplate.innerHTML = `
 
 	<link href="css/team.css" rel="stylesheet"> 
@@ -80,7 +72,7 @@ footerTemplate.innerHTML = `
         <div class="praise-header"><a href="/" title="PRAISe at CU Boulder" style="color:black; font-size:60px">PRAISe Lab</div></a>
 				<br>
 				<h5 style="color: #aaa">
-					Lab: <b>ECES 1B14</b> and <b>DLC 2b40</b> | Office: ECES 152<br>Perception, Robotics, AI and Sensing Lab<br>University of Colorado, Boulder<br>Copyright &#169 2025</font>
+					Lab: <b>ECES 1B14</b> and <b>DLC 2b40</b> | Office: ECES 152<br>Perception, Robotics, AI and Sensing Lab<br>University of Colorado, Boulder<br>Copyright &#169 2026 </font>
 					<hr width="30%">
 					<!-- Auto Year, Doesn't work in JS while loading header/footer from template -->
 					<!--<script type="text/javascript">document.write( new Date().getFullYear() );</script>-->
