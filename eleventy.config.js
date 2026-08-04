@@ -20,7 +20,6 @@ export default function (eleventyConfig) {
     "chahat.html",
     "news.html",
     "page-template.html",
-    "teaching.html",
     "zoom.html",
     "CNAME"
   ];
