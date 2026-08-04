@@ -22,7 +22,6 @@ export default function (eleventyConfig) {
     "news.html",
     "page-template.html",
     "teaching.html",
-    "team.html",
     "zoom.html",
     "CNAME"
   ];

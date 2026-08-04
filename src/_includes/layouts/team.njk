@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>{{ title }} | PRAISe Lab at CU Boulder</title>
+
+  <meta
+    name="description"
+    content="{{ description | default('PRAISe Lab at the University of Colorado Boulder.') }}"
+  >
+
+  <meta property="og:title" content="{{ title }} | PRAISe Lab">
+  <meta
+    property="og:description"
+    content="{{ description | default('PRAISe Lab at the University of Colorado Boulder.') }}"
+  >
+  <meta
+    property="og:image"
+    content="https://praisecu.com/img/logo/praise-logo.webp"
+  >
+
+  <link rel="icon" type="image/x-icon" href="/img/logo/praise.webp">
+
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700;800;900&display=swap"
+  >
+
+  <link rel="stylesheet" href="/css/team.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fonts/flaticon/flaticon.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/hippo-off-canvas.css">
+  <link rel="stylesheet" href="/css/animate.css">
+  <link rel="stylesheet" href="/css/language-select.css">
+  <link rel="stylesheet" href="/owl.carousel/assets/owl.carousel.css">
+  <link rel="stylesheet" href="/css/magnific-popup.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/template.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/research.css">
+  <link rel="stylesheet" href="/css/praise-style.css">
+  <link rel="stylesheet" href="/css/cards.css">
+
+  <!-- Load last so it overrides legacy page styles. -->
+  <link rel="stylesheet" href="/css/markdown-pages.css">
+  <link rel="stylesheet" href="/css/modern-header.css">
+  <link rel="stylesheet" href="/css/modern-footer.css">
+  <link rel="stylesheet" href="/css/team-page.css">
+
+  <script
+    src="https://kit.fontawesome.com/4ad8d74216.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <script src="/js/vendor/modernizr-2.8.1.min.js"></script>
+</head>
+
+<body>
+{% include "components/modern-header.njk" %}
+  <main class="modern-page team-page">
+  <section class="modern-page-hero">
+    <div class="modern-page-container">
+      <div class="modern-page-heading">
+        {% if kicker %}
+          <p class="modern-page-kicker">{{ kicker }}</p>
+        {% endif %}
+
+        <h1 class="modern-page-title">{{ title }}</h1>
+
+        {% if summary %}
+          <p class="modern-page-summary">{{ summary }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <section class="team-page-section">
+    <div class="team-page-container">
+      <aside class="team-join" aria-labelledby="team-join-title">
+        <div>
+          <p class="team-join__eyebrow">Join PRAISe</p>
+
+          <h2 id="team-join-title" class="team-join__title">
+            Work with us
+          </h2>
+
+          <p class="team-join__text">
+            PRAISe Lab is currently hiring at the doctoral, master's,
+            and undergraduate levels.
+          </p>
+        </div>
+
+        <a class="team-join__button" href="/openings">
+          View Open Positions
+        </a>
+      </aside>
+
+      <section
+        class="team-group team-group--lead"
+        aria-labelledby="team-lead-title"
+      >
+        <header class="team-section-heading">
+          <p class="team-section-heading__eyebrow">Leadership</p>
+
+          <h2 id="team-lead-title" class="team-section-heading__title">
+            Principal Investigator
+          </h2>
+        </header>
+
+        <article class="team-lead">
+          <img
+            class="team-lead__photo"
+            src="{{ principal_investigator.image }}"
+            alt="{{ principal_investigator.name }}"
+          >
+
+          <div class="team-lead__content">
+            <h3 class="team-lead__name">
+              {{ principal_investigator.name }}
+            </h3>
+
+            <p class="team-lead__role">
+              {{ principal_investigator.role }}
+            </p>
+
+            {% if principal_investigator.links %}
+              <div
+                class="team-socials"
+                aria-label="{{ principal_investigator.name }} links"
+              >
+                {% for link in principal_investigator.links %}
+                  <a
+                    href="{{ link.url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="{{ link.label }}"
+                    title="{{ link.label }}"
+                  >
+                    {% if link.type == "x" %}
+                      <i
+                        class="fa-brands fa-x-twitter"
+                        aria-hidden="true"
+                      ></i>
+                    {% elif link.type == "linkedin" %}
+                      <i
+                        class="fa-brands fa-linkedin"
+                        aria-hidden="true"
+                      ></i>
+                    {% elif link.type == "scholar" %}
+                      <i
+                        class="fa-brands fa-google-scholar"
+                        aria-hidden="true"
+                      ></i>
+                    {% elif link.type == "github" %}
+                      <i
+                        class="fa-brands fa-github"
+                        aria-hidden="true"
+                      ></i>
+                    {% else %}
+                      <i class="fa fa-globe" aria-hidden="true"></i>
+                    {% endif %}
+                  </a>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        </article>
+      </section>
+
+      <section
+        class="team-group"
+        aria-labelledby="current-students-title"
+      >
+        <header class="team-section-heading">
+          <p class="team-section-heading__eyebrow">Researchers</p>
+
+          <h2
+            id="current-students-title"
+            class="team-section-heading__title"
+          >
+            Current Students
+          </h2>
+        </header>
+
+        <div class="team-grid">
+          {% for member in current_students %}
+            <article class="team-card">
+              <img
+                class="team-card__photo"
+                src="{{ member.image }}"
+                alt="{{ member.name }}"
+                loading="lazy"
+              >
+
+              <div class="team-card__content">
+                <h3 class="team-card__name">
+                  {{ member.name }}
+                </h3>
+
+                <p class="team-card__role">
+                  {{ member.role }}
+                </p>
+
+                {% if member.links %}
+                  <div
+                    class="team-socials team-socials--student"
+                    aria-label="{{ member.name }} links"
+                  >
+                    {% for link in member.links %}
+                      <a
+                        href="{{ link.url }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="{{ link.label }}"
+                        title="{{ link.label }}"
+                      >
+                        {% if link.type == "linkedin" %}
+                          <i
+                            class="fa-brands fa-linkedin"
+                            aria-hidden="true"
+                          ></i>
+                        {% elif link.type == "scholar" %}
+                          <i
+                            class="fa-brands fa-google-scholar"
+                            aria-hidden="true"
+                          ></i>
+                        {% elif link.type == "github" %}
+                          <i
+                            class="fa-brands fa-github"
+                            aria-hidden="true"
+                          ></i>
+                        {% else %}
+                          <i class="fa fa-globe" aria-hidden="true"></i>
+                        {% endif %}
+                      </a>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section
+        class="team-group team-group--alumni"
+        aria-labelledby="alumni-title"
+      >
+        <header class="team-section-heading">
+          <p class="team-section-heading__eyebrow">Former Members</p>
+
+          <h2 id="alumni-title" class="team-section-heading__title">
+            Alumni
+          </h2>
+        </header>
+
+        <ul class="team-alumni">
+          {% for alumnus in alumni %}
+            <li class="team-alumni__item">
+              <strong class="team-alumni__name">
+                {{ alumnus.name }}
+              </strong>
+
+              <span class="team-alumni__destination">
+                {{ alumnus.destination }}
+              </span>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    </div>
+  </section>
+</main>
+
+{% include "components/modern-footer.njk" %}
+  <script src="/js/jquery.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/owl.carousel/owl.carousel.min.js"></script>
+  <script src="/js/jquery.magnific-popup.min.js"></script>
+  <script src="/js/hippo-offcanvas.js"></script>
+  <script src="/js/jquery.inview.min.js"></script>
+  <script src="/js/jquery.stellar.js"></script>
+  <script src="/js/jquery.countTo.js"></script>
+  <script src="/js/classie.js"></script>
+  <script src="/js/selectFx.js"></script>
+  <script src="/js/jquery.sticky-kit.min.js"></script>
+  <script src="/js/scripts.js"></script>
+  <script src="/js/modern-header.js"></script>
+</body>
+</html>
+
