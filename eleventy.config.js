@@ -20,7 +20,6 @@
     "chahat.html",
     "media.html",
     "news.html",
-    "openings.html",
     "page-template.html",
     "publications.html",
     "research-areas.html",
@@ -44,3 +43,4 @@
     htmlTemplateEngine: "njk"
   };
 }
+
