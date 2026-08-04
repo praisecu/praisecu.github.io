@@ -18,7 +18,6 @@ export default function (eleventyConfig) {
   const existingPages = [
     "index.html",
     "chahat.html",
-    "media.html",
     "news.html",
     "page-template.html",
     "teaching.html",
