@@ -242,7 +242,7 @@
 /* Final readability improvements */
 
 .modern-footer__tagline {
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .modern-footer__navigation a {
@@ -251,7 +251,7 @@
 
 .modern-footer__address {
   gap: 4px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.55;
 }
 
@@ -265,13 +265,13 @@
 .modern-footer__address i {
   width: 14px;
   color: #9b9b93;
-  font-size: 11px;
+  font-size: 14px;
   text-align: center;
 }
 
 .modern-footer__bottom p,
 .modern-footer__bottom a {
-  font-size: 11px;
+  font-size: 14px;
 }
 
 .modern-footer__bottom a {
@@ -289,4 +289,29 @@
   .modern-footer__address span {
     justify-content: flex-start;
   }
+}
+
+/* Match footer typography with the PRAISe header. */
+
+.modern-footer,
+.modern-footer a,
+.modern-footer p,
+.modern-footer address,
+.modern-footer span {
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+}
+
+.modern-footer__title {
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.modern-footer__tagline,
+.modern-footer__navigation a,
+.modern-footer__address,
+.modern-footer__bottom p,
+.modern-footer__bottom a {
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-weight: 500;
 }

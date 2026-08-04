@@ -64,18 +64,26 @@
     });
   }
 
-  if (dropdown && dropdownButton) {
-    dropdownButton.addEventListener("click", (event) => {
-      event.stopPropagation();
+if (dropdown && dropdownButton) {
+  dropdownButton.addEventListener("click", (event) => {
+    /*
+     * Desktop uses hover and keyboard focus.
+     * Mobile uses click/tap.
+     */
+    if (window.innerWidth > 900) {
+      return;
+    }
 
-      const isOpen = dropdown.classList.toggle("is-open");
+    event.stopPropagation();
 
-      dropdownButton.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
-    });
-  }
+    const isOpen = dropdown.classList.toggle("is-open");
+
+    dropdownButton.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
+  });
+}
 
   document.addEventListener("click", (event) => {
     if (!header.contains(event.target)) {

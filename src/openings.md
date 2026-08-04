@@ -1,6 +1,7 @@
 ---
 layout: layouts/modern-page.njk
 title: Open Positions
+nav: openings
 kicker: Join the Lab
 summary: We welcome motivated researchers interested in perception, robotics, artificial intelligence, computational imaging, and autonomous systems.
 description: Information for prospective students interested in joining the PRAISe Lab at CU Boulder.

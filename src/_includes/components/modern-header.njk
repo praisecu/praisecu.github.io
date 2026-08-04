@@ -23,41 +23,54 @@
     </button>
 
     <nav
-      id="modern-header-navigation"
-      class="modern-header__navigation"
-      aria-label="Primary navigation"
+  id="modern-header-navigation"
+  class="modern-header__navigation"
+  aria-label="Primary navigation"
+>
+  <div class="modern-header__dropdown">
+    <button
+      class="modern-header__link modern-header__dropdown-button{% if nav == 'research' %} is-active{% endif %}"
+      type="button"
+      aria-expanded="false"
     >
-      <div class="modern-header__dropdown">
-        <button
-          class="modern-header__link modern-header__dropdown-button"
-          type="button"
-          aria-expanded="false"
-        >
-          Research
-          <i class="fa-solid fa-caret-down" aria-hidden="true"></i>
-        </button>
+      Research
+      <i class="fa-solid fa-caret-down" aria-hidden="true"></i>
+    </button>
 
-        <div class="modern-header__dropdown-menu">
-          <a href="/research-areas">Research Areas</a>
-          <a href="/publications">Recent Publications</a>
-        </div>
-      </div>
+    <div class="modern-header__dropdown-menu">
+      <a href="/research-areas">Research Areas</a>
+      <a href="/publications">Recent Publications</a>
+    </div>
+  </div>
 
-      <a class="modern-header__link" href="/teaching">
-        Teaching
-      </a>
+  <a
+    class="modern-header__link{% if nav == 'teaching' %} is-active{% endif %}"
+    href="/teaching"
+  >
+    Teaching
+  </a>
 
-      <a class="modern-header__link" href="/team">
-        Team
-      </a>
+  <a
+    class="modern-header__link{% if nav == 'team' %} is-active{% endif %}"
+    href="/team"
+  >
+    Team
+  </a>
 
-      <a class="modern-header__link" href="/media">
-        Media
-      </a>
+  <a
+    class="modern-header__link{% if nav == 'media' %} is-active{% endif %}"
+    href="/media"
+  >
+    Media
+  </a>
 
-      <a class="modern-header__link" href="/openings">
-        Openings
-      </a>
-    </nav>
+  <a
+    class="modern-header__link{% if nav == 'openings' %} is-active{% endif %}"
+    href="/openings"
+    {% if nav == 'openings' %}aria-current="page"{% endif %}
+  >
+    Openings
+  </a>
+</nav>
   </div>
 </header>

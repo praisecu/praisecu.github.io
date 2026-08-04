@@ -530,10 +530,25 @@ body {
     padding-top: 54px;
   }
 
+/* Justified body text without automatic hyphenation. */
+.modern-page-prose p {
+  text-align: justify;
+  text-justify: inter-word;
+
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Avoid awkward spacing on narrow screens. */
+@media (max-width: 700px) {
   .modern-page-prose p {
     text-align: left;
-    hyphens: none;
   }
+}
 }
 
 
@@ -547,9 +562,10 @@ body {
 }
 
 /* Final paragraph alignment: avoid large spaces between words. */
+/* Justified body text without automatic hyphenation. */
 .modern-page-prose p {
-  text-align: left;
-  text-justify: auto;
+  text-align: justify;
+  text-justify: inter-word;
 
   hyphens: none;
   -webkit-hyphens: none;
@@ -559,6 +575,12 @@ body {
   word-break: normal;
 }
 
+/* Avoid awkward spacing on narrow screens. */
+@media (max-width: 700px) {
+  .modern-page-prose p {
+    text-align: left;
+  }
+}
 /* Reduce excess space between the header and page title. */
 .modern-page-hero {
   padding-top: 48px;
