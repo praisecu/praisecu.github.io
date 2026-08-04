@@ -1,4 +1,4 @@
-﻿export default function (eleventyConfig) {
+export default function (eleventyConfig) {
   // Preserve the existing website assets unchanged.
   const assetDirectories = [
     "css",
@@ -22,7 +22,6 @@
     "news.html",
     "page-template.html",
     "publications.html",
-    "research-areas.html",
     "teaching.html",
     "team.html",
     "zoom.html",
