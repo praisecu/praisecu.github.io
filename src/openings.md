@@ -1,4 +1,4 @@
-﻿---
+---
 layout: layouts/modern-page.njk
 title: Open Positions
 kicker: Join the Lab

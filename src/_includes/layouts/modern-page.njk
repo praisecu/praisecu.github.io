@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -61,6 +61,7 @@
 
   <!-- Load last so it overrides legacy page styles. -->
   <link rel="stylesheet" href="/css/markdown-pages.css">
+  <link rel="stylesheet" href="/css/modern-header.css">
   <link rel="stylesheet" href="/css/modern-footer.css">
 
   <script
@@ -69,12 +70,10 @@
   ></script>
 
   <script src="/js/vendor/modernizr-2.8.1.min.js"></script>
-  <script src="/js/header.js" defer></script>
 </head>
 
 <body>
-  <header-component></header-component>
-
+{% include "components/modern-header.njk" %}
   <main class="modern-page">
     <section class="modern-page-hero">
       <div class="modern-page-container">
@@ -147,5 +146,7 @@
   <script src="/js/selectFx.js"></script>
   <script src="/js/jquery.sticky-kit.min.js"></script>
   <script src="/js/scripts.js"></script>
+  <script src="/js/modern-header.js"></script>
 </body>
 </html>
+

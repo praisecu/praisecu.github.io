@@ -558,3 +558,16 @@ body {
   overflow-wrap: normal;
   word-break: normal;
 }
+
+/* Reduce excess space between the header and page title. */
+.modern-page-hero {
+  padding-top: 48px;
+  padding-bottom: 42px;
+}
+
+@media (max-width: 600px) {
+  .modern-page-hero {
+    padding-top: 34px;
+    padding-bottom: 34px;
+  }
+}
