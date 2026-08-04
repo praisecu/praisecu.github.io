@@ -1,0 +1,162 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>{{ title }} | PRAISe Lab at CU Boulder</title>
+
+  <meta
+    name="description"
+    content="{{ description | default('PRAISe Lab at the University of Colorado Boulder.') }}"
+  >
+
+  <meta property="og:title" content="{{ title }} | PRAISe Lab">
+  <meta
+    property="og:description"
+    content="{{ description | default('PRAISe Lab at the University of Colorado Boulder.') }}"
+  >
+  <meta
+    property="og:image"
+    content="https://praisecu.com/img/logo/praise-logo.webp"
+  >
+
+  <link rel="icon" type="image/x-icon" href="/img/logo/praise.webp">
+
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200..1000&display=swap"
+  >
+
+  <link rel="stylesheet" href="/css/team.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fonts/flaticon/flaticon.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/hippo-off-canvas.css">
+  <link rel="stylesheet" href="/css/animate.css">
+  <link rel="stylesheet" href="/css/language-select.css">
+  <link rel="stylesheet" href="/owl.carousel/assets/owl.carousel.css">
+  <link rel="stylesheet" href="/css/magnific-popup.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/template.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/research.css">
+  <link rel="stylesheet" href="/css/praise-style.css">
+  <link rel="stylesheet" href="/css/cards.css">
+
+  <script
+    src="https://kit.fontawesome.com/4ad8d74216.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <script src="/js/vendor/modernizr-2.8.1.min.js"></script>
+  <script src="/js/header.js" defer></script>
+  <script src="/js/footer.js" defer></script>
+
+  <style>
+  /*
+   * Match the legacy page geometry:
+   * approximately half of the browser width on desktop.
+   */
+  .migrated-page-content {
+    width: 50%;
+    margin: 0 auto;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.35;
+    text-align: left;
+  }
+
+  .migrated-page-content p {
+    margin: 0;
+  }
+
+  /* Gap between the greeting and the application paragraph. */
+  .migrated-page-content p:first-child {
+    margin-bottom: 26px;
+  }
+
+  /* Preserve the visual indentation used in the original page. */
+  .migrated-page-content p:nth-child(2) {
+    text-indent: 1.75em;
+    text-align: justify;
+  }
+
+  .migrated-page-content hr {
+    margin-top: 18px;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 991px) {
+    .migrated-page-content {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .migrated-page-content {
+      width: 90%;
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .migrated-page-content p:nth-child(2) {
+      text-indent: 0;
+      text-align: left;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <header-component></header-component>
+
+<main>
+  <section id="about-us" style="background-color: #fff;">
+    <div class="container">
+      <div class="row text-center">
+        <h1 class="first-section">{{ title }}</h1>
+        <hr>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="migrated-page-content praise-text">
+      {{ content | safe }}
+    </div>
+  </section>
+</main>
+
+  <footer-component></footer-component>
+
+  <script src="/js/jquery.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/owl.carousel/owl.carousel.min.js"></script>
+  <script src="/js/jquery.magnific-popup.min.js"></script>
+  <script src="/js/hippo-offcanvas.js"></script>
+  <script src="/js/jquery.inview.min.js"></script>
+  <script src="/js/jquery.stellar.js"></script>
+  <script src="/js/jquery.countTo.js"></script>
+  <script src="/js/classie.js"></script>
+  <script src="/js/selectFx.js"></script>
+  <script src="/js/jquery.sticky-kit.min.js"></script>
+  <script src="/js/scripts.js"></script>
+</body>
+</html>
