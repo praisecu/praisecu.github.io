@@ -21,7 +21,6 @@ export default function (eleventyConfig) {
     "media.html",
     "news.html",
     "page-template.html",
-    "publications.html",
     "teaching.html",
     "team.html",
     "zoom.html",
