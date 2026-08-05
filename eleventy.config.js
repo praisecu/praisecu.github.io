@@ -7,18 +7,21 @@ export default function (eleventyConfig) {
     "img",
     "js",
     "owl.carousel",
-    "teaching"
+    "teaching/css",
+    "teaching/img",
+    "teaching/js"
   ];
 
   for (const directory of assetDirectories) {
     eleventyConfig.addPassthroughCopy(directory);
   }
 
-  // Preserve the existing root HTML pages during incremental migration.
+  /*
+   * Preserve root-level pages that have not yet been
+   * migrated to Eleventy.
+   */
   const existingPages = [
-    "index.html",
     "chahat.html",
-    "news.html",
     "page-template.html",
     "zoom.html",
     "CNAME"
@@ -27,6 +30,45 @@ export default function (eleventyConfig) {
   for (const page of existingPages) {
     eleventyConfig.addPassthroughCopy(page);
   }
+
+  /*
+   * Preserve teaching pages that have not yet been migrated.
+   *
+   * advancedcv-fall2026.html is intentionally excluded because
+   * src/teaching/advancedcv-fall2026.md generates that URL.
+   */
+  const legacyTeachingPages = [
+    "teaching/mcen5228.html",
+    "teaching/sfm.html"
+  ];
+
+  for (const page of legacyTeachingPages) {
+    eleventyConfig.addPassthroughCopy(page);
+  }
+
+  /*
+   * Sort news entries newest first using date_iso.
+   */
+  eleventyConfig.addFilter("sortNewsNewest", (items = []) => {
+    return [...items].sort((first, second) => {
+      const firstDate =
+        Date.parse(first?.date_iso ?? "") || 0;
+
+      const secondDate =
+        Date.parse(second?.date_iso ?? "") || 0;
+
+      return secondDate - firstDate;
+    });
+  });
+
+  /*
+   * Return only the requested number of items.
+   */
+  eleventyConfig.addFilter("take", (items = [], count = 8) => {
+    return Array.isArray(items)
+      ? items.slice(0, count)
+      : [];
+  });
 
   return {
     dir: {
@@ -38,4 +80,3 @@ export default function (eleventyConfig) {
     htmlTemplateEngine: "njk"
   };
 }
-

@@ -1,0 +1,1634 @@
+/* =========================================================
+   Shared PRAISe teaching-course layout
+   ========================================================= */
+
+.course-page {
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, #f7f7f4 0, #ffffff 420px);
+  color: #1d1e00;
+}
+
+.course-container {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* Hero */
+
+.course-hero {
+  padding: 60px 24px 38px;
+  background:
+    radial-gradient(
+      circle at 86% 12%,
+      rgba(207, 185, 125, 0.19),
+      transparent 30%
+    ),
+    linear-gradient(180deg, #fbfbf8 0%, #f5f5f1 100%);
+  border-bottom: 1px solid #e5e5df;
+}
+
+.course-hero__inner {
+  text-align: center;
+}
+
+.course-hero__term {
+  margin: 0 0 11px;
+  color: #806b29;
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.course-hero__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin: 0;
+
+  color: #181909;
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-size: clamp(34px, 4vw, 54px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+.course-hero__code {
+  color: #796624;
+}
+
+.course-hero__code::after {
+  content: ":";
+}
+
+.course-hero__subtitle {
+  max-width: 760px;
+  margin: 17px auto 0;
+
+  color: #62625e;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.course-hero__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+.course-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 43px;
+  padding: 10px 16px;
+
+  background: #ffffff;
+  border: 1px solid #cbb66f;
+  border-radius: 10px;
+
+  color: #4f4604 !important;
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-size: 14px !important;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none !important;
+
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.course-action--primary {
+  background: #1d1e00;
+  border-color: #1d1e00;
+  color: #cfb97d !important;
+}
+
+.course-action:hover,
+.course-action:focus-visible {
+  background: #4f4604;
+  border-color: #4f4604;
+  color: #ffffff !important;
+  outline: none;
+  transform: translateY(-1px);
+}
+
+/* Course banner */
+
+.course-banner {
+  padding: 30px 24px 0;
+}
+
+.course-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+
+  object-fit: cover;
+  object-position: center;
+
+  background: #ffffff;
+  border: 1px solid #dfdfd9;
+  border-radius: 20px;
+
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.07),
+    0 3px 10px rgba(0, 0, 0, 0.025);
+}
+
+/* Main content */
+
+.course-content {
+  padding: 32px 24px 72px;
+}
+
+.course-content__surface {
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #dfdfd9;
+  border-radius: 22px;
+
+  box-shadow:
+    0 18px 55px rgba(0, 0, 0, 0.05),
+    0 3px 10px rgba(0, 0, 0, 0.02);
+}
+
+.course-content__body {
+  padding: clamp(28px, 4vw, 52px);
+  color: #545450;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.course-content__body > :first-child {
+  margin-top: 0;
+}
+
+.course-content__body > :last-child {
+  margin-bottom: 0;
+}
+
+.course-content__body h2 {
+  position: relative;
+
+  margin: 52px 0 19px;
+  padding-top: 3px;
+
+  color: #1d1e00;
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-size: clamp(25px, 2.5vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+
+.course-content__body h2::before {
+  display: block;
+
+  width: 44px;
+  height: 3px;
+  margin-bottom: 12px;
+
+  background: #c8ae5c;
+  border-radius: 999px;
+
+  content: "";
+}
+
+.course-content__body h3 {
+  margin: 30px 0 12px;
+
+  color: #27280f;
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.course-content__body p {
+  margin: 0 0 18px;
+}
+
+.course-content__body strong {
+  color: #28290e;
+  font-weight: 700;
+}
+
+.course-content__body a {
+  color: #6f5d1b !important;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(111, 93, 27, 0.34);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.course-content__body a:hover,
+.course-content__body a:focus {
+  color: #1d1e00 !important;
+  text-decoration-color: #c8ae5c;
+}
+
+/* Intro notice */
+
+.course-content__body blockquote {
+  margin: 0 0 28px;
+  padding: 17px 19px;
+
+  background: #f7f4e9;
+  border: 1px solid #e3d7b3;
+  border-left: 4px solid #b69b47;
+  border-radius: 0 12px 12px 0;
+
+  color: #4e4e48;
+  font-size: 15px;
+}
+
+.course-content__body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Tables */
+
+.course-content__body table {
+  display: table;
+
+  width: 100%;
+  margin: 20px 0 34px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+  border: 1px solid #deded8;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 14px;
+
+  color: #50504c;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.course-content__body thead th {
+  padding: 13px 14px;
+
+  background: #20210d;
+  border-right: 1px solid rgba(255, 255, 255, 0.11);
+
+  color: #ffffff;
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-weight: 700;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.course-content__body thead th:last-child {
+  border-right: 0;
+}
+
+.course-content__body tbody td {
+  padding: 12px 14px;
+
+  border-top: 1px solid #e7e7e2;
+  border-right: 1px solid #ededE8;
+
+  text-align: left;
+  vertical-align: top;
+}
+
+.course-content__body tbody td:last-child {
+  border-right: 0;
+}
+
+.course-content__body tbody tr:nth-child(even) {
+  background: #faf9f4;
+}
+
+.course-content__body tbody tr:hover {
+  background: #f5f1e3;
+}
+
+/* Back link */
+
+.course-back-link {
+  margin: 25px 0 0;
+  text-align: center;
+}
+
+.course-back-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #5f5019 !important;
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none !important;
+}
+
+.course-back-link a:hover,
+.course-back-link a:focus {
+  color: #1d1e00 !important;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .course-container {
+    width: 100%;
+  }
+
+  .course-hero {
+    padding: 43px 16px 31px;
+  }
+
+  .course-hero__title {
+    display: block;
+    font-size: 34px;
+  }
+
+  .course-hero__code,
+  .course-hero__name {
+    display: block;
+  }
+
+  .course-hero__code {
+    margin-bottom: 5px;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  .course-hero__code::after {
+    content: "";
+  }
+
+  .course-hero__subtitle {
+    margin-top: 13px;
+    font-size: 16px;
+  }
+
+  .course-hero__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .course-action {
+    width: 100%;
+  }
+
+  .course-banner {
+    padding: 18px 12px 0;
+  }
+
+  .course-banner img {
+    border-radius: 15px;
+  }
+
+  .course-content {
+    padding: 18px 12px 50px;
+  }
+
+  .course-content__surface {
+    border-radius: 17px;
+  }
+
+  .course-content__body {
+    padding: 24px 17px 29px;
+    font-size: 15px;
+    line-height: 1.68;
+  }
+
+  .course-content__body h2 {
+    margin-top: 42px;
+    font-size: 25px;
+  }
+
+  .course-content__body table {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .course-content__body thead th,
+  .course-content__body tbody td {
+    padding: 11px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .course-action {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   Course quick-information panel
+   ========================================================= */
+
+.course-quick {
+  padding: 28px 24px 0;
+}
+
+.course-quick__surface {
+  padding: 28px 34px 30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #fbfaf5 100%
+    );
+
+  border: 1px solid #dfdfd8;
+  border-radius: 18px;
+
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.045),
+    0 2px 7px rgba(0, 0, 0, 0.02);
+
+  text-align: center;
+}
+
+.course-quick__title {
+  margin: 0;
+
+  color: #1d1e00;
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+/* Canvas and Piazza links */
+
+.course-quick__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-top: 18px;
+}
+
+.course-quick__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #6f5d1b !important;
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-size: 17px !important;
+  font-weight: 700;
+  line-height: 1.3;
+
+  text-decoration: underline;
+  text-decoration-color: rgba(111, 93, 27, 0.4);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+
+  transition:
+    color 160ms ease,
+    text-decoration-color 160ms ease;
+}
+
+.course-quick__links a:hover,
+.course-quick__links a:focus-visible {
+  color: #1d1e00 !important;
+  text-decoration-color: #c8ae5c;
+  outline: none;
+}
+
+.course-quick__links a span {
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.course-quick__separator {
+  color: #a4a49d;
+  font-size: 18px;
+}
+
+/* Course details */
+
+.course-quick__details {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 9px;
+
+  max-width: 900px;
+  margin: 20px auto 0;
+}
+
+.course-quick__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 7px;
+
+  margin: 0;
+
+  color: #555550;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.course-quick__row dt {
+  margin: 0;
+
+  color: #35351e;
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-weight: 800;
+}
+
+.course-quick__row dt::after {
+  content: ":";
+}
+
+.course-quick__row dd {
+  margin: 0;
+}
+
+.course-quick__detail-separator {
+  display: inline-block;
+  margin: 0 8px;
+
+  color: #b19c59;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .course-quick {
+    padding: 18px 12px 0;
+  }
+
+  .course-quick__surface {
+    padding: 23px 17px 25px;
+    border-radius: 15px;
+  }
+
+  .course-quick__title {
+    font-size: 25px;
+  }
+
+  .course-quick__links {
+    gap: 9px;
+    margin-top: 15px;
+  }
+
+  .course-quick__links a {
+    font-size: 15px !important;
+  }
+
+  .course-quick__details {
+    align-items: stretch;
+    gap: 13px;
+    margin-top: 19px;
+  }
+
+  .course-quick__row {
+    display: block;
+
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .course-quick__row dt {
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .course-quick__detail-separator {
+    margin: 0 5px;
+  }
+}
+
+/* Use one consistent dark-gold color for the full course title. */
+
+.course-hero__title,
+.course-hero__code,
+.course-hero__name {
+  color: #6f5d1b !important;
+}
+
+
+/* Compact course header and larger term label */
+
+.course-hero {
+  padding-top: 34px;
+  padding-bottom: 26px;
+}
+
+.course-hero__term {
+  margin-bottom: 8px;
+
+  font-size: 18px !important;
+  letter-spacing: 0.13em;
+}
+
+.course-hero__title {
+  font-size: clamp(32px, 3.4vw, 46px);
+}
+
+.course-hero__subtitle {
+  margin-top: 10px;
+  font-size: 17px;
+}
+
+.course-hero__actions {
+  margin-top: 18px;
+}
+
+.course-action {
+  min-height: 39px;
+  padding: 8px 14px;
+}
+
+.course-quick {
+  padding-top: 20px;
+}
+
+@media (max-width: 700px) {
+  .course-hero {
+    padding-top: 28px;
+    padding-bottom: 23px;
+  }
+
+  .course-hero__term {
+    font-size: 15px !important;
+  }
+
+  .course-hero__title {
+    font-size: 30px;
+  }
+
+  .course-hero__subtitle {
+    margin-top: 9px;
+    font-size: 15px;
+  }
+
+  .course-hero__actions {
+    margin-top: 15px;
+  }
+
+  .course-quick {
+    padding-top: 14px;
+  }
+}
+
+/* Compact Quick Information panel */
+
+.course-quick__surface {
+  padding: 20px 28px 21px;
+}
+
+.course-quick__title {
+  font-size: 27px;
+}
+
+.course-quick__links {
+  margin-top: 12px;
+}
+
+.course-quick__details {
+  gap: 5px;
+  margin-top: 13px;
+}
+
+.course-quick__row {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.course-quick__detail-separator {
+  margin-right: 6px;
+  margin-left: 6px;
+}
+
+@media (max-width: 700px) {
+  .course-quick__surface {
+    padding: 18px 15px 19px;
+  }
+
+  .course-quick__title {
+    font-size: 23px;
+  }
+
+  .course-quick__links {
+    margin-top: 10px;
+  }
+
+  .course-quick__details {
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .course-quick__row {
+    font-size: 14px;
+  }
+}
+
+/* Larger course-table typography */
+
+.course-content__body table {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.course-content__body thead th {
+  padding: 15px 16px;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.course-content__body tbody td {
+  padding: 14px 16px;
+
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Emphasize lecture numbers slightly. */
+
+.course-content__body tbody td:first-child {
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Keep the slide column easy to scan. */
+
+.course-content__body thead th:last-child,
+.course-content__body tbody td:last-child {
+  font-size: 16px;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .course-content__body table {
+    font-size: 15px;
+  }
+
+  .course-content__body thead th,
+  .course-content__body tbody td {
+    padding: 13px 14px;
+    font-size: 15px;
+  }
+
+  .course-content__body tbody td:first-child {
+    font-size: 14px;
+  }
+}
+
+/* =========================================================
+   Preferred classic-modern course table
+   ========================================================= */
+
+/* Center section headings such as Lectures and Assignments. */
+
+.course-content__body h2 {
+  margin: 46px 0 18px;
+  padding-bottom: 13px;
+
+  border-bottom: 1px solid #e3e3de;
+
+  font-size: 34px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.course-content__body h2::before {
+  display: none;
+}
+
+/* Table surface */
+
+.course-content__body table {
+  display: table;
+
+  width: 100%;
+  margin: 20px 0 38px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+  border: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 13px;
+
+  color: #545454;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+/* Dark header */
+
+.course-content__body thead th {
+  padding: 14px 16px;
+
+  background: #292600;
+  border: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: #ffffff;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.course-content__body thead th:first-child {
+  width: 92px;
+  border-radius: 12px 0 0 0;
+}
+
+.course-content__body thead th:last-child {
+  width: 126px;
+  border-right: 0;
+  border-radius: 0 12px 0 0;
+}
+
+/* Rows */
+
+.course-content__body tbody td {
+  padding: 12px 16px;
+
+  background: #ffffff;
+  border: 0;
+  border-right: 1px solid #e4e4df;
+
+  color: #555555;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.course-content__body tbody td:last-child {
+  border-right: 0;
+}
+
+.course-content__body tbody tr:nth-child(even) td {
+  background: #f3f1df;
+}
+
+.course-content__body tbody tr:nth-child(odd) td {
+  background: #ffffff;
+}
+
+.course-content__body tbody tr:hover td {
+  background: #ece8ce;
+}
+
+/* Column alignment */
+
+.course-content__body tbody td:first-child {
+  width: 92px;
+
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.course-content__body tbody td:nth-child(2) {
+  text-align: center;
+}
+
+.course-content__body tbody td:last-child {
+  width: 126px;
+  text-align: center;
+}
+
+/* Slide links */
+
+.course-content__body tbody td:last-child a {
+  color: #6f5d00 !important;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.course-content__body tbody td:last-child a:hover,
+.course-content__body tbody td:last-child a:focus {
+  color: #1d1e00 !important;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .course-content__body h2 {
+    margin-top: 38px;
+    font-size: 29px;
+  }
+
+  .course-content__body table {
+    min-width: 680px;
+    font-size: 16px;
+  }
+
+  .course-content__body thead th,
+  .course-content__body tbody td {
+    padding: 11px 13px;
+    font-size: 16px;
+  }
+
+  .course-content__body tbody td:first-child,
+  .course-content__body tbody td:last-child,
+  .course-content__body tbody td:last-child a {
+    font-size: 16px;
+  }
+}
+
+/* =========================================================
+   Correct three-column course tables
+   Component | Weight | Description
+   ========================================================= */
+
+.course-content__body table:has(
+  thead th:nth-child(3):last-child
+) {
+  table-layout: fixed;
+}
+
+/* Component */
+
+.course-content__body table:has(
+  thead th:nth-child(3):last-child
+) thead th:first-child,
+.course-content__body table:has(
+  thead th:nth-child(3):last-child
+) tbody td:first-child {
+  width: 30%;
+
+  padding-right: 18px;
+  padding-left: 18px;
+
+  text-align: left;
+}
+
+/* Weight */
+
+.course-content__body table:has(
+  thead th:nth-child(3):last-child
+) thead th:nth-child(2),
+.course-content__body table:has(
+  thead th:nth-child(3):last-child
+) tbody td:nth-child(2) {
+  width: 14%;
+  text-align: center;
+}
+
+/* Description */
+
+.course-content__body table:has(
+  thead th:nth-child(3):last-child
+) thead th:last-child,
+.course-content__body table:has(
+  thead th:nth-child(3):last-child
+) tbody td:last-child {
+  width: 56%;
+
+  padding-right: 18px;
+  padding-left: 18px;
+
+  text-align: left;
+  white-space: normal;
+}
+
+/* Prevent unnecessary narrow text wrapping. */
+
+.course-content__body table:has(
+  thead th:nth-child(3):last-child
+) tbody td {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+@media (max-width: 700px) {
+  .course-content__body table:has(
+    thead th:nth-child(3):last-child
+  ) {
+    min-width: 760px;
+  }
+}
+
+/* =========================================================
+   AI course lecture-table column proportions
+   ========================================================= */
+
+.course-content__body table:has(
+  thead th:nth-child(5):last-child
+) {
+  table-layout: fixed;
+}
+
+/* No. — narrower */
+
+.course-content__body table:has(
+  thead th:nth-child(5):last-child
+) th:nth-child(1),
+.course-content__body table:has(
+  thead th:nth-child(5):last-child
+) td:nth-child(1) {
+  width: 7% !important;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+/* Date */
+
+.course-content__body table:has(
+  thead th:nth-child(5):last-child
+) th:nth-child(2),
+.course-content__body table:has(
+  thead th:nth-child(5):last-child
+) td:nth-child(2) {
+  width: 14% !important;
+}
+
+/* Topics — slightly narrower */
+
+.course-content__body table:has(
+  thead th:nth-child(5):last-child
+) th:nth-child(3),
+.course-content__body table:has(
+  thead th:nth-child(5):last-child
+) td:nth-child(3) {
+  width: 42% !important;
+}
+
+/* Slides */
+
+.course-content__body table:has(
+  thead th:nth-child(5):last-child
+) th:nth-child(4),
+.course-content__body table:has(
+  thead th:nth-child(5):last-child
+) td:nth-child(4) {
+  width: 9% !important;
+}
+
+/* Reference Materials — substantially wider */
+
+.course-content__body table:has(
+  thead th:nth-child(5):last-child
+) th:nth-child(5),
+.course-content__body table:has(
+  thead th:nth-child(5):last-child
+) td:nth-child(5) {
+  width: 28% !important;
+
+  padding-right: 16px;
+  padding-left: 16px;
+
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Keep reference links readable rather than narrowly centered. */
+
+.course-content__body table:has(
+  thead th:nth-child(5):last-child
+) td:nth-child(5) {
+  text-align: left;
+}
+
+@media (max-width: 700px) {
+  .course-content__body table:has(
+    thead th:nth-child(5):last-child
+  ) {
+    min-width: 1000px;
+  }
+}
+
+/* =========================================================
+   AI course assignment-table column proportions
+   ========================================================= */
+
+.course-content__body #assignments + table {
+  table-layout: fixed;
+}
+
+/* No. */
+
+.course-content__body #assignments + table th:nth-child(1),
+.course-content__body #assignments + table td:nth-child(1) {
+  width: 7% !important;
+  padding-right: 8px;
+  padding-left: 8px;
+  text-align: center;
+}
+
+/* Release Date */
+
+.course-content__body #assignments + table th:nth-child(2),
+.course-content__body #assignments + table td:nth-child(2) {
+  width: 16% !important;
+  text-align: center;
+  white-space: normal;
+}
+
+/* Due Date */
+
+.course-content__body #assignments + table th:nth-child(3),
+.course-content__body #assignments + table td:nth-child(3) {
+  width: 16% !important;
+  text-align: center;
+  white-space: normal;
+}
+
+/* Assignment */
+
+.course-content__body #assignments + table th:nth-child(4),
+.course-content__body #assignments + table td:nth-child(4) {
+  width: 43% !important;
+
+  padding-right: 18px;
+  padding-left: 18px;
+
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Link */
+
+.course-content__body #assignments + table th:nth-child(5),
+.course-content__body #assignments + table td:nth-child(5) {
+  width: 18% !important;
+
+  padding-right: 14px;
+  padding-left: 14px;
+
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Undo the lecture-table alignment inherited by this table. */
+
+.course-content__body #assignments + table td:nth-child(4) strong {
+  display: inline;
+}
+
+@media (max-width: 700px) {
+  .course-content__body #assignments + table {
+    min-width: 880px;
+  }
+}
+
+/* Center the Assignment column. */
+
+.course-content__body #assignments ~ table th:nth-child(4),
+.course-content__body #assignments ~ table td:nth-child(4) {
+  text-align: center !important;
+}
+
+/* Center-align the Final Project table content. */
+
+.course-content__body table:has(
+  thead th:nth-child(3):last-child
+) th,
+.course-content__body table:has(
+  thead th:nth-child(3):last-child
+) td {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+/* Larger body text for course content */
+
+.course-content__body {
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.course-content__body p,
+.course-content__body li {
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.course-content__body strong {
+  font-size: inherit;
+}
+
+@media (max-width: 700px) {
+  .course-content__body {
+    font-size: 16px;
+  }
+
+  .course-content__body p,
+  .course-content__body li {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+}
+
+/* Justify course body text while keeping tables and headings unchanged. */
+
+.course-content__body p,
+.course-content__body li {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+@media (max-width: 700px) {
+  .course-content__body p,
+  .course-content__body li {
+    text-align: left;
+    hyphens: none;
+  }
+}
+
+/* =========================================================
+   Advanced Computer Vision lecture table
+   No. | Topic | Slides
+   ========================================================= */
+
+.course-content__body #advancedcv-lectures + table {
+  width: 100% !important;
+  table-layout: fixed !important;
+}
+
+/* No. */
+
+.course-content__body #advancedcv-lectures + table th:nth-child(1),
+.course-content__body #advancedcv-lectures + table td:nth-child(1) {
+  width: 10% !important;
+  padding-right: 12px !important;
+  padding-left: 12px !important;
+
+  text-align: center !important;
+}
+
+/* Topic */
+
+.course-content__body #advancedcv-lectures + table th:nth-child(2),
+.course-content__body #advancedcv-lectures + table td:nth-child(2) {
+  width: 75% !important;
+  padding-right: 18px !important;
+  padding-left: 18px !important;
+
+  text-align: center !important;
+  white-space: normal !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+/* Slides */
+
+.course-content__body #advancedcv-lectures + table th:nth-child(3),
+.course-content__body #advancedcv-lectures + table td:nth-child(3) {
+  width: 15% !important;
+  padding-right: 12px !important;
+  padding-left: 12px !important;
+
+  text-align: center !important;
+  white-space: normal !important;
+}
+
+/* Restore the preferred larger typography. */
+
+.course-content__body #advancedcv-lectures + table th,
+.course-content__body #advancedcv-lectures + table td {
+  font-size: 18px !important;
+  line-height: 1.45 !important;
+  vertical-align: middle !important;
+}
+
+@media (max-width: 700px) {
+  .course-content__body #advancedcv-lectures + table {
+    min-width: 700px;
+  }
+
+  .course-content__body #advancedcv-lectures + table th,
+  .course-content__body #advancedcv-lectures + table td {
+    font-size: 16px !important;
+  }
+}
+
+/* Larger Advanced CV lecture-table text */
+
+.course-content__body #advancedcv-lectures + table th {
+  font-size: 20px !important;
+}
+
+.course-content__body #advancedcv-lectures + table td {
+  font-size: 19px !important;
+  line-height: 1.5 !important;
+}
+
+@media (max-width: 700px) {
+  .course-content__body #advancedcv-lectures + table th,
+  .course-content__body #advancedcv-lectures + table td {
+    font-size: 17px !important;
+  }
+}
+
+/* Larger, more compact course-description text */
+
+.course-content__body {
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+.course-content__body p,
+.course-content__body li {
+  margin-top: 0;
+  margin-bottom: 10px;
+
+  font-size: 19px;
+  line-height: 1.5;
+
+  text-align: justify;
+  text-justify: inter-word;
+
+  hyphens: none;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.course-content__body p + p {
+  margin-top: 6px;
+}
+
+@media (max-width: 700px) {
+  .course-content__body,
+  .course-content__body p,
+  .course-content__body li {
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .course-content__body p,
+  .course-content__body li {
+    margin-bottom: 11px;
+    text-align: left;
+  }
+}
+
+/* Refined course-body typography */
+
+.course-content__body {
+  color: #45453f;
+  font-size: 19px;
+  line-height: 1.48;
+}
+
+.course-content__body p,
+.course-content__body li {
+  margin: 0 0 13px;
+
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.48;
+  letter-spacing: -0.008em;
+
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+
+  hyphens: auto;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.course-content__body p + p {
+  margin-top: 4px;
+}
+
+.course-content__body strong {
+  color: #1f2107;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Keep the final paragraph closer to the next heading. */
+
+.course-content__body p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .course-content__body {
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .course-content__body p,
+  .course-content__body li {
+    margin-bottom: 12px;
+
+    font-size: 17px;
+    line-height: 1.55;
+    letter-spacing: 0;
+
+    text-align: left;
+    hyphens: none;
+  }
+}
+
+/* Slightly more compact Advanced CV lecture table */
+
+.course-content__body #advancedcv-lectures + table thead th {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
+
+.course-content__body #advancedcv-lectures + table tbody td {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+
+  line-height: 1.35 !important;
+}
+
+/* Restore readable Markdown lists inside course pages. */
+
+.course-content__body ul {
+  margin: 10px 0 18px;
+  padding-left: 28px;
+
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+}
+
+.course-content__body ul li {
+  display: list-item !important;
+
+  margin: 5px 0;
+  padding-left: 4px;
+
+  list-style-type: disc !important;
+
+  font-size: 19px;
+  line-height: 1.48;
+
+  text-align: left;
+}
+
+.course-content__body ul li::marker {
+  color: #806b29;
+  font-size: 0.9em;
+}
+
+/* Preserve numbered lists as numbered lists. */
+
+.course-content__body ol {
+  margin: 10px 0 18px;
+  padding-left: 30px;
+
+  list-style-type: decimal !important;
+  list-style-position: outside !important;
+}
+
+.course-content__body ol li {
+  display: list-item !important;
+  margin: 5px 0;
+  padding-left: 4px;
+
+  list-style-type: decimal !important;
+  text-align: left;
+}
+
+@media (max-width: 700px) {
+  .course-content__body ul,
+  .course-content__body ol {
+    padding-left: 24px;
+  }
+
+  .course-content__body ul li,
+  .course-content__body ol li {
+    font-size: 17px;
+  }
+}
+
+/* =========================================================
+   Senior-design project pages
+   ========================================================= */
+
+.senior-design-lead {
+  max-width: 980px;
+  margin: 0 auto 24px;
+
+  color: #4a4a43;
+  font-size: 20px !important;
+  line-height: 1.55 !important;
+  text-align: center !important;
+  text-justify: auto;
+}
+
+.senior-design-gallery {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+
+  width: 100%;
+  margin: 25px 0 30px;
+}
+
+.senior-design-gallery figure {
+  margin: 0;
+
+  overflow: hidden;
+
+  background: #f7f6f0;
+  border: 1px solid #deddd5;
+  border-radius: 16px;
+
+  box-shadow:
+    0 9px 25px rgba(0, 0, 0, 0.055),
+    0 2px 5px rgba(0, 0, 0, 0.025);
+}
+
+.senior-design-gallery a {
+  display: block;
+  width: 100%;
+}
+
+.senior-design-gallery img,
+.senior-design-gallery video {
+  display: block;
+
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+
+  background: #f7f6f0;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .senior-design-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .senior-design-gallery figure:last-child {
+    grid-column: 1 / -1;
+    max-width: 560px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .senior-design-lead {
+    margin-bottom: 18px;
+
+    font-size: 17px !important;
+    line-height: 1.55 !important;
+    text-align: left !important;
+  }
+
+  .senior-design-gallery {
+    grid-template-columns: 1fr;
+    gap: 14px;
+
+    margin-top: 19px;
+  }
+
+  .senior-design-gallery figure:last-child {
+    grid-column: auto;
+    max-width: none;
+  }
+}

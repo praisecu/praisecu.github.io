@@ -1,0 +1,69 @@
+<div class="news-feed">
+  {% for item in items %}
+    <article class="news-entry">
+      <a
+        class="news-entry__link"
+        href="{{ item.url }}"
+        {% if item.external != false %}
+          target="_blank"
+          rel="noopener noreferrer"
+        {% endif %}
+        aria-label="Read: {{ item.title }}"
+      >
+        {% if item.image %}
+          <div class="news-entry__media">
+            <img
+              src="{{ item.image }}"
+              alt="{{ item.image_alt | default(item.title) }}"
+              loading="lazy"
+            >
+          </div>
+        {% else %}
+          <div
+            class="news-entry__media news-entry__media--placeholder"
+            aria-hidden="true"
+          >
+            <span class="news-entry__placeholder-kicker">
+              PRAISe Lab
+            </span>
+
+            <span class="news-entry__placeholder-title">
+              Research Update
+            </span>
+          </div>
+        {% endif %}
+
+        <div class="news-entry__content">
+          <div class="news-entry__meta">
+            <time
+              class="news-entry__date"
+              {% if item.date_iso %}
+                datetime="{{ item.date_iso }}"
+              {% endif %}
+            >
+              {{ item.date }}
+            </time>
+
+            <span class="news-entry__arrow" aria-hidden="true">
+              ↗
+            </span>
+          </div>
+
+          <h3 class="news-entry__title">
+            {{ item.title }}
+          </h3>
+
+          {% if item.description %}
+            <p class="news-entry__description">
+              {{ item.description }}
+            </p>
+          {% endif %}
+        </div>
+      </a>
+    </article>
+  {% else %}
+    <p class="news-feed__empty">
+      No news has been published yet.
+    </p>
+  {% endfor %}
+</div>

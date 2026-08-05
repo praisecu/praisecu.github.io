@@ -99,7 +99,7 @@ teaching_terms:
       - code: MCEN 5228-005
         title: Advanced Computer Vision
         subtitle: Geometry and Learning-based Methods in Computer Vision
-        url: /teaching/mcen5228.html
+        url: /teaching/advancedcv-fall2024.html
         media: /img/teaching/AdvancedCV-Class-Banner/Slide1.PNG
         media_type: image
         media_fit: contain
