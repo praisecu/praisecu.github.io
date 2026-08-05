@@ -2,12 +2,11 @@
 permalink: /sw.js
 eleventyExcludeFromCollections: true
 ---
-const CACHE_NAME = "praise-shell-v1";
+const CACHE_NAME = "praise-shell-v2";
 
 const OFFLINE_URL = "/offline.html";
 
 const CORE_FILES = [
-  "/",
   OFFLINE_URL,
   "/site.webmanifest",
   "/img/app/praise-192.png"
@@ -52,14 +51,8 @@ self.addEventListener("fetch", (event) => {
   }
 
   event.respondWith(
-    fetch(event.request).catch(async () => {
-      const cachedPage =
-        await caches.match(event.request);
-
-      return (
-        cachedPage ||
-        caches.match(OFFLINE_URL)
-      );
-    })
+    fetch(event.request).catch(() =>
+      caches.match(OFFLINE_URL)
+    )
   );
 });
