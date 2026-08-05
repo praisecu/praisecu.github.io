@@ -3569,3 +3569,81 @@
       word-break: normal !important;
   }
 }
+
+/* =========================================================
+   AI Assignments table — desktop column layout
+   ========================================================= */
+
+@media (min-width: 701px) {
+  .course-content-section:has(> #ai-assignments) table {
+    display: table !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+
+    table-layout: fixed !important;
+  }
+
+  /* No. */
+
+  .course-content-section:has(> #ai-assignments)
+  table th:nth-child(1),
+  .course-content-section:has(> #ai-assignments)
+  table td:nth-child(1) {
+    width: 7% !important;
+  }
+
+  /* Release Date */
+
+  .course-content-section:has(> #ai-assignments)
+  table th:nth-child(2),
+  .course-content-section:has(> #ai-assignments)
+  table td:nth-child(2) {
+    width: 15% !important;
+  }
+
+  /* Due Date */
+
+  .course-content-section:has(> #ai-assignments)
+  table th:nth-child(3),
+  .course-content-section:has(> #ai-assignments)
+  table td:nth-child(3) {
+    width: 15% !important;
+  }
+
+  /* Assignment */
+
+  .course-content-section:has(> #ai-assignments)
+  table th:nth-child(4),
+  .course-content-section:has(> #ai-assignments)
+  table td:nth-child(4) {
+    width: 43% !important;
+
+    padding-right: 18px !important;
+    padding-left: 18px !important;
+
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  /* Link */
+
+  .course-content-section:has(> #ai-assignments)
+  table th:nth-child(5),
+  .course-content-section:has(> #ai-assignments)
+  table td:nth-child(5) {
+    width: 20% !important;
+
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  .course-content-section:has(> #ai-assignments)
+  table th,
+  .course-content-section:has(> #ai-assignments)
+  table td {
+    vertical-align: middle !important;
+  }
+}

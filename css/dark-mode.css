@@ -1093,3 +1093,54 @@ html[data-theme="dark"] .team-join__button:focus-visible {
   outline: 2px solid rgba(240, 214, 129, 0.4);
   outline-offset: 2px;
 }
+
+/* =========================================================
+   Advanced CV assignment-table contrast
+   ========================================================= */
+
+html[data-theme="dark"]
+.course-content__body
+#advancedcv-assignments ~ table tbody td {
+  color: #d6d7d0 !important;
+}
+
+html[data-theme="dark"]
+.course-content__body
+#advancedcv-assignments ~ table tbody td:nth-child(1) {
+  color: #f0d681 !important;
+  font-weight: 700;
+}
+
+html[data-theme="dark"]
+.course-content__body
+#advancedcv-assignments ~ table tbody td:nth-child(2) a {
+  color: #f4d978 !important;
+
+  font-weight: 700;
+  text-decoration: underline !important;
+  text-decoration-color: rgba(244, 217, 120, 0.7) !important;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+html[data-theme="dark"]
+.course-content__body
+#advancedcv-assignments ~ table tbody td:nth-child(2) a:visited {
+  color: #e8ce78 !important;
+}
+
+html[data-theme="dark"]
+.course-content__body
+#advancedcv-assignments ~ table tbody td:nth-child(2) a:hover,
+html[data-theme="dark"]
+.course-content__body
+#advancedcv-assignments ~ table tbody td:nth-child(2) a:focus-visible {
+  color: #ffffff !important;
+  text-decoration-color: #f4d978 !important;
+}
+
+html[data-theme="dark"]
+.course-content__body
+#advancedcv-assignments ~ table tbody td {
+  border-color: #41443a !important;
+}
