@@ -22,7 +22,7 @@ quick_info:
   office_hours: TBD
 
 course_links:
-  - label: Previous course materials
+  - label: Previous year course materials
     url: /teaching/advancedcv-fall2025.html
     external: false
 ---

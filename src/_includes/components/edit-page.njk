@@ -1,0 +1,26 @@
+{% set github_edit_url =
+  page.inputPath | githubEditUrl(edit_source)
+%}
+
+{% if show_edit_link != false and github_edit_url %}
+  <aside
+    class="page-edit"
+    aria-label="Edit this page on GitHub"
+  >
+    <div class="page-edit__inner">
+      <a
+        class="page-edit__button"
+        href="{{ github_edit_url }}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i
+          class="fa fa-github"
+          aria-hidden="true"
+        ></i>
+
+        <span>Edit this page on GitHub</span>
+      </a>
+    </div>
+  </aside>
+{% endif %}

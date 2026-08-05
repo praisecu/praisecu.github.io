@@ -359,3 +359,105 @@ body {
     margin-bottom: 0;
   }
 }
+
+/* =========================================================
+   Center page headings and section labels on phones
+   ========================================================= */
+
+@media (max-width: 700px) {
+  /* Shared page hero:
+     Teaching, Research Areas, Team, Media, etc. */
+
+  .modern-page-heading {
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: column !important;
+
+    width: 100% !important;
+
+    text-align: center !important;
+  }
+
+  .modern-page-kicker,
+  .modern-page-title,
+  .modern-page-summary {
+    margin-right: auto !important;
+    margin-left: auto !important;
+
+    text-align: center !important;
+  }
+
+  .modern-page-summary {
+    max-width: 520px !important;
+  }
+
+  /* Teaching term headings */
+
+  .teaching-term__heading,
+  .teaching-archive {
+    text-align: center !important;
+  }
+
+  .teaching-term__eyebrow,
+  .teaching-term__title,
+  .teaching-archive__eyebrow,
+  .teaching-archive__title,
+  .teaching-archive__text {
+    margin-right: auto !important;
+    margin-left: auto !important;
+
+    text-align: center !important;
+  }
+
+  /* Team hiring panel */
+
+  .team-join {
+    text-align: center !important;
+  }
+
+  .team-join > div,
+  .team-join__eyebrow,
+  .team-join__title,
+  .team-join__text {
+    width: 100%;
+
+    text-align: center !important;
+  }
+
+  .team-join__button {
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  /* Team section headings */
+
+  .team-section-heading {
+    text-align: center !important;
+  }
+
+  .team-section-heading__eyebrow,
+  .team-section-heading__title {
+    margin-right: auto !important;
+    margin-left: auto !important;
+
+    text-align: center !important;
+  }
+
+  /* Media section navigation and headings */
+
+  .media-page-jump {
+    justify-content: center !important;
+  }
+
+  .media-section-heading {
+    text-align: center !important;
+  }
+
+  .media-section-heading__eyebrow,
+  .media-section-heading__title {
+    margin-right: auto !important;
+    margin-left: auto !important;
+
+    text-align: center !important;
+  }
+}

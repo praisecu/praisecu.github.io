@@ -13,6 +13,11 @@ term: Fall 2025
 
 banner: /img/teaching/AdvancedCV-Class-Banner/Slide1.PNG
 banner_alt: Advanced Computer Vision course banner
+
+course_links:
+  - label: Previous year course materials
+    url: /teaching/advancedcv-fall2024.html
+    external: false
 ---
 
 For previous year's course lectures and assignments, visit [**here**](/teaching/mcen5228.html)
@@ -69,7 +74,7 @@ This course consists of four assignments that are to be done in groups of **TWO*
 | 2. | [Homework: Calibrate My Camera](https://colab.research.google.com/drive/1myxPNeH5my6UFm_rD-rCKAuIQCtfZ9mU?usp=sharing) | Sep 23, 2025 | Sep 29, 2025 |
 | 3. | P2: Coded Deep Depth [Part 1](https://colab.research.google.com/drive/1M9t9gxG-1Yeb7DXVzPOBNC77q97Pq7xj?usp=sharing) \| [Part 2](https://colab.research.google.com/drive/1k_TQLih9xIZ3j_c8weAFaOq2OOd2xONr?usp=sharing) | Sep 30, 2025 | Oct 20, 2025 |
 | 4. | P3: Blob the Builder [Part 1](https://colab.research.google.com/drive/1VbKRHL0ICznVLjisC5cO2615s1JsX3u_?usp=sharing) \| [Part 2](https://colab.research.google.com/drive/1Odq1fwaBIpGlpA82lBfzos0e_oBlbOCr?usp=sharing) | Oct 25, 2025 | Nov 19, 2025 |
-| 5. | MidTerm (In-Class) | Nov 11, 2025 | - |
+| 5. | MidTerm (In-Class) | Nov 11, 2025 | — |
 | 6. | [P4: Monocular Visual Odometry](https://colab.research.google.com/drive/1c3AtkShXPlfQGGVqcTrg4a6L-2PIiofw?usp=sharing) | Dec 2, 2025 | Dec 12, 2025 |
 
 ## Late Policy

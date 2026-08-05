@@ -1,4 +1,4 @@
-/* PRAISe modern footer */
+﻿/* PRAISe modern footer */
 
 .modern-footer,
 .modern-footer * {
@@ -266,5 +266,122 @@
 
   .modern-footer__title {
     font-size: 28px;
+  }
+}
+
+/* =========================================================
+   Edit-this-page control
+   ========================================================= */
+
+.page-edit,
+.page-edit * {
+  box-sizing: border-box;
+}
+
+.page-edit {
+  padding: 14px 24px;
+
+  background: #f5f5f1;
+  border-top: 1px solid #e0e1dc;
+
+  font-family:
+    "Nunito Sans",
+    "Nunito",
+    Arial,
+    sans-serif;
+}
+
+.page-edit__inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  width: min(1160px, calc(100% - 16px));
+  margin: 0 auto;
+}
+
+.page-edit__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 38px;
+  padding: 8px 13px;
+
+  background: #ffffff;
+  border: 1px solid #d4c17e;
+  border-radius: 9px;
+
+  color: #4e431c !important;
+  font-family:
+    "Nunito Sans",
+    "Nunito",
+    Arial,
+    sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0 !important;
+  text-decoration: none !important;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.055);
+
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+/* Prevent legacy span and icon rules from enlarging the text. */
+
+.page-edit__button span,
+.page-edit__button i {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  color: inherit !important;
+  font-size: 13px !important;
+  font-weight: inherit !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+}
+
+.page-edit__button i {
+  font-size: 15px !important;
+}
+
+.page-edit__button:hover,
+.page-edit__button:focus-visible {
+  background: #1c1d08;
+  border-color: #1c1d08;
+
+  color: #cfb97d !important;
+
+  box-shadow:
+    0 7px 17px rgba(0, 0, 0, 0.12);
+
+  outline: none;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 700px) {
+  .page-edit {
+    padding: 12px 16px;
+  }
+
+  .page-edit__inner {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .page-edit__button {
+    min-height: 38px;
+    padding: 8px 13px;
+
+    font-size: 13px !important;
   }
 }

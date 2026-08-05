@@ -70,6 +70,46 @@ export default function (eleventyConfig) {
       : [];
   });
 
+  /*
+   * Generate the GitHub editing URL for an Eleventy
+   * Markdown source file.
+   */
+  eleventyConfig.addFilter(
+    "githubEditUrl",
+    (inputPath = "", overridePath = "") => {
+      const sourcePath = String(
+        overridePath || inputPath
+      )
+        .replace(/\\/g, "/")
+        .replace(/^\.\//, "")
+        .replace(/^\/+/, "");
+
+      /*
+       * Show the control only for Markdown files under src.
+       * Legacy HTML files therefore do not get an incorrect
+       * edit link.
+       */
+      if (
+        !sourcePath.startsWith("src/") ||
+        !sourcePath.toLowerCase().endsWith(".md")
+      ) {
+        return "";
+      }
+
+      const encodedPath = sourcePath
+        .split("/")
+        .map(encodeURIComponent)
+        .join("/");
+
+      return (
+        "https://github.com/" +
+        "praisecu/praisecu.github.io/" +
+        "edit/main/" +
+        encodedPath
+      );
+    }
+  );
+
   return {
     dir: {
       input: "src",
