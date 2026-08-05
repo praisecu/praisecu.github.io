@@ -1,0 +1,27 @@
+{
+  "name": "praisecu.github.io",
+  "version": "1.0.0",
+  "description": "Official Website Repository for Praise Lab at University of Colorado, Boulder.\r <a href=\"https://praisecu.github.io/\">https://praisecu.github.io/</a>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/praisecu/praisecu.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/praisecu/praisecu.github.io/issues"
+  },
+  "homepage": "https://github.com/praisecu/praisecu.github.io#readme",
+  "private": true,
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  }
+}

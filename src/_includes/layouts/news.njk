@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>{{ title }} | PRAISe Lab at CU Boulder</title>
+
+  <meta
+    name="description"
+    content="{{ description | default('News from the PRAISe Lab at the University of Colorado Boulder.') }}"
+  >
+
+  <meta
+    property="og:title"
+    content="{{ title }} | PRAISe Lab"
+  >
+
+  <meta
+    property="og:description"
+    content="{{ description | default('News from the PRAISe Lab at the University of Colorado Boulder.') }}"
+  >
+
+  <meta
+    property="og:image"
+    content="https://praisecu.com/img/logo/praise-logo.webp"
+  >
+
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="/img/logo/praise.webp"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700;800;900&display=swap"
+  >
+
+  <link rel="stylesheet" href="/css/team.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fonts/flaticon/flaticon.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/hippo-off-canvas.css">
+  <link rel="stylesheet" href="/css/animate.css">
+  <link rel="stylesheet" href="/css/language-select.css">
+  <link rel="stylesheet" href="/owl.carousel/assets/owl.carousel.css">
+  <link rel="stylesheet" href="/css/magnific-popup.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/template.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/research.css">
+  <link rel="stylesheet" href="/css/praise-style.css">
+  <link rel="stylesheet" href="/css/cards.css">
+
+  <link rel="stylesheet" href="/css/markdown-pages.css">
+  <link rel="stylesheet" href="/css/modern-header.css">
+  <link rel="stylesheet" href="/css/modern-footer.css">
+  <link rel="stylesheet" href="/css/home-page.css">
+
+  <script
+    src="https://kit.fontawesome.com/4ad8d74216.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <script src="/js/vendor/modernizr-2.8.1.min.js"></script>
+
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-CW9BT60PE9"
+  ></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "G-CW9BT60PE9");
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-5QBNLQC2"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden"
+      title="Google Tag Manager"
+    ></iframe>
+  </noscript>
+
+  {% include "components/modern-header.njk" %}
+
+  <main class="home-page news-page">
+    <section
+      class="home-news news-page__archive"
+      aria-labelledby="news-page-title"
+    >
+      <div class="home-news__container">
+        <header class="home-section-heading">
+          <p class="home-section-eyebrow">
+            Lab Updates
+          </p>
+
+          <h1
+            id="news-page-title"
+            class="home-section-title"
+          >
+            News
+          </h1>
+
+          <p class="home-news__intro">
+            Research highlights, publications, talks, awards, and lab announcements.
+          </p>
+        </header>
+
+        {% set items = news | sortNewsNewest %}
+
+        {% include "components/news-feed.njk" %}
+      </div>
+    </section>
+  </main>
+
+  {% include "components/modern-footer.njk" %}
+
+  <script src="/js/jquery.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/owl.carousel/owl.carousel.min.js"></script>
+  <script src="/js/jquery.magnific-popup.min.js"></script>
+  <script src="/js/hippo-offcanvas.js"></script>
+  <script src="/js/jquery.inview.min.js"></script>
+  <script src="/js/jquery.stellar.js"></script>
+  <script src="/js/jquery.countTo.js"></script>
+  <script src="/js/classie.js"></script>
+  <script src="/js/selectFx.js"></script>
+  <script src="/js/jquery.sticky-kit.min.js"></script>
+  <script src="/js/scripts.js"></script>
+  <script src="/js/modern-header.js"></script>
+</body>
+</html>

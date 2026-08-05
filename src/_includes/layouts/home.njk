@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>{{ title }} | PRAISe Lab at CU Boulder</title>
+
+  <meta
+    name="description"
+    content="{{ description | default('PRAISe Lab at the University of Colorado Boulder.') }}"
+  >
+
+  <meta
+    property="og:title"
+    content="{{ title }} | PRAISe Lab"
+  >
+
+  <meta
+    property="og:description"
+    content="{{ description | default('PRAISe Lab at the University of Colorado Boulder.') }}"
+  >
+
+  <meta
+    property="og:image"
+    content="https://praisecu.com/img/logo/praise-logo.webp"
+  >
+
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="/img/logo/praise.webp"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700;800;900&display=swap"
+  >
+
+  <link rel="stylesheet" href="/css/team.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fonts/flaticon/flaticon.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/hippo-off-canvas.css">
+  <link rel="stylesheet" href="/css/animate.css">
+  <link rel="stylesheet" href="/css/language-select.css">
+  <link rel="stylesheet" href="/owl.carousel/assets/owl.carousel.css">
+  <link rel="stylesheet" href="/css/magnific-popup.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/template.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/research.css">
+  <link rel="stylesheet" href="/css/praise-style.css">
+  <link rel="stylesheet" href="/css/cards.css">
+
+  <!-- Modern page styles load last to override legacy CSS. -->
+  <link rel="stylesheet" href="/css/markdown-pages.css">
+  <link rel="stylesheet" href="/css/modern-header.css">
+  <link rel="stylesheet" href="/css/modern-footer.css">
+  <link rel="stylesheet" href="/css/home-page.css">
+
+  <script
+    src="https://kit.fontawesome.com/4ad8d74216.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <script src="/js/vendor/modernizr-2.8.1.min.js"></script>
+
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-CW9BT60PE9"
+  ></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "G-CW9BT60PE9");
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-5QBNLQC2"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden"
+      title="Google Tag Manager"
+    ></iframe>
+  </noscript>
+
+  {% include "components/modern-header.njk" %}
+
+  <main class="home-page">
+    <!-- Featured carousel -->
+    <section
+      class="home-carousel-section"
+      aria-label="Featured PRAISe Lab news"
+    >
+      <div
+        class="home-carousel"
+        data-home-carousel
+        tabindex="0"
+        aria-roledescription="carousel"
+      >
+        <div class="home-carousel__slides">
+          {% for slide in hero_slides %}
+            <article
+              class="home-carousel__slide{% if loop.first %} is-active{% endif %}"
+              data-home-slide
+              aria-hidden="{% if loop.first %}false{% else %}true{% endif %}"
+              {% if not loop.first %}hidden{% endif %}
+            >
+              <div class="home-carousel__caption">
+                <a
+                  href="{{ slide.text_url }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {{ slide.title }}
+                </a>
+              </div>
+
+              <a
+                class="home-carousel__image-link home-carousel__image-link--{{ slide.fit | default('cover') }}"
+                href="{{ slide.image_url }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="{{ slide.title }}"
+              >
+                <img
+                  src="{{ slide.image }}"
+                  alt="{{ slide.alt }}"
+                  {% if not loop.first %}
+                    loading="lazy"
+                  {% endif %}
+                >
+              </a>
+            </article>
+          {% endfor %}
+        </div>
+
+        {% if hero_slides | length > 1 %}
+          <button
+            class="home-carousel__control home-carousel__control--previous"
+            type="button"
+            data-carousel-previous
+            aria-label="Show previous slide"
+          >
+            <i
+              class="fa fa-angle-left"
+              aria-hidden="true"
+            ></i>
+          </button>
+
+          <button
+            class="home-carousel__control home-carousel__control--next"
+            type="button"
+            data-carousel-next
+            aria-label="Show next slide"
+          >
+            <i
+              class="fa fa-angle-right"
+              aria-hidden="true"
+            ></i>
+          </button>
+
+          <div
+            class="home-carousel__indicators"
+            aria-label="Choose a featured slide"
+          >
+            {% for slide in hero_slides %}
+              <button
+                class="home-carousel__indicator{% if loop.first %} is-active{% endif %}"
+                type="button"
+                data-carousel-indicator
+                data-slide-index="{{ loop.index0 }}"
+                aria-label="Show slide {{ loop.index }}"
+                aria-current="{% if loop.first %}true{% else %}false{% endif %}"
+              ></button>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </section>
+
+    <!-- Lab introduction -->
+    <section class="home-about">
+      <div class="home-about__container">
+        <p class="home-section-eyebrow">
+          About PRAISe
+        </p>
+
+        <h1 class="home-about__title">
+          Perception, Robotics, AI and Sensing Lab
+        </h1>
+
+        <div class="home-about__copy">
+          {{ content | safe }}
+        </div>
+
+        <div class="home-about__actions">
+          <a
+            class="home-button"
+            href="/research-areas"
+          >
+            Explore Research
+          </a>
+
+          <a
+            class="home-button home-button--secondary"
+            href="/openings"
+          >
+            Open Positions
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest eight news entries from src/news.md -->
+    <section
+      class="home-news"
+      aria-labelledby="home-news-title"
+    >
+      <div class="home-news__container">
+        <header class="home-section-heading">
+          <p class="home-section-eyebrow">
+            Lab Updates
+          </p>
+
+          <h2
+            id="home-news-title"
+            class="home-section-title"
+          >
+            Recent News
+          </h2>
+
+          <p class="home-news__intro">
+            Research highlights, publications, talks, and lab announcements.
+          </p>
+        </header>
+
+        {% set news_page = collections.newsArchive[0] %}
+
+        {% if news_page and news_page.data.news %}
+          {% set items = news_page.data.news | sortNewsNewest | take(8) %}
+
+          {% include "components/news-feed.njk" %}
+        {% else %}
+          <p class="news-feed__empty">
+            No news has been published yet.
+          </p>
+        {% endif %}
+
+        <div class="home-news__more">
+          <a
+            class="home-button home-button--secondary"
+            href="/news.html"
+          >
+            View All News
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {% include "components/modern-footer.njk" %}
+
+  <script src="/js/jquery.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/owl.carousel/owl.carousel.min.js"></script>
+  <script src="/js/jquery.magnific-popup.min.js"></script>
+  <script src="/js/hippo-offcanvas.js"></script>
+  <script src="/js/jquery.inview.min.js"></script>
+  <script src="/js/jquery.stellar.js"></script>
+  <script src="/js/jquery.countTo.js"></script>
+  <script src="/js/classie.js"></script>
+  <script src="/js/selectFx.js"></script>
+  <script src="/js/jquery.sticky-kit.min.js"></script>
+  <script src="/js/scripts.js"></script>
+  <script src="/js/modern-header.js"></script>
+  <script src="/js/home-page.js"></script>
+</body>
+</html>

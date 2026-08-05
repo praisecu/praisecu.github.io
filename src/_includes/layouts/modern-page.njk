@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>{{ title }} | PRAISe Lab at CU Boulder</title>
+
+  <meta
+    name="description"
+    content="{{ description | default('PRAISe Lab at the University of Colorado Boulder.') }}"
+  >
+
+  <meta property="og:title" content="{{ title }} | PRAISe Lab">
+  <meta
+    property="og:description"
+    content="{{ description | default('PRAISe Lab at the University of Colorado Boulder.') }}"
+  >
+  <meta
+    property="og:image"
+    content="https://praisecu.com/img/logo/praise-logo.webp"
+  >
+
+  <link rel="icon" type="image/x-icon" href="/img/logo/praise.webp">
+
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700;800;900&display=swap"
+  >
+
+  <link rel="stylesheet" href="/css/team.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fonts/flaticon/flaticon.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/hippo-off-canvas.css">
+  <link rel="stylesheet" href="/css/animate.css">
+  <link rel="stylesheet" href="/css/language-select.css">
+  <link rel="stylesheet" href="/owl.carousel/assets/owl.carousel.css">
+  <link rel="stylesheet" href="/css/magnific-popup.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/template.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/research.css">
+  <link rel="stylesheet" href="/css/praise-style.css">
+  <link rel="stylesheet" href="/css/cards.css">
+
+  <!-- Load last so it overrides legacy page styles. -->
+  <link rel="stylesheet" href="/css/markdown-pages.css">
+  <link rel="stylesheet" href="/css/modern-header.css">
+  <link rel="stylesheet" href="/css/modern-footer.css">
+
+  <script
+    src="https://kit.fontawesome.com/4ad8d74216.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <script src="/js/vendor/modernizr-2.8.1.min.js"></script>
+</head>
+
+<body>
+{% include "components/modern-header.njk" %}
+  <main class="modern-page">
+    <section class="modern-page-hero">
+      <div class="modern-page-container">
+        <div class="modern-page-heading">
+          {% if kicker %}
+            <p class="modern-page-kicker">{{ kicker }}</p>
+          {% endif %}
+
+          <h1 class="modern-page-title">{{ title }}</h1>
+
+          {% if summary %}
+            <p class="modern-page-summary">{{ summary }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+
+    <section class="modern-page-section">
+      <div class="modern-page-card">
+        <article class="modern-page-prose">
+          {{ content | safe }}
+        </article>
+
+        {% if application_url or secondary_url %}
+          <aside class="modern-page-actions">
+            <h2 class="modern-page-actions-title">
+              Interested in joining?
+            </h2>
+
+            <p class="modern-page-actions-text">
+              Review the research directions and submit your information
+              through the application form.
+            </p>
+
+            {% if application_url %}
+              <a
+                class="modern-page-button"
+                href="{{ application_url }}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ application_label | default("Apply to PRAISe") }}
+              </a>
+            {% endif %}
+
+            {% if secondary_url %}
+              <a
+                class="modern-page-button modern-page-button-secondary"
+                href="{{ secondary_url }}"
+              >
+                {{ secondary_label | default("Research Areas") }}
+              </a>
+            {% endif %}
+          </aside>
+        {% endif %}
+      </div>
+    </section>
+  </main>
+
+{% include "components/modern-footer.njk" %}
+  <script src="/js/jquery.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/owl.carousel/owl.carousel.min.js"></script>
+  <script src="/js/jquery.magnific-popup.min.js"></script>
+  <script src="/js/hippo-offcanvas.js"></script>
+  <script src="/js/jquery.inview.min.js"></script>
+  <script src="/js/jquery.stellar.js"></script>
+  <script src="/js/jquery.countTo.js"></script>
+  <script src="/js/classie.js"></script>
+  <script src="/js/selectFx.js"></script>
+  <script src="/js/jquery.sticky-kit.min.js"></script>
+  <script src="/js/scripts.js"></script>
+  <script src="/js/modern-header.js"></script>
+</body>
+</html>
+

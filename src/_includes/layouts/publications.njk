@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>{{ title }} | PRAISe Lab at CU Boulder</title>
+
+  <meta
+    name="description"
+    content="{{ description | default('PRAISe Lab at the University of Colorado Boulder.') }}"
+  >
+
+  <meta property="og:title" content="{{ title }} | PRAISe Lab">
+  <meta
+    property="og:description"
+    content="{{ description | default('PRAISe Lab at the University of Colorado Boulder.') }}"
+  >
+  <meta
+    property="og:image"
+    content="https://praisecu.com/img/logo/praise-logo.webp"
+  >
+
+  <link rel="icon" type="image/x-icon" href="/img/logo/praise.webp">
+
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700;800;900&display=swap"
+  >
+
+  <link rel="stylesheet" href="/css/team.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fonts/flaticon/flaticon.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/hippo-off-canvas.css">
+  <link rel="stylesheet" href="/css/animate.css">
+  <link rel="stylesheet" href="/css/language-select.css">
+  <link rel="stylesheet" href="/owl.carousel/assets/owl.carousel.css">
+  <link rel="stylesheet" href="/css/magnific-popup.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/template.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/research.css">
+  <link rel="stylesheet" href="/css/praise-style.css">
+  <link rel="stylesheet" href="/css/cards.css">
+
+  <!-- Load last so it overrides legacy page styles. -->
+  <link rel="stylesheet" href="/css/markdown-pages.css">
+  <link rel="stylesheet" href="/css/modern-header.css">
+  <link rel="stylesheet" href="/css/modern-footer.css">
+  <link rel="stylesheet" href="/css/publications-page.css">
+
+  <script
+    src="https://kit.fontawesome.com/4ad8d74216.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <script src="/js/vendor/modernizr-2.8.1.min.js"></script>
+</head>
+
+<body>
+{% include "components/modern-header.njk" %}
+  <main class="modern-page publications-page">
+  <section class="modern-page-hero">
+    <div class="modern-page-container">
+      <div class="modern-page-heading">
+        {% if kicker %}
+          <p class="modern-page-kicker">{{ kicker }}</p>
+        {% endif %}
+
+        <h1 class="modern-page-title">{{ title }}</h1>
+
+        {% if summary %}
+          <p class="modern-page-summary">{{ summary }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <section class="publications-page-section">
+    <div class="publications-list">
+      {% for publication in publications %}
+        <article class="publication-item">
+          {% if publication.primary_url %}
+            <a
+              class="publication-item__media"
+              href="{{ publication.primary_url }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open {{ publication.title }}"
+            >
+              <img
+                src="{{ publication.image }}"
+                alt="{{ publication.title }}"
+                loading="lazy"
+              >
+            </a>
+          {% else %}
+            <div class="publication-item__media">
+              <img
+                src="{{ publication.image }}"
+                alt="{{ publication.title }}"
+                loading="lazy"
+              >
+            </div>
+          {% endif %}
+
+          <div class="publication-item__body">
+            <div class="publication-item__heading">
+              <h2 class="publication-item__title">
+                {{ publication.title }}
+              </h2>
+
+              <p class="publication-item__date">
+                {{ publication.date }}
+              </p>
+            </div>
+
+            <p class="publication-item__venue">
+              {{ publication.venue }}
+            </p>
+
+            <p class="publication-item__authors">
+              {{ publication.authors }}
+            </p>
+
+            {% if publication.note %}
+              <p class="publication-item__note">
+                {{ publication.note }}
+              </p>
+            {% endif %}
+
+            {% if publication.links %}
+              <div
+                class="publication-item__links"
+                aria-label="{{ publication.title }} links"
+              >
+                {% for link in publication.links %}
+                  <a
+                    href="{{ link.url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {% if link.type == "project" %}
+                      <i class="fa fa-globe" aria-hidden="true"></i>
+                    {% elif link.type == "video" %}
+                      <i class="fa fa-video-camera" aria-hidden="true"></i>
+                    {% elif link.type == "code" %}
+                      <i class="fa fa-code" aria-hidden="true"></i>
+                    {% elif link.type == "cover" %}
+                      <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    {% elif link.type == "social" %}
+                      <i
+                        class="fa-brands fa-x-twitter"
+                        aria-hidden="true"
+                      ></i>
+                    {% else %}
+                      <i class="fa fa-file" aria-hidden="true"></i>
+                    {% endif %}
+
+                    <span>{{ link.label }}</span>
+                  </a>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+</main>
+
+{% include "components/modern-footer.njk" %}
+  <script src="/js/jquery.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/owl.carousel/owl.carousel.min.js"></script>
+  <script src="/js/jquery.magnific-popup.min.js"></script>
+  <script src="/js/hippo-offcanvas.js"></script>
+  <script src="/js/jquery.inview.min.js"></script>
+  <script src="/js/jquery.stellar.js"></script>
+  <script src="/js/jquery.countTo.js"></script>
+  <script src="/js/classie.js"></script>
+  <script src="/js/selectFx.js"></script>
+  <script src="/js/jquery.sticky-kit.min.js"></script>
+  <script src="/js/scripts.js"></script>
+  <script src="/js/modern-header.js"></script>
+</body>
+</html>
+

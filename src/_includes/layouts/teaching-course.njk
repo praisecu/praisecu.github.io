@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>{{ title }} | PRAISe Lab at CU Boulder</title>
+
+  <meta
+    name="description"
+    content="{{ description | default(title + ' at the University of Colorado Boulder.') }}"
+  >
+
+  <meta property="og:title" content="{{ title }} | PRAISe Lab">
+  <meta
+    property="og:description"
+    content="{{ description | default(title + ' at the University of Colorado Boulder.') }}"
+  >
+  <meta
+    property="og:image"
+    content="https://praisecu.com/img/logo/praise-logo.webp"
+  >
+
+  <link rel="icon" type="image/x-icon" href="/img/logo/praise.webp">
+
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+  >
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+  >
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap"
+  >
+
+  <link rel="stylesheet" href="/css/team.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fonts/flaticon/flaticon.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/hippo-off-canvas.css">
+  <link rel="stylesheet" href="/css/animate.css">
+  <link rel="stylesheet" href="/css/language-select.css">
+  <link rel="stylesheet" href="/owl.carousel/assets/owl.carousel.css">
+  <link rel="stylesheet" href="/css/magnific-popup.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/template.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/research.css">
+  <link rel="stylesheet" href="/css/praise-style.css">
+  <link rel="stylesheet" href="/css/cards.css">
+
+  <!-- Load modern page styles last. -->
+  <link rel="stylesheet" href="/css/markdown-pages.css">
+  <link rel="stylesheet" href="/css/modern-header.css">
+  <link rel="stylesheet" href="/css/modern-footer.css">
+  <link rel="stylesheet" href="/css/teaching-course.css">
+
+  <script
+    src="https://kit.fontawesome.com/4ad8d74216.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <script src="/js/vendor/modernizr-2.8.1.min.js"></script>
+
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-CW9BT60PE9"
+  ></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "G-CW9BT60PE9");
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-5QBNLQC2"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden"
+      title="Google Tag Manager"
+    ></iframe>
+  </noscript>
+
+  {% include "components/modern-header.njk" %}
+
+  <main class="course-page">
+    <section class="course-hero">
+      <div class="course-container course-hero__inner">
+        {% if term %}
+          <p class="course-hero__term">{{ term }}</p>
+        {% endif %}
+
+        <h1 class="course-hero__title">
+          {% if course_code %}
+            <span class="course-hero__code">{{ course_code }}</span>
+          {% endif %}
+
+          {% if course_name %}
+            <span class="course-hero__name">{{ course_name }}</span>
+          {% else %}
+            <span class="course-hero__name">{{ title }}</span>
+          {% endif %}
+        </h1>
+
+        {% if subtitle %}
+          <p class="course-hero__subtitle">{{ subtitle }}</p>
+        {% endif %}
+
+        {% if course_links %}
+          <div class="course-hero__actions" aria-label="Course links">
+            {% for link in course_links %}
+              <a
+                class="course-action{% if loop.first %} course-action--primary{% endif %}"
+                href="{{ link.url }}"
+                {% if link.external %}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                {% endif %}
+              >
+                {{ link.label }}
+                {% if link.external %}
+                  <span aria-hidden="true">↗</span>
+                {% endif %}
+              </a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </section>
+
+    
+
+    {% if banner %}
+      <section class="course-banner" aria-label="{{ title }} course banner">
+        <div class="course-container">
+          <img
+            src="{{ banner }}"
+            alt="{{ banner_alt | default('') }}"
+          >
+        </div>
+      </section>
+    {% endif %}
+
+{% if quick_info %}
+      <section
+        class="course-quick"
+        aria-labelledby="course-quick-title"
+      >
+        <div class="course-container">
+          <div class="course-quick__surface">
+            <h2
+              id="course-quick-title"
+              class="course-quick__title"
+            >
+              Quick Information
+            </h2>
+
+            {% if quick_info.canvas_url or quick_info.piazza_url %}
+              <nav
+                class="course-quick__links"
+                aria-label="Course resources"
+              >
+                {% if quick_info.canvas_url %}
+                  <a
+                    href="{{ quick_info.canvas_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Course Canvas
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                {% endif %}
+
+                {% if quick_info.canvas_url and quick_info.piazza_url %}
+                  <span
+                    class="course-quick__separator"
+                    aria-hidden="true"
+                  >
+                    |
+                  </span>
+                {% endif %}
+
+                {% if quick_info.piazza_url %}
+                  <a
+                    href="{{ quick_info.piazza_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Piazza
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                {% endif %}
+              </nav>
+            {% endif %}
+
+            <dl class="course-quick__details">
+              {% if quick_info.instructor %}
+                <div class="course-quick__row">
+                  <dt>Instructor</dt>
+                  <dd>{{ quick_info.instructor }}</dd>
+                </div>
+              {% endif %}
+
+              {% if quick_info.class_hours %}
+                <div class="course-quick__row">
+                  <dt>Class Hours</dt>
+
+                  <dd>
+                    {{ quick_info.class_hours }}
+
+                    {% if quick_info.location %}
+                      <span
+                        class="course-quick__detail-separator"
+                        aria-hidden="true"
+                      >
+                        |
+                      </span>
+
+                      {{ quick_info.location }}
+                    {% endif %}
+                  </dd>
+                </div>
+              {% endif %}
+
+              {% if quick_info.office_hours %}
+                <div class="course-quick__row">
+                  <dt>Office Hours</dt>
+                  <dd>{{ quick_info.office_hours }}</dd>
+                </div>
+              {% endif %}
+            </dl>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    <section class="course-content">
+      <div class="course-container">
+        <article class="course-content__surface">
+          <div class="course-content__body">
+            {{ content | safe }}
+          </div>
+        </article>
+
+        <p class="course-back-link">
+          <a href="../teaching.html">
+            <span aria-hidden="true">←</span>
+            View all courses
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  {% include "components/modern-footer.njk" %}
+
+  <script src="/js/jquery.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/owl.carousel/owl.carousel.min.js"></script>
+  <script src="/js/jquery.magnific-popup.min.js"></script>
+  <script src="/js/hippo-offcanvas.js"></script>
+  <script src="/js/jquery.inview.min.js"></script>
+  <script src="/js/jquery.stellar.js"></script>
+  <script src="/js/jquery.countTo.js"></script>
+  <script src="/js/classie.js"></script>
+  <script src="/js/selectFx.js"></script>
+  <script src="/js/jquery.sticky-kit.min.js"></script>
+  <script src="/js/scripts.js"></script>
+  <script src="/js/modern-header.js"></script>
+</body>
+</html>
