@@ -1,6 +1,6 @@
 <link rel="manifest" href="/site.webmanifest">
 
-<meta name="theme-color" content="#111207">
+<meta name="theme-color" content="#ffffff">
 <meta name="application-name" content="PRAISe Lab">
 
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -12,4 +12,26 @@
   href="/img/app/praise-180.png"
 >
 
+<script>
+  (() => {
+    let theme = "light";
+
+    try {
+      if (
+        window.localStorage.getItem(
+          "praise-theme"
+        ) === "dark"
+      ) {
+        theme = "dark";
+      }
+    } catch {
+      theme = "light";
+    }
+
+    document.documentElement.dataset.theme = theme;
+  })();
+</script>
+
+<link rel="stylesheet" href="/css/dark-mode.css">
+<script src="/js/theme-toggle.js" defer></script>
 <script src="/js/pwa-install.js" defer></script>

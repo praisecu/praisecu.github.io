@@ -75,7 +75,7 @@
 
 <body>
 {% include "components/modern-header.njk" %}
-  <main class="modern-page">
+  <main class="modern-page{% if nav %} modern-page--{{ nav }}{% endif %}">
     <section class="modern-page-hero">
       <div class="modern-page-container">
         <div class="modern-page-heading">

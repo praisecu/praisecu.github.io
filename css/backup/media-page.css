@@ -1,0 +1,503 @@
+/* =========================================================
+   PRAISe Media
+   Media coverage and talks
+   ========================================================= */
+
+.media-page-section {
+  padding: 46px 24px 82px;
+  background: #ffffff;
+}
+
+.media-page-container {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* Page navigation */
+
+.media-page-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 54px;
+}
+
+.media-page-jump a {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 14px;
+
+  background: #fbfaf6;
+  border: 1px solid #ded5bc;
+  border-radius: 999px;
+
+  color: #4f4604 !important;
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none !important;
+
+  transition:
+    background 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    transform 150ms ease;
+}
+
+.media-page-jump a:hover,
+.media-page-jump a:focus {
+  background: #1d1e00;
+  border-color: #1d1e00;
+  color: #cfb97d !important;
+  transform: translateY(-1px);
+}
+
+/* Section headings */
+
+.media-group--talks {
+  margin-top: 76px;
+  scroll-margin-top: 105px;
+}
+
+.media-group {
+  scroll-margin-top: 105px;
+}
+
+.media-section-heading {
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #deded9;
+}
+
+.media-section-heading__eyebrow {
+  margin: 0 0 6px;
+
+  color: #8a742f;
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.media-section-heading__title {
+  margin: 0;
+
+  color: #1d1e00;
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.24;
+}
+
+/* Media rows */
+
+.media-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.media-item {
+  display: grid;
+  grid-template-columns: 330px minmax(0, 1fr);
+  gap: 31px;
+  align-items: start;
+
+  min-width: 0;
+  padding: 34px 0;
+
+  border-bottom: 1px solid #e5e5e1;
+}
+
+.media-item:first-child {
+  padding-top: 8px;
+}
+
+/* Images */
+
+.media-item__media {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  aspect-ratio: 16 / 10;
+
+  background: #f1f1ee;
+  border: 1px solid #e4e4df;
+  border-radius: 13px;
+}
+
+.media-item__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 220ms ease;
+}
+
+.media-item__media--contain img {
+  padding: 8px;
+  object-fit: contain;
+}
+
+.media-item__media:hover img,
+.media-item__media:focus img {
+  transform: scale(1.018);
+}
+
+/* Content */
+
+.media-item__body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding-top: 2px;
+}
+
+.media-item__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.media-item__title {
+  margin: 0;
+
+  color: #1d1e00;
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.media-item__date {
+  flex: 0 0 auto;
+  margin: 2px 0 0;
+  padding: 6px 10px;
+
+  background: #fbfaf6;
+  border: 1px solid #ddd4b9;
+  border-radius: 999px;
+
+  color: #4f4604;
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.media-item__source {
+  margin: 12px 0 9px;
+
+  color: #4f4604;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.media-item__description {
+  max-width: 760px;
+  margin: 0;
+
+  color: #666666;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.67;
+  text-align: left;
+}
+
+.media-item__speaker {
+  margin: 2px 0 0;
+
+  color: #70706b;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+/* Links */
+
+.media-item__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.media-item__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 7px 11px;
+
+  background: #1d1e00;
+  border: 1px solid #1d1e00;
+  border-radius: 999px;
+
+  color: #cfb97d !important;
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-size: 13px !important;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none !important;
+  white-space: nowrap;
+
+  transition:
+    background 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    transform 150ms ease;
+}
+
+.media-item__links a::before,
+.media-item__links a::after,
+.media-item__links span::before,
+.media-item__links span::after {
+  display: none !important;
+  content: none !important;
+}
+
+.media-item__links span {
+  display: inline;
+  margin: 0;
+  padding: 0;
+
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit !important;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.media-item__links i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+
+  width: 12px;
+  margin: 0;
+  padding: 0;
+
+  color: #cfb97d;
+  font-family: FontAwesome;
+  font-size: 11px;
+  font-style: normal;
+  line-height: 1;
+}
+
+.media-item__links a:hover,
+.media-item__links a:focus {
+  background: #4f4604;
+  border-color: #4f4604;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+.media-item__links a:hover i,
+.media-item__links a:focus i {
+  color: #ffffff;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .media-item {
+    grid-template-columns: 270px minmax(0, 1fr);
+    gap: 25px;
+  }
+
+  .media-item__heading {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .media-item__title {
+    font-size: 24px;
+  }
+
+  .media-item__date {
+    margin-top: 0;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .media-page-section {
+    padding: 32px 16px 58px;
+  }
+
+  .media-page-container {
+    width: min(100% - 16px, 720px);
+  }
+
+  .media-page-jump {
+    margin-bottom: 42px;
+  }
+
+  .media-section-heading__title {
+    font-size: 29px;
+  }
+
+  .media-group--talks {
+    margin-top: 58px;
+  }
+
+  .media-item {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 30px 0;
+  }
+
+  .media-item__media {
+    aspect-ratio: 16 / 9;
+  }
+
+  .media-item__title {
+    font-size: 23px;
+  }
+
+  .media-item__source {
+    font-size: 15px;
+  }
+
+  .media-item__description {
+    font-size: 15px;
+  }
+
+  .media-item__links {
+    margin-top: 20px;
+  }
+
+  .media-item__links a {
+    font-size: 12px !important;
+  }
+}
+
+/* =========================================================
+   Compact Media page spacing
+   ========================================================= */
+
+@media (min-width: 701px) {
+  /* Reduce the large page-introduction area. */
+  .media-page .modern-page-hero {
+    padding-top: 42px;
+    padding-bottom: 38px;
+  }
+
+  /* Bring the content closer to the hero. */
+  .media-page-section {
+    padding-top: 28px;
+  }
+
+  /* Reduce the gap below the section-navigation buttons. */
+  .media-page-jump {
+    margin-bottom: 30px;
+  }
+
+  /* Tighten the heading before the first media item. */
+  .media-section-heading {
+    margin-bottom: 18px;
+  }
+}
+
+/* =========================================================
+   Compact Media page on phones
+   ========================================================= */
+
+@media (max-width: 700px) {
+  /* Compact page introduction. */
+
+  .media-page .modern-page-hero {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
+  .media-page .modern-page-kicker {
+    margin-bottom: 11px;
+  }
+
+  .media-page .modern-page-summary {
+    margin-top: 14px;
+  }
+
+  /* Bring the section navigation closer to the content. */
+
+  .media-page-section {
+    padding-top: 20px;
+    padding-bottom: 42px;
+  }
+
+  .media-page-jump {
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .media-page-jump a {
+    padding: 7px 12px;
+  }
+
+  /* Compact section headings. */
+
+  .media-section-heading {
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+  }
+
+  .media-group--talks {
+    margin-top: 42px;
+  }
+
+  /* Compact each media entry. */
+
+  .media-item {
+    gap: 14px;
+    padding: 22px 0;
+  }
+
+  .media-item:first-child {
+    padding-top: 0;
+  }
+
+  /* Slightly smaller images while preserving their proportions. */
+
+  .media-item__media {
+    width: min(92%, 430px);
+    margin-right: auto;
+    margin-left: auto;
+
+    aspect-ratio: 16 / 9;
+  }
+
+  .media-item__media--contain img {
+    padding: 6px;
+  }
+
+  /* Reduce vertical gaps inside the text area. */
+
+  .media-item__heading {
+    gap: 7px;
+  }
+
+  .media-item__source {
+    margin-top: 8px;
+    margin-bottom: 6px;
+  }
+
+  .media-item__links {
+    gap: 6px;
+    margin-top: 14px;
+  }
+}
