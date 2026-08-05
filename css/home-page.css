@@ -3544,3 +3544,43 @@
     padding-top: 30px;
   }
 }
+
+/* Refine homepage typography on phones */
+
+@media (max-width: 700px) {
+  /* Smaller carousel headline. */
+
+  .home-carousel__caption {
+    min-height: 36px !important;
+    padding: 5px 12px !important;
+  }
+
+  .home-carousel__caption a {
+    font-size: 11.5px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Keep the lab name on one line. */
+
+  .home-about__title {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+    font-size: clamp(13.5px, 4vw, 18px) !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.035em;
+
+    white-space: nowrap;
+  }
+
+  /* Justify homepage introduction text on phones. */
+
+  .home-about__copy p {
+    text-align: justify !important;
+    text-justify: inter-word;
+
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+}
