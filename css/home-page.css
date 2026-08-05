@@ -3584,3 +3584,71 @@
     hyphens: auto;
   }
 }
+
+/* More compact homepage layout on phones */
+
+@media (max-width: 700px) {
+  /* Use more of the available phone width. */
+
+  .home-about__container {
+    width: calc(100% - 32px) !important;
+    max-width: none !important;
+  }
+
+  .home-about {
+    padding-top: 25px !important;
+    padding-bottom: 30px !important;
+  }
+
+  .home-about__title {
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* Compact justified introduction text. */
+
+  .home-about__copy p {
+    margin-top: 0 !important;
+    margin-bottom: 14px !important;
+
+    line-height: 1.55 !important;
+    letter-spacing: -0.01em;
+
+    text-align: justify !important;
+    text-align-last: left;
+
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
+  .home-about__copy p:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* Compact action buttons. */
+
+  .home-about__actions {
+    gap: 9px !important;
+    margin-top: 20px !important;
+  }
+
+  .home-about__actions .home-button {
+    min-height: 49px !important;
+    padding: 11px 16px !important;
+  }
+
+  /* Bring Recent News closer. */
+
+  .home-news {
+    padding-top: 30px !important;
+  }
+
+  .home-section-heading {
+    margin-bottom: 21px !important;
+  }
+
+  .home-section-title {
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+  }
+}
