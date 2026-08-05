@@ -137,7 +137,10 @@
               >
                 {{ link.label }}
                 {% if link.external %}
-                  <span aria-hidden="true">â†—</span>
+                  <span
+  class="course-external-icon"
+  aria-hidden="true"
+>&#8599;</span>
                 {% endif %}
               </a>
             {% endfor %}
@@ -185,7 +188,10 @@
                     rel="noopener noreferrer"
                   >
                     Course Canvas
-                    <span aria-hidden="true">â†—</span>
+                    <span
+  class="course-external-icon"
+  aria-hidden="true"
+>&#8599;</span>
                   </a>
                 {% endif %}
 
@@ -205,7 +211,10 @@
                     rel="noopener noreferrer"
                   >
                     Piazza
-                    <span aria-hidden="true">â†—</span>
+                    <span
+  class="course-external-icon"
+  aria-hidden="true"
+>&#8599;</span>
                   </a>
                 {% endif %}
               </nav>
@@ -262,7 +271,7 @@
 
         <p class="course-back-link">
           <a href="../teaching.html">
-            <span aria-hidden="true">â†</span>
+            <span aria-hidden="true">&#8592;</span>
             View all courses
           </a>
         </p>
@@ -285,6 +294,7 @@
   <script src="/js/jquery.sticky-kit.min.js"></script>
   <script src="/js/scripts.js"></script>
   <script src="/js/modern-header.js"></script>
+<script src="/js/teaching-course-sections.js"></script>
 </body>
 </html>
 

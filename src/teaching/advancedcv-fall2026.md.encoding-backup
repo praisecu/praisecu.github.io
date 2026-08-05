@@ -17,7 +17,7 @@ quick_info:
   canvas_url: https://canvas.colorado.edu/
   piazza_url: https://piazza.com/colorado/fall2026/mcen5228009
   instructor: Chahat Deep Singh
-  class_hours: "Tue/Thu, 3:30 PM–4:45 PM"
+  class_hours: "Tue/Thu, 3:30 PMâ€“4:45 PM"
   location: "Gold Biosciences Building A2B07"
   office_hours: TBD
 
@@ -54,25 +54,25 @@ Assignments will use [Google Colab](https://colab.research.google.com/). CU Boul
 
 |No.|Topic|Slides|
 |-:|-|:-:|
-|1|Introduction|—|
-|2|Image Formation|—|
-|3|All About Features!|—|
-|4|Projections and Transformations|—|
-|5|Non-Rigid Transformation and Camera Models|—|
-|6|Camera Calibration and Introduction to Computer Graphics|—|
-|7|Curves and Rendering|—|
-|8|Single View Geometry|—|
-|9|Introduction to Computational Imaging|—|
-|10|Coded Deep Depth|—|
-|10b|Coded Deep Depth — 2|—|
-|11|Two-View Geometry and Stereopsis|—|
-|12|Structure from Motion — 1|—|
-|13|Structure from Motion — 2|—|
-|14|Volumetric Rendering|—|
-|15|Neural Radiance Fields|—|
-|16|More NeRFs|—|
-|17|3D Gaussian Splatting|—|
-|18|Motion Fields and Optical Flow|—|
+|1|Introduction|â€”|
+|2|Image Formation|â€”|
+|3|All About Features!|â€”|
+|4|Projections and Transformations|â€”|
+|5|Non-Rigid Transformation and Camera Models|â€”|
+|6|Camera Calibration and Introduction to Computer Graphics|â€”|
+|7|Curves and Rendering|â€”|
+|8|Single View Geometry|â€”|
+|9|Introduction to Computational Imaging|â€”|
+|10|Coded Deep Depth|â€”|
+|10b|Coded Deep Depth â€” 2|â€”|
+|11|Two-View Geometry and Stereopsis|â€”|
+|12|Structure from Motion â€” 1|â€”|
+|13|Structure from Motion â€” 2|â€”|
+|14|Volumetric Rendering|â€”|
+|15|Neural Radiance Fields|â€”|
+|16|More NeRFs|â€”|
+|17|3D Gaussian Splatting|â€”|
+|18|Motion Fields and Optical Flow|â€”|
 
 <h2 id="advancedcv-assignments">Assignments</h2>
 
@@ -82,13 +82,13 @@ Students may discuss concepts with team members and other class members, but may
 
 |No.|Assignment|Release Date|Due Date|
 |-:|-|:-:|:-:|
-|0|Python Tutorial / OpenCV Tutorial|—|—|
-|1|P1: Panorama!|—|—|
-|2|Homework: Calibrate My Camera|—|—|
-|3|P2: Coded Deep Depth — Part 1 / Part 2|—|—|
-|4|P3: Blob the Builder — Part 1 / Part 2|—|—|
-|5|Midterm — In Class|—|—|
-|6|P4: Monocular Visual Odometry|—|—|
+|0|Python Tutorial / OpenCV Tutorial|â€”|â€”|
+|1|P1: Panorama!|â€”|â€”|
+|2|Homework: Calibrate My Camera|â€”|â€”|
+|3|P2: Coded Deep Depth â€” Part 1 / Part 2|â€”|â€”|
+|4|P3: Blob the Builder â€” Part 1 / Part 2|â€”|â€”|
+|5|Midterm â€” In Class|â€”|â€”|
+|6|P4: Monocular Visual Odometry|â€”|â€”|
 
 ## Late Policy
 
@@ -98,7 +98,7 @@ Students have a total of **six late days** that may be used across assignments, 
 
 When using late days:
 
-1. Include **“USING X LATE DAY(S)”** in the submission title.
+1. Include **â€œUSING X LATE DAY(S)â€** in the submission title.
 2. Add a Canvas comment identifying the late-day usage.
 3. Track the number of late days remaining.
 

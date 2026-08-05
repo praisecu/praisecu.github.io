@@ -431,7 +431,7 @@ header-component {
   display: none;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   body {
     padding-bottom:
       calc(62px + env(safe-area-inset-bottom)) !important;
@@ -959,5 +959,19 @@ header-component {
 
     width: 27px;
     height: 27px;
+  }
+}
+
+/* Center the PRAISe Lab header brand on mobile */
+
+@media (max-width: 700px) {
+  .modern-header__inner {
+    justify-content: center !important;
+  }
+
+  .modern-header__brand {
+    justify-content: center;
+    width: max-content;
+    margin: 0 auto;
   }
 }

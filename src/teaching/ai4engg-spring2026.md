@@ -29,7 +29,7 @@ Key topics include supervised and unsupervised learning, classification and regr
 
 **Pre-requisites**: Fundamental understanding of **Linear Algebra** and proficiency with **Python** (or any other scripting language like MATLAB). Students **DO NOT** require an understanding of AI or machine learning before enrolling in this course.
 
-## Course Logistics
+<h2 id="ai-course-logistics">Course Logistics</h2>
 
 All the course announcements will be made through Piazza, which will be the main mode of communication during this course. Please do NOT contact the Instructor or the TA via email unless it is an emergency. DO NOT contact the Instructor or the TA on any social media platform such as Facebook or WhatsApp (please respect their privacy) regarding course content. **Canvas** will only be used for Grading and uploading student assignments.
 
@@ -41,7 +41,7 @@ All the course announcements will be made through Piazza, which will be the main
 | **In-class quizzes (2)** | **2.5%** each |
 | **Collaboration rules** | Projects must be completed in teams of **two students**.<br>Homeworks, quizzes and exam must be completed and submitted **individually**. |
 
-## Final Project
+<h2 id="ai-final-project">Final Project</h2>
 
 The final project is open-ended. **You are expected to propose and execute a novel idea.**
 
@@ -57,7 +57,7 @@ Note: You will receive detailed guidelines for each component of the final proje
 | **System implementation** | **25%** | Correctness and a working end-to-end demo. |
 | **Integration of concepts** | **10%** | Appropriate and explicit use of principles/techniques taught in the course. |
 
-## Lectures
+<h2 id="ai-lectures">Lectures</h2>
 
 | No. | Date | Topics | Slides | Reference Materials |
 |---:|---|---|:---:|---|
@@ -83,13 +83,13 @@ Note: You will receive detailed guidelines for each component of the final proje
 | 19. | Mar 25, 2026 | **Transformers**<br>GPT. Embeddings. Attention. | [Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQC1SheNRVAySqUm5tZgmKbsAa7p6JY5LbmYh_jLBOm8QlQ?e=ndQt5o) | |
 | — | Mar 30, 2026 | **Midterm Exam**<br>In-Class | — | |
 
-<h2 id="assignments">Assignments</h2>
+<h2 id="ai-assignments">Assignments</h2>
 
 | No. | Release Date | Due Date | Assignment | Link |
 |---:|---|---|---|:---:|
 | 0.A | — | — | **Python Tutorial** | [Link](https://colab.research.google.com/github/cs231n/cs231n.github.io/blob/master/python-colab.ipynb#scrollTo=qVrTo-LhL9eS) |
 | 0.B | — | — | **Google Colab Tutorial** | [Link](https://codefinity.com/blog/Google-Colab-Tutorial) |
-| 0.C | — | — | **Classification and Regression**<br>Interactive Python Tutorial | [Classification](https://www.praisecu.com/blog/classification/), <br>[Regression](https://www.praisecu.com/blog/regression/) |
+| 0.C | — | — | **Classification and Regression**<br>Interactive Python Tutorial | [Classification](https://www.praisecu.com/blog/classification/) \| [Regression](https://www.praisecu.com/blog/regression/) |
 | 1. | Jan 28, 2026 | Feb 11, 2026 | **Homework 1**<br>Machine Learning Fundamentals | [Link](https://colab.research.google.com/drive/1Ym-ZYUlP0NgTmEaaGwC0jCrVFxQO91KR?usp=sharing) |
 | 2. | Feb 16, 2026 | In-Class | **Quiz 1** | — |
 | 3. | Feb 23, 2026 | Mar 9, 2026 | **Project 1**<br>Your First Neural Network | [Part A](https://colab.research.google.com/drive/1awuoK-uPcH0NYaG4hrSwP0dMtyaxuXuu?usp=sharing) \| [Part B](https://colab.research.google.com/drive/1uk5B6nu50skSKZeOsKtOWQiFUyyVWeFM?usp=sharing) |
