@@ -27,7 +27,7 @@ course_links:
     external: false
 ---
 
-> Sign up for [Piazza](https://piazza.com/colorado/fall2026/mcen5228009) using your `colorado.edu` ID. Piazza is the primary communication channel for this course.
+> Sign up for [Piazza](https://piazza.com/colorado/fall2026/mcen5228010) using your `colorado.edu` ID. Piazza is the primary communication channel for this course.
 
 ## Course Description
 
@@ -39,7 +39,7 @@ Topics include camera sensors and calibration, image formation, single-view geom
 
 ## Course Logistics
 
-All course announcements will be made through [Piazza](https://piazza.com/colorado/fall2026/mcen5228009), which is the main mode of communication during the course.
+All course announcements will be made through [Piazza](https://piazza.com/colorado/fall2026/mcen5228010), which is the main mode of communication during the course.
 
 Please do not contact the instructor or teaching assistant by email unless the matter is an emergency. Do not contact the instructional staff through social-media platforms regarding course content. **Canvas** will be used only for grading and assignment submissions.
 
