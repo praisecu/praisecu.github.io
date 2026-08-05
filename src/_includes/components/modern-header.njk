@@ -74,3 +74,145 @@
 </nav>
   </div>
 </header>
+
+<nav
+  class="mobile-bottom-nav"
+  aria-label="Mobile navigation"
+>
+  <a
+    class="mobile-bottom-nav__item{% if not nav %} is-active{% endif %}"
+    href="/"
+  >
+    <i class="fa fa-home" aria-hidden="true"></i>
+    <span>Home</span>
+  </a>
+
+  <a
+    class="mobile-bottom-nav__item{% if nav == 'research' %} is-active{% endif %}"
+    href="/research-areas"
+  >
+    <i class="fa fa-flask" aria-hidden="true"></i>
+    <span>Research</span>
+  </a>
+
+  <a
+    class="mobile-bottom-nav__item{% if nav == 'teaching' %} is-active{% endif %}"
+    href="/teaching"
+  >
+    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+    <span>Teaching</span>
+  </a>
+
+  <a
+    class="mobile-bottom-nav__item{% if nav == 'team' %} is-active{% endif %}"
+    href="/team"
+  >
+    <i class="fa fa-users" aria-hidden="true"></i>
+    <span>Team</span>
+  </a>
+
+  <button
+    class="mobile-bottom-nav__item mobile-bottom-nav__more{% if nav == 'media' or nav == 'openings' %} is-active{% endif %}"
+    type="button"
+    aria-expanded="false"
+    aria-controls="mobile-more-menu"
+  >
+    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+    <span>More</span>
+  </button>
+</nav>
+
+<div
+  id="mobile-more-menu"
+  class="mobile-more-menu"
+  aria-hidden="true"
+>
+  <button
+    class="mobile-more-menu__backdrop"
+    type="button"
+    aria-label="Close navigation menu"
+  ></button>
+
+  <div
+    class="mobile-more-menu__panel"
+    role="dialog"
+    aria-modal="true"
+    aria-label="More navigation links"
+  >
+    <div class="mobile-more-menu__handle"></div>
+
+    <div class="mobile-more-menu__heading">
+      <span>More</span>
+
+      <button
+        class="mobile-more-menu__close"
+        type="button"
+        aria-label="Close menu"
+      >
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div class="mobile-more-menu__links">
+      <a href="/publications">
+        <i class="fa fa-book" aria-hidden="true"></i>
+        <span>Publications</span>
+      </a>
+
+      <a href="/media">
+        <i class="fa fa-camera" aria-hidden="true"></i>
+        <span>Media</span>
+      </a>
+
+      <a href="/openings">
+        <i class="fa fa-briefcase" aria-hidden="true"></i>
+        <span>Openings</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<aside
+  id="pwa-install"
+  class="pwa-install"
+  aria-label="Install PRAISe Lab"
+  aria-live="polite"
+  hidden
+>
+  <img
+    class="pwa-install__icon"
+    src="/img/app/praise-192.png"
+    alt=""
+    aria-hidden="true"
+  >
+
+  <div class="pwa-install__content">
+    <strong class="pwa-install__title">
+      Install PRAISe Lab
+    </strong>
+
+    <span
+      id="pwa-install-message"
+      class="pwa-install__message"
+    >
+      Add PRAISe Lab to this device.
+    </span>
+  </div>
+
+  <button
+    id="pwa-install-button"
+    class="pwa-install__button"
+    type="button"
+  >
+    Install
+  </button>
+
+  <button
+    id="pwa-install-close"
+    class="pwa-install__close"
+    type="button"
+    aria-label="Dismiss install prompt"
+  >
+    <i class="fa fa-times" aria-hidden="true"></i>
+  </button>
+</aside>

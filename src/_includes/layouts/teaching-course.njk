@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -85,6 +85,7 @@
     gtag("js", new Date());
     gtag("config", "G-CW9BT60PE9");
   </script>
+  {% include "components/pwa-head.njk" %}
 </head>
 
 <body>
@@ -136,7 +137,7 @@
               >
                 {{ link.label }}
                 {% if link.external %}
-                  <span aria-hidden="true">↗</span>
+                  <span aria-hidden="true">â†—</span>
                 {% endif %}
               </a>
             {% endfor %}
@@ -184,7 +185,7 @@
                     rel="noopener noreferrer"
                   >
                     Course Canvas
-                    <span aria-hidden="true">↗</span>
+                    <span aria-hidden="true">â†—</span>
                   </a>
                 {% endif %}
 
@@ -204,7 +205,7 @@
                     rel="noopener noreferrer"
                   >
                     Piazza
-                    <span aria-hidden="true">↗</span>
+                    <span aria-hidden="true">â†—</span>
                   </a>
                 {% endif %}
               </nav>
@@ -261,7 +262,7 @@
 
         <p class="course-back-link">
           <a href="../teaching.html">
-            <span aria-hidden="true">←</span>
+            <span aria-hidden="true">â†</span>
             View all courses
           </a>
         </p>
@@ -286,3 +287,4 @@
   <script src="/js/modern-header.js"></script>
 </body>
 </html>
+

@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -96,6 +96,7 @@
     gtag("js", new Date());
     gtag("config", "G-CW9BT60PE9");
   </script>
+  {% include "components/pwa-head.njk" %}
 </head>
 
 <body>
@@ -207,9 +208,6 @@
     <!-- Lab introduction -->
     <section class="home-about">
       <div class="home-about__container">
-        <p class="home-section-eyebrow">
-          About PRAISe
-        </p>
 
         <h1 class="home-about__title">
           Perception, Robotics, AI and Sensing Lab
@@ -244,9 +242,6 @@
     >
       <div class="home-news__container">
         <header class="home-section-heading">
-          <p class="home-section-eyebrow">
-            Lab Updates
-          </p>
 
           <h2
             id="home-news-title"

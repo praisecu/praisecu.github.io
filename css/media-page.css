@@ -412,3 +412,92 @@
     margin-bottom: 18px;
   }
 }
+
+/* =========================================================
+   Compact Media page on phones
+   ========================================================= */
+
+@media (max-width: 700px) {
+  /* Compact page introduction. */
+
+  .media-page .modern-page-hero {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
+  .media-page .modern-page-kicker {
+    margin-bottom: 11px;
+  }
+
+  .media-page .modern-page-summary {
+    margin-top: 14px;
+  }
+
+  /* Bring the section navigation closer to the content. */
+
+  .media-page-section {
+    padding-top: 20px;
+    padding-bottom: 42px;
+  }
+
+  .media-page-jump {
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .media-page-jump a {
+    padding: 7px 12px;
+  }
+
+  /* Compact section headings. */
+
+  .media-section-heading {
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+  }
+
+  .media-group--talks {
+    margin-top: 42px;
+  }
+
+  /* Compact each media entry. */
+
+  .media-item {
+    gap: 14px;
+    padding: 22px 0;
+  }
+
+  .media-item:first-child {
+    padding-top: 0;
+  }
+
+  /* Slightly smaller images while preserving their proportions. */
+
+  .media-item__media {
+    width: min(92%, 430px);
+    margin-right: auto;
+    margin-left: auto;
+
+    aspect-ratio: 16 / 9;
+  }
+
+  .media-item__media--contain img {
+    padding: 6px;
+  }
+
+  /* Reduce vertical gaps inside the text area. */
+
+  .media-item__heading {
+    gap: 7px;
+  }
+
+  .media-item__source {
+    margin-top: 8px;
+    margin-bottom: 6px;
+  }
+
+  .media-item__links {
+    gap: 6px;
+    margin-top: 14px;
+  }
+}

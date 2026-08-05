@@ -554,3 +554,137 @@
     font-size: 16px;
   }
 }
+
+/* =========================================================
+   Compact Team page on phones
+   ========================================================= */
+
+@media (max-width: 600px) {
+  /* Compact page title area. */
+
+  .team-page .modern-page-hero {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
+  .team-page .modern-page-kicker {
+    margin-bottom: 10px;
+  }
+
+  /* Reduce outer page spacing. */
+
+  .team-page-section {
+    padding-top: 22px;
+    padding-bottom: 42px;
+  }
+
+  /* Compact hiring panel. */
+
+  .team-join {
+    gap: 14px;
+    margin-bottom: 28px;
+    padding: 18px 18px;
+
+    border-radius: 13px;
+  }
+
+  .team-join__eyebrow {
+    margin-bottom: 5px;
+  }
+
+  .team-join__title {
+    margin-bottom: 5px;
+  }
+
+  .team-join__button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  /* Reduce spacing between team sections. */
+
+  .team-group {
+    margin-top: 34px;
+  }
+
+  .team-group--lead {
+    margin-top: 0;
+  }
+
+  .team-section-heading {
+    margin-bottom: 14px;
+    padding-bottom: 9px;
+  }
+
+  .team-section-heading__eyebrow {
+    margin-bottom: 5px;
+  }
+
+  /* Principal investigator card. */
+
+  .team-lead {
+    gap: 14px;
+    padding: 18px 16px;
+
+    border-radius: 15px;
+  }
+
+  .team-lead__photo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .team-lead__name {
+    margin-bottom: 5px;
+  }
+
+  .team-lead__role {
+    margin-bottom: 14px;
+  }
+
+  /* Student cards. */
+
+  .team-grid {
+    gap: 14px;
+  }
+
+  .team-card {
+    padding: 18px 16px 17px;
+
+    border-radius: 15px;
+  }
+
+  .team-card__photo {
+    width: 145px;
+    height: 145px;
+    margin-bottom: 13px;
+  }
+
+  .team-card__name {
+    margin-bottom: 5px;
+  }
+
+  .team-card__role {
+    margin-bottom: 13px;
+  }
+
+  /* Slightly smaller social buttons, not text. */
+
+  .team-socials {
+    gap: 7px;
+  }
+
+  .team-socials a {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 9px;
+  }
+
+  /* Compact alumni rows. */
+
+  .team-alumni__item {
+    gap: 3px;
+    padding: 13px 16px;
+  }
+}

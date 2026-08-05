@@ -722,6 +722,114 @@
   }
 }
 
+/* =========================================================
+   Compact Teaching page on phones
+   ========================================================= */
+
+@media (max-width: 700px) {
+  /* Compact page title area. */
+
+  .teaching-page .modern-page-hero {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .teaching-page .modern-page-kicker {
+    margin-bottom: 9px;
+  }
+
+  /* Reduce spacing around course offerings. */
+
+  .teaching-page-section {
+    padding-top: 18px;
+    padding-right: 12px;
+    padding-bottom: 42px;
+    padding-left: 12px;
+  }
+
+  .teaching-page-container {
+    width: min(100% - 8px, 720px);
+  }
+
+  .teaching-term {
+    margin-top: 36px;
+  }
+
+  .teaching-term:first-child {
+    margin-top: 0;
+  }
+
+  .teaching-term__heading {
+    margin-bottom: 14px;
+    padding-bottom: 9px;
+  }
+
+  .teaching-term__eyebrow {
+    margin-bottom: 4px;
+  }
+
+  .teaching-list {
+    gap: 15px;
+  }
+
+  /* Compact course cards. */
+
+  .teaching-page .teaching-course {
+    border-radius: 14px;
+  }
+
+  /*
+   * Course banners are wide, so do not force them into
+   * a tall 16:9 mobile container.
+   */
+
+  .teaching-page .teaching-course__media {
+    min-height: 0;
+    padding: 10px;
+
+    aspect-ratio: auto !important;
+
+    border-bottom: 1px solid #e5e5e1;
+  }
+
+  .teaching-page .teaching-course__media img,
+  .teaching-page .teaching-course__media video {
+    width: 100%;
+    height: auto;
+    max-height: 155px;
+
+    object-fit: contain;
+  }
+
+  .teaching-page .teaching-course__body {
+    padding: 17px 18px 19px;
+  }
+
+  .teaching-page .teaching-course__code {
+    margin-bottom: 5px;
+  }
+
+  .teaching-page .teaching-course__subtitle {
+    margin-top: 7px;
+  }
+
+  .teaching-page .teaching-course__description {
+    margin-top: 12px;
+    margin-bottom: 15px;
+  }
+
+  .teaching-page .teaching-course__button {
+    padding: 8px 13px;
+  }
+
+  /* Compact previous-course section. */
+
+  .teaching-page .teaching-archive {
+    gap: 14px;
+    margin-top: 36px;
+    padding: 18px;
+  }
+}
 /* Center academic-term headings. */
 
 .teaching-page .teaching-term__heading {
@@ -731,4 +839,36 @@
 .teaching-page .teaching-term__eyebrow,
 .teaching-page .teaching-term__title {
   text-align: center;
+}
+
+/* Full-bleed course banners on phones */
+
+@media (max-width: 700px) {
+  .teaching-page .teaching-course__media {
+    overflow: hidden;
+    padding: 0 !important;
+
+    aspect-ratio: 2.65 / 1 !important;
+
+    background: #111;
+    border-bottom: 1px solid #e5e5e1;
+    border-radius: 14px 14px 0 0;
+  }
+
+  .teaching-page .teaching-course__media img,
+  .teaching-page .teaching-course__media video {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    max-height: none !important;
+
+    object-fit: cover;
+    border-radius: 0;
+  }
+
+  .teaching-page .teaching-course__media--contain img {
+    padding: 0 !important;
+    object-fit: cover;
+  }
 }
