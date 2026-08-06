@@ -25,6 +25,7 @@ course_links:
   - label: Previous year course materials
     url: /teaching/advancedcv-fall2025.html
     external: false
+
 ---
 
 > Sign up for [Piazza](https://piazza.com/colorado/fall2026/mcen5228010) using your `colorado.edu` ID. Piazza is the primary communication channel for this course.
