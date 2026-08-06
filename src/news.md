@@ -81,6 +81,16 @@ news:
     url: https://www.linkedin.com/posts/chahatdeep_truly-a-special-moment-to-host-your-phd-activity-7323024811545329664-pQia?utm_source=share&utm_medium=member_desktop&rcm=ACoAAA8A6XMBLmgAH7cds84J2pjua--a9JXfbqU
     description: Invited talk on "Action Grammar - The Basis of Intelligent Robots".
 
+  - title: Robotic Bees - News Article
+    date: March 05, 2025
+    date_iso: 2025-03-05
+    image: https://www.colorado.edu/mechanical/sites/default/files/styles/large_image_style/public/2025-02/IMG_0281.JPG?itok=jFvaKhJc
+    url: "https://share.google/kjP4w8nawgOU9lQP2"
+    description: Robotic bees? These bio-inspired robots redefine the boundaries of autonomy and sustainability
+    external: true 
+
+
+
   - title: ICRA40
     date: Sep 24, 2024
     date_iso: 2024-09-01
