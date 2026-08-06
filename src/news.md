@@ -85,7 +85,7 @@ news:
     date: March 05, 2025
     date_iso: 2025-03-05
     image: https://www.colorado.edu/mechanical/sites/default/files/styles/large_image_style/public/2025-02/IMG_0281.JPG?itok=jFvaKhJc
-    url: "https://share.google/kjP4w8nawgOU9lQP2"
+    url: https://share.google/kjP4w8nawgOU9lQP2
     description: Robotic bees? These bio-inspired robots redefine the boundaries of autonomy and sustainability
     external: true 
 
