@@ -14,8 +14,8 @@ banner: /img/teaching/AdvancedCV-Class-Banner/Slide1.PNG
 banner_alt: Advanced Computer Vision course banner
 
 quick_info:
-  canvas_url: https://canvas.colorado.edu/
-  piazza_url: https://piazza.com/colorado/fall2026/mcen5228010.
+  canvas_url: https://canvas.colorado.edu/courses/139889
+  piazza_url: https://piazza.com/colorado/fall2026/mcen5228010
   instructor: Chahat Deep Singh
   class_hours: "Tue/Thu, 3:30 PM–4:45 PM"
   location: "Gold Biosciences Building A2B07"
