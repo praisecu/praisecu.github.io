@@ -3647,3 +3647,26 @@
     vertical-align: middle !important;
   }
 }
+
+/* Disable automatic hyphenation on all course pages */
+
+.course-page,
+.course-page p,
+.course-page li,
+.course-page dt,
+.course-page dd,
+.course-page th,
+.course-page td,
+.course-page h1,
+.course-page h2,
+.course-page h3,
+.course-page h4,
+.course-page a,
+.course-page span {
+  -webkit-hyphens: none !important;
+  -ms-hyphens: none !important;
+  hyphens: none !important;
+
+  overflow-wrap: normal;
+  word-break: normal;
+}

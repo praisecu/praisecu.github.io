@@ -32,11 +32,11 @@ course_links:
 
 ## Course Description
 
-Welcome to **MCEN 5228-010: Advanced Computer Vision**, taught by Prof. Chahat Deep Singh at the University of Colorado Boulder. This advanced graduate course covers classical, geometric, and deep-learning methods in computer vision. The course begins with the mathematical foundations of computer vision and progresses to recent deep-learning advances. Its objective is to introduce formal perception tools for students interested in robot autonomy and 3D perception.
+Welcome to **MCEN 5228-010: Advanced Computer Vision**, taught by Prof. Chahat Deep Singh at the University of Colorado Boulder. This advanced graduate course covers classical, geometric, and deep learning methods in computer vision. The course begins with the mathematical foundations of computer vision and progresses to recent deep-learning advances. Its objective is to introduce formal perception tools for students interested in robot autonomy and 3D perception.
 
 Topics include camera sensors and calibration, image formation, single-view geometry, projective transformations, multi-view geometry, structure from motion, optical flow, computational imaging, radiance fields, volumetric rendering, and deep-learning-based depth and reconstruction methods.
 
-**Prerequisites:** Linear algebra and proficiency with Python or another scripting language. Prior computer-vision experience is **not required**.
+**Prerequisites:** Linear algebra and proficiency with Python or another scripting language. Prior computer vision experience is **not required**.
 
 ## Course Logistics
 
