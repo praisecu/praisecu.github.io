@@ -7,8 +7,82 @@ tags:
   - newsArchive
 
 news:
+
+  - title: IROS Workshop accepted | Insect-scale Autonomy
+    date: June 10, 2026
+    date_iso: 2026-06-10
+    image: https://github.com/insect-autonomy/insect-autonomy.github.io/blob/main/public/BeeFavicon.png?raw=true
+    image_alt: Submit to Insect-scale Autonomy Workshop
+    url: http://insect-autonomy.github.io/
+    description: IROS workshop on Insect-scale Autonomy will be held in Pittsburg on Oct 1, 2026. Deadline to submit is Aug 24, 2026.
+    external: true
+
+  - title: Paper Presented in ICRA 2026 (Workshop)
+    date: June 1, 2026
+    date_iso: 2026-06-01
+    image: img/papers/VESTA-Bound-ICRA-Workshop.png
+    # image_alt: New Course Taught - AI for Engineers in Spring 2026
+    url: https://www.youtube.com/watch?v=TWIeqfySpkk
+    description: Safety-Bounded Space Robot Navigation via Vision-Language Model Integration was presented in ICRA SpaRo Workshop 2026.
+    external: true
+
+  - title: Served as Editor for MDPI Drones
+    date: March 15, 2026
+    date_iso: 2026-03-15
+    image: img/logo/mdpi.jpg
+    # image_alt: New Course Taught - AI for Engineers in Spring 2026
+    url: https://www.mdpi.com/journal/drones/special_issues/21X1EMIOW0
+    description: Prof. Chahat Singh served as an editor for MDPI Special Issue - 'From Nature to Flight - Bio-Inspired UAV Design and Intelligence'
+    external: true
+
+  - title: Served as AE for IROS 2026
+    date: Feb 15, 2026
+    date_iso: 2026-02-15
+    image: img/logo/IROS2026.png
+    description: Prof. Chahat Singh served as Associate Editor for IROS 2026
+    external: false
+
+  - title: Granted Google Cloud Credits
+    date: Feb 10, 2026
+    date_iso: 2026-02-10
+    image: img/logo/gcp.png
+    description: PRAISe Lab were granted Google Cloud Research Credits for Drone Autonomy Research
+    external: false
+
+  - title: Thanushraam received the Outstanding Course Assistant Award
+    date: Dec 15, 2025
+    date_iso: 2025-12-15
+    image: img/team/thanush.jpg
+    description: Thanushraam Suresh received the Outstanding Course Assistant Award for Advanced Computer Vision Course - Fall 2025.
+    external: false
+
+  - title: New Course - AI for Engineers
+    date: Jan 10, 2026
+    date_iso: 2026-01-10
+    image: teaching/img/teaching/AI4Engg-Banner/AI4Engg.png
+    image_alt: New Course Taught - AI for Engineers in Spring 2026
+    url: teaching/ai4engg-spring2026.html
+    description: An advanced cross-listed undergraduate and graduate course that develops the mathematical foundations and engineering practice of classical machine learning through modern deep learning.
+    external: false
+
+  - title: Co-hosted BISCCITs Workshop
+    date: June 23, 2025
+    date_iso: 2025-06-23
+    image: https://media.licdn.com/dms/image/v2/D4E22AQG4yZqFxAqIug/feedshare-image-high-res/B4EZeeSB4QGwAs-/0/1750707216511?e=1787788800&v=beta&t=CJyxvYycFlli_oNfAVhVFt86S9Nq8uCnNBenJXD5-Fs
+    image_alt: Co-hosted Bio-inspired Workshop
+    url: https://www.linkedin.com/posts/chahatdeep_perception-sensing-control-activity-7342998289509675008-DDed?utm_source=share&utm_medium=member_desktop&rcm=ACoAAA8A6XMBLmgAH7cds84J2pjua--a9JXfbqU
+    description: CU Boulder was honored to host the Bio-Inspired Sensing Collaborative International Teams (BISCCITs) workshop this year.
+
+  - title: Seminar by Yiannis Aloimonos
+    date: April 29, 2025
+    date_iso: 2025-04-29
+    image: img/seminar/yiannis.jpg
+    image_alt: Invited Yiannis Aloimonos at CU Boulder
+    url: https://www.linkedin.com/posts/chahatdeep_truly-a-special-moment-to-host-your-phd-activity-7323024811545329664-pQia?utm_source=share&utm_medium=member_desktop&rcm=ACoAAA8A6XMBLmgAH7cds84J2pjua--a9JXfbqU
+    description: Invited talk on "Action Grammar - The Basis of Intelligent Robots".
+
   - title: ICRA40
-    date: September 2024
+    date: Sep 24, 2024
     date_iso: 2024-09-01
     image: /img/news/ICRA40.png
     image_alt: PRAISe Lab research presented at ICRA40
@@ -20,7 +94,7 @@ news:
     date_iso: 2024-07-24
     image: /img/banners/boulder-campus.png
     image_alt: University of Colorado Boulder campus
-    url: "https://www.colorado.edu/"
+    url: "https://www.linkedin.com/posts/chahatdeep_cuboulder-incomingfaculty-praise-activity-7222000975480320000--Ryl?utm_source=share&utm_medium=member_desktop&rcm=ACoAAA8A6XMBLmgAH7cds84J2pjua--a9JXfbqU"
     description: Chahat Deep Singh joins CU Boulder as an assistant professor.
 
   - title: Active HumanPose

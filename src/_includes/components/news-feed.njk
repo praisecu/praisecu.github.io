@@ -1,15 +1,20 @@
 <div class="news-feed">
   {% for item in items %}
     <article class="news-entry">
-      <a
-        class="news-entry__link"
-        href="{{ item.url }}"
-        {% if item.external != false %}
-          target="_blank"
-          rel="noopener noreferrer"
-        {% endif %}
-        aria-label="Read: {{ item.title }}"
-      >
+      {% if item.url %}
+        <a
+          class="news-entry__link"
+          href="{{ item.url }}"
+          {% if item.external != false %}
+            target="_blank"
+            rel="noopener noreferrer"
+          {% endif %}
+          aria-label="Read: {{ item.title }}"
+        >
+      {% else %}
+        <div class="news-entry__link news-entry__link--static">
+      {% endif %}
+
         {% if item.image %}
           <div class="news-entry__media">
             <img
@@ -18,20 +23,24 @@
               loading="lazy"
             >
           </div>
+
         {% else %}
           <div
             class="news-entry__media news-entry__media--placeholder"
             aria-hidden="true"
           >
             <span class="news-entry__placeholder-kicker">
-              PRAISe Lab
+              <center>PRAISe Lab</center>
             </span>
 
             <span class="news-entry__placeholder-title">
-              Research Update
+              News
             </span>
+  
           </div>
         {% endif %}
+
+
 
         <div class="news-entry__content">
           <div class="news-entry__meta">
@@ -44,9 +53,14 @@
               {{ item.date }}
             </time>
 
-            <span class="news-entry__arrow" aria-hidden="true">
-              ↗
-            </span>
+            {% if item.url %}
+              <span
+                class="news-entry__arrow"
+                aria-hidden="true"
+              >
+                ↗
+              </span>
+            {% endif %}
           </div>
 
           <h3 class="news-entry__title">
@@ -59,7 +73,12 @@
             </p>
           {% endif %}
         </div>
-      </a>
+
+      {% if item.url %}
+        </a>
+      {% else %}
+        </div>
+      {% endif %}
     </article>
   {% else %}
     <p class="news-feed__empty">
