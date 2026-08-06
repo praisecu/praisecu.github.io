@@ -83,7 +83,7 @@ Students may discuss concepts with team members and other class members, but may
 |No.|Assignment|Release Date|Due Date|
 |-:|-|:-:|:-:|
 | 0. | [Python Tutorial](https://colab.research.google.com/github/cs231n/cs231n.github.io/blob/master/python-colab.ipynb#scrollTo=qVrTo-LhL9eS) \| [OpenCV Tutorial](https://colab.research.google.com/drive/1b-LlTfcJR9lGzilay8z7NHqyD4ItnDsB?usp=sharing) | — | — |
-|1|P1: Panorama!|—|—|
+|1|[P1: Panorama!](https://colab.research.google.com/drive/1bU_OAJUjFJ54Qqh-tCoWJRwQBe2T6Vn-?usp=sharing)|—|—|
 |2|Homework: Calibrate My Camera|—|—|
 |3|P2: Coded Deep Depth — Part 1 / Part 2|—|—|
 |4|P3: Blob the Builder — Part 1 / Part 2|—|—|
