@@ -397,3 +397,199 @@
 #toTop {
   display: none !important;
 }
+
+/* =========================================================
+   Compact mobile footer
+   ========================================================= */
+
+@media (max-width: 560px) {
+  .modern-footer {
+    padding: 14px 6px 8px !important;
+  }
+
+  .modern-footer__shell {
+    padding: 20px 18px 13px !important;
+
+    border-radius: 15px !important;
+  }
+
+  .modern-footer__accent {
+    left: 18px !important;
+    width: 66px;
+  }
+
+  /* Brand on the left, social buttons on the right */
+
+  .modern-footer__top {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start !important;
+    gap: 10px !important;
+  }
+
+  .modern-footer__brand {
+    min-width: 0;
+  }
+
+  .modern-footer__title {
+    margin-bottom: 3px !important;
+
+    font-size: 24px !important;
+    line-height: 1.1 !important;
+  }
+
+  .modern-footer__tagline {
+    max-width: 230px;
+
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+  }
+
+  .modern-footer__socials {
+    align-self: start;
+    gap: 5px !important;
+  }
+
+  .modern-footer__socials a {
+    width: 30px !important;
+    height: 30px !important;
+
+    border-radius: 8px !important;
+
+    font-size: 12px !important;
+  }
+
+  /* Navigation and address */
+
+  .modern-footer__middle {
+    display: block !important;
+
+    margin-top: 13px !important;
+    padding: 11px 0 !important;
+  }
+
+  .modern-footer__navigation {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    gap: 5px !important;
+
+    width: 100%;
+    margin-bottom: 11px;
+
+    white-space: nowrap;
+  }
+
+  .modern-footer__navigation a {
+    flex: 0 1 auto;
+
+    font-size: 11.5px !important;
+    line-height: 1.25 !important;
+  }
+
+  .modern-footer__address {
+    gap: 2px !important;
+
+    font-size: 12.5px !important;
+    line-height: 1.45 !important;
+  }
+
+  .modern-footer__address span {
+    gap: 6px !important;
+  }
+
+  .modern-footer__address i {
+    width: 13px;
+
+    font-size: 12px !important;
+  }
+
+  /* Copyright left, location right */
+
+  .modern-footer__bottom {
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+
+    padding-top: 10px !important;
+  }
+
+  .modern-footer__bottom p,
+  .modern-footer__bottom a {
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+    white-space: nowrap;
+  }
+}
+
+/* Keep all six links on one row on narrower phones */
+
+@media (max-width: 390px) {
+  .modern-footer__shell {
+    padding-right: 14px !important;
+    padding-left: 14px !important;
+  }
+
+  .modern-footer__title {
+    font-size: 22px !important;
+  }
+
+  .modern-footer__tagline {
+    font-size: 12.5px !important;
+  }
+
+  .modern-footer__socials {
+    gap: 4px !important;
+  }
+
+  .modern-footer__socials a {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .modern-footer__navigation {
+    gap: 3px !important;
+  }
+
+  .modern-footer__navigation a {
+    font-size: 10.5px !important;
+  }
+
+  .modern-footer__bottom p,
+  .modern-footer__bottom a {
+    font-size: 11px !important;
+  }
+}
+
+/* Keep the full PRAISe tagline on one line on phones */
+
+@media (max-width: 560px) {
+  .modern-footer__brand {
+    display: contents;
+  }
+
+  .modern-footer__title {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .modern-footer__socials {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .modern-footer__tagline {
+    grid-row: 2;
+    grid-column: 1 / -1;
+
+    width: 100%;
+    max-width: none !important;
+    margin-top: 2px;
+
+    font-size: clamp(11px, 3.5vw, 14px) !important;
+    line-height: 1.3 !important;
+    white-space: nowrap;
+  }
+}
