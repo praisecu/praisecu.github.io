@@ -12,6 +12,14 @@ hero_slides:
   #   alt: University of Colorado Boulder campus and Flatirons
   #   fit: cover
 
+
+  - title: Submit to Insect-scale Autonomy IROS workshop | Deadline - Aug 24, 2026
+    text_url: https://insect-autonomy.github.io/
+    image_url: https://insect-autonomy.github.io/
+    image: https://insect-autonomy.github.io/insect-autonomy-banner.jpg
+    alt: Insect-scale Autonomy Workshop
+    fit: cover
+
   - title: Ajna is published and featured on the cover of Science Robotics
     text_url: https://prg.cs.umd.edu/Ajna
     image_url: https://prg.cs.umd.edu/Ajna
