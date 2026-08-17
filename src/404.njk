@@ -1,0 +1,58 @@
+---
+permalink: /404.html
+eleventyExcludeFromCollections: true
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta name="robots" content="noindex">
+
+  <title>Page Not Found | PRAISe Lab</title>
+
+  <script>
+    (() => {
+      const path = window.location.pathname;
+
+      if (path === "/teaching/") {
+        window.location.replace(
+          "/teaching" +
+          window.location.search +
+          window.location.hash
+        );
+      }
+    })();
+  </script>
+</head>
+
+<body>
+  <main
+    style="
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:30px;
+      font-family:Arial,sans-serif;
+      text-align:center;
+    "
+  >
+    <div>
+      <h1>404</h1>
+      <p>Page not found.</p>
+
+      <p>
+        <a href="/">
+          Return to PRAISe Lab
+        </a>
+      </p>
+    </div>
+  </main>
+</body>
+</html>
