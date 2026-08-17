@@ -15,26 +15,37 @@
     content="{{ description | default(title + ' at the University of Colorado Boulder.') }}"
   >
 
-  <meta property="og:title" content="{{ title }} | PRAISe Lab">
+  <meta
+    property="og:title"
+    content="{{ title }} | PRAISe Lab"
+  >
+
   <meta
     property="og:description"
     content="{{ description | default(title + ' at the University of Colorado Boulder.') }}"
   >
+
   <meta
     property="og:image"
     content="https://praisecu.com/img/logo/praise-logo.webp"
   >
 
-  <link rel="icon" type="image/x-icon" href="/img/logo/praise.webp">
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="/img/logo/praise.webp"
+  >
 
   <link
     rel="stylesheet"
     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
   >
+
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
   >
+
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap"
@@ -85,6 +96,7 @@
     gtag("js", new Date());
     gtag("config", "G-CW9BT60PE9");
   </script>
+
   {% include "components/pwa-head.njk" %}
 </head>
 
@@ -102,30 +114,46 @@
   {% include "components/modern-header.njk" %}
 
   <main class="course-page">
+
+    <!-- Course hero -->
     <section class="course-hero">
       <div class="course-container course-hero__inner">
+
         {% if term %}
-          <p class="course-hero__term">{{ term }}</p>
+          <p class="course-hero__term">
+            {{ term }}
+          </p>
         {% endif %}
 
         <h1 class="course-hero__title">
           {% if course_code %}
-            <span class="course-hero__code">{{ course_code }}</span>
+            <span class="course-hero__code">
+              {{ course_code }}
+            </span>
           {% endif %}
 
           {% if course_name %}
-            <span class="course-hero__name">{{ course_name }}</span>
+            <span class="course-hero__name">
+              {{ course_name }}
+            </span>
           {% else %}
-            <span class="course-hero__name">{{ title }}</span>
+            <span class="course-hero__name">
+              {{ title }}
+            </span>
           {% endif %}
         </h1>
 
         {% if subtitle %}
-          <p class="course-hero__subtitle">{{ subtitle }}</p>
+          <p class="course-hero__subtitle">
+            {{ subtitle }}
+          </p>
         {% endif %}
 
         {% if course_links %}
-          <div class="course-hero__actions" aria-label="Course links">
+          <div
+            class="course-hero__actions"
+            aria-label="Course links"
+          >
             {% for link in course_links %}
               <a
                 class="course-action{% if loop.first %} course-action--primary{% endif %}"
@@ -136,23 +164,30 @@
                 {% endif %}
               >
                 {{ link.label }}
+
                 {% if link.external %}
                   <span
-  class="course-external-icon"
-  aria-hidden="true"
->&#8599;</span>
+                    class="course-external-icon"
+                    aria-hidden="true"
+                  >
+                    &#8599;
+                  </span>
                 {% endif %}
               </a>
             {% endfor %}
           </div>
         {% endif %}
+
       </div>
     </section>
 
-    
 
+    <!-- Course banner -->
     {% if banner %}
-      <section class="course-banner" aria-label="{{ title }} course banner">
+      <section
+        class="course-banner"
+        aria-label="{{ title }} course banner"
+      >
         <div class="course-container">
           <img
             src="{{ banner }}"
@@ -162,126 +197,188 @@
       </section>
     {% endif %}
 
-{% if quick_info %}
+
+    <!-- Quick Information -->
+    {% if quick_info %}
       <section
         class="course-quick"
         aria-labelledby="course-quick-title"
       >
         <div class="course-container">
-          <div class="course-quick__surface">
-            <h2
-              id="course-quick-title"
-              class="course-quick__title"
-            >
-              Quick Information
-            </h2>
 
-            {% if quick_info.canvas_url or quick_info.piazza_url %}
-              <nav
-                class="course-quick__links"
-                aria-label="Course resources"
+          <div class="course-quick__layout">
+
+            <!-- Quick Information card -->
+            <div class="course-quick__surface">
+
+              <h2
+                id="course-quick-title"
+                class="course-quick__title"
               >
-                {% if quick_info.canvas_url %}
-                  <a
-                    href="{{ quick_info.canvas_url }}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Course Canvas
-                    <span
-  class="course-external-icon"
-  aria-hidden="true"
->&#8599;</span>
-                  </a>
-                {% endif %}
+                Quick Information
+              </h2>
 
-                {% if quick_info.canvas_url and quick_info.piazza_url %}
-                  <span
-                    class="course-quick__separator"
-                    aria-hidden="true"
-                  >
-                    |
-                  </span>
-                {% endif %}
+              {% if quick_info.canvas_url or quick_info.piazza_url %}
+                <nav
+                  class="course-quick__links"
+                  aria-label="Course resources"
+                >
 
-                {% if quick_info.piazza_url %}
-                  <a
-                    href="{{ quick_info.piazza_url }}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Piazza
-                    <span
-  class="course-external-icon"
-  aria-hidden="true"
->&#8599;</span>
-                  </a>
-                {% endif %}
-              </nav>
-            {% endif %}
+                  {% if quick_info.canvas_url %}
+                    <a
+                      href="{{ quick_info.canvas_url }}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Course Canvas
 
-            <dl class="course-quick__details">
-              {% if quick_info.instructor %}
-                <div class="course-quick__row">
-                  <dt>Instructor</dt>
-                  <dd>{{ quick_info.instructor }}</dd>
-                </div>
-              {% endif %}
-
-              {% if quick_info.class_hours %}
-                <div class="course-quick__row">
-                  <dt>Class Hours</dt>
-
-                  <dd>
-                    {{ quick_info.class_hours }}
-
-                    {% if quick_info.location %}
                       <span
-                        class="course-quick__detail-separator"
+                        class="course-external-icon"
                         aria-hidden="true"
                       >
-                        |
+                        &#8599;
                       </span>
+                    </a>
+                  {% endif %}
 
-                      {{ quick_info.location }}
-                    {% endif %}
-                  </dd>
-                </div>
+                  {% if quick_info.canvas_url and quick_info.piazza_url %}
+                    <span
+                      class="course-quick__separator"
+                      aria-hidden="true"
+                    >
+                      |
+                    </span>
+                  {% endif %}
+
+                  {% if quick_info.piazza_url %}
+                    <a
+                      href="{{ quick_info.piazza_url }}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Piazza
+
+                      <span
+                        class="course-external-icon"
+                        aria-hidden="true"
+                      >
+                        &#8599;
+                      </span>
+                    </a>
+                  {% endif %}
+
+                </nav>
               {% endif %}
 
-              {% if quick_info.office_hours %}
-                <div class="course-quick__row">
-                  <dt>Office Hours</dt>
-                  <dd>{{ quick_info.office_hours }}</dd>
-                </div>
-              {% endif %}
-            </dl>
+
+              <dl class="course-quick__details">
+
+                {% if quick_info.instructor %}
+                  <div class="course-quick__row">
+                    <dt>Instructor</dt>
+
+                    <dd>
+                      {{ quick_info.instructor }}
+                    </dd>
+                  </div>
+                {% endif %}
+
+
+                {% if quick_info.class_hours %}
+                  <div class="course-quick__row">
+                    <dt>Class Hours</dt>
+
+                    <dd>
+                      {{ quick_info.class_hours }}
+
+                      {% if quick_info.location %}
+                        <span
+                          class="course-quick__detail-separator"
+                          aria-hidden="true"
+                        >
+                          |
+                        </span>
+
+                        {{ quick_info.location }}
+                      {% endif %}
+                    </dd>
+                  </div>
+                {% endif %}
+
+
+                {% if quick_info.office_hours %}
+                  <div class="course-quick__row">
+                    <dt>Office Hours</dt>
+
+                    <dd>
+                      {{ quick_info.office_hours }}
+                    </dd>
+                  </div>
+                {% endif %}
+
+              </dl>
+
+            </div>
+
+
+            <!-- Desktop QR code -->
+            <aside
+              class="course-quick__qr"
+              aria-label="Scan PRAISe Lab website QR code"
+            >
+              <img
+                class="course-quick__qr-image course-quick__qr-image--light"
+                src="/img/logo/cu-qr-code-white.png"
+                alt="QR code for PRAISe Lab"
+              >
+
+              <img
+                class="course-quick__qr-image course-quick__qr-image--dark"
+                src="/img/logo/cu-qr-code-black.png"
+                alt="QR code for PRAISe Lab"
+              >
+            </aside>
+
           </div>
+
         </div>
       </section>
     {% endif %}
 
+
+    <!-- Course content -->
     <section class="course-content">
       <div class="course-container">
+
         <article class="course-content__surface">
           <div class="course-content__body">
             {{ content | safe }}
           </div>
         </article>
 
-        <p class="course-back-link">
-          <a href="../teaching.html">
-            <span aria-hidden="true">&#8592;</span>
-            View all courses
-          </a>
-        </p>
+
+        {% if show_back_link != false %}
+          <p class="course-back-link">
+            <a href="../teaching.html">
+              <span aria-hidden="true">
+                &#8592;
+              </span>
+
+              View all courses
+            </a>
+          </p>
+        {% endif %}
+
       </div>
     </section>
+
   </main>
+
 
   {% include "components/edit-page.njk" %}
 
   {% include "components/modern-footer.njk" %}
+
 
   <script src="/js/jquery.js"></script>
   <script src="/js/bootstrap.min.js"></script>
@@ -296,7 +393,7 @@
   <script src="/js/jquery.sticky-kit.min.js"></script>
   <script src="/js/scripts.js"></script>
   <script src="/js/modern-header.js"></script>
-<script src="/js/teaching-course-sections.js"></script>
+  <script src="/js/teaching-course-sections.js"></script>
+
 </body>
 </html>
-
