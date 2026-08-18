@@ -18,7 +18,7 @@ quick_info:
   piazza_url: https://piazza.com/colorado/fall2026/mcen5228010
   instructor: Chahat Deep Singh
   class_hours: "Tue/Thu, 3:30 PM–4:45 PM"
-  location: "Gold Biosciences Building A2B07"
+  location: "ECCS 1B14"
   office_hours: TBD
 
 course_links:
