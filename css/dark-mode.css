@@ -1144,3 +1144,41 @@ html[data-theme="dark"]
 #advancedcv-assignments ~ table tbody td {
   border-color: #41443a !important;
 }
+
+/* Table footnote */
+
+html[data-theme="dark"] .course-content__body .course-table-note {
+  color: #a9ab9d !important;
+}
+
+html[data-theme="dark"] .course-content__body .course-table-note code {
+  background: #24261f !important;
+  color: #e8ce78 !important;
+}
+
+/* Advanced CV lecture-table Slides and Video links */
+
+html[data-theme="dark"]
+.course-content__body
+#advancedcv-lectures + table tbody td:nth-child(3) a,
+html[data-theme="dark"]
+.course-content__body
+#advancedcv-lectures + table tbody td:nth-child(4) a {
+  color: #e8ce78 !important;
+}
+
+html[data-theme="dark"]
+.course-content__body
+#advancedcv-lectures + table tbody td:nth-child(3) a:hover,
+html[data-theme="dark"]
+.course-content__body
+#advancedcv-lectures + table tbody td:nth-child(3) a:focus-visible,
+html[data-theme="dark"]
+.course-content__body
+#advancedcv-lectures + table tbody td:nth-child(4) a:hover,
+html[data-theme="dark"]
+.course-content__body
+#advancedcv-lectures + table tbody td:nth-child(4) a:focus-visible {
+  color: #ffffff !important;
+  text-decoration-color: #f4d978 !important;
+}

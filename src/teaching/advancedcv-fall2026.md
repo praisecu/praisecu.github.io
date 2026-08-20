@@ -53,27 +53,29 @@ Assignments will use [Google Colab](https://colab.research.google.com/). CU Boul
 
 <h2 id="advancedcv-lectures">Lectures</h2>
 
-|No.|Topic|Slides|
-|-:|-|:-:|
-|1|Introduction|—|
-|2|Image Formation|—|
-|3|All About Features!|—|
-|4|Projections and Transformations|—|
-|5|Non-Rigid Transformation and Camera Models|—|
-|6|Camera Calibration and Introduction to Computer Graphics|—|
-|7|Curves and Rendering|—|
-|8|Single View Geometry|—|
-|9|Introduction to Computational Imaging|—|
-|10|Coded Deep Depth|—|
-|10b|Coded Deep Depth — 2|—|
-|11|Two-View Geometry and Stereopsis|—|
-|12|Structure from Motion — 1|—|
-|13|Structure from Motion — 2|—|
-|14|Volumetric Rendering|—|
-|15|Neural Radiance Fields|—|
-|16|More NeRFs|—|
-|17|3D Gaussian Splatting|—|
-|18|Motion Fields and Optical Flow|—|
+|No.|Topic|Slides|Video<sup>&dagger;</sup>|
+|-:|-|:-:|:-:|
+|1|Introduction|—|—|
+|2|Image Formation|—|—|
+|3|All About Features!|—|—|
+|4|Projections and Transformations|—|—|
+|5|Non-Rigid Transformation and Camera Models|—|—|
+|6|Camera Calibration and Introduction to Computer Graphics|—|—|
+|7|Curves and Rendering|—|—|
+|8|Single View Geometry|—|—|
+|9|Introduction to Computational Imaging|—|—|
+|10|Coded Deep Depth|—|—|
+|10b|Coded Deep Depth — 2|—|—|
+|11|Two-View Geometry and Stereopsis|—|—|
+|12|Structure from Motion — 1|—|—|
+|13|Structure from Motion — 2|—|—|
+|14|Volumetric Rendering|—|—|
+|15|Neural Radiance Fields|—|—|
+|16|More NeRFs|—|—|
+|17|3D Gaussian Splatting|—|—|
+|18|Motion Fields and Optical Flow|—|—|
+
+<p class="course-table-note"><span class="course-table-note__marker">&dagger;</span> Lecture videos are available only to CU Boulder members signed in with a <code>colorado.edu</code> account.</p>
 
 <h2 id="advancedcv-assignments">Assignments</h2>
 

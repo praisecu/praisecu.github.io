@@ -3783,3 +3783,196 @@ html[data-theme="dark"]
     display: none !important;
   }
 }
+
+/* =========================================================
+   Advanced CV lecture table
+   No. | Topic | Slides | Video
+   ========================================================= */
+
+.course-content__body #advancedcv-lectures + table {
+    table-layout: fixed;
+}
+
+/* No. */
+
+.course-content__body #advancedcv-lectures + table th:nth-child(1),
+.course-content__body #advancedcv-lectures + table td:nth-child(1) {
+    width: 8% !important;
+    padding-right: 8px;
+    padding-left: 8px;
+    text-align: center;
+}
+
+/* Topic */
+
+.course-content__body #advancedcv-lectures + table th:nth-child(2),
+.course-content__body #advancedcv-lectures + table td:nth-child(2) {
+    width: 54% !important;
+    padding-right: 18px;
+    padding-left: 18px;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+/* Slides and Video */
+
+.course-content__body #advancedcv-lectures + table th:nth-child(3),
+.course-content__body #advancedcv-lectures + table td:nth-child(3),
+.course-content__body #advancedcv-lectures + table th:nth-child(4),
+.course-content__body #advancedcv-lectures + table td:nth-child(4) {
+    width: 19% !important;
+    text-align: center;
+}
+
+/* Give the Video links the same treatment as the Slides links. */
+
+.course-content__body #advancedcv-lectures + table tbody td:nth-child(3) a,
+.course-content__body #advancedcv-lectures + table tbody td:nth-child(4) a {
+    color: #6f5d00 !important;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.course-content__body #advancedcv-lectures + table tbody td:nth-child(3) a:hover,
+.course-content__body #advancedcv-lectures + table tbody td:nth-child(3) a:focus,
+.course-content__body #advancedcv-lectures + table tbody td:nth-child(4) a:hover,
+.course-content__body #advancedcv-lectures + table tbody td:nth-child(4) a:focus {
+    color: #1d1e00 !important;
+}
+
+/* Footnote marker in the Video header */
+
+.course-content__body #advancedcv-lectures + table thead th sup {
+    font-size: 0.6em;
+    font-weight: 700;
+    line-height: 0;
+}
+
+/* Table footnote */
+
+.course-content__body table:has(+ .course-table-note) {
+    margin-bottom: 10px;
+}
+
+.course-content__body .course-table-note {
+    margin: 0 0 34px;
+    color: #6d6d63;
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.course-content__body .course-table-note code {
+    font-size: 0.92em;
+    font-style: normal;
+}
+
+.course-content__body .course-table-note__marker {
+    font-style: normal;
+    font-weight: 700;
+}
+
+/* ---------------------------------------------------------
+   Phones: the lecture rows render as cards, so widen the card
+   grid to four cells and keep a compact header row visible so
+   the two link columns stay labelled.
+   --------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+    .course-content__body
+  #advancedcv-lectures + table thead {
+      display: block !important;
+      margin-bottom: 6px;
+  }
+
+    .course-content__body
+  #advancedcv-lectures + table thead tr {
+      display: grid !important;
+      grid-template-columns: 34px minmax(0, 1fr) 52px 52px !important;
+      align-items: center;
+      overflow: hidden;
+      background: #292600 !important;
+      border-radius: 9px !important;
+  }
+
+    .course-content__body
+  #advancedcv-lectures + table thead th:nth-child(n) {
+      box-sizing: border-box !important;
+      width: auto !important;
+      min-width: 0 !important;
+      padding: 7px 4px !important;
+      background: transparent !important;
+      border: 0 !important;
+      color: #f0e7c4 !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.02em;
+      line-height: 1.2 !important;
+      text-align: center !important;
+      white-space: nowrap !important;
+  }
+
+    .course-content__body
+  #advancedcv-lectures + table thead th:nth-child(2):nth-child(n) {
+      padding-left: 8px !important;
+      text-align: left !important;
+  }
+
+    .course-content__body
+  #advancedcv-lectures + table tbody tr {
+      grid-template-columns: 34px minmax(0, 1fr) 52px 52px !important;
+  }
+
+    /* Match the Slides cell treatment on the Video cell. */
+
+    .course-content__body
+  #advancedcv-lectures + table tbody td:nth-child(3),
+  .course-content__body
+  #advancedcv-lectures + table tbody td:nth-child(4) {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box !important;
+      width: 100% !important;
+      min-width: 0 !important;
+      padding: 4px 5px !important;
+      color: #66665f;
+      text-align: center !important;
+      white-space: nowrap !important;
+  }
+
+    .course-content__body
+  #advancedcv-lectures + table tbody td:nth-child(3) a,
+  .course-content__body
+  #advancedcv-lectures + table tbody td:nth-child(4) a {
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      min-height: 29px;
+      padding: 5px 7px;
+      background: #242500;
+      border-radius: 7px;
+      color: #cfb97d !important;
+      font-size: 12px !important;
+      line-height: 1 !important;
+      text-decoration: none !important;
+  }
+
+    .course-content__body
+  #advancedcv-lectures + table tbody td:nth-child(1) {
+      padding: 6px 2px 6px 6px !important;
+  }
+
+    .course-content__body .course-table-note {
+      margin-top: 2px;
+      font-size: 14px;
+      text-align: left;
+  }
+}
