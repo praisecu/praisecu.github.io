@@ -1182,3 +1182,54 @@ html[data-theme="dark"]
   color: #ffffff !important;
   text-decoration-color: #f4d978 !important;
 }
+
+
+/* Course announcements */
+
+html[data-theme="dark"] .course-updates__surface {
+  background: linear-gradient(135deg, #1c1e18 0%, #191b17 100%) !important;
+  border-color: #3a3d34 !important;
+  border-left-color: #8f7a37 !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="dark"] .course-updates__title {
+  color: #f0e7c4 !important;
+}
+
+html[data-theme="dark"] .course-updates__item {
+  border-bottom-color: #33362d !important;
+}
+
+html[data-theme="dark"] .course-updates__date {
+  color: #a9ab9d !important;
+}
+
+html[data-theme="dark"] .course-updates__text {
+  color: #d4d6c8 !important;
+}
+
+html[data-theme="dark"] .course-updates__tag--lecture {
+  background: #3a3320 !important;
+  color: #e8ce78 !important;
+}
+
+html[data-theme="dark"] .course-updates__tag--assignment {
+  background: #26331f !important;
+  color: #a9d6a1 !important;
+}
+
+html[data-theme="dark"] .course-updates__tag--schedule {
+  background: #362522 !important;
+  color: #e0a99a !important;
+}
+
+html[data-theme="dark"] .course-updates__link {
+  color: #e8ce78 !important;
+}
+
+html[data-theme="dark"] .course-updates__link:hover,
+html[data-theme="dark"] .course-updates__link:focus-visible {
+  color: #ffffff !important;
+  text-decoration-color: #f4d978 !important;
+}

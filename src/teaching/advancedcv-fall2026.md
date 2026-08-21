@@ -21,6 +21,20 @@ quick_info:
   location: "ECCS 1B14"
   office_hours: TBD
 
+# Only the five newest announcements are shown on the page.
+# Use type: lecture | assignment | schedule
+announcements:
+
+  - date: August 20, 2026
+    date_iso: 2026-08-20
+    type: lecture
+    text: "Lecture 1 (Introduction) slides and recording are now posted."
+
+  - date: August 20, 2026
+    date_iso: 2026-08-20
+    type: schedule
+    text: "Class location moved to ECCS 1B14 (previously Gold Biosciences Building A2B07)."
+
 course_links:
   - label: Previous year course materials
     url: /teaching/advancedcv-fall2025.html

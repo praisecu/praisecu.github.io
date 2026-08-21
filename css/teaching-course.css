@@ -3991,3 +3991,154 @@ html[data-theme="dark"]
       text-align: left;
   }
 }
+
+/* =========================================================
+   Course announcements
+   ========================================================= */
+
+.course-updates {
+    padding: 26px 24px 0;
+}
+
+.course-updates__surface {
+    padding: 24px 30px 26px;
+    background: linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #fbfaf5 100%
+    );
+    border: 1px solid #dfdfd8;
+    border-left: 4px solid #b69b47;
+    border-radius: 18px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.045),
+    0 2px 7px rgba(0, 0, 0, 0.02);
+}
+
+.course-updates__title {
+    margin: 0 0 4px;
+    color: #1d1e00;
+    font-family: "Nunito Sans", "Nunito", sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.course-updates__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.course-updates__item {
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr);
+    gap: 4px 18px;
+    align-items: baseline;
+    padding: 13px 0;
+    border-bottom: 1px solid #ebebe4;
+}
+
+.course-updates__item:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.course-updates__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    align-items: baseline;
+}
+
+.course-updates__date {
+    color: #7a7a6f;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.course-updates__tag {
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.course-updates__tag--lecture {
+    background: #efe8cd;
+    color: #5d4f12;
+}
+
+.course-updates__tag--assignment {
+    background: #dfe8dd;
+    color: #35513a;
+}
+
+.course-updates__tag--schedule {
+    background: #e8dfdd;
+    color: #6a3f34;
+}
+
+.course-updates__text {
+    margin: 0;
+    color: #4d4d46;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.course-updates__link {
+    margin-left: 4px;
+    color: #6f5d1b;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(111, 93, 27, 0.34);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    white-space: nowrap;
+}
+
+.course-updates__link:hover,
+.course-updates__link:focus {
+    color: #1d1e00;
+    text-decoration-color: #c8ae5c;
+}
+
+/* Phones: stack the date and tag above the announcement text. */
+
+@media (max-width: 700px) {
+
+    .course-updates {
+      padding: 18px 20px 0;
+  }
+
+    .course-updates__surface {
+      padding: 18px 18px 20px;
+      border-radius: 14px;
+  }
+
+    .course-updates__title {
+      font-size: 21px;
+  }
+
+    .course-updates__item {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 5px;
+      padding: 11px 0;
+  }
+
+    .course-updates__date {
+      font-size: 13px;
+  }
+
+    .course-updates__text {
+      font-size: 15px;
+      line-height: 1.55;
+  }
+}
