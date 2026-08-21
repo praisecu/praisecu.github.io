@@ -1,3 +1,6 @@
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
+
 export default function (eleventyConfig) {
   // Preserve the existing website assets unchanged.
   const assetDirectories = [
@@ -45,6 +48,69 @@ export default function (eleventyConfig) {
   for (const page of legacyTeachingPages) {
     eleventyConfig.addPassthroughCopy(page);
   }
+
+  /*
+   * Append a content hash to local CSS and JS URLs.
+   *
+   * GitHub Pages serves assets with a ten minute cache
+   * lifetime, so without this a visitor can load freshly
+   * deployed HTML alongside a stylesheet still held in their
+   * browser cache, which renders new markup unstyled. The hash
+   * changes only when a file's contents change, so unmodified
+   * assets stay cached across deploys.
+   */
+  const assetHashes = new Map();
+
+  eleventyConfig.on("eleventy.before", () => {
+    assetHashes.clear();
+  });
+
+  const assetHash = (urlPath) => {
+    if (assetHashes.has(urlPath)) {
+      return assetHashes.get(urlPath);
+    }
+
+    let hash = "";
+
+    try {
+      hash = createHash("sha1")
+        .update(readFileSync("." + urlPath))
+        .digest("hex")
+        .slice(0, 8);
+    } catch {
+      /*
+       * A missing file is left untouched so the URL keeps
+       * whatever behaviour it had before.
+       */
+      hash = "";
+    }
+
+    assetHashes.set(urlPath, hash);
+
+    return hash;
+  };
+
+  eleventyConfig.addTransform(
+    "cacheBustLocalAssets",
+    function (content) {
+      const outputPath = this.page?.outputPath || "";
+
+      if (!String(outputPath).endsWith(".html")) {
+        return content;
+      }
+
+      return content.replace(
+        /(href|src)="(\/(?:css|js)\/[^"?#]+\.(?:css|js))"/g,
+        (match, attribute, urlPath) => {
+          const hash = assetHash(urlPath);
+
+          return hash
+            ? attribute + '="' + urlPath + "?v=" + hash + '"'
+            : match;
+        }
+      );
+    }
+  );
 
   /*
    * Sort news entries newest first using date_iso.
