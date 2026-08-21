@@ -3930,6 +3930,21 @@ html[data-theme="dark"]
       grid-template-columns: 34px minmax(0, 1fr) 52px 52px !important;
   }
 
+    /* Earlier rules narrow the card to three tracks once a Slides link
+     exists, which pushes the Video cell onto a second line. Keep four
+     tracks whichever of the two link cells is filled. */
+
+    .course-content__body
+  #advancedcv-lectures + table tbody tr:has(
+    td:nth-child(3) a
+  ),
+  .course-content__body
+  #advancedcv-lectures + table tbody tr:has(
+    td:nth-child(4) a
+  ) {
+      grid-template-columns: 34px minmax(0, 1fr) 52px 52px !important;
+  }
+
     /* Match the Slides cell treatment on the Video cell. */
 
     .course-content__body

@@ -55,7 +55,7 @@ Assignments will use [Google Colab](https://colab.research.google.com/). CU Boul
 
 |No.|Topic|Slides|Video<sup>&dagger;</sup>|
 |-:|-|:-:|:-:|
-|1|Introduction|—|[Link](https://cuboulder.zoom.us/rec/share/RwdF-3iL-q8V5VRzjIn7rkmaZG5SYNO2MS_tGlQFZWlkqYkKouyVCH7eTjkMdfvi.QOz13hJMGttfW3uh)|
+|1|Introduction|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQA1JR_VlGPfRbEvoeiTAesEATJyOoyeANFJeXDpsK7_krM?e=Sw5VOl)|[Link](https://cuboulder.zoom.us/rec/share/RwdF-3iL-q8V5VRzjIn7rkmaZG5SYNO2MS_tGlQFZWlkqYkKouyVCH7eTjkMdfvi.QOz13hJMGttfW3uh)|
 |2|Image Formation|—|—|
 |3|All About Features!|—|—|
 |4|Projections and Transformations|—|—|
