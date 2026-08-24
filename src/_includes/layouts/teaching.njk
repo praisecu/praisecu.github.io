@@ -134,7 +134,10 @@
                       muted
                       loop
                       playsinline
+                      disablepictureinpicture
                       preload="metadata"
+                      poster="{{ course.media | replace('.mp4', '-poster.jpg') }}"
+                      tabindex="-1"
                       aria-label="{{ course.media_alt }}"
                     >
                       <source

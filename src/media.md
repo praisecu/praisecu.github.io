@@ -64,7 +64,6 @@ media_coverage:
     source: UMD Robotics
     date: December 2023
     image: /img/media/umd-robotics2023.png
-    image_fit: contain
     primary_url: https://view.publitas.com/maryland-robotics-center/mrc-news-fall-2023/page/10-11
     description: >-
       Drawing inpiration from these living organisms, Chahat Deep Singh has
@@ -79,7 +78,6 @@ media_coverage:
     source: Science Robotics Cover
     date: August 2023
     image: /img/media/Ajna.png
-    image_fit: contain
     primary_url: https://www.science.org/toc/scirobotics/8/81
     description: >-
       Estimating Uncertainty — A Deep Learning Framework for Estimating
@@ -193,7 +191,6 @@ talks:
     subtitle: "Minimal Perception: Towards the Future of Tiny Autonomous Robots"
     speaker: Chahat Deep Singh
     image: /img/media/CUROBOTalkFall2024.png
-    image_fit: contain
     primary_url: "https://o365coloradoedu-my.sharepoint.com/personal/lebe3608_colorado_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Flebe3608%5Fcolorado%5Fedu%2FDocuments%2FFA24%20Robotics%20Seminar%20Recordings%2F9%2D10%20Chahat%20Singh%2Fvideo1825231919%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Ead3b048b%2D7b54%2D41b0%2Dbd39%2D7b48bf5d64e0"
     links:
       - label: Video — CU Members Only
@@ -205,7 +202,6 @@ talks:
     subtitle: "Minimal Perception: Enabling Autonomy in Palm-Sized Robots"
     speaker: Chahat Deep Singh
     image: /img/media/microsoft2024.png
-    image_fit: contain
     primary_url: https://robotics.umd.edu/event/19162/microsoft-future-leaders-in-robotics-and-ai-seminar-series-chahat-deep-singh
     links:
       - label: Read More
@@ -220,7 +216,6 @@ talks:
     subtitle: "Minimal Perception: Enabling Autonomy in Palm-Sized Robots"
     speaker: Chahat Deep Singh
     image: https://chahatdeep.github.io/assets/img/news/MinimalPerception.png
-    image_fit: contain
     primary_url: https://chahatdeep.github.io/PhDDefense#home
     links:
       - label: Read More
@@ -238,7 +233,6 @@ talks:
     subtitle: "Minimal Perception: A Vision for the Future of Tiny Autonomous Robot"
     speaker: Chahat Deep Singh
     image: /img/media/MIT-Seminar2023.jpg
-    image_fit: contain
     primary_url: https://chahatdeep.github.io/mit-seminar2023#home
     links:
       - label: Read More

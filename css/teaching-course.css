@@ -1504,9 +1504,9 @@
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 2;
     background: #f7f6f0;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 @media (max-width: 900px) {
@@ -3873,9 +3873,12 @@ html[data-theme="dark"]
     font-style: normal;
 }
 
-.course-content__body .course-table-note__marker {
+.course-content__body .course-table-note .course-table-note__marker {
+    color: inherit;
+    font-size: 1em;
     font-style: normal;
     font-weight: 700;
+    line-height: inherit;
 }
 
 /* ---------------------------------------------------------
