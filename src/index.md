@@ -13,7 +13,7 @@ hero_slides:
   #   fit: cover
 
 
-  - title: Submit to Insect-scale Autonomy IROS workshop | Deadline - Aug 24, 2026
+  - title: Submit to Insect-scale Autonomy IROS workshop | Deadline - Sep 1, 2026
     text_url: https://insect-autonomy.github.io/
     image_url: https://insect-autonomy.github.io/
     image: https://insect-autonomy.github.io/insect-autonomy-banner.jpg
