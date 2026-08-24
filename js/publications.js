@@ -1,91 +1,18 @@
 /*
- * Publications page: filter by year and copy a BibTeX entry.
+ * Publications page: copy a BibTeX entry to the clipboard.
  *
- * Both controls are progressive enhancements. The filter bar ships
- * hidden and is revealed here, so a visitor without JavaScript sees the
- * full, unfiltered list rather than a set of buttons that do nothing.
+ * A progressive enhancement. Without JavaScript the Cite button simply
+ * does nothing, and the publication list itself is unaffected.
  */
 (function () {
   "use strict";
 
-  var list = document.querySelector(".publications-list");
-
-  if (!list) {
-    return;
-  }
-
-  var items = Array.prototype.slice.call(
-    list.querySelectorAll(".publication-item")
-  );
-
-  /* ---------------------------------------------------------------
-     Year filter
-     --------------------------------------------------------------- */
-
-  var filter = document.querySelector(".publication-filter");
-  var status = document.querySelector(".publication-filter__status");
-
-  if (filter && items.length) {
-    filter.hidden = false;
-
-    var chips = Array.prototype.slice.call(
-      filter.querySelectorAll(".publication-filter__chip")
-    );
-
-    var apply = function (year) {
-      var shown = 0;
-
-      items.forEach(function (item) {
-        var match = year === "all" || item.dataset.year === year;
-
-        item.hidden = !match;
-
-        if (match) {
-          shown += 1;
-        }
-      });
-
-      chips.forEach(function (chip) {
-        var active = chip.dataset.year === year;
-
-        chip.classList.toggle("is-active", active);
-        chip.setAttribute("aria-pressed", active ? "true" : "false");
-      });
-
-      if (status) {
-        status.textContent =
-          year === "all"
-            ? ""
-            : "Showing " +
-              shown +
-              (shown === 1 ? " publication" : " publications") +
-              " from " +
-              year +
-              ".";
-      }
-    };
-
-    chips.forEach(function (chip) {
-      chip.addEventListener("click", function () {
-        apply(chip.dataset.year);
-      });
-    });
-  }
-
-  /* ---------------------------------------------------------------
-     Copy BibTeX
-     --------------------------------------------------------------- */
-
-  var copyText = function (text) {
-    if (navigator.clipboard && window.isSecureContext) {
-      return navigator.clipboard.writeText(text);
-    }
-
-    /*
-     * Fallback for browsers without the async clipboard API. The
-     * textarea has to be in the document and focusable for execCommand
-     * to see a selection.
-     */
+  /*
+   * Older path, and the safety net when the Clipboard API refuses. The
+   * textarea has to be in the document and selected for execCommand to
+   * see anything to copy.
+   */
+  var copyBySelection = function (text) {
     return new Promise(function (resolve, reject) {
       var field = document.createElement("textarea");
 
@@ -105,6 +32,21 @@
         document.body.removeChild(field);
       }
     });
+  };
+
+  /*
+   * The Clipboard API can reject even where it exists, for instance when
+   * the document has lost focus, so a rejection falls through to the
+   * selection method rather than being reported as a failure outright.
+   */
+  var copyText = function (text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text).catch(function () {
+        return copyBySelection(text);
+      });
+    }
+
+    return copyBySelection(text);
   };
 
   Array.prototype.forEach.call(
