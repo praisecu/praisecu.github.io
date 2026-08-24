@@ -4,7 +4,7 @@ title: Research Areas
 nav: research
 kicker: Research at PRAISe
 summary: Minimal perception, novel sensing, and onboard computation for tiny robot autonomy.
-description: Research areas pursued by the PRAISe Lab at the University of Colorado Boulder.
+description: "Research at the PRAISe Lab spanning minimal perception, active vision, novel sensing, computational imaging and onboard computation for tiny robot autonomy."
 permalink: /research-areas.html
 
 research_areas:

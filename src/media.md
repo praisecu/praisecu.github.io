@@ -4,7 +4,7 @@ title: Media
 nav: media
 kicker: PRAISe in the News
 summary: Media coverage, invited talks, seminars, and public presentations featuring PRAISe research.
-description: Media coverage and talks from the PRAISe Lab at the University of Colorado Boulder.
+description: "Press coverage, invited talks and seminars featuring PRAISe Lab research on bio-inspired robots, event cameras and minimal perception at CU Boulder."
 permalink: /media.html
 
 media_coverage:
