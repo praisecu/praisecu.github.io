@@ -302,7 +302,7 @@ publications:
   - title: "GapFlyt: Active Vision Based Minimalist Structure-less Gap Detection For Quadrotor Flight"
     date: "RA-L 2018"
     year: 2018
-    image: "/img/publications/gapflyt.gif"
+    image: "/img/publications/gapflyt.mp4"
     primary_url: "https://prg.cs.umd.edu/GapFlyt"
     venue: "IEEE Robotics and Automation Letters"
     authors: >-

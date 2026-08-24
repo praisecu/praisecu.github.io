@@ -46,7 +46,8 @@
   border-radius: 13px;
 }
 
-.publication-item__media img {
+.publication-item__media img,
+.publication-item__media video {
   display: block;
   width: 100%;
   height: 100%;

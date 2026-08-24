@@ -161,7 +161,7 @@ media_coverage:
   - title: Insect-Inspired Vision System Helps Drones Pass Through Small Gaps
     source: IEEE Spectrum / NVIDIA
     date: September 2018
-    image: /img/publications/gapflyt.gif
+    image: /img/publications/gapflyt.mp4
     primary_url: https://spectrum.ieee.org/insectinspired-vision-system-helps-drones-pass-through-small-gaps
     description: >-
       Researchers at the University of Maryland are adapting the techniques

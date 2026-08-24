@@ -1,3 +1,4 @@
+{% import "components/media.njk" as media %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -133,21 +134,13 @@
                   rel="noopener noreferrer"
                   aria-label="Open {{ item.title }}"
                 >
-                  <img
-                    src="{{ item.image }}"
-                    alt="{{ item.title }}"
-                    loading="lazy"
-                  >
+                  {{ media.cardMedia(item.image, item.title) }}
                 </a>
               {% else %}
                 <div
                   class="media-item__media{% if item.image_fit == 'contain' %} media-item__media--contain{% endif %}"
                 >
-                  <img
-                    src="{{ item.image }}"
-                    alt="{{ item.title }}"
-                    loading="lazy"
-                  >
+                  {{ media.cardMedia(item.image, item.title) }}
                 </div>
               {% endif %}
 
@@ -243,21 +236,13 @@
                   rel="noopener noreferrer"
                   aria-label="Open {{ item.title }}"
                 >
-                  <img
-                    src="{{ item.image }}"
-                    alt="{{ item.title }}"
-                    loading="lazy"
-                  >
+                  {{ media.cardMedia(item.image, item.title) }}
                 </a>
               {% else %}
                 <div
                   class="media-item__media{% if item.image_fit == 'contain' %} media-item__media--contain{% endif %}"
                 >
-                  <img
-                    src="{{ item.image }}"
-                    alt="{{ item.title }}"
-                    loading="lazy"
-                  >
+                  {{ media.cardMedia(item.image, item.title) }}
                 </div>
               {% endif %}
 

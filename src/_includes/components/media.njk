@@ -1,0 +1,32 @@
+{#
+  Card media renderer.
+
+  Cards used to embed multi-megabyte animated GIFs, which autoplayed on
+  every visit and could not be paused. Clips are now MP4: this macro
+  renders a paused poster frame with playback controls and downloads the
+  video only when the visitor presses play. Anything that is not an MP4
+  still renders as a plain image.
+
+  Each clip is expected to sit next to a poster frame named after it,
+  so /img/x/clip.mp4 pairs with /img/x/clip-poster.jpg.
+#}
+{% macro cardMedia(src, alt) %}
+  {% if ".mp4" in src %}
+    <video
+      src="{{ src }}"
+      poster="{{ src | replace('.mp4', '-poster.jpg') }}"
+      controls
+      loop
+      muted
+      playsinline
+      preload="none"
+      aria-label="{{ alt }}"
+    ></video>
+  {% else %}
+    <img
+      src="{{ src }}"
+      alt="{{ alt }}"
+      loading="lazy"
+    >
+  {% endif %}
+{% endmacro %}

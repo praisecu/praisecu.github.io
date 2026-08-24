@@ -1,3 +1,4 @@
+{% import "components/media.njk" as media %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -109,19 +110,11 @@
               rel="noopener noreferrer"
               aria-label="Open {{ publication.title }}"
             >
-              <img
-                src="{{ publication.image }}"
-                alt="{{ publication.title }}"
-                loading="lazy"
-              >
+              {{ media.cardMedia(publication.image, publication.title) }}
             </a>
           {% else %}
             <div class="publication-item__media">
-              <img
-                src="{{ publication.image }}"
-                alt="{{ publication.title }}"
-                loading="lazy"
-              >
+              {{ media.cardMedia(publication.image, publication.title) }}
             </div>
           {% endif %}
 

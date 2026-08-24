@@ -121,7 +121,8 @@
     border-radius: 13px;
 }
 
-.media-item__media img {
+.media-item__media img,
+.media-item__media video {
     display: block;
     width: 100%;
     height: 100%;

@@ -1,3 +1,4 @@
+{% import "components/media.njk" as media %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -126,19 +127,11 @@
               href="{{ area.image_link }}"
               aria-label="View media for {{ area.title }}"
             >
-              <img
-                src="{{ area.image }}"
-                alt="{{ area.title }}"
-                loading="lazy"
-              >
+              {{ media.cardMedia(area.image, area.title) }}
             </a>
           {% else %}
             <div class="research-card__media">
-              <img
-                src="{{ area.image }}"
-                alt="{{ area.title }}"
-                loading="lazy"
-              >
+              {{ media.cardMedia(area.image, area.title) }}
             </div>
           {% endif %}
 

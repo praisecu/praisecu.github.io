@@ -9,7 +9,7 @@ permalink: /research-areas.html
 
 research_areas:
   - title: Active Vision for Robot Navigation
-    image: /img/publications/gapflyt.gif
+    image: /img/publications/gapflyt.mp4
     description: >-
       Our mission is to develop active vision frameworks for high speed
       quadrotor navigation using only onboard sensing and computation. The
@@ -70,7 +70,7 @@ research_areas:
 
   - title: Computational Imaging for Robot Navigation and 3D Reconstruction
     image: /img/research/coded.jpg
-    image_link: /img/research/event-based.gif
+    image_link: /img/research/event-based.mp4
     description: >-
       Nature has developed eyes in diverse ways tailored to each species'
       habitat for optimal vision and survival. At PRAISe, we leverage these
