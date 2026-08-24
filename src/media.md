@@ -8,6 +8,19 @@ description: Media coverage and talks from the PRAISe Lab at the University of C
 permalink: /media.html
 
 media_coverage:
+  - title: Bio-Inspired Robots Redefine Autonomy and Sustainability
+    source: CU Boulder Mechanical Engineering
+    date: March 2025
+    image: https://www.colorado.edu/mechanical/sites/default/files/styles/large_image_style/public/2025-02/IMG_0281.JPG?itok=jFvaKhJc
+    primary_url: https://www.colorado.edu/mechanical/bio-inspired-robots-redefine-autonomy-and-sustainability
+    description: >-
+      Robotic bees? These bio-inspired robots from the PRAISe Lab redefine
+      the boundaries of autonomy and sustainability.
+    links:
+      - label: CU Boulder Mechanical
+        type: article
+        url: https://www.colorado.edu/mechanical/bio-inspired-robots-redefine-autonomy-and-sustainability
+
   - title: UMD Researchers Develop New and Improved Camera Inspired by the Human Eye
     source: Maryland Today
     date: July 2024

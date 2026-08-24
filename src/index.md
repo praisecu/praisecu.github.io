@@ -1,7 +1,7 @@
 ---
 layout: layouts/home.njk
 title: PRAISe Lab
-description: Perception, Robotics, AI and Sensing Lab at the University of Colorado Boulder.
+description: The Perception, Robotics, AI and Sensing (PRAISe) Lab at CU Boulder builds minimal perception and autonomy for resource-constrained robots and tiny drones.
 permalink: /index.html
 
 hero_slides:

@@ -4,7 +4,7 @@ title: Teaching
 nav: teaching
 kicker: Courses at CU Boulder
 # summary: Courses and senior-design projects in computer vision, artificial intelligence, robotics, and autonomous systems.
-description: Courses taught through the PRAISe Lab at the University of Colorado Boulder.
+description: Courses at CU Boulder taught by the PRAISe Lab in machine learning, computer vision, robotics, and autonomous systems.
 permalink: /teaching.html
 
 teaching_terms:

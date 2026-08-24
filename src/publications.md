@@ -4,7 +4,7 @@ title: Publications
 nav: research
 kicker: Research Output
 summary: Selected journal articles, conference papers, and thesis work in robotics, perception, and autonomous systems.
-description: Publications from the PRAISe Lab at the University of Colorado Boulder.
+description: Journal and conference papers from the PRAISe Lab at CU Boulder in robotics, perception, and autonomy, including Science Robotics and IEEE RA-L.
 permalink: /publications.html
 
 publications:

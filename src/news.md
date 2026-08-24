@@ -1,7 +1,7 @@
 ---
 layout: layouts/news.njk
 title: News
-description: Research highlights, publications, talks, awards, and announcements from the PRAISe Lab.
+description: News from the PRAISe Lab at CU Boulder - research highlights, publications, invited talks, awards, and announcements.
 permalink: /news.html
 tags:
   - newsArchive
@@ -85,7 +85,7 @@ news:
     date: March 05, 2025
     date_iso: 2025-03-05
     image: https://www.colorado.edu/mechanical/sites/default/files/styles/large_image_style/public/2025-02/IMG_0281.JPG?itok=jFvaKhJc
-    url: https://share.google/kjP4w8nawgOU9lQP2
+    url: https://www.colorado.edu/mechanical/bio-inspired-robots-redefine-autonomy-and-sustainability
     description: Robotic bees? These bio-inspired robots redefine the boundaries of autonomy and sustainability
     external: true 
 

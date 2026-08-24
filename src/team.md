@@ -4,7 +4,7 @@ title: Our Team
 nav: team
 kicker: People at PRAISe
 # summary: Researchers developing perception, robotics, artificial intelligence, computational imaging, and autonomous systems.
-description: Members of the PRAISe Lab at the University of Colorado Boulder.
+description: The PRAISe Lab team at CU Boulder, led by Prof. Chahat Deep Singh, and current openings at the doctoral, master's, and undergraduate level.
 permalink: /team.html
 
 principal_investigator:
