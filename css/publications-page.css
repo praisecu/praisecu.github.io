@@ -281,3 +281,110 @@
     font-size: 12px !important;
   }
 }
+/* =========================================================
+   Year filter and BibTeX copy
+   ========================================================= */
+
+.publication-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 10px;
+}
+
+.publication-filter[hidden] {
+  display: none;
+}
+
+.publication-filter__chip {
+  padding: 7px 15px;
+
+  background: transparent;
+  border: 1px solid #d8d8d0;
+  border-radius: 999px;
+
+  color: #55554d;
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.publication-filter__chip:hover {
+  border-color: #b69b47;
+  color: #1d1e00;
+}
+
+.publication-filter__chip.is-active {
+  background: #1d1e00;
+  border-color: #1d1e00;
+  color: #cfb97d;
+}
+
+.publication-filter__chip:focus-visible {
+  outline: 2px solid #b69b47;
+  outline-offset: 2px;
+}
+
+.publication-filter__status {
+  margin: 0 0 18px;
+  color: #6d6d63;
+  font-size: 14px;
+  font-style: italic;
+  min-height: 1em;
+}
+
+/* Cite button, matched to the existing link pills */
+
+.publication-item__cite {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 7px 11px;
+
+  background: transparent;
+  border: 1px solid #1d1e00;
+  border-radius: 999px;
+
+  color: #1d1e00;
+  font-family: "Nunito Sans", "Nunito", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.publication-item__cite:hover {
+  background: #1d1e00;
+  color: #cfb97d;
+}
+
+.publication-item__cite:focus-visible {
+  outline: 2px solid #b69b47;
+  outline-offset: 2px;
+}
+
+.publication-item__cite.is-copied {
+  background: #2f5233;
+  border-color: #2f5233;
+  color: #ffffff;
+}
+
+@media (max-width: 700px) {
+  .publication-filter {
+    gap: 6px;
+  }
+
+  .publication-filter__chip {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}

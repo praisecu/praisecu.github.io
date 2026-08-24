@@ -1233,3 +1233,42 @@ html[data-theme="dark"] .course-updates__link:focus-visible {
   color: #ffffff !important;
   text-decoration-color: #f4d978 !important;
 }
+
+
+/* Publications year filter and cite button */
+
+html[data-theme="dark"] .publication-filter__chip {
+  border-color: #3a3d34 !important;
+  color: #b9bbad !important;
+}
+
+html[data-theme="dark"] .publication-filter__chip:hover {
+  border-color: #8f7a37 !important;
+  color: #f0e7c4 !important;
+}
+
+html[data-theme="dark"] .publication-filter__chip.is-active {
+  background: #3a3320 !important;
+  border-color: #8f7a37 !important;
+  color: #e8ce78 !important;
+}
+
+html[data-theme="dark"] .publication-filter__status {
+  color: #a9ab9d !important;
+}
+
+html[data-theme="dark"] .publication-item__cite {
+  border-color: #8f7a37 !important;
+  color: #e8ce78 !important;
+}
+
+html[data-theme="dark"] .publication-item__cite:hover {
+  background: #3a3320 !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] .publication-item__cite.is-copied {
+  background: #2f5233 !important;
+  border-color: #2f5233 !important;
+  color: #ffffff !important;
+}

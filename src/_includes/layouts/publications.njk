@@ -99,9 +99,50 @@
   </section>
 
   <section class="publications-page-section">
+
+    {# Years present in the data, newest first, for the filter chips. #}
+    {% set years = [] %}
+    {% for publication in publications %}
+      {% if publication.year and publication.year not in years %}
+        {% set years = (years.push(publication.year), years) %}
+      {% endif %}
+    {% endfor %}
+
+    <div
+      class="publication-filter"
+      role="group"
+      aria-label="Filter publications by year"
+      hidden
+    >
+      <button
+        type="button"
+        class="publication-filter__chip is-active"
+        data-year="all"
+        aria-pressed="true"
+      >
+        All
+      </button>
+
+      {% for year in years %}
+        <button
+          type="button"
+          class="publication-filter__chip"
+          data-year="{{ year }}"
+          aria-pressed="false"
+        >
+          {{ year }}
+        </button>
+      {% endfor %}
+    </div>
+
+    <p class="publication-filter__status" role="status" aria-live="polite"></p>
+
     <div class="publications-list">
       {% for publication in publications %}
-        <article class="publication-item">
+        <article
+          class="publication-item"
+          data-year="{{ publication.year }}"
+        >
           {% if publication.primary_url %}
             <a
               class="publication-item__media"
@@ -143,11 +184,11 @@
               </p>
             {% endif %}
 
-            {% if publication.links %}
-              <div
-                class="publication-item__links"
-                aria-label="{{ publication.title }} links"
-              >
+            <div
+              class="publication-item__links"
+              aria-label="{{ publication.title }} links"
+            >
+              {% if publication.links %}
                 {% for link in publication.links %}
                   <a
                     href="{{ link.url }}"
@@ -174,8 +215,20 @@
                     <span>{{ link.label }}</span>
                   </a>
                 {% endfor %}
-              </div>
-            {% endif %}
+              {% endif %}
+
+              <button
+                type="button"
+                class="publication-item__cite"
+                data-bibtex="{{ publication | bibtex }}"
+              >
+                <i class="fa fa-quote-right" aria-hidden="true"></i>
+
+                <span class="publication-item__cite-label">
+                  Cite
+                </span>
+              </button>
+            </div>
           </div>
         </article>
       {% endfor %}
@@ -199,6 +252,7 @@
   <script src="/js/jquery.sticky-kit.min.js"></script>
   <script src="/js/scripts.js"></script>
   <script src="/js/modern-header.js"></script>
+  <script src="/js/publications.js"></script>
 </body>
 </html>
 

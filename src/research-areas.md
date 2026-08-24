@@ -88,7 +88,7 @@ research_areas:
         url: https://intelligent-sensing.github.io/papers/CodedEvents.html
 
   - title: Visual Navigation with Foundation Models
-    image: /img/research/foundation-models.png
+    image: /img/research/visual-navigation-foundation-models.jpg
     description: >-
       We work on integrating foundation models to advance robot navigation,
       enabling robust performance in diverse and dynamic environments. We
