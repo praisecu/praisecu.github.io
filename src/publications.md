@@ -29,7 +29,7 @@ publications:
     year: 2024
     image: "/img/publications/ActiveHumanPose.png"
     primary_url: "https://arxiv.org/pdf/2407.01811"
-    venue: "IEEE International Conference on Intelligent Robots and Systems"
+    venue: "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)"
     authors: >-
       Jingxi Chen, Botao He, Chahat Deep Singh, Cornelia Fermüller,
       Yiannis Aloimonos
@@ -184,7 +184,7 @@ publications:
     year: 2021
     image: "/img/publications/NudgeSeg.png"
     primary_url: "https://prg.cs.umd.edu/NudgeSeg"
-    venue: "IEEE International Conference on Intelligent Robots and Systems"
+    venue: "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)"
     authors: >-
       Chahat Deep Singh*, Nitin J. Sanket*, Cornelia Fermüller,
       Yiannis Aloimonos
