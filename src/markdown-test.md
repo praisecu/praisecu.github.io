@@ -2,6 +2,7 @@
 layout: layouts/base.njk
 title: Markdown Test
 permalink: /markdown-test.html
+noindex: true
 ---
 
 # Markdown editing is working

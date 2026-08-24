@@ -1,0 +1,56 @@
+{#
+  Canonical URL, social URL and structured data.
+
+  Included by every layout. The canonical tag matters here because the
+  same page is reachable with and without its .html suffix, and via both
+  praisecu.com and www.praisecu.com, so search engines need to be told
+  which address is the real one.
+#}
+{% set site_url = "https://www.praisecu.com" %}
+{% set canonical_url = site_url + (page.url | default("/")) %}
+
+<link
+  rel="canonical"
+  href="{{ canonical_url }}"
+>
+
+<meta
+  property="og:url"
+  content="{{ canonical_url }}"
+>
+
+<meta
+  name="twitter:card"
+  content="summary_large_image"
+>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ResearchOrganization",
+  "@id": "{{ site_url }}/#organization",
+  "name": "PRAISe Lab",
+  "alternateName": "Perception, Robotics, AI and Sensing Lab",
+  "url": "{{ site_url }}/",
+  "logo": "{{ site_url }}/img/logo/praise-logo.webp",
+  "description": "The Perception, Robotics, AI and Sensing (PRAISe) Lab at the University of Colorado Boulder researches minimal perception, novel sensing and onboard computation for tiny robot autonomy.",
+  "keywords": "robotics, computer vision, perception, artificial intelligence, computational imaging, autonomous systems, minimal perception, CU Boulder",
+  "parentOrganization": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of Colorado Boulder",
+    "url": "https://www.colorado.edu/"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Boulder",
+    "addressRegion": "CO",
+    "addressCountry": "US"
+  },
+  "employee": {
+    "@type": "Person",
+    "name": "Chahat Deep Singh",
+    "jobTitle": "Assistant Professor",
+    "url": "{{ site_url }}/team.html"
+  }
+}
+</script>

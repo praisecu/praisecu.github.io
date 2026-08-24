@@ -9,11 +9,17 @@
 
   <title>{{ title }} | PRAISe Lab</title>
 
+  {% if noindex %}
+    <meta name="robots" content="noindex, follow">
+  {% endif %}
+
   <link rel="icon" href="/img/logo/praise.webp">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/responsive.css">
   <link rel="stylesheet" href="/css/praise-style.css">
+  {% include "components/seo.njk" %}
+
   {% include "components/analytics.njk" %}
 
   {% include "components/pwa-head.njk" %}

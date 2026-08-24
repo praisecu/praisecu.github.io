@@ -1,0 +1,21 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for item in collections.all %}
+{%- if "/markdown-test" not in item.url and "/offline" not in item.url and "/404" not in item.url %}
+  <url>
+    <loc>https://www.praisecu.com{{ item.url }}</loc>
+    <lastmod>{{ item.date.toISOString() }}</lastmod>
+  </url>
+{%- endif %}
+{%- endfor %}
+  <url>
+    <loc>https://www.praisecu.com/teaching/mcen5228.html</loc>
+  </url>
+  <url>
+    <loc>https://www.praisecu.com/teaching/sfm.html</loc>
+  </url>
+</urlset>
