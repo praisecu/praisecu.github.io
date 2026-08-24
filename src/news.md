@@ -14,7 +14,7 @@ news:
     image: https://github.com/insect-autonomy/insect-autonomy.github.io/blob/main/public/BeeFavicon.png?raw=true
     image_alt: Submit to Insect-scale Autonomy Workshop
     url: http://insect-autonomy.github.io/
-    description: IROS workshop on Insect-scale Autonomy will be held in Pittsburg on Oct 1, 2026. Deadline to submit is Sep 1, 2026.
+    description: IROS workshop on Insect-scale Autonomy will be held in Pittsburgh, PA on Oct 1, 2026. Deadline to submit is Sep 1, 2026.
     external: true
 
   - title: Paper Presented in ICRA 2026 (Workshop)
