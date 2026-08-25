@@ -171,17 +171,82 @@
     </section>
 
 
-    <!-- Course banner -->
-    {% if banner %}
+    <!-- Announcements -->
+    {% if announcements %}
       <section
-        class="course-banner"
-        aria-label="{{ title }} course banner"
+        class="course-updates"
+        aria-labelledby="course-updates-title"
       >
         <div class="course-container">
-          <img
-            src="{{ banner }}"
-            alt="{{ banner_alt | default('') }}"
-          >
+
+          <div class="course-updates__surface">
+
+            <h2
+              id="course-updates-title"
+              class="course-updates__title"
+            >
+              Announcements
+            </h2>
+
+            <ol class="course-updates__list">
+
+              {% for item in announcements | sortNewsNewest | take(5) %}
+                <li class="course-updates__item">
+
+                  <div class="course-updates__meta">
+
+                    <time
+                      class="course-updates__date"
+                      {% if item.date_iso %}
+                        datetime="{{ item.date_iso }}"
+                      {% endif %}
+                    >
+                      {{ item.date }}
+                    </time>
+
+                    {% if item.type %}
+                      <span
+                        class="course-updates__tag course-updates__tag--{{ item.type }}"
+                      >
+                        {{ item.type | capitalize }}
+                      </span>
+                    {% endif %}
+
+                  </div>
+
+                  <p class="course-updates__text">
+                    {{ item.text }}
+
+                    {% if item.url %}
+                      <a
+                        class="course-updates__link"
+                        href="{{ item.url }}"
+                        {% if item.external %}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        {% endif %}
+                      >
+                        {{ item.link_label | default("Open") }}
+
+                        {% if item.external %}
+                          <span
+                            class="course-external-icon"
+                            aria-hidden="true"
+                          >
+                            &#8599;
+                          </span>
+                        {% endif %}
+                      </a>
+                    {% endif %}
+                  </p>
+
+                </li>
+              {% endfor %}
+
+            </ol>
+
+          </div>
+
         </div>
       </section>
     {% endif %}
@@ -335,82 +400,17 @@
     {% endif %}
 
 
-    <!-- Announcements -->
-    {% if announcements %}
+    <!-- Course banner -->
+    {% if banner %}
       <section
-        class="course-updates"
-        aria-labelledby="course-updates-title"
+        class="course-banner"
+        aria-label="{{ title }} course banner"
       >
         <div class="course-container">
-
-          <div class="course-updates__surface">
-
-            <h2
-              id="course-updates-title"
-              class="course-updates__title"
-            >
-              Announcements
-            </h2>
-
-            <ol class="course-updates__list">
-
-              {% for item in announcements | sortNewsNewest | take(5) %}
-                <li class="course-updates__item">
-
-                  <div class="course-updates__meta">
-
-                    <time
-                      class="course-updates__date"
-                      {% if item.date_iso %}
-                        datetime="{{ item.date_iso }}"
-                      {% endif %}
-                    >
-                      {{ item.date }}
-                    </time>
-
-                    {% if item.type %}
-                      <span
-                        class="course-updates__tag course-updates__tag--{{ item.type }}"
-                      >
-                        {{ item.type | capitalize }}
-                      </span>
-                    {% endif %}
-
-                  </div>
-
-                  <p class="course-updates__text">
-                    {{ item.text }}
-
-                    {% if item.url %}
-                      <a
-                        class="course-updates__link"
-                        href="{{ item.url }}"
-                        {% if item.external %}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        {% endif %}
-                      >
-                        {{ item.link_label | default("Open") }}
-
-                        {% if item.external %}
-                          <span
-                            class="course-external-icon"
-                            aria-hidden="true"
-                          >
-                            &#8599;
-                          </span>
-                        {% endif %}
-                      </a>
-                    {% endif %}
-                  </p>
-
-                </li>
-              {% endfor %}
-
-            </ol>
-
-          </div>
-
+          <img
+            src="{{ banner }}"
+            alt="{{ banner_alt | default('') }}"
+          >
         </div>
       </section>
     {% endif %}
