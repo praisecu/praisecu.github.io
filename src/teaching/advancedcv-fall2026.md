@@ -25,6 +25,11 @@ quick_info:
 # Use type: lecture | assignment | schedule
 announcements:
 
+  - date: August 26, 2026
+    date_iso: 2026-08-26
+    type: lecture
+    text: "Lecture 2 (Image Formation) slides and recording are now posted."
+
   - date: August 20, 2026
     date_iso: 2026-08-20
     type: lecture
@@ -70,7 +75,7 @@ Assignments will use [Google Colab](https://colab.research.google.com/). CU Boul
 |No.|Topic|Slides|Video<sup>&dagger;</sup>|
 |-:|-|:-:|:-:|
 |1|Introduction|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQA1JR_VlGPfRbEvoeiTAesEATJyOoyeANFJeXDpsK7_krM?e=Sw5VOl)|[Link](https://cuboulder.zoom.us/rec/share/RwdF-3iL-q8V5VRzjIn7rkmaZG5SYNO2MS_tGlQFZWlkqYkKouyVCH7eTjkMdfvi.QOz13hJMGttfW3uh)|
-|2|Image Formation|—|—|
+|2|Image Formation|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQCaScbo8z1QRIhUeQcFBLBzAZA39DBZOrQLjJCezMmvvic?e=uO9suE)|[Link](https://cuboulder.zoom.us/rec/share/7mNdUWT42jYLS5cgfJugH3qOjy7QGTP3NwStvVeFFteh9Jc8UzF87rMLitQPCaQI.kYcyJV-nFMrp2MOx)|
 |3|All About Features!|—|—|
 |4|Projections and Transformations|—|—|
 |5|Non-Rigid Transformation and Camera Models|—|—|
