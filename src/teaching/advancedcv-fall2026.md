@@ -75,29 +75,18 @@ Please do not contact the instructor or teaching assistant by email unless the m
 
 ## Software Environment
 
-We will use Python 3 throughout the course, together with OpenCV, PyTorch, NumPy, scikit-learn, and Matplotlib.
+We will use Python 3 throughout the course, together with OpenCV, PyTorch, NumPy, scikit-learn, and Matplotlib. Assignments will use [Google Colab](https://colab.research.google.com/); you may also work on your own machine.
 
-Assignments will use [Google Colab](https://colab.research.google.com/). A **free** Colab account is sufficient for every assignment in this course. The free tier provides an NVIDIA T4 GPU (16 GB), which is enough for all training in this course — no paid subscription is required. If you would like faster GPUs, longer sessions and more generous usage limits, feel free to buy Colab Pro at about $10 per month, but it is entirely optional.
+A GPU is only required for **P2 Part 2** and **P3 Part 2**. A **free** Colab account is enough for both — enable it with **Runtime → Change runtime type → T4 GPU**. Colab Pro (about $10 per month) is optional.
 
-To enable the GPU, open a notebook and select **Runtime → Change runtime type → T4 GPU**.
+<h3 id="advancedcv-training-time">Training time</h3>
 
-Two practical notes:
-
-- Free-tier GPU access is subject to usage limits, and idle sessions disconnect. **Start assignments early** — the limits bite hardest the night before a deadline.
-- Save checkpoints to Google Drive so a dropped session does not cost you a training run. The starter notebooks checkpoint each epoch and resume automatically.
-
-Students may alternatively use their own local machines.
-
-<h3 id="advancedcv-training-time">Expected training time</h3>
-
-The two longest training runs in the course are the second parts of P2 and P3. The figures below are **rough estimates for planning only** — actual time depends on your implementation, batch size, and how heavily Colab is loaded.
+Rough estimates. Free-tier sessions disconnect, so start early and checkpoint to Google Drive.
 
 |Assignment|Free tier (T4)|Colab Pro (A100)|
 |-|:-:|:-:|
 |P2: Coded Deep Depth — Part 2|2–4 hours|45–75 minutes|
 |P3: Blob the Builder — Part 2|3–5 hours|1–1.5 hours|
-
-Both fit comfortably within the free tier. Budget more wall-clock time than the numbers above, because free-tier sessions disconnect and resume from the last checkpoint rather than running straight through.
 
 
 <h2 id="advancedcv-lectures">Lectures</h2>
