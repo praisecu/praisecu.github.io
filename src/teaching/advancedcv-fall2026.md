@@ -25,6 +25,11 @@ quick_info:
 # Use type: lecture | assignment | schedule
 announcements:
 
+  - date: August 27, 2026
+    date_iso: 2026-08-27
+    type: lecture
+    text: "Lecture 3 (All About Features!) slides are now posted."
+
   - date: August 26, 2026
     date_iso: 2026-08-26
     type: lecture
@@ -76,7 +81,7 @@ Assignments will use [Google Colab](https://colab.research.google.com/). CU Boul
 |-:|-|:-:|:-:|
 |1|Introduction|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQA1JR_VlGPfRbEvoeiTAesEATJyOoyeANFJeXDpsK7_krM?e=Sw5VOl)|[Link](https://cuboulder.zoom.us/rec/share/RwdF-3iL-q8V5VRzjIn7rkmaZG5SYNO2MS_tGlQFZWlkqYkKouyVCH7eTjkMdfvi.QOz13hJMGttfW3uh)|
 |2|Image Formation|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQCaScbo8z1QRIhUeQcFBLBzAZA39DBZOrQLjJCezMmvvic?e=uO9suE)|[Link](https://cuboulder.zoom.us/rec/share/7mNdUWT42jYLS5cgfJugH3qOjy7QGTP3NwStvVeFFteh9Jc8UzF87rMLitQPCaQI.kYcyJV-nFMrp2MOx)|
-|3|All About Features!|—|—|
+|3|All About Features!|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQDbDEJTPiKLQLN18CUeZwtpAeMK_Y92W8-P82j4suh_h1M?e=B5Gm3D)|—|
 |4|Projections and Transformations|—|—|
 |5|Non-Rigid Transformation and Camera Models|—|—|
 |6|Camera Calibration and Introduction to Computer Graphics|—|—|
