@@ -88,6 +88,17 @@ Two practical notes:
 
 Students may alternatively use their own local machines.
 
+<h3 id="advancedcv-training-time">Expected training time</h3>
+
+The two longest training runs in the course are the second parts of P2 and P3. The figures below are **rough estimates for planning only** — actual time depends on your implementation, batch size, and how heavily Colab is loaded.
+
+|Assignment|Free tier (T4)|Colab Pro (A100)|
+|-|:-:|:-:|
+|P2: Coded Deep Depth — Part 2|2–4 hours|45–75 minutes|
+|P3: Blob the Builder — Part 2|3–5 hours|1–1.5 hours|
+
+Both fit comfortably within the free tier. Budget more wall-clock time than the numbers above, because free-tier sessions disconnect and resume from the last checkpoint rather than running straight through.
+
 
 <h2 id="advancedcv-lectures">Lectures</h2>
 

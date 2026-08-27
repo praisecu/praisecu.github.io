@@ -4150,3 +4150,70 @@ html[data-theme="dark"]
       line-height: 1.55;
   }
 }
+
+/* =========================================================
+   Advanced CV training-time table
+   Assignment | Free tier (T4) | Colab Pro (A100)
+
+   The generic three-column rules assume a wide trailing
+   description column, which leaves the two duration columns
+   badly unbalanced here. The selector walks the heading, its
+   lead paragraph and then the table so that the later lecture
+   and assignment tables are not caught by it.
+   ========================================================= */
+
+.course-content__body #advancedcv-training-time + p + table {
+    table-layout: fixed;
+}
+
+.course-content__body #advancedcv-training-time + p + table th:nth-child(1),
+.course-content__body #advancedcv-training-time + p + table td:nth-child(1) {
+    width: 46% !important;
+    padding-right: 18px;
+    padding-left: 18px;
+    text-align: left !important;
+    white-space: normal;
+}
+
+.course-content__body #advancedcv-training-time + p + table th:nth-child(2),
+.course-content__body #advancedcv-training-time + p + table td:nth-child(2),
+.course-content__body #advancedcv-training-time + p + table th:nth-child(3),
+.course-content__body #advancedcv-training-time + p + table td:nth-child(3) {
+    width: 27% !important;
+    padding-right: 12px;
+    padding-left: 12px;
+    text-align: center !important;
+    white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+
+    .course-content__body #advancedcv-training-time + p + table {
+      display: table;
+      min-width: 0;
+      white-space: normal;
+      font-size: 14px;
+  }
+
+    .course-content__body #advancedcv-training-time + p + table th,
+  .course-content__body #advancedcv-training-time + p + table td {
+      padding: 9px 7px !important;
+      font-size: 14px;
+      white-space: normal;
+  }
+
+    .course-content__body #advancedcv-training-time + p + table th:nth-child(1),
+  .course-content__body #advancedcv-training-time + p + table td:nth-child(1) {
+      width: 40% !important;
+      padding-right: 8px !important;
+      padding-left: 8px !important;
+  }
+
+    .course-content__body #advancedcv-training-time + p + table th:nth-child(2),
+  .course-content__body #advancedcv-training-time + p + table td:nth-child(2),
+  .course-content__body #advancedcv-training-time + p + table th:nth-child(3),
+  .course-content__body #advancedcv-training-time + p + table td:nth-child(3) {
+      width: 30% !important;
+      white-space: normal;
+  }
+}
