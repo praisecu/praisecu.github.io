@@ -59,7 +59,7 @@ course_links:
 
 > Sign up for [Piazza](https://piazza.com/colorado/fall2026/mcen5228010) using your `colorado.edu` ID. Piazza is the primary communication channel for this course.
 
-## Course Description
+<h2 id="advancedcv-description">Course Description</h2>
 
 Welcome to **MCEN 5228-010: Advanced Computer Vision**, taught by Prof. Chahat Deep Singh at the University of Colorado Boulder. This advanced graduate course covers classical, geometric, and deep learning methods in computer vision. The course begins with the mathematical foundations of computer vision and progresses to recent deep-learning advances. Its objective is to introduce formal perception tools for students interested in robot autonomy and 3D perception.
 
@@ -67,21 +67,21 @@ Topics include camera sensors and calibration, image formation, single-view geom
 
 **Prerequisites:** Linear algebra and proficiency with Python or another scripting language. Prior computer vision experience is **not required**.
 
-## Course Logistics
+<h2 id="advancedcv-logistics">Course Logistics</h2>
 
 All course announcements will be made through [Piazza](https://piazza.com/colorado/fall2026/mcen5228010), which is the main mode of communication during the course.
 
 Please do not contact the instructor or teaching assistant by email unless the matter is an emergency. Do not contact the instructional staff through social-media platforms regarding course content. **Canvas** will be used only for grading and assignment submissions.
 
-## Software Environment
+<h2 id="advancedcv-software">Software Environment</h2>
 
 We will use Python 3 throughout the course, together with OpenCV, PyTorch, NumPy, scikit-learn, and Matplotlib. Assignments will use [Google Colab](https://colab.research.google.com/); you may also work on your own machine.
 
-A GPU is only required for **P2 Part 2** and **P3 Part 2**. A **free** Colab account is enough for both — enable it with **Runtime → Change runtime type → T4 GPU**. Colab Pro (about $10 per month) is optional.
+A GPU is only required for **P2 Part 2** and **P3 Part 2**. The **free** Colab tier gives you an NVIDIA T4 GPU (16 GB), which is enough for both — **you do not need to pay for anything in this course**. Enable it with **Runtime → Change runtime type → T4 GPU**. Colab Pro (about $10 per month) is entirely optional and only makes training faster.
 
 <h3 id="advancedcv-training-time">Training time</h3>
 
-Rough estimates. Free-tier sessions disconnect, so start early and checkpoint to Google Drive.
+Rough estimates. Free-tier sessions disconnect, but the starter notebooks checkpoint each epoch to Google Drive and resume automatically. Start early regardless.
 
 |Assignment|Free tier (T4)|Colab Pro (A100)|
 |-|:-:|:-:|
@@ -131,7 +131,7 @@ Students may discuss concepts with team members and other class members, but may
 |5|Midterm — In Class|—|—|
 |6|P4: Monocular Visual Odometry|—|—|
 
-## Late Policy
+<h2 id="advancedcv-late-policy">Late Policy</h2>
 
 This course is fast-paced, with concepts building upon each other, so staying current is important. Late assignments incur a **20% penalty per day**.
 
@@ -145,7 +145,7 @@ When using late days:
 
 A late penalty will be applied when late-day usage is not identified in the Canvas submission.
 
-## Collaboration Policy and Honor Code
+<h2 id="advancedcv-honor-code">Collaboration Policy and Honor Code</h2>
 
 Collaboration is encouraged, but students must understand the distinction between collaboration and cheating. Cheating is strictly prohibited and may include using unauthorized assistance, materials, or study aids; collaborating when collaboration is not permitted; copying homework; submitting another person's work; or plagiarism.
 
