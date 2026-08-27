@@ -70,9 +70,18 @@ Please do not contact the instructor or teaching assistant by email unless the m
 
 ## Software Environment
 
-We will use Python 3 throughout the course, together with OpenCV, TensorFlow, PyTorch, NumPy, scikit-learn, and Matplotlib.
+We will use Python 3 throughout the course, together with OpenCV, PyTorch, NumPy, scikit-learn, and Matplotlib.
 
-Assignments will use [Google Colab](https://colab.research.google.com/). CU Boulder students can obtain free Google Colab GPU access for one year. A setup tutorial is available [here](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/Ef_HcHb-AoJOriYYtxN7f98B3oG3cpPRlJ1u9YgnpqmZqA?e=QqqoV4). Students may alternatively use their own local machines.
+Assignments will use [Google Colab](https://colab.research.google.com/). A **free** Colab account is sufficient for every assignment in this course. The free tier provides an NVIDIA T4 GPU (16 GB), which is enough for all training in this course — no paid subscription is required. If you would like faster GPUs, longer sessions and more generous usage limits, feel free to buy Colab Pro at about $10 per month, but it is entirely optional.
+
+To enable the GPU, open a notebook and select **Runtime → Change runtime type → T4 GPU**.
+
+Two practical notes:
+
+- Free-tier GPU access is subject to usage limits, and idle sessions disconnect. **Start assignments early** — the limits bite hardest the night before a deadline.
+- Save checkpoints to Google Drive so a dropped session does not cost you a training run. The starter notebooks checkpoint each epoch and resume automatically.
+
+Students may alternatively use their own local machines.
 
 
 <h2 id="advancedcv-lectures">Lectures</h2>
