@@ -1224,6 +1224,11 @@ html[data-theme="dark"] .course-updates__tag--schedule {
   color: #e0a99a !important;
 }
 
+html[data-theme="dark"] .course-updates__tag--setup {
+  background: #222a34 !important;
+  color: #a8c2e0 !important;
+}
+
 html[data-theme="dark"] .course-updates__link {
   color: #e8ce78 !important;
 }

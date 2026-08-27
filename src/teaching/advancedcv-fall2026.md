@@ -22,8 +22,13 @@ quick_info:
   office_hours: TBD
 
 # Only the five newest announcements are shown on the page.
-# Use type: lecture | assignment | schedule
+# Use type: lecture | assignment | schedule | setup
 announcements:
+
+  - date: August 27, 2026
+    date_iso: 2026-08-27
+    type: setup
+    text: "A free Google Colab account and its T4 GPU are sufficient for every assignment in this course."
 
   - date: August 27, 2026
     date_iso: 2026-08-27
