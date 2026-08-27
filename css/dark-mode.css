@@ -1261,3 +1261,41 @@ html[data-theme="dark"] .publication-item__cite.is-copied {
   border-color: #2f5233 !important;
   color: #ffffff !important;
 }
+
+
+/* Training-time table: muted in dark mode too. */
+
+html[data-theme="dark"]
+.course-content__body #advancedcv-training-time + p + table {
+  background: #1a1c17 !important;
+  border-color: #34372e !important;
+}
+
+html[data-theme="dark"]
+.course-content__body #advancedcv-training-time + p + table thead th {
+  background: #232620 !important;
+  border-right-color: #34372e !important;
+  border-bottom-color: #34372e !important;
+  color: #9fa295 !important;
+}
+
+html[data-theme="dark"]
+.course-content__body #advancedcv-training-time + p + table tbody tr td,
+html[data-theme="dark"]
+.course-content__body #advancedcv-training-time + p + table tbody tr:nth-child(even) td,
+html[data-theme="dark"]
+.course-content__body #advancedcv-training-time + p + table tbody tr:nth-child(odd) td {
+  background: #1a1c17 !important;
+  border-right-color: #2c2f27 !important;
+  color: #c2c4b7 !important;
+}
+
+html[data-theme="dark"]
+.course-content__body #advancedcv-training-time + p + table tbody tr + tr td {
+  border-top-color: #2c2f27 !important;
+}
+
+html[data-theme="dark"]
+.course-content__body #advancedcv-training-time + p + table tbody tr:hover td {
+  background: #21241d !important;
+}

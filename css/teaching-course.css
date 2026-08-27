@@ -4217,3 +4217,64 @@ html[data-theme="dark"]
       white-space: normal;
   }
 }
+
+/* Quieter, tighter presentation for the training-time table only. */
+
+.course-content__body #advancedcv-training-time + p + table {
+    width: auto;
+    max-width: 640px;
+    margin: 14px auto 30px;
+    background: #ffffff;
+    border: 1px solid #e6e6e0;
+    border-radius: 8px;
+    box-shadow: none;
+    font-size: 15px;
+}
+
+.course-content__body #advancedcv-training-time + p + table thead th {
+    padding: 8px 14px;
+    background: #f4f4f0;
+    border-right: 1px solid #e6e6e0;
+    border-bottom: 1px solid #e6e6e0;
+    color: #5b5b53;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.course-content__body #advancedcv-training-time + p + table thead th:first-child {
+    border-radius: 7px 0 0 0;
+}
+
+.course-content__body #advancedcv-training-time + p + table thead th:last-child {
+    border-right: 0;
+    border-radius: 0 7px 0 0;
+}
+
+.course-content__body #advancedcv-training-time + p + table tbody td {
+    padding: 7px 14px;
+    border-right: 1px solid #efefe9;
+    color: #5f5f57;
+    font-size: 15px;
+    line-height: 1.35;
+}
+
+.course-content__body #advancedcv-training-time + p + table tbody td:last-child {
+    border-right: 0;
+}
+
+/* No zebra banding: the table is only two rows. */
+
+.course-content__body #advancedcv-training-time + p + table tbody tr td,
+.course-content__body #advancedcv-training-time + p + table tbody tr:nth-child(even) td,
+.course-content__body #advancedcv-training-time + p + table tbody tr:nth-child(odd) td {
+    background: #ffffff;
+}
+
+.course-content__body #advancedcv-training-time + p + table tbody tr:hover td {
+    background: #fafaf7;
+}
+
+.course-content__body #advancedcv-training-time + p + table tbody tr + tr td {
+    border-top: 1px solid #efefe9;
+}
