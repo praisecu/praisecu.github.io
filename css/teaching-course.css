@@ -4035,10 +4035,9 @@ html[data-theme="dark"]
 
 .course-updates__item {
     display: grid;
-    grid-template-columns: 210px minmax(0, 1fr);
-    gap: 4px 18px;
-    align-items: baseline;
-    padding: 13px 0;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+    padding: 8px 0;
     border-bottom: 1px solid #ebebe4;
 }
 
@@ -4050,23 +4049,25 @@ html[data-theme="dark"]
 .course-updates__meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 9px;
-    align-items: baseline;
+    gap: 7px;
+    align-items: center;
 }
 
 .course-updates__date {
     color: #7a7a6f;
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
     white-space: nowrap;
 }
 
 .course-updates__tag {
-    padding: 3px 9px;
+    display: inline-block;
+    padding: 1px 7px;
     border-radius: 999px;
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
-    font-size: 11px;
+    font-size: 10px;
+    line-height: 1.6;
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -4097,8 +4098,8 @@ html[data-theme="dark"]
     margin: 0;
     color: #4d4d46;
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.45;
 }
 
 .course-updates__link {
@@ -4137,8 +4138,8 @@ html[data-theme="dark"]
 
     .course-updates__item {
       grid-template-columns: minmax(0, 1fr);
-      gap: 5px;
-      padding: 11px 0;
+      gap: 2px;
+      padding: 8px 0;
   }
 
     .course-updates__date {
