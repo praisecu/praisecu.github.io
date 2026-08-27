@@ -4034,11 +4034,21 @@ html[data-theme="dark"]
 }
 
 .course-updates__item {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2px;
-    padding: 8px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px 10px;
+    align-items: baseline;
+    padding: 7px 0;
     border-bottom: 1px solid #ebebe4;
+}
+
+.course-updates__item > .course-updates__meta {
+    flex: 0 0 auto;
+}
+
+.course-updates__item > .course-updates__text {
+    flex: 1 1 260px;
+    min-width: 0;
 }
 
 .course-updates__item:last-child {
@@ -4136,10 +4146,21 @@ html[data-theme="dark"]
       font-size: 21px;
   }
 
+    /* Too narrow to keep the date, chip and text on one line. */
+
     .course-updates__item {
-      grid-template-columns: minmax(0, 1fr);
+      flex-direction: column;
       gap: 2px;
       padding: 8px 0;
+  }
+
+    /*
+   * The flex basis set for the row layout is a height once the
+   * direction is column, so it has to be cleared here.
+   */
+
+    .course-updates__item > .course-updates__text {
+      flex: 0 0 auto;
   }
 
     .course-updates__date {
