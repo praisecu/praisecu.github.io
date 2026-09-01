@@ -46,8 +46,8 @@ html[data-theme="dark"] {
   padding: 0 7px;
   overflow: hidden;
 
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(207, 185, 125, 0.32);
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(207, 185, 125, 0.34);
   border-radius: 999px;
 
   transition:
@@ -59,26 +59,29 @@ html[data-theme="dark"] {
   position: relative;
   z-index: 2;
 
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
 
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.9;
+  stroke-width: 2.1;
   stroke-linecap: round;
   stroke-linejoin: round;
 
   transition: color 180ms ease;
 }
 
-/* The lit icon is the mode currently in use, matching the thumb. */
+/*
+ * The active icon sits on the solid thumb and is drawn dark for
+ * contrast; the inactive one stays muted against the track.
+ */
 
 .theme-toggle__icon--sun {
-  color: #cfb97d;
+  color: #1d1e00;
 }
 
 .theme-toggle__icon--moon {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.38);
 }
 
 .theme-toggle__thumb {
@@ -90,9 +93,10 @@ html[data-theme="dark"] {
   width: 24px;
   height: 24px;
 
-  background: rgba(207, 185, 125, 0.2);
-  border: 1px solid rgba(207, 185, 125, 0.45);
+  background: #cfb97d;
+  border: 1px solid #cfb97d;
   border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 
   transition: transform 180ms ease, background-color 180ms ease;
 }
@@ -102,11 +106,11 @@ html[data-theme="dark"] .theme-toggle__thumb {
 }
 
 html[data-theme="dark"] .theme-toggle__icon--sun {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.38);
 }
 
 html[data-theme="dark"] .theme-toggle__icon--moon {
-  color: #cfb97d;
+  color: #1d1e00;
 }
 
 .theme-toggle:hover .theme-toggle__track,
