@@ -17,55 +17,107 @@ html[data-theme="dark"] {
   position: relative;
 }
 
+/* Capsule theme toggle */
+
 .theme-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
 
-  width: 40px;
-  height: 40px;
+  width: 58px;
+  height: 30px;
   padding: 0;
 
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid rgba(207, 185, 125, 0.34);
-  border-radius: 10px;
-
-  color: #cfb97d;
+  background: transparent;
+  border: 0;
   cursor: pointer;
+}
+
+.theme-toggle__track {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 58px;
+  height: 30px;
+  padding: 0 7px;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(207, 185, 125, 0.32);
+  border-radius: 999px;
 
   transition:
-    background 160ms ease,
-    border-color 160ms ease,
-    color 160ms ease,
-    transform 160ms ease;
+    background-color 180ms ease,
+    border-color 180ms ease;
 }
 
-.theme-toggle:hover,
+.theme-toggle__icon {
+  position: relative;
+  z-index: 2;
+
+  width: 14px;
+  height: 14px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  transition: color 180ms ease;
+}
+
+/* The lit icon is the mode currently in use, matching the thumb. */
+
+.theme-toggle__icon--sun {
+  color: #cfb97d;
+}
+
+.theme-toggle__icon--moon {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.theme-toggle__thumb {
+  position: absolute;
+  z-index: 1;
+  top: 2px;
+  left: 2px;
+
+  width: 24px;
+  height: 24px;
+
+  background: rgba(207, 185, 125, 0.2);
+  border: 1px solid rgba(207, 185, 125, 0.45);
+  border-radius: 50%;
+
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+html[data-theme="dark"] .theme-toggle__thumb {
+  transform: translateX(28px);
+}
+
+html[data-theme="dark"] .theme-toggle__icon--sun {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+html[data-theme="dark"] .theme-toggle__icon--moon {
+  color: #cfb97d;
+}
+
+.theme-toggle:hover .theme-toggle__track,
+.theme-toggle:focus-visible .theme-toggle__track {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(207, 185, 125, 0.6);
+}
+
 .theme-toggle:focus-visible {
-  background: rgba(207, 185, 125, 0.12);
-  border-color: #cfb97d;
-  color: #ffffff;
-  outline: none;
-  transform: translateY(-1px);
-}
-
-.theme-toggle i {
-  color: inherit;
-  font-size: 16px;
-  line-height: 1;
-}
-
-.theme-toggle__sun {
-  display: none;
-}
-
-html[data-theme="dark"] .theme-toggle__moon {
-  display: none;
-}
-
-html[data-theme="dark"] .theme-toggle__sun {
-  display: inline-block;
+  outline: 2px solid #cfb97d;
+  outline-offset: 3px;
 }
 
 .theme-toggle__label {
@@ -105,15 +157,15 @@ html[data-theme="dark"] .theme-toggle__sun {
 
     display: inline-flex;
 
-    width: 38px;
-    height: 38px;
-
     transform: translateY(-50%);
   }
+}
 
-  .theme-toggle--mobile:hover,
-  .theme-toggle--mobile:focus-visible {
-    transform: translateY(-50%);
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle__track,
+  .theme-toggle__thumb,
+  .theme-toggle__icon {
+    transition: none;
   }
 }
 
