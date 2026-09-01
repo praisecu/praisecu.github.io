@@ -25,8 +25,8 @@ html[data-theme="dark"] {
   justify-content: center;
   flex: 0 0 auto;
 
-  width: 58px;
-  height: 30px;
+  width: 68px;
+  height: 34px;
   padding: 0;
 
   background: transparent;
@@ -41,9 +41,9 @@ html[data-theme="dark"] {
   align-items: center;
   justify-content: space-between;
 
-  width: 58px;
-  height: 30px;
-  padding: 0 7px;
+  width: 68px;
+  height: 34px;
+  padding: 0 8px;
   overflow: hidden;
 
   background: rgba(0, 0, 0, 0.28);
@@ -59,8 +59,8 @@ html[data-theme="dark"] {
   position: relative;
   z-index: 2;
 
-  width: 15px;
-  height: 15px;
+  width: 17px;
+  height: 17px;
 
   fill: none;
   stroke: currentColor;
@@ -90,8 +90,8 @@ html[data-theme="dark"] {
   top: 2px;
   left: 2px;
 
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
 
   background: #cfb97d;
   border: 1px solid #cfb97d;
@@ -102,7 +102,7 @@ html[data-theme="dark"] {
 }
 
 html[data-theme="dark"] .theme-toggle__thumb {
-  transform: translateX(28px);
+  transform: translateX(34px);
 }
 
 html[data-theme="dark"] .theme-toggle__icon--sun {
