@@ -25,6 +25,11 @@ quick_info:
 # Use type: lecture | assignment | schedule | setup
 announcements:
 
+  - date: September 2, 2026
+    date_iso: 2026-09-02
+    type: assignment
+    text: "P1: Panorama! is released and is due Monday, September 21, 2026."
+
   - date: September 1, 2026
     date_iso: 2026-09-01
     type: lecture
@@ -129,7 +134,7 @@ Students may discuss concepts with team members and other class members, but may
 |No.|Assignment|Release Date|Due Date|
 |-:|-|:-:|:-:|
 | 0. | [Python Tutorial](https://colab.research.google.com/github/cs231n/cs231n.github.io/blob/master/python-colab.ipynb#scrollTo=qVrTo-LhL9eS) \| [OpenCV Tutorial](https://colab.research.google.com/drive/1b-LlTfcJR9lGzilay8z7NHqyD4ItnDsB?usp=sharing) | — | — |
-|1|[P1: Panorama!](https://colab.research.google.com/drive/1bU_OAJUjFJ54Qqh-tCoWJRwQBe2T6Vn-?usp=sharing)|—|—|
+|1|[P1: Panorama!](https://colab.research.google.com/drive/1bU_OAJUjFJ54Qqh-tCoWJRwQBe2T6Vn-?usp=sharing)|Sep 2, 2026|Sep 21, 2026|
 |2|Homework: Calibrate My Camera|—|—|
 |3|P2: Coded Deep Depth — Part 1 / Part 2|—|—|
 |4|P3: Blob the Builder — Part 1 / Part 2|—|—|
