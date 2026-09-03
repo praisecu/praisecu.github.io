@@ -28,7 +28,7 @@ announcements:
   - date: September 3, 2026
     date_iso: 2026-09-03
     type: lecture
-    text: "Lecture 5 (Non-Rigid Transformation and Camera Models) slides are now posted."
+    text: "Lecture 5 (Non-Rigid Transformation and Camera Models) slides and recording are now posted."
 
   - date: September 2, 2026
     date_iso: 2026-09-02
@@ -112,7 +112,7 @@ Rough estimates. Free-tier sessions disconnect, but the starter notebooks checkp
 |2|Image Formation|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQCaScbo8z1QRIhUeQcFBLBzAZA39DBZOrQLjJCezMmvvic?e=uO9suE)|[Link](https://cuboulder.zoom.us/rec/share/7mNdUWT42jYLS5cgfJugH3qOjy7QGTP3NwStvVeFFteh9Jc8UzF87rMLitQPCaQI.kYcyJV-nFMrp2MOx)|
 |3|All About Features!|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQDbDEJTPiKLQLN18CUeZwtpAeMK_Y92W8-P82j4suh_h1M?e=B5Gm3D)|[Link](https://cuboulder.zoom.us/rec/share/TtlpkWWAcN4uIyvvi7pP6zf51SMjDu0FzEaTyiYiCLErIuHy_0eo0pF80QGaF5Nr.KH59IV_jb0--kf9_)|
 |4|Projections and Transformations|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQD0DxA0k4JFRaJsXJklDLhuAYCvNRGa4O0Ll0Do9qZuyHg?e=hSerlP)|[Link](https://cuboulder.zoom.us/rec/share/i42D0EW1S_FMl_FWSYZKVy77_b7nVDnGNChEKRy4Susg6XJuhFPhLSMv5lQ9CJt-.svAUfILTsJurxKMG)|
-|5|Non-Rigid Transformation and Camera Models|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQAFY2u4PKAmSq2LjJVPEYK1AacPRAEtVVCQ8XYIZsMQ2Ag?e=kLwQfb)|—|
+|5|Non-Rigid Transformation and Camera Models|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQAFY2u4PKAmSq2LjJVPEYK1AacPRAEtVVCQ8XYIZsMQ2Ag?e=kLwQfb)|[Link](https://cuboulder.zoom.us/rec/share/h6Tp9Jhf4lHrb5ujeyEKZo8Hv_IOMYd6gfNcBP-uvGZyKwPf6bzmSiem1kkdJ-Xl.WG-pO6MxxOq7646z)|
 |6|Camera Calibration and Introduction to Computer Graphics|—|—|
 |7|Curves and Rendering|—|—|
 |8|Single View Geometry|—|—|
