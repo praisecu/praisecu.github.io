@@ -72,6 +72,16 @@
               {{ item.description }}
             </p>
           {% endif %}
+
+          {#
+            Photo credit, shown only where the licence of the thumbnail
+            requires attribution.
+          #}
+          {% if item.image_credit %}
+            <p class="news-entry__credit">
+              {{ item.image_credit }}
+            </p>
+          {% endif %}
         </div>
 
       {% if item.url %}

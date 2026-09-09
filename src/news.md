@@ -68,8 +68,9 @@ news:
   - title: Co-hosted BISCCITs Workshop
     date: June 23, 2025
     date_iso: 2025-06-23
-    image: https://media.licdn.com/dms/image/v2/D4E22AQG4yZqFxAqIug/feedshare-image-high-res/B4EZeeSB4QGwAs-/0/1750707216511?e=1787788800&v=beta&t=CJyxvYycFlli_oNfAVhVFt86S9Nq8uCnNBenJXD5-Fs
-    image_alt: Co-hosted Bio-inspired Workshop
+    image: img/news/bisccits.jpg
+    image_alt: Seven-spot ladybird on a leaf
+    image_credit: "Photo: Dominik Stodulski, CC BY-SA 3.0"
     url: https://www.linkedin.com/posts/chahatdeep_perception-sensing-control-activity-7342998289509675008-DDed?utm_source=share&utm_medium=member_desktop&rcm=ACoAAA8A6XMBLmgAH7cds84J2pjua--a9JXfbqU
     description: CU Boulder was honored to host the Bio-Inspired Sensing Collaborative International Teams (BISCCITs) workshop this year.
 

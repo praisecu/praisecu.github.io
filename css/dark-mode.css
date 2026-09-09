@@ -1355,3 +1355,10 @@ html[data-theme="dark"]
 .course-content__body #advancedcv-training-time + p + table tbody tr:hover td {
   background: #21241d !important;
 }
+
+
+/* News card photo credit */
+
+html[data-theme="dark"] .news-entry__credit {
+  color: #86887d !important;
+}

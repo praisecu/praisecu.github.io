@@ -3421,3 +3421,13 @@
   -webkit-line-clamp: 2;
   line-clamp: 2;
 }
+/* Photo credit under a news card, for thumbnails whose licence requires it. */
+
+.news-entry__credit {
+    margin: 5px 0 0;
+    color: #9a9a94;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-style: italic;
+    line-height: 1.4;
+}
