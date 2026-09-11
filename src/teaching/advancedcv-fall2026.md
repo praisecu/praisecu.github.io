@@ -25,6 +25,11 @@ quick_info:
 # Use type: lecture | assignment | schedule | setup
 announcements:
 
+  - date: September 10, 2026
+    date_iso: 2026-09-10
+    type: lecture
+    text: "Lecture 7 (Curves and Rendering) slides and recording are now posted."
+
   - date: September 8, 2026
     date_iso: 2026-09-08
     type: lecture
@@ -119,7 +124,7 @@ Rough estimates. Free-tier sessions disconnect, but the starter notebooks checkp
 |4|Projections and Transformations|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQD0DxA0k4JFRaJsXJklDLhuAYCvNRGa4O0Ll0Do9qZuyHg?e=hSerlP)|[Link](https://cuboulder.zoom.us/rec/share/i42D0EW1S_FMl_FWSYZKVy77_b7nVDnGNChEKRy4Susg6XJuhFPhLSMv5lQ9CJt-.svAUfILTsJurxKMG)|
 |5|Non-Rigid Transformation and Camera Models|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQAFY2u4PKAmSq2LjJVPEYK1AacPRAEtVVCQ8XYIZsMQ2Ag?e=kLwQfb)|[Link](https://cuboulder.zoom.us/rec/share/h6Tp9Jhf4lHrb5ujeyEKZo8Hv_IOMYd6gfNcBP-uvGZyKwPf6bzmSiem1kkdJ-Xl.WG-pO6MxxOq7646z)|
 |6|Camera Calibration and Introduction to Computer Graphics|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQD8SZiLMmeVSY5Sog0SudziAdHWneqBHGsKbR32s-LSjiY?e=Ask28z)|[Link](https://cuboulder.zoom.us/rec/share/gb9lNslqiA9hU9YcheFedZgO5jnfZSLF_ikJ4uXdacMCDXlv--N4n7mtrDZV4xty.m1Xcx1NaJJuYC6V0)|
-|7|Curves and Rendering|—|—|
+|7|Curves and Rendering|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQCwRSC5_m7RTrdlYcorU8d7AYgMSYZD9w-M1zqLDmk41N0?e=YcOrOX)|[Link](https://cuboulder.zoom.us/rec/share/g68zr65BKCxOyNY8ZZNgL6Nk8H0IaaK0ZvUEjQ6v5GMYdIooSNd6JpGnZaJ86zxd.19zramtwazzJpvQ-)|
 |8|Single View Geometry|—|—|
 |9|Introduction to Computational Imaging|—|—|
 |10|Coded Deep Depth|—|—|
