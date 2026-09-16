@@ -28,7 +28,7 @@ announcements:
   - date: September 15, 2026
     date_iso: 2026-09-15
     type: lecture
-    text: "Lecture 8 (Single View Geometry) slides are now posted."
+    text: "Lecture 8 (Single View Geometry) slides and recording are now posted."
 
   - date: September 10, 2026
     date_iso: 2026-09-10
@@ -130,7 +130,7 @@ Rough estimates. Free-tier sessions disconnect, but the starter notebooks checkp
 |5|Non-Rigid Transformation and Camera Models|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQAFY2u4PKAmSq2LjJVPEYK1AacPRAEtVVCQ8XYIZsMQ2Ag?e=kLwQfb)|[Link](https://cuboulder.zoom.us/rec/share/h6Tp9Jhf4lHrb5ujeyEKZo8Hv_IOMYd6gfNcBP-uvGZyKwPf6bzmSiem1kkdJ-Xl.WG-pO6MxxOq7646z)|
 |6|Camera Calibration and Introduction to Computer Graphics|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQD8SZiLMmeVSY5Sog0SudziAdHWneqBHGsKbR32s-LSjiY?e=Ask28z)|[Link](https://cuboulder.zoom.us/rec/share/gb9lNslqiA9hU9YcheFedZgO5jnfZSLF_ikJ4uXdacMCDXlv--N4n7mtrDZV4xty.m1Xcx1NaJJuYC6V0)|
 |7|Curves and Rendering|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQCwRSC5_m7RTrdlYcorU8d7AYgMSYZD9w-M1zqLDmk41N0?e=YcOrOX)|[Link](https://cuboulder.zoom.us/rec/share/g68zr65BKCxOyNY8ZZNgL6Nk8H0IaaK0ZvUEjQ6v5GMYdIooSNd6JpGnZaJ86zxd.19zramtwazzJpvQ-)|
-|8|Single View Geometry|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQDXVTBwf7EoTaSpdzA3J3YhAS-9J0wnmbl9vOuOd3USyTo?e=cLbEdB)|—|
+|8|Single View Geometry|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQDXVTBwf7EoTaSpdzA3J3YhAS-9J0wnmbl9vOuOd3USyTo?e=cLbEdB)|[Link](https://cuboulder.zoom.us/rec/share/qVwuz73Zxf433oKtxFrXCKgLq4M7_7u-kIuOB0waBNI09pORb2EX4-swNa-NCMUl.IUSeel4HO1AttmKG?startTime=1789508042000)|
 |9|Introduction to Computational Imaging|—|—|
 |10|Coded Deep Depth|—|—|
 |10b|Coded Deep Depth — 2|—|—|
