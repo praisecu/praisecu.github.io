@@ -28,7 +28,7 @@ announcements:
   - date: September 17, 2026
     date_iso: 2026-09-17
     type: lecture
-    text: "Lecture 9 (Introduction to Computational Imaging) slides are now posted."
+    text: "Lecture 9 (Introduction to Computational Imaging) slides and recording are now posted."
 
   - date: September 15, 2026
     date_iso: 2026-09-15
@@ -136,7 +136,7 @@ Rough estimates. Free-tier sessions disconnect, but the starter notebooks checkp
 |6|Camera Calibration and Introduction to Computer Graphics|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQD8SZiLMmeVSY5Sog0SudziAdHWneqBHGsKbR32s-LSjiY?e=Ask28z)|[Link](https://cuboulder.zoom.us/rec/share/gb9lNslqiA9hU9YcheFedZgO5jnfZSLF_ikJ4uXdacMCDXlv--N4n7mtrDZV4xty.m1Xcx1NaJJuYC6V0)|
 |7|Curves and Rendering|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQCwRSC5_m7RTrdlYcorU8d7AYgMSYZD9w-M1zqLDmk41N0?e=YcOrOX)|[Link](https://cuboulder.zoom.us/rec/share/g68zr65BKCxOyNY8ZZNgL6Nk8H0IaaK0ZvUEjQ6v5GMYdIooSNd6JpGnZaJ86zxd.19zramtwazzJpvQ-)|
 |8|Single View Geometry|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQDXVTBwf7EoTaSpdzA3J3YhAS-9J0wnmbl9vOuOd3USyTo?e=cLbEdB)|[Link](https://cuboulder.zoom.us/rec/share/qVwuz73Zxf433oKtxFrXCKgLq4M7_7u-kIuOB0waBNI09pORb2EX4-swNa-NCMUl.IUSeel4HO1AttmKG?startTime=1789508042000)|
-|9|Introduction to Computational Imaging|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQDVRuEqVtx8QYrFaYmvhusXAdH5hXOCcHfkJsqt82sjhKc?e=i6i83c)|—|
+|9|Introduction to Computational Imaging|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQDVRuEqVtx8QYrFaYmvhusXAdH5hXOCcHfkJsqt82sjhKc?e=i6i83c)|[Link](https://cuboulder.zoom.us/rec/share/YWykfs81DsFiaJbA7YdaJm2iqsvFIliF6yLUSRQ-Qzb_OStXLdsA1caN4JHSvXd6.OLi7vHDZHkgRNnSH)|
 |10|Coded Deep Depth|—|—|
 |10b|Coded Deep Depth — 2|—|—|
 |11|Two-View Geometry and Stereopsis|—|—|
