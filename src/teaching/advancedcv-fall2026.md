@@ -157,7 +157,7 @@ Rough estimates. Free-tier sessions disconnect, but the starter notebooks checkp
 
 <h2 id="advancedcv-assignments">Assignments</h2>
 
-This course consists of four assignments completed in groups of **two**, one in-class midterm examination, and one homework completed **individually**.
+This course consists of four assignments and one homework, all of which may be completed in groups of **two**, plus one in-class midterm examination. Solving and submitting the homework **individually** earns **25% extra credit**.
 
 Students may discuss concepts with team members and other class members, but may not copy another student's work. Refer to the Collaboration Policy and Honor Code below for details.
 
