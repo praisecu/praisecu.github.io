@@ -165,7 +165,7 @@ Students may discuss concepts with team members and other class members, but may
 |-:|-|:-:|:-:|
 | 0. | [Python Tutorial](https://colab.research.google.com/github/cs231n/cs231n.github.io/blob/master/python-colab.ipynb#scrollTo=qVrTo-LhL9eS) \| [OpenCV Tutorial](https://colab.research.google.com/drive/1b-LlTfcJR9lGzilay8z7NHqyD4ItnDsB?usp=sharing) | — | — |
 |1|[P1: Panorama!](https://colab.research.google.com/drive/1bU_OAJUjFJ54Qqh-tCoWJRwQBe2T6Vn-?usp=sharing)|Sep 2, 2026|Sep 21, 2026|
-|2|[Homework: Calibrate My Camera](https://colab.research.google.com/drive/1myxPNeH5my6UFm_rD-rCKAuIQCtfZ9mU?usp=sharing)|Sep 22, 2026|Sep 29, 2026|
+|2|[Homework: Calibrate My Camera](https://colab.research.google.com/drive/1myxPNeH5my6UFm_rD-rCKAuIQCtfZ9mU?usp=sharing)|Sep 22, 2026|Sep 30, 2026|
 |3|P2: Coded Deep Depth — [Part 1](https://colab.research.google.com/drive/1M9t9gxG-1Yeb7DXVzPOBNC77q97Pq7xj?usp=sharing) / [Part 2](https://colab.research.google.com/drive/1k_TQLih9xIZ3j_c8weAFaOq2OOd2xONr?usp=sharing)|Sep 30, 2026|Oct 20, 2026|
 |4|P3: Blob the Builder — Part 1 / Part 2|—|—|
 |5|Midterm — In Class|—|—|
