@@ -27,6 +27,11 @@ announcements:
 
   - date: September 23, 2026
     date_iso: 2026-09-23
+    type: schedule
+    text: "No in-person class on September 29 and October 1 while Prof. Singh is at IROS in Pittsburgh. Pre-recorded lectures will be uploaded later."
+
+  - date: September 23, 2026
+    date_iso: 2026-09-23
     type: lecture
     text: "Lecture 10 (Coded Deep Depth) slides and recording are now posted."
 
