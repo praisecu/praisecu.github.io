@@ -161,8 +161,8 @@
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 22px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
 }
 
 .team-card {
@@ -170,7 +170,7 @@
     align-items: center;
     flex-direction: column;
     min-width: 0;
-    padding: 25px 20px 22px;
+    padding: 24px 13px 20px;
     background: #ffffff;
     border: 1px solid #e5e5e1;
     border-radius: 17px;
@@ -191,9 +191,11 @@
 
 .team-card__photo {
     display: block;
-    width: 174px;
-    height: 174px;
+    width: 100%;
+    max-width: 174px;
+    height: auto;
     margin-bottom: 20px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     border: 3px solid #f2eee1;
     border-radius: 50%;

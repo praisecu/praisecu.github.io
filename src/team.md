@@ -49,6 +49,14 @@ current_students:
         type: linkedin
         url: https://www.linkedin.com/in/tam-jimmy-tran/
 
+  - name: Ethan K.
+    role: Graduate Student
+    image: /img/team/ethan.jpg
+    links:
+      - label: LinkedIn
+        type: linkedin
+        url: "https://www.linkedin.com/in/ethan-k-8a92041b7/"
+
   - name: Thanushraam Suresh Kumar
     role: Graduate Student
     image: /img/team/thanush.jpg
