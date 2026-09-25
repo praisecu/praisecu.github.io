@@ -28,7 +28,7 @@ announcements:
   - date: September 24, 2026
     date_iso: 2026-09-24
     type: lecture
-    text: "Lecture 12 (Two-View Geometry and Stereopsis) slides and recording are now posted."
+    text: "Lecture 11 (Coded Deep Depth, part 2) slides and recording are now posted."
 
   - date: September 23, 2026
     date_iso: 2026-09-23
@@ -153,8 +153,8 @@ Rough estimates. Free-tier sessions disconnect, but the starter notebooks checkp
 |8|Single View Geometry|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQDXVTBwf7EoTaSpdzA3J3YhAS-9J0wnmbl9vOuOd3USyTo?e=cLbEdB)|[Link](https://cuboulder.zoom.us/rec/share/qVwuz73Zxf433oKtxFrXCKgLq4M7_7u-kIuOB0waBNI09pORb2EX4-swNa-NCMUl.IUSeel4HO1AttmKG?startTime=1789508042000)|
 |9|Introduction to Computational Imaging|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQDVRuEqVtx8QYrFaYmvhusXAdH5hXOCcHfkJsqt82sjhKc?e=i6i83c)|[Link](https://cuboulder.zoom.us/rec/share/YWykfs81DsFiaJbA7YdaJm2iqsvFIliF6yLUSRQ-Qzb_OStXLdsA1caN4JHSvXd6.OLi7vHDZHkgRNnSH)|
 |10|Coded Deep Depth|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQCyexnnsiPbSLA5RbzUM2WuAT80sMows9O9vVeSy_19dgU?e=QvB2a6)|[Link](https://cuboulder.zoom.us/rec/share/UNv6UpZCWD6TBiQbPO0fh8rWOVv9UVIcYnvsyfiOizhaHRKaFB3WpT5BfBWpLTOp.q316LeGVssn_1mgg)|
-|11|Coded Deep Depth — 2|—|—|
-|12|Two-View Geometry and Stereopsis|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQALE_djqBrjQaOXGo_tUmhMAakMnBigGSJdoomH1JjsMGc?e=jhTKat)|[Link](https://cuboulder.zoom.us/rec/share/WWpNS0gqG4pzP8tayjIRME0iVOwBsTw5wzvkt8fXoj7fOdPtNex2tfX-4mSMfx7K.hGll7gAY8X2762Cn)|
+|11|Coded Deep Depth — 2|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQALE_djqBrjQaOXGo_tUmhMAakMnBigGSJdoomH1JjsMGc?e=jhTKat)|[Link](https://cuboulder.zoom.us/rec/share/WWpNS0gqG4pzP8tayjIRME0iVOwBsTw5wzvkt8fXoj7fOdPtNex2tfX-4mSMfx7K.hGll7gAY8X2762Cn)|
+|12|Two-View Geometry and Stereopsis|—|—|
 |13|Structure from Motion — 1|—|—|
 |14|Structure from Motion — 2|—|—|
 |15|Volumetric Rendering|—|—|
