@@ -1362,3 +1362,39 @@ html[data-theme="dark"]
 html[data-theme="dark"] .news-entry__credit {
   color: #86887d !important;
 }
+
+
+/* Individual openings */
+
+html[data-theme="dark"] .posting-card {
+  background: #191b17 !important;
+  border-color: #34362f !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="dark"] .posting-card__eyebrow {
+  background: #20221c !important;
+  border-color: #514b33 !important;
+  color: #d6bd72 !important;
+}
+
+html[data-theme="dark"] .posting-card__title,
+html[data-theme="dark"] .posting-card__heading,
+html[data-theme="dark"] .posting-card__list strong {
+  color: #f3efe3 !important;
+}
+
+html[data-theme="dark"] .posting-card__subtitle {
+  color: #d6bd72 !important;
+}
+
+html[data-theme="dark"] .posting-card__text,
+html[data-theme="dark"] .posting-card__list {
+  color: #c9c9c2 !important;
+}
+
+html[data-theme="dark"] .posting-card__meta li {
+  background: #20221c !important;
+  border-color: #3a3d34 !important;
+  color: #aaa9a2 !important;
+}

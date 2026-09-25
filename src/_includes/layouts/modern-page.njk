@@ -97,6 +97,59 @@
     </section>
 
     <section class="modern-page-section">
+
+      {# Individual openings, shown above the general prose card. #}
+      {% for posting in postings %}
+        <article class="posting-card">
+          {% if posting.image %}
+            <img
+              class="posting-card__image"
+              src="{{ posting.image }}"
+              alt="{{ posting.image_alt | default(posting.title) }}"
+              loading="lazy"
+            >
+          {% endif %}
+
+          <div class="posting-card__body">
+            <p class="posting-card__eyebrow">
+              {{ posting.status | default("Now hiring") }}
+            </p>
+
+            <h2 class="posting-card__title">
+              {{ posting.title }}
+            </h2>
+
+            {% if posting.subtitle %}
+              <p class="posting-card__subtitle">
+                {{ posting.subtitle }}
+              </p>
+            {% endif %}
+
+            {% if posting.meta %}
+              <ul class="posting-card__meta">
+                {% for item in posting.meta %}
+                  <li>{{ item }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+
+            {% for paragraph in posting.intro %}
+              <p class="posting-card__text">{{ paragraph | safe }}</p>
+            {% endfor %}
+
+            {% for group in posting.groups %}
+              <h3 class="posting-card__heading">{{ group.heading }}</h3>
+
+              <ul class="posting-card__list">
+                {% for item in group.items %}
+                  <li>{{ item | safe }}</li>
+                {% endfor %}
+              </ul>
+            {% endfor %}
+          </div>
+        </article>
+      {% endfor %}
+
       <div class="modern-page-card">
         <article class="modern-page-prose">
           {{ content | safe }}
