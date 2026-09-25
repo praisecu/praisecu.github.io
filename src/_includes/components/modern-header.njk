@@ -244,10 +244,7 @@
 
       <a href="/openings">
         <i class="fa fa-briefcase" aria-hidden="true"></i>
-        <span>Openings</span>
-        {% if navBadges.openings %}
-          <span class="nav-badge">{{ navBadges.openings }}</span>
-        {% endif %}
+        <span>Openings{% if navBadges.openings %} <b class="nav-badge">{{ navBadges.openings }}</b>{% endif %}</span>
       </a>
     </div>
   </div>
