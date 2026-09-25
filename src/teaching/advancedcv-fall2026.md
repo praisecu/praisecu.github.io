@@ -40,6 +40,11 @@ announcements:
     type: lecture
     text: "Lecture 10 (Coded Deep Depth) slides and recording are now posted."
 
+  - date: September 22, 2026
+    date_iso: 2026-09-22
+    type: assignment
+    text: "Homework: Calibrate My Camera is released and is due Wednesday, September 30, 2026."
+
   - date: September 17, 2026
     date_iso: 2026-09-17
     type: lecture
