@@ -25,6 +25,11 @@ quick_info:
 # Use type: lecture | assignment | schedule | setup
 announcements:
 
+  - date: September 24, 2026
+    date_iso: 2026-09-24
+    type: lecture
+    text: "Lecture 11 (Two-View Geometry and Stereopsis) slides and recording are now posted."
+
   - date: September 23, 2026
     date_iso: 2026-09-23
     type: schedule
@@ -149,7 +154,7 @@ Rough estimates. Free-tier sessions disconnect, but the starter notebooks checkp
 |9|Introduction to Computational Imaging|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQDVRuEqVtx8QYrFaYmvhusXAdH5hXOCcHfkJsqt82sjhKc?e=i6i83c)|[Link](https://cuboulder.zoom.us/rec/share/YWykfs81DsFiaJbA7YdaJm2iqsvFIliF6yLUSRQ-Qzb_OStXLdsA1caN4JHSvXd6.OLi7vHDZHkgRNnSH)|
 |10|Coded Deep Depth|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQCyexnnsiPbSLA5RbzUM2WuAT80sMows9O9vVeSy_19dgU?e=QvB2a6)|[Link](https://cuboulder.zoom.us/rec/share/UNv6UpZCWD6TBiQbPO0fh8rWOVv9UVIcYnvsyfiOizhaHRKaFB3WpT5BfBWpLTOp.q316LeGVssn_1mgg)|
 |10b|Coded Deep Depth — 2|—|—|
-|11|Two-View Geometry and Stereopsis|—|—|
+|11|Two-View Geometry and Stereopsis|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQALE_djqBrjQaOXGo_tUmhMAakMnBigGSJdoomH1JjsMGc?e=jhTKat)|[Link](https://cuboulder.zoom.us/rec/share/WWpNS0gqG4pzP8tayjIRME0iVOwBsTw5wzvkt8fXoj7fOdPtNex2tfX-4mSMfx7K.hGll7gAY8X2762Cn)|
 |12|Structure from Motion — 1|—|—|
 |13|Structure from Motion — 2|—|—|
 |14|Volumetric Rendering|—|—|
