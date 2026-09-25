@@ -160,6 +160,12 @@
                   {{ posting.apply_text | default("Submit your application through the form. We review applications as they arrive.") }}
                 </p>
 
+                {% if posting.apply_note %}
+                  <p class="posting-card__actions-note">
+                    {{ posting.apply_note }}
+                  </p>
+                {% endif %}
+
                 <a
                   class="posting-card__apply"
                   href="{{ posting.apply_url }}"

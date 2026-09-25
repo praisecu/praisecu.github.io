@@ -19,6 +19,7 @@ postings:
     image_alt: Event camera view of a quadrotor flying through foliage
     apply_url: "https://forms.gle/HUvZ2gQN4r799ir5A"
     apply_label: Apply for this position
+    apply_note: Open only to U.S. citizens and lawful permanent residents.
     meta:
       - Boulder, CO, on-site
       - 1-year appointment, renewable subject to funding

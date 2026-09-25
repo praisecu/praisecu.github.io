@@ -1417,3 +1417,10 @@ html[data-theme="dark"] .posting-card__actions-title {
 html[data-theme="dark"] .posting-card__actions-text {
   color: #c9c9c2 !important;
 }
+
+html[data-theme="dark"] .posting-card__actions-note {
+  background: #191b17 !important;
+  border-color: #514b33 !important;
+  border-left-color: #d6bd72 !important;
+  color: #f3efe3 !important;
+}
