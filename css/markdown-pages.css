@@ -493,12 +493,10 @@ body {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 280px;
     gap: 40px;
-    padding: 34px 44px 44px;
+    padding: 34px 44px 0;
 }
 
 .posting-card__actions {
-    position: sticky;
-    top: 100px;
     align-self: start;
     padding: 28px;
     background: #fbfaf6;
@@ -714,8 +712,14 @@ body {
     line-height: 1.45;
 }
 
+/* Sections below the intro use the card's full width. */
+
+.posting-card__details {
+    padding: 6px 44px 44px;
+}
+
 @media (max-width: 900px) {
-    .posting-card__actions {
-      position: static;
+    .posting-card__details {
+      padding: 0 24px 30px;
   }
 }

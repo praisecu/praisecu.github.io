@@ -110,44 +110,30 @@
             >
           {% endif %}
 
+          {# The apply panel sits beside the intro only, so the sections below can use the full width. #}
           <div class="posting-card__layout">
             <div class="posting-card__body">
               <p class="posting-card__eyebrow">
-              {{ posting.status | default("Now hiring") }}
-            </p>
-
-            <h2 class="posting-card__title">
-              {{ posting.title }}
-            </h2>
-
-            {% if posting.subtitle %}
-              <p class="posting-card__subtitle">
-                {{ posting.subtitle }}
+                {{ posting.status | default("Now hiring") }}
               </p>
-            {% endif %}
 
-            {% if posting.meta %}
-              <ul class="posting-card__meta">
-                {% for item in posting.meta %}
-                  <li>{{ item }}</li>
-                {% endfor %}
-              </ul>
-            {% endif %}
+              <h2 class="posting-card__title">{{ posting.title }}</h2>
 
-            {% for paragraph in posting.intro %}
-              <p class="posting-card__text">{{ paragraph | safe }}</p>
-            {% endfor %}
+              {% if posting.subtitle %}
+                <p class="posting-card__subtitle">{{ posting.subtitle }}</p>
+              {% endif %}
 
-            {% for group in posting.groups %}
-              <h3 class="posting-card__heading">{{ group.heading }}</h3>
+              {% if posting.meta %}
+                <ul class="posting-card__meta">
+                  {% for item in posting.meta %}
+                    <li>{{ item }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
 
-              <ul class="posting-card__list">
-                {% for item in group.items %}
-                  <li>{{ item | safe }}</li>
-                {% endfor %}
-              </ul>
-            {% endfor %}
-
+              {% for paragraph in posting.intro %}
+                <p class="posting-card__text">{{ paragraph | safe }}</p>
+              {% endfor %}
             </div>
 
             {% if posting.apply_url %}
@@ -161,9 +147,7 @@
                 </p>
 
                 {% if posting.apply_note %}
-                  <p class="posting-card__actions-note">
-                    {{ posting.apply_note }}
-                  </p>
+                  <p class="posting-card__actions-note">{{ posting.apply_note }}</p>
                 {% endif %}
 
                 <a
@@ -177,6 +161,20 @@
               </aside>
             {% endif %}
           </div>
+
+          {% if posting.groups %}
+            <div class="posting-card__details">
+              {% for group in posting.groups %}
+                <h3 class="posting-card__heading">{{ group.heading }}</h3>
+
+                <ul class="posting-card__list">
+                  {% for item in group.items %}
+                    <li>{{ item | safe }}</li>
+                  {% endfor %}
+                </ul>
+              {% endfor %}
+            </div>
+          {% endif %}
         </article>
       {% endfor %}
 
