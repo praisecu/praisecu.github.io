@@ -921,3 +921,74 @@ header-component {
 .modern-header__link .nav-badge::after {
     display: none;
 }
+
+/* Tablet widths: the More menu labels had no size set and inherited a
+   heading size, so long labels overflowed their tiles. */
+
+@media (max-width: 900px) {
+
+    .mobile-more-menu__links a,
+  .mobile-more-menu__links a span {
+      font-size: 13px !important;
+      line-height: 1.3 !important;
+  }
+
+    .mobile-more-menu__links a span {
+      overflow-wrap: anywhere;
+      text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+
+    .mobile-more-menu__links a span {
+      text-align: left;
+  }
+}
+
+/* The brand must keep its width; the nav gives way instead. */
+
+.modern-header__brand {
+    flex-shrink: 0;
+}
+
+/* Between the phone layout and wide desktops the header is tight, so the
+   New badge collapses to a dot rather than pushing the nav into the brand. */
+
+@media (min-width: 901px) and (max-width: 1150px) {
+
+    .modern-header__link .nav-badge {
+      width: 8px;
+      height: 8px;
+      margin-left: 4px;
+      padding: 0;
+      overflow: hidden;
+      font-size: 0;
+      line-height: 0;
+      vertical-align: 7px;
+  }
+}
+
+/* Just above the phone layout the full-size nav is a few pixels too wide
+   for the header, so the links tighten slightly in this band. */
+
+@media (min-width: 901px) and (max-width: 1050px) {
+
+    .modern-header__link {
+      padding-right: 8px;
+      padding-left: 8px;
+      font-size: 17px;
+  }
+
+    .modern-header__navigation {
+      gap: 4px;
+  }
+}
+
+@media (max-width: 900px) {
+
+    .mobile-more-menu__heading span {
+      font-size: 18px;
+      line-height: 1.2;
+  }
+}
