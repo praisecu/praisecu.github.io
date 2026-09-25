@@ -601,3 +601,24 @@ body {
       font-size: 25px;
   }
 }
+
+.posting-card__apply {
+    display: inline-block;
+    margin-top: 26px;
+    padding: 13px 26px;
+    background: var(--praise-black);
+    border: 1px solid var(--praise-black);
+    border-radius: 10px;
+    color: var(--praise-gold) !important;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.posting-card__apply:hover,
+.posting-card__apply:focus-visible {
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+    transform: translateY(-1px);
+}

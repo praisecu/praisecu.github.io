@@ -17,6 +17,8 @@ postings:
     status: Now hiring
     image: /img/openings/event-vision.jpg
     image_alt: Event camera view of a quadrotor flying through foliage
+    apply_url: "https://forms.gle/HUvZ2gQN4r799ir5A"
+    apply_label: Apply for this position
     meta:
       - Boulder, CO, on-site
       - 1-year appointment, renewable subject to funding

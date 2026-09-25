@@ -146,6 +146,17 @@
                 {% endfor %}
               </ul>
             {% endfor %}
+
+            {% if posting.apply_url %}
+              <a
+                class="posting-card__apply"
+                href="{{ posting.apply_url }}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ posting.apply_label | default("Apply for this position") }}
+              </a>
+            {% endif %}
           </div>
         </article>
       {% endfor %}

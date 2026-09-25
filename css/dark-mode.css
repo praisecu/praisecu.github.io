@@ -1398,3 +1398,9 @@ html[data-theme="dark"] .posting-card__meta li {
   border-color: #3a3d34 !important;
   color: #aaa9a2 !important;
 }
+
+html[data-theme="dark"] .posting-card__apply {
+  background: #20221c !important;
+  border-color: #514b33 !important;
+  color: #d6bd72 !important;
+}
