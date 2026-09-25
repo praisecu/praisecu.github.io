@@ -482,9 +482,41 @@ body {
     overflow: hidden;
     width: min(1040px, calc(100% - 48px));
     margin: 0 auto 26px;
+    background: var(--praise-surface);
+    border: 1px solid #e8e8e8;
+    border-radius: 24px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.07),
+    0 2px 8px rgba(0, 0, 0, 0.035);
+}
+
+.posting-card__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 56px;
+    padding: 34px 52px 44px;
+}
+
+.posting-card__actions {
+    align-self: start;
+    padding: 28px;
     background: #fbfaf6;
     border: 1px solid #ddd4b9;
     border-radius: 18px;
+}
+
+.posting-card__actions-title {
+    margin: 0 0 10px;
+    color: var(--praise-black);
+    font-family: Nunito, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.posting-card__actions-text {
+    margin: 0 0 22px;
+    color: var(--praise-text);
+    font-size: 15px;
+    line-height: 1.55;
 }
 
 .posting-card__image {
@@ -495,15 +527,15 @@ body {
 }
 
 .posting-card__body {
-    padding: 34px 52px 40px;
+    min-width: 0;
 }
 
 .posting-card__eyebrow {
     display: inline-block;
     margin: 0 0 12px;
     padding: 5px 13px;
-    background: #ffffff;
-    border: 1px solid #ddd4b9;
+    background: #f4f1e4;
+    border: 1px solid #e3d7b3;
     border-radius: 999px;
     color: #6f5d1b;
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
@@ -514,19 +546,20 @@ body {
 }
 
 .posting-card__title {
-    margin: 0 0 6px;
-    color: #1d1e00;
-    font-family: "Nunito Sans", "Nunito", sans-serif;
+    margin: 0 0 8px;
+    color: var(--praise-black);
+    font-family: Nunito, sans-serif;
     font-size: 30px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
 }
 
 .posting-card__subtitle {
     margin: 0 0 18px;
-    color: #6f5d1b;
-    font-size: 17px;
+    color: var(--praise-gold-dark);
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 19px;
     font-weight: 600;
     line-height: 1.4;
 }
@@ -542,34 +575,52 @@ body {
 
 .posting-card__meta li {
     padding: 4px 11px;
-    background: #ffffff;
-    border: 1px solid #e3d7b3;
+    background: #f7f7f4;
+    border: 1px solid #e6e6e0;
     border-radius: 7px;
     color: #5f5f57;
     font-size: 13px;
 }
 
 .posting-card__text {
-    margin: 0 0 14px;
-    color: #4f4f49;
-    font-size: 16px;
-    line-height: 1.7;
+    margin: 0 0 22px;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.68;
+    color: var(--praise-text);
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: none;
+    -webkit-hyphens: none;
+    overflow-wrap: normal;
+    word-break: normal;
 }
 
 .posting-card__heading {
-    margin: 26px 0 10px;
-    color: #1d1e00;
-    font-family: "Nunito Sans", "Nunito", sans-serif;
-    font-size: 18px;
-    font-weight: 700;
+    margin: 30px 0 12px;
+    color: var(--praise-black);
+    font-family: Nunito, sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
 }
 
 .posting-card__list {
     margin: 0;
-    padding-left: 20px;
-    color: #4f4f49;
-    font-size: 16px;
-    line-height: 1.7;
+    padding-left: 22px;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.68;
+    color: var(--praise-text);
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: none;
+    -webkit-hyphens: none;
+    overflow-wrap: normal;
+    word-break: normal;
 }
 
 .posting-card__list li {
@@ -577,21 +628,24 @@ body {
 }
 
 .posting-card__list strong {
-    color: #1d1e00;
+    color: var(--praise-gold-dark);
+    font-weight: 700;
 }
 
 @media (max-width: 900px) {
 
     .posting-card {
       width: calc(100% - 32px);
-      border-radius: 14px;
+      border-radius: 18px;
   }
 
     .posting-card__image {
       height: 180px;
   }
 
-    .posting-card__body {
+    .posting-card__layout {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 26px;
       padding: 26px 24px 30px;
   }
 
@@ -601,9 +655,11 @@ body {
 }
 
 .posting-card__apply {
-    display: inline-block;
-    margin-top: 26px;
-    padding: 13px 26px;
+    display: block;
+    width: 100%;
+    margin-top: 0;
+    padding: 14px 18px;
+    text-align: center;
     background: var(--praise-black);
     border: 1px solid var(--praise-black);
     border-radius: 10px;
@@ -619,4 +675,23 @@ body {
 .posting-card__apply:focus-visible {
     box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
     transform: translateY(-1px);
+}
+
+/* Follow the prospective students prose on smaller screens. */
+
+@media (max-width: 700px) {
+
+    .posting-card__text,
+  .posting-card__list {
+      text-align: left;
+  }
+}
+
+@media (max-width: 600px) {
+
+    .posting-card__text,
+  .posting-card__list {
+      font-size: 17px;
+      line-height: 1.65;
+  }
 }

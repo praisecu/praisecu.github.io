@@ -1404,3 +1404,16 @@ html[data-theme="dark"] .posting-card__apply {
   border-color: #514b33 !important;
   color: #d6bd72 !important;
 }
+
+html[data-theme="dark"] .posting-card__actions {
+  background: #20221c !important;
+  border-color: #3a3d34 !important;
+}
+
+html[data-theme="dark"] .posting-card__actions-title {
+  color: #f3efe3 !important;
+}
+
+html[data-theme="dark"] .posting-card__actions-text {
+  color: #c9c9c2 !important;
+}

@@ -110,8 +110,9 @@
             >
           {% endif %}
 
-          <div class="posting-card__body">
-            <p class="posting-card__eyebrow">
+          <div class="posting-card__layout">
+            <div class="posting-card__body">
+              <p class="posting-card__eyebrow">
               {{ posting.status | default("Now hiring") }}
             </p>
 
@@ -147,15 +148,27 @@
               </ul>
             {% endfor %}
 
+            </div>
+
             {% if posting.apply_url %}
-              <a
-                class="posting-card__apply"
-                href="{{ posting.apply_url }}"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {{ posting.apply_label | default("Apply for this position") }}
-              </a>
+              <aside class="posting-card__actions">
+                <h3 class="posting-card__actions-title">
+                  {{ posting.apply_title | default("Interested in this role?") }}
+                </h3>
+
+                <p class="posting-card__actions-text">
+                  {{ posting.apply_text | default("Submit your application through the form. We review applications as they arrive.") }}
+                </p>
+
+                <a
+                  class="posting-card__apply"
+                  href="{{ posting.apply_url }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {{ posting.apply_label | default("Apply for this position") }}
+                </a>
+              </aside>
             {% endif %}
           </div>
         </article>
