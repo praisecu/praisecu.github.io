@@ -142,6 +142,9 @@
     {% if nav == 'openings' %}aria-current="page"{% endif %}
   >
     Openings
+    {% if navBadges.openings %}
+      <span class="nav-badge">{{ navBadges.openings }}</span>
+    {% endif %}
   </a>
 </nav>
   </div>
@@ -191,6 +194,9 @@
   >
     <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
     <span>More</span>
+    {% if navBadges.openings %}
+      <span class="nav-badge-dot" aria-hidden="true"></span>
+    {% endif %}
   </button>
 </nav>
 
@@ -239,6 +245,9 @@
       <a href="/openings">
         <i class="fa fa-briefcase" aria-hidden="true"></i>
         <span>Openings</span>
+        {% if navBadges.openings %}
+          <span class="nav-badge">{{ navBadges.openings }}</span>
+        {% endif %}
       </a>
     </div>
   </div>

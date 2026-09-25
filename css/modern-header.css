@@ -866,3 +866,58 @@ header-component {
       margin: 0 auto;
   }
 }
+
+/* "New" marker on a nav item, driven by src/_data/navBadges.json. */
+
+.nav-badge {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 2px 7px;
+    background: #cfb97d;
+    border-radius: 999px;
+    color: #1d1e00;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+    text-transform: uppercase;
+    vertical-align: 2px;
+}
+
+.mobile-bottom-nav__more {
+    position: relative;
+}
+
+.nav-badge-dot {
+    position: absolute;
+    top: 8px;
+    right: calc(50% - 16px);
+    width: 8px;
+    height: 8px;
+    background: #cfb97d;
+    border: 2px solid #1d1e00;
+    border-radius: 50%;
+}
+
+.modern-header__link .nav-badge,
+.mobile-more-menu a .nav-badge,
+#mobile-more-menu a .nav-badge {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    margin: 0 0 0 6px;
+    padding: 2px 7px;
+    background: #cfb97d;
+    border: 0;
+    border-radius: 999px;
+    color: #1d1e00 !important;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+    vertical-align: 2px;
+}
+
+.modern-header__link .nav-badge::after {
+    display: none;
+}
