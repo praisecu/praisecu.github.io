@@ -30,12 +30,13 @@ teaser:
 math: true
 
 bibtex: |
-  @inproceedings{vadapalli2026foldtofit,
-    title     = {Fold-to-Fit: Propeller Interaction and Control of a Coaxial-Bicopter Quadrotor},
-    author    = {Vadapalli, Pravesh Rana and Singh, Chahat Deep},
-    booktitle = {IROS 2026 Workshop on Insect-scale Autonomy},
-    address   = {Pittsburgh, PA, USA},
-    year      = {2026}
+  @misc{vadapalli2026foldtofit,
+    title        = {Fold-to-Fit: Propeller Interaction and Control of a Coaxial-Bicopter Quadrotor},
+    author       = {Vadapalli, Pravesh Rana and Singh, Chahat Deep},
+    howpublished = {IROS 2026 Workshop on Insect-scale Autonomy, Pittsburgh, PA, USA},
+    month        = oct,
+    year         = {2026},
+    url          = {https://www.praisecu.com/research/fold-to-fit.html}
   }
 ---
 

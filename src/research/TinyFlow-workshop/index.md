@@ -15,6 +15,9 @@ affiliations:
   - Perception, Robotics, AI and Sensing (PRAISe) Lab, University of Colorado Boulder
 
 links:
+  - text: Paper
+    url: static/TinyFlow-workshop.pdf
+    icon: fas fa-file-pdf
   - text: Results
     url: "#results"
     icon: fas fa-chart-line
@@ -27,12 +30,13 @@ teaser:
 math: true
 
 bibtex: |
-  @inproceedings{song2026tinyflow,
-    title     = {TinyFlow: Breaking the Warping Bottleneck for Edge Optical Flow},
-    author    = {Song, Xiao'ao and Singh, Chahat Deep},
-    booktitle = {IROS 2026 Workshop on Insect-scale Autonomy},
-    address   = {Pittsburgh, PA, USA},
-    year      = {2026}
+  @misc{song2026tinyflow,
+    title        = {TinyFlow: Breaking the Warping Bottleneck for Edge Optical Flow},
+    author       = {Song, Xiao'ao and Singh, Chahat Deep},
+    howpublished = {IROS 2026 Workshop on Insect-scale Autonomy, Pittsburgh, PA, USA},
+    month        = oct,
+    year         = {2026},
+    url          = {https://www.praisecu.com/research/TinyFlow-workshop.html}
   }
 ---
 
