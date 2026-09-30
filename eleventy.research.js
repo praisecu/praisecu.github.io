@@ -150,6 +150,38 @@ export default function researchProjectPages(eleventyConfig) {
   /* Guides that live next to the pages are for GitHub, not the site. */
   eleventyConfig.ignores.add("src/research/**/README.md");
 
+  /*
+   * A page is published at /research/<folder>.html, but people also type
+   * /research/<folder>/, which holds only its media. Give each such folder
+   * an index.html that forwards to the page.
+   */
+  eleventyConfig.addTemplate("research-folder-redirects.11ty.js", {
+    data: {
+      layout: false,
+      eleventyExcludeFromCollections: true,
+      pagination: {
+        data: "collections.all",
+        size: 1,
+        alias: "target",
+        before: (items) =>
+          items.filter((item) => /^\/research\/[^/]+\.html$/.test(item.url))
+      },
+      permalink: (data) => data.target.url.replace(/\.html$/, "/index.html")
+    },
+    render(data) {
+      const url = escapeAttr(data.target.url);
+
+      return (
+        "<!doctype html>\n<html lang=\"en\"><head><meta charset=\"utf-8\">" +
+        `<title>Redirecting…</title><meta name="robots" content="noindex">` +
+        `<link rel="canonical" href="https://www.praisecu.com${url}">` +
+        `<meta http-equiv="refresh" content="0; url=${url}">` +
+        `<script>location.replace(${JSON.stringify(data.target.url)} + location.hash);</script>` +
+        `</head><body><p><a href="${url}">Continue to the page</a></p></body></html>\n`
+      );
+    }
+  });
+
   let markdown;
 
   eleventyConfig.amendLibrary("md", (library) => {
