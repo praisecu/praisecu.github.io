@@ -80,7 +80,7 @@ Warping therefore adds no matching evidence the fixed volume does not already co
 
 ## Edge-aware training
 
-{% figure src="static/images/social.png", alt="Three steps: train on FlyingChairs and FlyingThings3D, quantization-aware fine-tuning, deploy on Hailo-8", caption="Train on synthetic data, fine-tune under simulated INT8 quantization, then deploy on the Hailo-8." %}
+{% figure src="static/images/training.png", alt="Three steps: train on FlyingChairs and FlyingThings3D, quantization-aware fine-tuning, deploy on Hailo-8", caption="Train on synthetic data, fine-tune under simulated INT8 quantization, then deploy on the Hailo-8." %}
 
 Quantizing after training is not enough: weights trained in floating point have never had to tolerate rounding. TinyFlow is fine-tuned with fake-quantization nodes placed exactly where the accelerator compiler will quantize (per-channel symmetric INT8 weights, per-tensor UINT8 activations). Two more measures act on the same stage:
 
