@@ -8,19 +8,13 @@
 
   /* ---- Light / dark toggle --------------------------------------------
    * Shares its storage key with js/theme-toggle.js, so a visitor's choice
-   * carries across the whole site. With no saved choice these pages follow
-   * the operating system setting. */
+   * carries across the whole site. With no saved choice pages are light,
+   * like the rest of the site. */
   var storageKey = "praise-theme";
   var root = document.documentElement;
 
-  function systemPrefersDark() {
-    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  }
-
   function currentTheme() {
-    var theme = root.getAttribute("data-theme");
-    if (theme === "light" || theme === "dark") return theme;
-    return systemPrefersDark() ? "dark" : "light";
+    return root.getAttribute("data-theme") === "dark" ? "dark" : "light";
   }
 
   function updateThemeColor() {

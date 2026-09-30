@@ -82,7 +82,7 @@ bibtex: |
 
 This page shows every building block of the lab's research page template, which keeps the look researchers know from the [Nerfies](https://nerfies.github.io) page. Everything above this paragraph, the title, authors, buttons, teaser and results strip, is generated from the header of `index.md`; everything below is ordinary Markdown with a few optional building blocks for videos, figures and comparisons.
 
-The page uses the colors of the [PRAISe Lab](/) and has an optional dark mode that follows the visitor's system setting. Replace this text with your abstract.
+The page uses the colors of the [PRAISe Lab](/) and has an optional dark mode behind the button at the top right. Replace this text with your abstract.
 
 ## Video
 

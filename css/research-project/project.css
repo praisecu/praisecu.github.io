@@ -48,34 +48,8 @@
   --pp-link: var(--pp-gold-text);
 }
 
-/* Dark palette (matches praisecu.com). Applied when the OS prefers dark and
-   the visitor has not forced light... */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --pp-gold: #d6bd72;
-    --pp-gold-text: #d6bd72;
-    --pp-gold-hover: #e6d29a;
-    --pp-gold-tint: rgba(214, 189, 114, 0.14);
-    --pp-glow: rgba(214, 189, 114, 0.13);
-    --pp-ink: #f3efe3;
-    --pp-text: #d1d1ca;
-    --pp-muted: #aaa9a2;
-    --pp-bg: #10110e;
-    --pp-surface: #191b17;
-    --pp-border: #34362f;
-    --pp-shadow: rgba(0, 0, 0, 0.45);
-    --pp-shadow-strong: rgba(0, 0, 0, 0.6);
-    --pp-nav-bg: rgba(5, 6, 0, 0.82);
-    --pp-footer-bg: #050600;
-    --pp-footer-text: #aaa9a2;
-    --pp-button-bg: transparent;
-    --pp-button-border: #d6bd72;
-    --pp-button-text: #d6bd72;
-    --pp-button-hover-bg: #d6bd72;
-    --pp-button-hover-text: #10110e;
-  }
-}
-/* ...or when the visitor toggled dark explicitly. Keep in sync with the block above. */
+/* Dark palette (matches praisecu.com). Pages are light by default, like the
+   rest of the site; this applies only after the visitor picks dark. */
 :root[data-theme="dark"] {
   --pp-gold: #d6bd72;
   --pp-gold-text: #d6bd72;
@@ -244,10 +218,6 @@ body {
 .theme-toggle .fa-sun { display: none; }
 :root[data-theme="dark"] .theme-toggle .fa-sun { display: inline-block; }
 :root[data-theme="dark"] .theme-toggle .fa-moon { display: none; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .theme-toggle .fa-sun { display: inline-block; }
-  :root:not([data-theme="light"]) .theme-toggle .fa-moon { display: none; }
-}
 
 /* --------------------------------------------------------------------------
    Header: title, authors, links

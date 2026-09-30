@@ -172,6 +172,6 @@ ffmpeg -i interpolation.mp4 -vf "fps=10,scale=720:-2" -start_number 0 -q:v 4 sta
 - **Shortcodes, media copying and equation handling:** `eleventy.research.js`, registered in `eleventy.config.js`.
 - **Styles and scripts:** `css/research-project/` and `js/research-project/`, used only by these pages.
   - Colors and corner radii are variables at the top of `project.css`.
-  - The light/dark choice is stored under the same `praise-theme` key as the rest of the site. With no saved choice, these pages follow the visitor's system setting.
+  - The light/dark choice is stored under the same `praise-theme` key as the rest of the site. Pages are light until a visitor picks dark, like the rest of the site.
 
 The design is adapted from the [Nerfies](https://github.com/nerfies/nerfies.github.io) project page and, like it, released under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Each page's footer keeps the link back. Bundled libraries: [Bulma](https://bulma.io), [bulma-carousel](https://github.com/Wikiki/bulma-carousel) and [bulma-slider](https://github.com/Wikiki/bulma-slider) (all MIT). Font Awesome, Academicons and KaTeX load from CDNs.
