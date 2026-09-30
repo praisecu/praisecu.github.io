@@ -184,17 +184,12 @@ body {
 .site-nav .site-brand:hover {
   background-color: transparent !important;
 }
-/* The lab name sits in the middle of the bar; the light/dark button at the right edge. */
+/* The brand fills the bar so the light/dark button sits at the right edge. */
 .site-nav .navbar-brand {
   flex-grow: 1;
-  position: relative;
-  justify-content: center;
 }
 .site-nav .theme-toggle-item {
-  position: absolute;
-  top: 50%;
-  right: 0.25rem;
-  transform: translateY(-50%);
+  margin-left: auto;
 }
 .site-nav .theme-toggle-item:hover {
   background-color: transparent !important;
