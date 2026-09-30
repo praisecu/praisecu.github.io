@@ -1,0 +1,248 @@
+{#
+  Research project page: the Nerfies layout in PRAISe colors.
+
+  Used by every page under src/research/ (set in research.11tydata.json).
+  The header (title, authors, buttons, teaser, carousel) comes from the
+  page's front matter; the Markdown body goes in the middle; BibTeX and
+  the footer close it out. Fields are documented in src/research/README.md.
+#}
+{%- set site_url = "https://www.praisecu.com" -%}
+{%- set dark_enabled = dark_mode !== false -%}
+{%- set affiliation_count = affiliations | length if affiliations else 0 -%}
+{%- set image_url = "" -%}
+{%- if image -%}
+  {%- if "://" in image -%}
+    {%- set image_url = image -%}
+  {%- elif image[0] == "/" -%}
+    {%- set image_url = site_url + image -%}
+  {%- else -%}
+    {%- set image_url = site_url + page.url + image -%}
+  {%- endif -%}
+{%- endif -%}
+<!doctype html>
+<html lang="en"{% if not dark_enabled %} data-theme="light"{% endif %}>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ title | striptags }} | PRAISe Lab</title>
+  <meta name="description" content="{{ description | default('') | striptags | escape }}">
+  {%- if keywords %}
+  <meta name="keywords" content="{{ keywords | join(', ') | escape }}">
+  {%- endif %}
+  {%- if noindex %}
+  <meta name="robots" content="noindex, follow">
+  {%- endif %}
+
+  <link rel="icon" href="/img/logo/praise.webp">
+  <meta name="theme-color" content="#ffffff">
+
+  {% include "components/seo.njk" %}
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PRAISe Lab">
+  <meta property="og:title" content="{{ title | striptags | escape }}">
+  <meta property="og:description" content="{{ description | default('') | striptags | escape }}">
+  <meta name="twitter:title" content="{{ title | striptags | escape }}">
+  <meta name="twitter:description" content="{{ description | default('') | striptags | escape }}">
+  {%- if image_url %}
+  <meta property="og:image" content="{{ image_url }}">
+  <meta name="twitter:image" content="{{ image_url }}">
+  {%- endif %}
+
+  {#- Apply the visitor's light/dark choice before the first paint. The
+      key is shared with the rest of the site (js/theme-toggle.js). #}
+  <script>
+    (function () {
+      var root = document.documentElement;
+      if (root.hasAttribute("data-theme")) return;
+      try {
+        var theme = localStorage.getItem("praise-theme");
+        if (theme === "light" || theme === "dark") root.setAttribute("data-theme", theme);
+      } catch (error) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+
+  <link rel="stylesheet" href="/css/research-project/bulma.min.css">
+  <link rel="stylesheet" href="/css/research-project/bulma-carousel.min.css">
+  <link rel="stylesheet" href="/css/research-project/bulma-slider.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="/css/research-project/project.css">
+  {%- if math %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  {%- endif %}
+
+  {% include "components/analytics.njk" %}
+</head>
+<body>
+
+<nav class="navbar site-nav" role="navigation" aria-label="main navigation">
+  <div class="container is-max-desktop">
+    <div class="navbar-brand">
+      <a class="navbar-item site-brand" href="/"><span>PRAISe Lab</span></a>
+      {%- if dark_enabled %}
+      <div class="navbar-item theme-toggle-item">
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+          <i class="fas fa-sun" aria-hidden="true"></i>
+        </button>
+      </div>
+      {%- endif %}
+    </div>
+  </div>
+</nav>
+
+<section class="hero publication-hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">{{ title }}</h1>
+          {%- if subtitle %}
+          <p class="subtitle is-4 publication-subtitle">{{ subtitle }}</p>
+          {%- endif %}
+          {%- if venue %}
+          <div class="publication-venue">{{ venue }}</div>
+          {%- endif %}
+          {%- if award %}
+          <div class="publication-award"><i class="fas fa-award" aria-hidden="true"></i> {{ award }}</div>
+          {%- endif %}
+
+          {%- if authors %}
+          <div class="is-size-5 publication-authors">
+            {%- for author in authors %}
+            {%- set marks = "" %}
+            {%- if author.affiliations and affiliation_count > 1 %}{% set marks = author.affiliations | join(",") %}{% endif %}
+            {%- if author.note %}{% set marks = marks + author.note %}{% endif %}
+            <span class="author-block">
+              {%- if author.url %}<a href="{{ author.url }}">{{ author.name }}</a>{% else %}{{ author.name }}{% endif -%}
+              {%- if marks %}<sup>{{ marks }}</sup>{% endif -%}
+              {%- if not loop.last %},{% endif -%}
+            </span>
+            {%- endfor %}
+          </div>
+          {%- endif %}
+
+          {%- if affiliations %}
+          <div class="is-size-5 publication-authors publication-affiliations">
+            {%- for affiliation in affiliations %}
+            <span class="author-block">
+              {%- if affiliation_count > 1 %}<sup>{{ loop.index }}</sup>{% endif -%}
+              {{ affiliation }}
+              {%- if not loop.last %},{% endif -%}
+            </span>
+            {%- endfor %}
+          </div>
+          {%- endif %}
+          {%- if author_notes %}
+          <div class="publication-notes">{{ author_notes | researchInline | safe }}</div>
+          {%- endif %}
+
+          {%- if links %}
+          <div class="publication-links">
+            {%- for link in links %}
+            <span class="link-block">
+              <a href="{{ link.url }}" class="button is-normal is-rounded"{% if "://" in link.url %} target="_blank" rel="noopener"{% endif %}>
+                {%- if link.icon %}<span class="icon"><i class="{{ link.icon }}" aria-hidden="true"></i></span>{% endif -%}
+                <span>{{ link.text }}</span>
+              </a>
+            </span>
+            {%- endfor %}
+          </div>
+          {%- endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- if teaser %}
+{#- `teaser:` is either a path or a map with video/image/youtube. #}
+{%- if teaser.video or teaser.image or teaser.youtube %}
+  {%- set teaser_src = teaser.video or teaser.image %}
+  {%- set teaser_poster = teaser.poster %}
+  {%- set teaser_alt = teaser.alt %}
+  {%- set teaser_caption = teaser.caption %}
+  {%- set teaser_youtube = teaser.youtube %}
+{%- else %}
+  {%- set teaser_src = teaser %}
+{%- endif %}
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      {%- if teaser_youtube %}
+      {% youtube id=teaser_youtube %}
+      {%- else %}
+      {% researchMedia src=teaser_src, poster=teaser_poster, alt=teaser_alt, cls="teaser-media", lazy=false %}
+      {%- endif %}
+      {%- if teaser_caption %}
+      <h2 class="subtitle has-text-centered teaser-caption">{{ teaser_caption | researchInline | safe }}</h2>
+      {%- endif %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if carousel %}
+<section class="carousel-section">
+  <div class="container is-max-widescreen">
+    <div class="carousel-card">
+      {% carousel items=carousel, slides=carousel_slides, ratio=carousel_ratio %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content page-content">
+      {{ content | safe }}
+    </div>
+  </div>
+</section>
+
+{%- if bibtex %}
+<section class="section bibtex-section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <div class="bibtex-block">
+      <button class="button is-small copy-bibtex" type="button" data-target="bibtex-code" title="Copy to clipboard">
+        <span class="icon"><i class="far fa-copy" aria-hidden="true"></i></span><span>Copy</span>
+      </button>
+      <pre><code id="bibtex-code">{{ bibtex | trim | escape }}</code></pre>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<footer class="footer site-footer">
+  <div class="container is-max-desktop">
+    <div class="content has-text-centered">
+      {%- if links %}
+      <p class="footer-icons">
+        {%- for link in links %}{% if link.icon %}
+        <a class="icon-link" href="{{ link.url }}" title="{{ link.text | escape }}"{% if "://" in link.url %} target="_blank" rel="noopener"{% endif %}><i class="{{ link.icon }}" aria-hidden="true"></i><span class="is-sr-only">{{ link.text }}</span></a>
+        {%- endif %}{% endfor %}
+      </p>
+      {%- endif %}
+      <p class="footer-text"><a href="/">PRAISe Lab</a> · University of Colorado Boulder</p>
+      <p class="footer-credit">
+        This page is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+        Built with the <a href="https://github.com/praisecu/praisecu.github.io/tree/main/src/research">PRAISe project page template</a>,
+        adapted from <a href="https://nerfies.github.io">Nerfies</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/research-project/bulma-carousel.min.js"></script>
+<script src="/js/research-project/bulma-slider.min.js"></script>
+<script src="/js/research-project/project.js"></script>
+</body>
+</html>

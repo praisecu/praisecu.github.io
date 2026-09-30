@@ -1,7 +1,15 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 
+import researchProjectPages from "./eleventy.research.js";
+
 export default function (eleventyConfig) {
+  /*
+   * Research project pages under src/research/: shortcodes, media
+   * copying and equation handling. See eleventy.research.js.
+   */
+  eleventyConfig.addPlugin(researchProjectPages);
+
   // Preserve the existing website assets unchanged.
   const assetDirectories = [
     "css",
