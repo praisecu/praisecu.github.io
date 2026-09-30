@@ -60,35 +60,23 @@ TinyMorph does the same in flight. Its four arms are mechanically coupled and dr
 
 ## Recovering roll authority with a motor dihedral
 
-Folding shrinks the lateral thrust moment arm of each rotor to $$L_i \sin\alpha$$, so conventional differential-thrust roll control fades as the vehicle folds and is gone at $$\alpha = 0$$. TinyMorph's motors are instead tilted inward by a fixed dihedral $$\delta = 30^\circ$$. The propeller reaction moment $$Q_i$$ then gains a component in the plane of the arm, which in the fully folded state is the roll plane:
+A quadrotor normally rolls by spinning its left rotors faster than its right ones. Folding moves the rotors onto the centerline, so that lever arm shrinks and disappears once the drone is fully folded.
 
-$$
-\bar{\tau}_{R,i} = Q_i \sin\delta, \qquad \bar{\tau}_{P,i} = L_i T_i \cos\delta, \qquad \bar{\tau}_{Y,i} = Q_i \cos\delta
-$$
+{% figure src="static/images/dihedral.png", width="560px", alt="A rotor tilted inward by the dihedral angle delta: its reaction moment Q splits into a yaw part Q cos delta and a roll part Q sin delta", caption="Tilting each motor inward by a fixed dihedral δ = 30° splits the propeller's reaction moment into a yaw part and a roll part." %}
 
-Here $$T_i$$ and $$Q_i$$ are the thrust and reaction moment of rotor $$i$$, $$L_i$$ is its arm length, and $$\bar{\tau}_R, \bar{\tau}_P, \bar{\tau}_Y$$ are the roll, pitch and yaw moments. Roll in the folded state therefore depends entirely on rotor torque, which is exactly what the coaxial wake degrades.
+TinyMorph's motors are tilted inward by a fixed 30° dihedral. Every spinning propeller pushes back on the frame with a reaction moment; tilting the motor points part of that moment along the arm. Once folded, that part acts on the roll axis, so the drone can still roll. The catch is that roll now depends entirely on rotor torque, which is exactly what the coaxial wake weakens.
 
 ## Propeller interaction-aware control
 
-Each lower rotor flies in the wake of the upper rotor above it. Using only the speed telemetry from the electronic speed controllers, a relative speed state for each coaxial pair $$p \in \{F, B\}$$ says how hard the upper rotor is blowing, and derates the lower rotor's thrust and torque effectiveness:
+Folded, each lower rotor flies in the wake of the upper rotor above it and produces less thrust and torque than the controller expects. TinyMorph estimates that loss online from the motor speeds its speed controllers already report: the harder the upper rotor spins relative to the lower one, the more the lower rotor is derated. The loss coefficients come from bench tests.
+
+The controller then asks the derated rotors for exactly what the baseline mixer would have asked of ideal ones, correcting the motor commands in closed form:
 
 $$
-\chi_p = \frac{\Omega_{U,p}^2}{\Omega_{U,p}^2 + \Omega_{L,p}^2}, \qquad \eta_{T,p} = 1 - \sigma C_T \chi_p, \qquad \eta_{Q,p} = 1 - \sigma C_Q \chi_p
+\mathbf{u}^\star = \mathcal{B}(\eta)^{-1}\, \mathcal{B}_0\, \mathbf{u}_0
 $$
 
-$$\Omega_{U,p}$$ and $$\Omega_{L,p}$$ are the upper and lower rotor speeds, $$\sigma = 1$$ when fully folded, and the loss coefficients $$C_T = 0.40$$ and $$C_Q = 0.12$$ come from bench tests. Thrust and torque are linear in the motor effort $$\mathbf{u}$$, so the derating enters the control wrench map directly:
-
-$$
-\mathbf{v} = \begin{bmatrix} F_z & \tau_R & \tau_P & \tau_Y \end{bmatrix}^T = \mathcal{B}(\eta)\, \mathbf{u}
-$$
-
-For the baseline command $$\mathbf{u}_0$$, the command that delivers the same wrench through the derated mixer is
-
-$$
-\mathcal{B}(\eta)\, \mathbf{u}^\star = \mathcal{B}_0\, \mathbf{u}_0 \quad \Longrightarrow \quad \mathbf{u}^\star = \mathcal{B}(\eta)^{-1} \mathcal{B}_0\, \mathbf{u}_0
-$$
-
-That is one 4×4 solve per control loop at 400 Hz, inside a geometric attitude controller on SO(3). It needs no closed-loop RPM control and no high-fidelity aerodynamic model.
+Here $$\mathbf{u}_0$$ is the baseline motor command, $$\mathcal{B}_0$$ the ideal mixer and $$\mathcal{B}(\eta)$$ the derated one. That is one small 4×4 solve per control loop, running at 400 Hz. It needs no RPM feedback loop and no aerodynamic simulation.
 
 <div id="results"></div>
 
@@ -119,6 +107,6 @@ The vertical error stays at about 1 cm or less in every run, so the gain is in h
 
 ## Related work
 
-The dihedral approach to roll in the bicopter configuration follows MorphoCopter (Modi et al., IEEE/ASME Transactions on Mechatronics, 2026). Other morphing drones squeeze through gaps with folding arms (Falanga et al., RA-L 2019), sprung passive hinges (Bucki and Mueller, ICRA 2019) and elastic frames. Choosing where and how to pass through an opening with onboard vision is the subject of [GapFlyt](https://prg.cs.umd.edu/GapFlyt) (Sanket, Singh et al., RA-L 2018). The attitude controller is the geometric SO(3) controller of Lee, Leok and McClamroch (CDC 2010).
+The dihedral approach to roll in the bicopter configuration follows MorphoCopter (Modi et al., IEEE/ASME Transactions on Mechatronics, 2026). Other morphing drones squeeze through gaps with folding arms (Falanga et al., RA-L 2019), sprung passive hinges (Bucki and Mueller, ICRA 2019) and elastic frames. The attitude controller is the geometric SO(3) controller of Lee, Leok and McClamroch (CDC 2010).
 
-Contact: [pravesh.vadapalli@colorado.edu](mailto:pravesh.vadapalli@colorado.edu), [chahat.singh@colorado.edu](mailto:chahat.singh@colorado.edu)
+Contact: [pravesh.vadapalli@colorado.edu](mailto:pravesh.vadapalli@colorado.edu)

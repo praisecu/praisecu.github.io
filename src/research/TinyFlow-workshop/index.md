@@ -20,9 +20,9 @@ links:
     icon: fas fa-chart-line
 
 teaser:
-  image: static/images/pipeline.png
-  alt: "An image pair goes through edge-aware network training; TinyFlow's predicted optical flow closely matches the ground truth"
-  caption: "**TinyFlow** predicts dense optical flow with only **1.26M parameters**, entirely on an edge AI accelerator."
+  image: static/images/results_plots.png
+  alt: "Left: parameters versus Sintel Clean EPE for Float32 and INT8. Right: flow-only visual odometry trajectories on UZH-FPV"
+  caption: "**Left:** TinyFlow is the most accurate deployable model at 1.26M parameters and loses only **+0.16 EPE** in INT8. **Right:** flow-only visual odometry on UZH-FPV: **2.04 m** trajectory error for TinyFlow INT8, vs. 2.41 m for EdgeFlowNet and 15.84 m for NanoFlowNet."
 
 math: true
 
@@ -46,16 +46,11 @@ Quantization-aware fine-tuning, warp-teacher distillation and model souping redu
 
 {% figure src="static/images/motivation.jpg", alt="A small drone flying past a brick wall, with its path drawn as a colored trail", caption="Tiny robots need to know what is moving around them, at every pixel, using only onboard compute." %}
 
-Before a robot can act on what it sees, it has to know what is moving, and dense optical flow answers that question at every pixel. It underpins navigation, visual odometry, structure from motion and object tracking. Learning-based estimators have made flow far more accurate than classical methods, but they are designed and evaluated on desktop GPUs that are big, heavy and power-hungry. A tiny drone can carry an edge accelerator that draws about a watt.
+Dense optical flow tells a robot what is moving at every pixel, but accurate flow networks run on desktop GPUs, while a tiny drone can only carry an edge accelerator drawing about a watt.
 
-{% columns %}
-{% column %}
-{% figure src="static/videos/flow_example.mp4", caption="Dense optical flow: every pixel gets a motion vector." %}
-{% endcolumn %}
-{% column %}
-Every network at the top of the accuracy benchmarks is **iterative**: it refines its estimate in a loop that **warps** the second frame's features by the current flow before each correction. That warp reads memory at addresses computed from the data at run time. Edge accelerators execute fixed, static dataflow graphs and cannot do this, so deployable networks such as NanoFlowNet and EdgeFlowNet drop iterative refinement altogether, and lose the accuracy that comes with it.
-{% endcolumn %}
-{% endcolumns %}
+{% figure src="static/images/pipeline.png", alt="An image pair goes through edge-aware network training; TinyFlow's predicted optical flow closely matches the ground truth", caption="TinyFlow predicts dense optical flow with only 1.26M parameters, entirely on an edge AI accelerator." %}
+
+The most accurate networks are **iterative**: each refinement step **warps** the second frame's features by the current flow, reading memory at addresses computed at run time. Edge accelerators run fixed dataflow graphs and cannot do this, so today's deployable networks drop iterative refinement, and the accuracy that comes with it.
 
 ## Warp-free iterative refinement
 
@@ -78,16 +73,6 @@ Warping therefore adds no matching evidence the fixed volume does not already co
 ## Architecture
 
 {% figure src="static/images/architecture.png", alt="TinyFlow architecture: a shared encoder builds two feature pyramids, a local separable correlation matches them, then coarse estimation at 1/16 and shared refinement cells at 1/8 and 1/4 produce the final flow", caption="A shared encoder, one fixed matching step, then coarse-to-fine refinement with weight-tied cells. No warping anywhere." %}
-
-- **Shared encoder.** Depthwise-separable convolutions build feature pyramids at 1/16, 1/8 and 1/4 resolution. A learnable 1×1 projector with batch normalization, scaled by $$1/\sqrt{C}$$, keeps correlation values bounded and fuses into a single integer-legal operation.
-- **Local separable correlation.** Only the two axis marginals of the window are computed, $$2(2r_s+1)$$ channels instead of $$(2r_s+1)^2$$. Radii $$r_{16}=8$$, $$r_8=6$$ and $$r_4=3$$ reach ±128, ±48 and ±12 pixels. Each shift is a one-hot convolution, so to the compiler the volume is ordinary Conv and Mul layers.
-- **Bounded coarse-to-fine refinement.** A coarse head estimates flow at 1/16, and weight-tied cells refine it at 1/8 and 1/4, each step adding a correction limited by a scaled tanh:
-
-$$
-\Delta\mathbf{u}_t^s = d_s \tanh\!\big( g_s([C_0^s, f_1^s, \mathbf{u}_t^s]) / d_s \big)
-$$
-
-Because every step is bounded, the numeric range of every flow tensor is known before training, which keeps them representable in 8 bits. The cells train with four iterations and deploy with eight, since the weights are shared.
 
 ## Edge-aware training
 
@@ -123,18 +108,6 @@ TinyFlow beats EdgeFlowNet on every benchmark in both precisions with 54% fewer 
 
 {% figure src="static/images/qualitative.jpg", alt="Qualitative optical flow comparison across FlyingChairs, Sintel Clean, Sintel Final, Middlebury and a planar simulation scene", caption="Hue encodes flow direction and brightness its magnitude; numbers are per-frame EPE. TinyFlow recovers the cleanest motion boundaries among the deployable models, EdgeFlowNet fragments large motion, and NanoFlowNet produces structured noise." %}
 
-{% figure src="static/images/results_plots.png", alt="Left: parameters versus Sintel Clean EPE for Float32 and INT8. Right: flow-only visual odometry trajectories on UZH-FPV", caption="**Left:** size versus accuracy, with each model's Float32 → INT8 gap (TinyFlow +0.16, EdgeFlowNet +0.29, NanoFlowNet +0.72). **Right:** flow-only monocular visual odometry on UZH-FPV; trajectory error (ATE) is 2.04 m for TinyFlow INT8, 2.41 m for EdgeFlowNet and 15.84 m for NanoFlowNet." %}
-
 **On the Hailo-8.** On a Raspberry Pi 5 with a Hailo-8 accelerator, measured on the same chip and a 100-pair Sintel Clean sample, TinyFlow runs at 10.5 FPS with 5.76 EPE. On the same setup, EdgeFlowNet runs at 64 FPS with 6.38 EPE, and NanoFlowNet at 190 FPS with 7.50 EPE. Iterative refinement buys accuracy at the cost of latency, while the parameter count stays below EdgeFlowNet's.
-
-## Setup
-
-- **Training:** learning rate 2×10⁻⁴, quantization-aware fine-tuning at 6×10⁻⁵, on an AMD Ryzen 7 9800X3D with an NVIDIA RTX 5080
-- **Deployment:** Hailo-8 over PCIe on a Raspberry Pi 5 (16 GB); Hailo DFC 3.34.0 at optimization level 1, HailoRT 4.23.0
-- **Data:** FlyingChairs and FlyingThings3D for training; MPI-Sintel and the FlyingChairs validation split for testing only
-
-## Related work
-
-Iterative estimators such as PWC-Net and RAFT owe their accuracy to repeated alignment driven by the current flow, implemented as data-dependent resampling. NeuFlow v2 targets embedded GPUs such as the Jetson Orin Nano and still relies on flow-indexed sampling. The deployable networks closest to TinyFlow in size, NanoFlowNet (on a GAP8 microcontroller) and EdgeFlowNet (100 FPS at about 1 W on a Coral Edge TPU), fit their hardware by dropping warping and iteration entirely. TinyFlow instead re-expresses iterative refinement in a form the compiler accepts.
 
 Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.singh@colorado.edu](mailto:chahat.singh@colorado.edu)
