@@ -2,7 +2,7 @@
 
 Each folder here is one paper's project page, written in **Markdown**. The pages use the [Nerfies](https://nerfies.github.io) layout (title, authors and link buttons, a teaser video, a results carousel, sections, and BibTeX) in the lab's colors, with an optional dark mode.
 
-A folder `src/research/<name>/` is published at **`https://www.praisecu.com/research/<name>/`**.
+A folder `src/research/<name>/` is published at **`https://www.praisecu.com/research/<name>.html`**.
 
 The [example page](example/index.md) uses every building block. Copy it to start your own.
 
@@ -20,7 +20,7 @@ The [example page](example/index.md) uses every building block. Copy it to start
 
 **Without installing anything:** press `.` on the repository's GitHub page to open it in a web-based VS Code editor. Create your folder, paste in the example, drag your media into `static/`, and commit to a new branch to start the pull request.
 
-**With a local preview:** install Node.js 22 or newer, then in the repository run the two commands below. Open `http://localhost:8080/research/<name>/`. The page rebuilds whenever you save.
+**With a local preview:** install Node.js 22 or newer, then in the repository run the two commands below. Open `http://localhost:8080/research/<name>.html`. The page rebuilds whenever you save.
 
 ```bash
 npm ci

@@ -1,3 +1,4 @@
 {
-  "layout": "layouts/research-project.njk"
+  "layout": "layouts/research-project.njk",
+  "permalink": "/research/{{ page.fileSlug }}.html"
 }

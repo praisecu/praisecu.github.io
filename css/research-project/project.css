@@ -505,6 +505,13 @@ body {
   height: 1px;
   margin: 3rem auto;
 }
+/* A small caption under a table: <p class="table-note">...</p> */
+.content.page-content .table-note {
+  margin-top: -0.75rem;
+  color: var(--pp-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
 
 /* Tables: a rounded card */
 .content.page-content table {

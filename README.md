@@ -98,7 +98,7 @@ Legacy teaching pages that have not been migrated remain under `teaching/` and a
 Nerfies-style project pages for individual papers, written in Markdown. Each folder is one page:
 
 ```text
-src/research/<name>/index.md      ->  https://www.praisecu.com/research/<name>/
+src/research/<name>/index.md      ->  https://www.praisecu.com/research/<name>.html
 src/research/<name>/static/       (that page's videos and images)
 ```
 
@@ -209,7 +209,7 @@ $pages = @(
   "_site\teaching\ai4engg-spring2026.html",
   "_site\teaching\haq-spring2025.html",
   "_site\teaching\medtronicnav-spring2025.html",
-  "_site\research\example\index.html"
+  "_site\research\example.html"
 )
 
 $pages | ForEach-Object {

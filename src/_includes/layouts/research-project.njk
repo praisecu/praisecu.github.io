@@ -13,10 +13,8 @@
 {%- if image -%}
   {%- if "://" in image -%}
     {%- set image_url = image -%}
-  {%- elif image[0] == "/" -%}
-    {%- set image_url = site_url + image -%}
   {%- else -%}
-    {%- set image_url = site_url + page.url + image -%}
+    {%- set image_url = site_url + (image | researchUrl) -%}
   {%- endif -%}
 {%- endif -%}
 <!doctype html>
@@ -148,7 +146,7 @@
           <div class="publication-links">
             {%- for link in links %}
             <span class="link-block">
-              <a href="{{ link.url }}" class="button is-normal is-rounded"{% if "://" in link.url %} target="_blank" rel="noopener"{% endif %}>
+              <a href="{{ link.url | researchUrl }}" class="button is-normal is-rounded"{% if "://" in link.url %} target="_blank" rel="noopener"{% endif %}>
                 {%- if link.icon %}<span class="icon"><i class="{{ link.icon }}" aria-hidden="true"></i></span>{% endif -%}
                 <span>{{ link.text }}</span>
               </a>
@@ -227,7 +225,7 @@
       {%- if links %}
       <p class="footer-icons">
         {%- for link in links %}{% if link.icon %}
-        <a class="icon-link" href="{{ link.url }}" title="{{ link.text | escape }}"{% if "://" in link.url %} target="_blank" rel="noopener"{% endif %}><i class="{{ link.icon }}" aria-hidden="true"></i><span class="is-sr-only">{{ link.text }}</span></a>
+        <a class="icon-link" href="{{ link.url | researchUrl }}" title="{{ link.text | escape }}"{% if "://" in link.url %} target="_blank" rel="noopener"{% endif %}><i class="{{ link.icon }}" aria-hidden="true"></i><span class="is-sr-only">{{ link.text }}</span></a>
         {%- endif %}{% endfor %}
       </p>
       {%- endif %}
