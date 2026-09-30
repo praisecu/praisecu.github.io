@@ -23,9 +23,9 @@ links:
     icon: fas fa-video
 
 teaser:
-  image: static/images/teaser.jpg
-  alt: "TinyMorph unfolded as an X quadrotor, 165 mm wide, and folded into a coaxial bicopter, 75 mm wide"
-  caption: "**TinyMorph** folds in flight from an X quadrotor into a coaxial bicopter: **2.2× narrower**, with roll authority kept and **40.9% less tracking error**."
+  image: static/images/banner.jpg
+  alt: "(A) A bogong moth, 50 mm in flight, folded to 10 mm. (B) TinyMorph, 165 mm as an X quadrotor, folded to 75 mm. (C) Figure-8 tracking in the folded configuration."
+  caption: "**Fold to fit.** (A) A bogong moth folds its wings from about 50 mm to 10 mm. (B) **TinyMorph** does the same in flight, from 165 mm to 75 mm (**2.2× narrower**). (C) Closed-loop Figure-8 tracking while fully folded, using our propeller interaction model."
 
 math: true
 
