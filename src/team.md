@@ -36,7 +36,7 @@ current_students:
 
   - name: Pravesh Rana
     role: Graduate Student
-    image: /img/team/pravesh.jpg
+    image: /img/team/pravesh_cropped.jpg
 
   - name: Tam (Jimmy) Tran
     role: Graduate Student
