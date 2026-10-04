@@ -48,6 +48,30 @@
   <meta name="twitter:image" content="{{ image_url }}">
   {%- endif %}
 
+  {#- Highwire Press tags, which Google Scholar reads to identify a paper and
+      attach its PDF. paper_title overrides the page title when the two
+      differ, since Scholar matches on the title printed in the paper. #}
+  {%- set paper_pdf = "" %}
+  {%- for link in links %}
+    {%- if not paper_pdf and link.url and (link.url | lower).endsWith(".pdf") %}
+      {%- set paper_pdf = link.url %}
+    {%- endif %}
+  {%- endfor %}
+  {%- if paper_pdf %}
+  <meta name="citation_title" content="{{ (paper_title or title) | striptags | escape }}">
+  {%- for author in authors %}
+  <meta name="citation_author" content="{{ author.name | escape }}">
+  {%- endfor %}
+  {%- if citation_date %}
+  <meta name="citation_publication_date" content="{{ citation_date }}">
+  {%- endif %}
+  {%- if venue %}
+  <meta name="citation_conference_title" content="{{ venue | escape }}">
+  {%- endif %}
+  <meta name="citation_pdf_url" content="https://www.praisecu.com/research/{{ page.fileSlug }}/{{ paper_pdf }}">
+  <meta name="citation_abstract_html_url" content="https://www.praisecu.com/research/{{ page.fileSlug }}.html">
+  {%- endif %}
+
   {#- Apply the visitor's light/dark choice before the first paint. The
       key is shared with the rest of the site (js/theme-toggle.js). #}
   <script>

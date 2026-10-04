@@ -5,6 +5,7 @@ image: static/images/social.jpg
 keywords: [morphing drone, quadrotor, coaxial bicopter, propeller interaction, gap traversal, TinyMorph]
 
 venue: "IROS 2026 Workshop on Insect-scale Autonomy"
+citation_date: "2026/10"
 
 authors:
   - name: Pravesh Rana Vadapalli
