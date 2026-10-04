@@ -63,4 +63,4 @@ efficient robot-navigation systems through active and bio-inspired perception,
 novel sensing, and onboard computation.
 
 Prospective students can review the lab's current opportunities on the
-[Open Positions](/openings) page.
+[Open Positions](/openings.html) page.

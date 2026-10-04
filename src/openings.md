@@ -8,7 +8,7 @@ description: PhD, MS, and undergraduate research openings at the PRAISe Lab, CU 
 permalink: /openings.html
 application_url: https://docs.google.com/forms/d/e/1FAIpQLSfA0xLpkuVtN-qBf3MbCOWhOdaIUAixtstRAHOpWJuliOD89g/viewform?usp=sf_link
 application_label: Submit an Application
-secondary_url: /research-areas
+secondary_url: /research-areas.html
 secondary_label: Explore Research Areas
 
 postings:

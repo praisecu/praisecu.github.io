@@ -133,7 +133,7 @@ research_areas:
         url: https://www.voanews.com/a/episode_worlds-smallest-drones-could-revolutionize-agriculture-search-and-rescue-efforts-4765706/6117930.html
         icon: video
       - label: More
-        url: /media
+        url: /media.html
         icon: paperclip
         external: false
 ---
@@ -143,5 +143,5 @@ autonomy through onboard novel sensing and computation. We strive to employ
 our robotics solutions to do good and to make meaningful contributions to
 humanity and nature.
 
-Please read through our [recent publications](/publications) for more details.
-Interested in one or more of these areas? [Apply here](/openings).
+Please read through our [recent publications](/publications.html) for more details.
+Interested in one or more of these areas? [Apply here](/openings.html).
