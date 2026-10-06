@@ -5,6 +5,33 @@ import researchProjectPages from "./eleventy.research.js";
 
 export default function (eleventyConfig) {
   /*
+   * Links written in Markdown that point off the site (lecture slides,
+   * recordings, papers, Colab notebooks) open in a new tab, so readers
+   * do not lose their place on the course or lab page. Links within
+   * praisecu.com keep opening in the same tab.
+   */
+  eleventyConfig.amendLibrary("md", function externalLinksInNewTab(md) {
+    const fallback = (tokens, idx, options, env, self) =>
+      self.renderToken(tokens, idx, options);
+    const previous = md.renderer.rules.link_open || fallback;
+
+    md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
+      const token = tokens[idx];
+      const href = token.attrGet("href") || "";
+      const external =
+        /^https?:\/\//i.test(href) &&
+        !/^https?:\/\/(www\.)?praisecu\.com(\/|$)/i.test(href);
+
+      if (external && !token.attrGet("target")) {
+        token.attrSet("target", "_blank");
+        token.attrSet("rel", "noopener noreferrer");
+      }
+
+      return previous(tokens, idx, options, env, self);
+    };
+  });
+
+  /*
    * Research project pages under src/research/: shortcodes, media
    * copying and equation handling. See eleventy.research.js.
    */
