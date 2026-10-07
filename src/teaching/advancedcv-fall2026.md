@@ -27,6 +27,11 @@ announcements:
 
   - date: October 6, 2026
     date_iso: 2026-10-06
+    type: assignment
+    text: "P2: Coded Deep Depth is released and is due Tuesday, October 20, 2026."
+
+  - date: October 6, 2026
+    date_iso: 2026-10-06
     type: lecture
     text: "Lecture 11b (Project 2 Release) slides are now posted."
 
