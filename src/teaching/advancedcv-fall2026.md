@@ -25,6 +25,11 @@ quick_info:
 # Use type: lecture | assignment | schedule | setup
 announcements:
 
+  - date: October 6, 2026
+    date_iso: 2026-10-06
+    type: lecture
+    text: "Lecture 11b (Project 2 Release) slides are now posted."
+
   - date: September 24, 2026
     date_iso: 2026-09-24
     type: lecture
@@ -159,6 +164,7 @@ Rough estimates. Free-tier sessions disconnect, but the starter notebooks checkp
 |9|Introduction to Computational Imaging|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQDVRuEqVtx8QYrFaYmvhusXAdH5hXOCcHfkJsqt82sjhKc?e=i6i83c)|[Link](https://cuboulder.zoom.us/rec/share/YWykfs81DsFiaJbA7YdaJm2iqsvFIliF6yLUSRQ-Qzb_OStXLdsA1caN4JHSvXd6.OLi7vHDZHkgRNnSH)|
 |10|Coded Deep Depth|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQCyexnnsiPbSLA5RbzUM2WuAT80sMows9O9vVeSy_19dgU?e=QvB2a6)|[Link](https://cuboulder.zoom.us/rec/share/UNv6UpZCWD6TBiQbPO0fh8rWOVv9UVIcYnvsyfiOizhaHRKaFB3WpT5BfBWpLTOp.q316LeGVssn_1mgg)|
 |11|Coded Deep Depth — 2|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQALE_djqBrjQaOXGo_tUmhMAakMnBigGSJdoomH1JjsMGc?e=jhTKat)|[Link](https://cuboulder.zoom.us/rec/share/WWpNS0gqG4pzP8tayjIRME0iVOwBsTw5wzvkt8fXoj7fOdPtNex2tfX-4mSMfx7K.hGll7gAY8X2762Cn)|
+|11b|Project 2 Release|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQC5cc8n-MGfTp01t8TTFGpSARsQZowf0pOJ3YoJh7gDRBw?e=rjvIiX)|—|
 |12|Two-View Geometry and Stereopsis|—|—|
 |13|Structure from Motion — 1|—|—|
 |14|Structure from Motion — 2|—|—|
