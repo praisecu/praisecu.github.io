@@ -28,7 +28,7 @@ publications:
     year: 2026
     image: "/research/TinyFlow-workshop/static/images/motivation.jpg"
     primary_url: "/research/TinyFlow-workshop.html"
-    venue: "IROS 2026 Workshop on Insect-scale Autonomy"
+    venue: "IROS 2026 Workshop on Insect-scale Autonomy | Best Poster Award"
     authors: "Xiao'ao Song, Chahat Deep Singh"
     links:
       - label: PDF

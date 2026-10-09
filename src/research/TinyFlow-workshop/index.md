@@ -5,6 +5,7 @@ image: static/images/social.jpg
 keywords: [optical flow, edge AI, Hailo-8, quantization, INT8, tiny robots, TinyFlow]
 
 venue: "IROS 2026 Workshop on Insect-scale Autonomy"
+award: "Best Poster Award"
 citation_date: "2026/10"
 # Title printed on the paper, which Google Scholar matches on.
 paper_title: "Rethinking Warping for Optical Flow on Edge Accelerators"

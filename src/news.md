@@ -17,14 +17,14 @@ news:
     external: false
     description: "Fold-to-Fit: Propeller Interaction and Control of a Coaxial-Bicopter Quadrotor by Pravesh Rana Vadapalli was presented at the IROS 2026 Workshop on Insect-scale Autonomy in Pittsburgh, PA."
 
-  - title: Paper Presented in IROS 2026 (Workshop) | TinyFlow
+  - title: Best Poster Award at IROS 2026 (Workshop) | TinyFlow
     date: Oct 1, 2026
     date_iso: 2026-10-01
     image: /research/TinyFlow-workshop/static/images/motivation.jpg
     image_alt: A small drone flying past a brick wall
     url: /research/TinyFlow-workshop.html
     external: false
-    description: "TinyFlow: Breaking the Warping Bottleneck for Edge Optical Flow by Xiao'ao Song was presented at the IROS 2026 Workshop on Insect-scale Autonomy in Pittsburgh, PA."
+    description: "TinyFlow: Breaking the Warping Bottleneck for Edge Optical Flow by Xiao'ao Song won the Best Poster Award at the IROS 2026 Workshop on Insect-scale Autonomy in Pittsburgh, PA."
 
   - title: IROS Workshop accepted | Insect-scale Autonomy
     date: June 10, 2026
