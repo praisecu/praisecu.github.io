@@ -8,6 +8,48 @@ description: Journal and conference papers from the PRAISe Lab at CU Boulder in 
 permalink: /publications.html
 
 publications:
+  - title: "Fold-to-Fit: Propeller Interaction and Control of a Coaxial-Bicopter Quadrotor"
+    date: "IROS Workshop · Oct 2026"
+    year: 2026
+    image: "/research/fold-to-fit/static/images/social.jpg"
+    primary_url: "/research/fold-to-fit.html"
+    venue: "IROS 2026 Workshop on Insect-scale Autonomy"
+    authors: "Pravesh Rana Vadapalli, Chahat Deep Singh"
+    links:
+      - label: PDF
+        type: pdf
+        url: "/research/fold-to-fit/static/fold-to-fit.pdf"
+      - label: Project
+        type: project
+        url: "/research/fold-to-fit.html"
+
+  - title: "TinyFlow: Breaking the Warping Bottleneck for Edge Optical Flow"
+    date: "IROS Workshop · Oct 2026"
+    year: 2026
+    image: "/research/TinyFlow-workshop/static/images/motivation.jpg"
+    primary_url: "/research/TinyFlow-workshop.html"
+    venue: "IROS 2026 Workshop on Insect-scale Autonomy"
+    authors: "Xiao'ao Song, Chahat Deep Singh"
+    links:
+      - label: PDF
+        type: pdf
+        url: "/research/TinyFlow-workshop/static/TinyFlow-workshop.pdf"
+      - label: Project
+        type: project
+        url: "/research/TinyFlow-workshop.html"
+
+  - title: "Safety-Bounded Space Robot Navigation via Vision-Language Model Integration"
+    date: "ICRA Workshop · Jun 2026"
+    year: 2026
+    image: "/img/papers/VESTA-Bound-ICRA-Workshop.png"
+    primary_url: "https://www.youtube.com/watch?v=TWIeqfySpkk"
+    venue: "ICRA 2026 SpaRo Workshop"
+    authors: "Tam Tran, Chahat Deep Singh"
+    links:
+      - label: Video
+        type: video
+        url: "https://www.youtube.com/watch?v=TWIeqfySpkk"
+
   - title: "Minimal perception: enabling autonomy in resource-constrained robots"
     date: "Frontier Robotics · Sep 2024"
     year: 2024
