@@ -82,7 +82,7 @@ a { color: inherit; text-decoration: none; }
 /* ---------- stage ---------- */
 .stage {
   position: fixed; inset: 0;
-  touch-action: pan-y;
+  touch-action: none;
   perspective: 100rem; perspective-origin: 50% 45%;
 }
 .ring {
@@ -265,6 +265,22 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
 .post-img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; border-radius: 1rem; margin-bottom: 1rem; display: block; }
 .posting .actions { display: flex; gap: .6rem; flex-wrap: wrap; }
 
+
+/* previous / next ornaments beside the front window */
+.flip {
+  position: fixed; top: calc(50% - 1.875rem); z-index: 15;
+  width: 4rem; height: 4rem; border-radius: 50%; display: grid; place-items: center;
+  border: 1px solid var(--edge); color: var(--text); font-size: 1.375rem; cursor: pointer;
+  background: var(--glass);
+  backdrop-filter: blur(1.875rem) saturate(1.6); -webkit-backdrop-filter: blur(1.875rem) saturate(1.6);
+  box-shadow: 0 .625rem 1.875rem rgba(0,0,0,.3);
+  transition: background .2s, opacity .3s, transform .2s;
+}
+.flip:hover { background: rgba(255,255,255,.28); transform: scale(1.06); }
+.flip:disabled { opacity: 0; pointer-events: none; }
+.flip.prev { left: calc(50% - var(--win-w) / 2 - 5.5rem); }
+.flip.next { right: calc(50% - var(--win-w) / 2 - 5.5rem); }
+
 /* ---------- tab bar ornament ---------- */
 .tabbar {
   position: fixed; left: 50%; bottom: 1.625rem; transform: translateX(-50%);
@@ -314,6 +330,7 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
   .pi .links { justify-content: center; }
   .tabbar button .lbl-badge { display: none; }
   .hint, .status .extra { display: none; }
+  .flip { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .win, .ring, .env { transition: none; }
@@ -621,8 +638,10 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
   </div>
 </main>
 
+<button class="flip prev" id="prev" type="button" aria-label="Previous window"><i class="fa-solid fa-chevron-left"></i></button>
+<button class="flip next" id="next" type="button" aria-label="Next window"><i class="fa-solid fa-chevron-right"></i></button>
 <nav class="tabbar" id="tabbar" role="tablist" aria-label="Windows"></nav>
-<div class="hint">Swipe or ← → to move between windows</div>
+<div class="hint">Swipe sideways or use ‹ › to move between windows</div>
 
 <script>
 (() => {
@@ -669,6 +688,8 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
       tabbar.children[i].setAttribute("aria-selected", on);
     });
     env.style.transform = `scale(1.06) translateX(${-pos * 14}px)`;
+    const p = document.getElementById("prev"), n = document.getElementById("next");
+    if (p) { p.disabled = Math.round(pos) <= 0; n.disabled = Math.round(pos) >= wins.length - 1; }
   }
   function go(i) { active = Math.max(0, Math.min(wins.length - 1, i)); layout(); }
 
@@ -694,43 +715,68 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
     }
   }, { passive: false });
 
+  // Drags are locked to one axis after the first few pixels. Sideways
+  // drags move between windows; for touch (including pinch-and-drag on
+  // Vision Pro) vertical drags scroll the window under the finger here,
+  // with momentum, instead of letting the browser guess the direction.
   const stage = document.querySelector(".stage");
-  let drag = null, swallowClick = false;
+  const LOCK = 10;
+  let drag = null, swallowClick = false, glide = 0;
+  const span = () => Math.min(innerWidth * .6, 900);
+
   stage.addEventListener("pointerdown", e => {
-    if (e.button !== 0) return;
-    drag = { x: e.clientX, y: e.clientY, id: e.pointerId, moving: false };
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    cancelAnimationFrame(glide);
+    const body = e.target.closest(".win.active .body");
+    drag = { x: e.clientX, y: e.clientY, id: e.pointerId, axis: null, touch: e.pointerType !== "mouse",
+             body, top: body ? body.scrollTop : 0, lastY: e.clientY, lastT: performance.now(), v: 0 };
   });
   addEventListener("pointermove", e => {
     if (!drag || e.pointerId !== drag.id) return;
     const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
-    if (!drag.moving) {
-      if (Math.abs(dx) < 12 || Math.abs(dx) < Math.abs(dy) * 1.3) {
-        if (Math.abs(dy) > 12) drag = null;
-        return;
-      }
-      drag.moving = true;
-      ring.classList.add("dragging");
+    if (!drag.axis) {
+      if (Math.hypot(dx, dy) < LOCK) return;
+      drag.axis = Math.abs(dx) > Math.abs(dy) * .9 ? "x" : "y";
+      if (drag.axis === "x") ring.classList.add("dragging");
+      if (drag.axis === "y" && !drag.touch) { drag = null; return; }
       try { stage.setPointerCapture(drag.id); } catch (error) {}
     }
-    const span = Math.min(innerWidth * .6, 900);
-    const pos = Math.max(-.35, Math.min(wins.length - .65, active - dx / span));
-    layout(pos);
+    if (drag.axis === "x") {
+      layout(Math.max(-.35, Math.min(wins.length - .65, active - dx / span())));
+    } else if (drag.body) {
+      const now = performance.now(), dt = Math.max(1, now - drag.lastT);
+      drag.v = .8 * drag.v + .2 * ((e.clientY - drag.lastY) / dt);
+      drag.lastY = e.clientY; drag.lastT = now;
+      drag.body.scrollTop = drag.top - dy;
+    }
   });
   const endDrag = e => {
     if (!drag || e.pointerId !== drag.id) return;
-    if (drag.moving) {
-      const dx = e.clientX - drag.x, span = Math.min(innerWidth * .6, 900);
+    const d = drag; drag = null;
+    if (!d.axis) return;
+    swallowClick = true;
+    setTimeout(() => swallowClick = false, 0);
+    if (d.axis === "x") {
       ring.classList.remove("dragging");
-      swallowClick = true;
-      setTimeout(() => swallowClick = false, 0);
-      const step = Math.abs(dx) > span * .18 ? -Math.sign(dx) * Math.max(1, Math.round(Math.abs(dx) / span)) : 0;
+      const dx = e.clientX - d.x, sp = span();
+      const step = Math.abs(dx) > sp * .15 ? -Math.sign(dx) * Math.max(1, Math.round(Math.abs(dx) / sp)) : 0;
       go(active + step);
+    } else if (d.body) {
+      let v = d.v * 16;
+      const run = () => {
+        if (Math.abs(v) < .3) return;
+        d.body.scrollTop -= v; v *= .94;
+        glide = requestAnimationFrame(run);
+      };
+      run();
     }
-    drag = null;
   };
   addEventListener("pointerup", endDrag);
-  addEventListener("pointercancel", e => { if (drag && drag.moving) { ring.classList.remove("dragging"); layout(); } drag = null; });
+  addEventListener("pointercancel", e => { if (drag && drag.axis === "x") { ring.classList.remove("dragging"); layout(); } drag = null; });
   addEventListener("click", e => { if (swallowClick) { e.preventDefault(); e.stopPropagation(); } }, true);
+
+  document.getElementById("prev").addEventListener("click", () => go(active - 1));
+  document.getElementById("next").addEventListener("click", () => go(active + 1));
 
   addEventListener("keydown", e => {
     if (e.key === "ArrowRight") go(active + 1);
