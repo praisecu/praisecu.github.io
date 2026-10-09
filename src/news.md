@@ -24,7 +24,7 @@ news:
     image_alt: TinyFlow optical flow of a running figure
     url: /research/TinyFlow-workshop.html
     external: false
-    description: "TinyFlow: Breaking the Warping Bottleneck for Edge Optical Flow by Xiao'ao Song won the Best Poster Award at the IROS 2026 Workshop on Insect-scale Autonomy in Pittsburgh, PA."
+    description: "TinyFlow: Breaking the Warping Bottleneck for Edge Optical Flow by Xiao'ao Song won the Best Poster Award at the IROS 2026 Workshop on Insect-scale Autonomy in Pittsburgh, PA, as voted by the workshop attendees."
 
   - title: IROS Workshop accepted | Insect-scale Autonomy
     date: June 10, 2026
