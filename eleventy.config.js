@@ -47,7 +47,8 @@ export default function (eleventyConfig) {
     "owl.carousel",
     "teaching/css",
     "teaching/img",
-    "teaching/js"
+    "teaching/js",
+    "spatial"
   ];
 
   for (const directory of assetDirectories) {

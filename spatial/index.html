@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0d0d0b">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/img/logo/praise.webp">
+<title>PRAISe Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root {
+  --gold: #CFB87C;
+  --gold-soft: rgba(207, 184, 124, .18);
+  --text: #ffffff;
+  --text-2: rgba(255, 255, 255, .78);
+  --text-3: rgba(255, 255, 255, .58);
+  --glass: rgba(32, 32, 30, .52);
+  --glass-2: rgba(255, 255, 255, .08);
+  --glass-3: rgba(255, 255, 255, .14);
+  --edge: rgba(255, 255, 255, .20);
+  --radius: 2.125rem;
+  --win-w: min(47.5rem, 62vw);
+  --win-h: min(38.75rem, calc(100vh - 13.125rem));
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  color: var(--text);
+  background: #0d0d0b;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+
+/* ---------- environment ---------- */
+.env {
+  position: fixed; inset: -2.5rem;
+  background: url("/img/banners/boulder-campus.png") center 35% / cover no-repeat;
+  filter: blur(0.1875rem) brightness(.55) saturate(1.05);
+  transform: scale(1.06);
+  transition: transform .9s cubic-bezier(.2, .7, .2, 1);
+}
+.env::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 120%, rgba(0,0,0,.65), transparent 60%),
+    radial-gradient(ellipse at 50% -20%, rgba(207,184,124,.18), transparent 55%);
+}
+.floor {
+  position: fixed; left: 50%; bottom: 6vh; width: 70vw; height: 5.625rem;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(0,0,0,.45), transparent 70%);
+  filter: blur(0.75rem); pointer-events: none;
+}
+
+/* ---------- status ornament ---------- */
+.status {
+  position: fixed; top: 1.375rem; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 0.875rem;
+  padding: 0.5625rem 1.25rem 0.5625rem 0.75rem; border-radius: 62.4375rem;
+  background: var(--glass); border: 0.0625rem solid var(--edge);
+  backdrop-filter: blur(1.875rem) saturate(1.6); -webkit-backdrop-filter: blur(1.875rem) saturate(1.6);
+  font-size: 0.875rem; color: var(--text-2); z-index: 20;
+  box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,.25);
+}
+.status img { width: 1.75rem; height: 1.75rem; border-radius: 50%; background: #fff; padding: 0.1875rem; }
+.status b { color: var(--text); font-weight: 800; letter-spacing: 0.0125rem; }
+.status .classic { color: var(--text); font-weight: 700; }
+.status .classic:hover { color: var(--gold); }
+.status .dot { width: 0.25rem; height: 0.25rem; border-radius: 50%; background: var(--text-3); }
+
+/* ---------- stage ---------- */
+.stage {
+  position: fixed; inset: 0;
+  perspective: 100rem; perspective-origin: 50% 45%;
+}
+.ring {
+  position: absolute; left: 50%; top: calc(50% - 1.875rem);
+  width: 0; height: 0; transform-style: preserve-3d;
+  transition: transform .5s ease-out;
+}
+.win {
+  position: absolute;
+  width: var(--win-w); height: var(--win-h);
+  left: calc(var(--win-w) / -2); top: calc(var(--win-h) / -2);
+  transform-style: preserve-3d;
+  transition: transform .8s cubic-bezier(.2, .75, .2, 1), opacity .6s, filter .6s;
+  will-change: transform;
+}
+.pane {
+  height: 100%; display: flex; flex-direction: column;
+  border-radius: var(--radius);
+  background: var(--glass);
+  border: 0.0625rem solid var(--edge);
+  backdrop-filter: blur(2.75rem) saturate(1.7); -webkit-backdrop-filter: blur(2.75rem) saturate(1.7);
+  box-shadow: 0 2.5rem 5.625rem rgba(0,0,0,.45), inset 0 0.0625rem 0 rgba(255,255,255,.22);
+  overflow: hidden;
+}
+.win.side { cursor: pointer; }
+.win.side .pane { pointer-events: none; }
+.win.side::after {
+  content: attr(data-label); position: absolute; inset: auto 0 -3.25rem 0; text-align: center;
+  font-size: 0.9375rem; font-weight: 700; color: var(--text-2);
+}
+.grab {
+  position: absolute; left: 50%; bottom: -1.375rem; width: 7.5rem; height: 0.4375rem;
+  transform: translateX(-50%); border-radius: 6.1875rem; background: rgba(255,255,255,.42);
+  transition: opacity .4s;
+}
+.win.side .grab { opacity: 0; }
+.win-close {
+  position: absolute; left: calc(50% - 5.125rem); bottom: -1.6875rem; width: 1.0625rem; height: 1.0625rem;
+  border-radius: 50%; background: rgba(255,255,255,.28);
+}
+.win.side .win-close { opacity: 0; }
+
+.head { padding: 1.625rem 2.125rem 0.875rem; display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; }
+.head h2 { margin: 0; font-size: 1.875rem; font-weight: 800; letter-spacing: -0.0187rem; }
+.head p { margin: 0.25rem 0 0; font-size: 0.9375rem; color: var(--text-2); }
+.head .pill { flex: none; }
+.body { flex: 1; overflow-y: auto; padding: 0.5rem 2.125rem 1.875rem; scrollbar-width: none; }
+.body::-webkit-scrollbar { display: none; }
+.body.more { -webkit-mask-image: linear-gradient(#000 calc(100% - 4.5rem), transparent); mask-image: linear-gradient(#000 calc(100% - 4.5rem), transparent); }
+
+.pill {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.625rem 1.125rem; border-radius: 62.4375rem;
+  background: var(--glass-3); color: var(--text);
+  font-size: 0.9375rem; font-weight: 700; transition: background .2s;
+  border: 0; font-family: inherit; cursor: pointer;
+}
+.pill:hover { background: rgba(255,255,255,.24); }
+.pill.gold { background: var(--gold); color: #1d1e00; }
+.pill.gold:hover { background: #dcc897; }
+.eyebrow { font-size: 0.8125rem; font-weight: 800; letter-spacing: 0.0875rem; text-transform: uppercase; color: var(--gold); }
+.tile {
+  border-radius: 1.375rem; background: var(--glass-2);
+  border: 0.0625rem solid rgba(255,255,255,.08);
+  transition: background .2s, transform .2s;
+}
+a.tile:hover { background: var(--glass-3); transform: translateY(-0.125rem); }
+.muted { color: var(--text-2); }
+.small { font-size: 0.875rem; }
+
+/* home */
+.hero { display: flex; gap: 1.5rem; align-items: center; padding: 0.375rem 0 1.375rem; }
+.hero img { width: 5.75rem; height: 5.75rem; border-radius: 1.625rem; background: #fff; padding: 0.625rem; flex: none; }
+.hero h1 { margin: 0; font-size: 2.75rem; font-weight: 800; letter-spacing: -0.05rem; line-height: 1.05; }
+.hero p { margin: 0.5rem 0 0; font-size: 1.125rem; color: var(--text-2); }
+.mission { font-size: 1.1875rem; line-height: 1.5; margin: 0 0 1.375rem; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-bottom: 1.5rem; }
+.stat { padding: 1rem; text-align: center; }
+.stat b { display: block; font-size: 2rem; font-weight: 800; color: var(--gold); line-height: 1.1; }
+.stat span { font-size: 0.875rem; color: var(--text-2); }
+.news { display: grid; gap: 0.5rem; }
+.news a { display: flex; gap: 1rem; align-items: center; padding: 0.8125rem 1.125rem; }
+.news time { flex: none; width: 5.75rem; font-size: 0.8125rem; font-weight: 700; color: var(--gold); }
+.news span { font-size: 1rem; }
+h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
+
+/* research */
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.875rem; }
+.area { overflow: hidden; display: flex; flex-direction: column; }
+.area .thumb { height: 8rem; background: #222 center / cover no-repeat; }
+.area div.txt { padding: 0.875rem 1rem 1rem; }
+.area h4 { margin: 0 0 0.375rem; font-size: 1.0625rem; line-height: 1.3; }
+.area p { margin: 0; font-size: 0.875rem; line-height: 1.45; color: var(--text-2); }
+
+/* pubs */
+.proj { display: grid; gap: 0.75rem; margin-bottom: 1.5rem; }
+.proj a { display: flex; gap: 1rem; align-items: center; padding: 1rem 1.125rem; }
+.proj i { flex: none; width: 2.875rem; height: 2.875rem; border-radius: 0.875rem; display: grid; place-items: center; background: var(--gold-soft); color: var(--gold); font-size: 1.1875rem; }
+.proj h4 { margin: 0; font-size: 1.0625rem; line-height: 1.3; }
+.proj p { margin: 0.1875rem 0 0; font-size: 0.875rem; color: var(--text-2); }
+.pubs { display: grid; gap: 0.5rem; }
+.pubs a { display: flex; gap: 0.875rem; align-items: baseline; padding: 0.8125rem 1.125rem; }
+.pubs .yr { flex: none; font-size: 0.875rem; font-weight: 800; color: var(--gold); width: 2.5rem; }
+.pubs .t { font-size: 1rem; line-height: 1.35; }
+.pubs .v { display: block; font-size: 0.8125rem; color: var(--text-3); margin-top: 0.125rem; }
+
+/* team */
+.pi { display: flex; gap: 1.25rem; align-items: center; padding: 1.125rem; margin-bottom: 1.125rem; }
+.pi img { width: 6.5rem; height: 6.5rem; border-radius: 50%; object-fit: cover; flex: none; border: 0.125rem solid rgba(255,255,255,.3); }
+.pi h4 { margin: 0; font-size: 1.375rem; }
+.pi p { margin: 0.25rem 0 0.75rem; color: var(--text-2); }
+.pi .links { display: flex; gap: 0.5rem; }
+.pi .links a { width: 2.375rem; height: 2.375rem; border-radius: 50%; display: grid; place-items: center; background: var(--glass-3); }
+.people { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; margin-bottom: 1.375rem; }
+.person { text-align: center; padding: 1rem 0.5rem 0.875rem; }
+.person img { width: 4.75rem; height: 4.75rem; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 0.625rem; }
+.person b { display: block; font-size: 0.9375rem; line-height: 1.25; }
+.person span { font-size: 0.8125rem; color: var(--text-3); }
+.alumni { display: grid; gap: 0.5rem; }
+.alumni div { display: flex; justify-content: space-between; gap: 0.75rem; padding: 0.75rem 1.125rem; font-size: 0.9375rem; }
+.alumni span { color: var(--text-2); text-align: right; }
+
+/* teaching */
+.course { display: flex; gap: 1.125rem; align-items: center; padding: 1rem 1.125rem; margin-bottom: 0.625rem; }
+.course .code { flex: none; width: 7rem; font-size: 0.8125rem; font-weight: 800; color: var(--gold); line-height: 1.3; }
+.course h4 { margin: 0; font-size: 1.0625rem; }
+.course p { margin: 0.1875rem 0 0; font-size: 0.875rem; color: var(--text-2); }
+.course .term { margin-left: auto; flex: none; font-size: 0.8125rem; padding: 0.375rem 0.75rem; border-radius: 62.4375rem; background: var(--glass-3); color: var(--text-2); }
+.course.now .term { background: var(--gold); color: #1d1e00; font-weight: 800; }
+
+/* openings */
+.posting { padding: 1.375rem; margin-bottom: 1.125rem; }
+.posting h4 { margin: 0.5rem 0 0.25rem; font-size: 1.5rem; }
+.posting .sub { margin: 0 0 0.875rem; font-size: 1rem; color: var(--text-2); }
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+.chips span { font-size: 0.8125rem; padding: 0.375rem 0.75rem; border-radius: 62.4375rem; background: var(--glass-3); }
+.note { font-size: 0.875rem; color: var(--text-2); margin: 0.75rem 0 0; }
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.contact > * { padding: 1rem 1.125rem; display: flex; gap: 0.875rem; align-items: center; font-size: 0.9375rem; }
+.contact i { color: var(--gold); width: 1.25rem; text-align: center; }
+
+/* ---------- tab bar ornament ---------- */
+.tabbar {
+  position: fixed; left: 50%; bottom: 1.625rem; transform: translateX(-50%);
+  display: flex; gap: 0.25rem; padding: 0.4375rem; border-radius: 62.4375rem; z-index: 20;
+  background: var(--glass); border: 0.0625rem solid var(--edge);
+  backdrop-filter: blur(1.875rem) saturate(1.6); -webkit-backdrop-filter: blur(1.875rem) saturate(1.6);
+  box-shadow: 0 0.875rem 2.5rem rgba(0,0,0,.35);
+}
+.tabbar button {
+  border: 0; background: transparent; color: var(--text-2); font-family: inherit;
+  display: flex; align-items: center; gap: 0.5625rem; padding: 0.6875rem 1.125rem; border-radius: 62.4375rem;
+  font-size: 0.9375rem; font-weight: 700; cursor: pointer; transition: background .2s, color .2s;
+}
+.tabbar button:hover { background: var(--glass-2); color: var(--text); }
+.tabbar button[aria-selected="true"] { background: rgba(255,255,255,.9); color: #1d1e00; }
+.tabbar .short { display: none; }
+.tabbar .badge { font-size: 0.625rem; font-weight: 800; background: var(--gold); color: #1d1e00; padding: 0.125rem 0.375rem; border-radius: 6.1875rem; }
+.hint { position: fixed; right: 1.625rem; bottom: 2.125rem; font-size: 0.8125rem; color: var(--text-3); z-index: 20; }
+
+/* ---------- narrower screens: flat, one window ---------- */
+@media (max-width: 900px) {
+  body { overflow: auto; }
+  :root { --win-w: calc(100vw - 2rem); --win-h: calc(100vh - 11.875rem); --radius: 1.625rem; }
+  .stage { perspective: none; }
+  .ring { transform: none !important; }
+  .win { transform: none !important; opacity: 0; pointer-events: none; }
+  .win.active { opacity: 1; pointer-events: auto; }
+  .win.side::after { display: none; }
+  .head { padding: 1.25rem 1.25rem 0.625rem; }
+  .head h2 { font-size: 1.5rem; }
+  .body { padding: 0.375rem 1.25rem 1.5rem; }
+  .hero h1 { font-size: 1.875rem; }
+  .hero img { width: 4rem; height: 4rem; border-radius: 1.125rem; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .grid2, .contact { grid-template-columns: 1fr; }
+  .people { grid-template-columns: repeat(2, 1fr); }
+  .course { flex-wrap: wrap; }
+  .course .term { margin-left: 0; }
+  .tabbar { left: 1rem; right: 1rem; transform: none; overflow-x: auto; justify-content: space-between; }
+  .tabbar { overflow: hidden; gap: 0; padding: 0.3125rem; }
+  .tabbar button { flex: 1 1 0; min-width: 0; flex-direction: column; gap: 0.25rem; padding: 0.5625rem 0.125rem; font-size: 0.6875rem; }
+  .tabbar .full { display: none; }
+  .tabbar .short { display: inline; }
+  .pi { flex-direction: column; text-align: center; }
+  .pi .links { justify-content: center; }
+  .tabbar button .lbl-badge { display: none; }
+  .hint, .status .extra { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .win, .ring, .env { transition: none; }
+}
+</style>
+</head>
+<body>
+<div class="env" id="env"></div>
+<div class="floor"></div>
+
+<div class="status">
+  <img src="/img/logo/praise.webp" alt="">
+  <b>PRAISe Lab</b>
+  <span class="dot extra"></span>
+  <span class="extra">University of Colorado Boulder</span>
+  <span class="dot"></span>
+  <span id="clock"></span>
+  <span class="dot"></span>
+  <a class="classic" href="/?classic">Classic site</a>
+</div>
+
+<main class="stage">
+  <div class="ring" id="ring">
+
+    <!-- 0 home -->
+    <section class="win" data-label="Home" aria-label="Home">
+      <div class="pane">
+        <div class="body" style="padding-top:30px">
+          <div class="hero">
+            <img src="/img/logo/praise.webp" alt="PRAISe Lab logo">
+            <div>
+              <div class="eyebrow">University of Colorado Boulder</div>
+              <h1>PRAISe Lab</h1>
+              <p>Perception, Robotics, AI and Sensing</p>
+            </div>
+          </div>
+          <p class="mission">Minimal perception, novel sensing and onboard computation for tiny robot autonomy. From event cameras to coded optics, we build robots that see and decide with milliwatts of compute.</p>
+          <div class="stats">
+            <div class="tile stat"><b>7</b><span>research areas</span></div>
+            <div class="tile stat"><b>6</b><span>lab members</span></div>
+            <div class="tile stat"><b>3</b><span>IROS 2026 workshop papers</span></div>
+            <div class="tile stat"><b>5</b><span>courses taught</span></div>
+          </div>
+          <h3 class="sec">Latest news</h3>
+          <div class="news">
+            <a class="tile" href="/news.html" target="_blank" rel="noopener"><time>Jun 10, 2026</time><span>IROS workshop accepted: Insect-scale Autonomy</span></a>
+            <a class="tile" href="/news.html" target="_blank" rel="noopener"><time>Jun 1, 2026</time><span>Paper presented at the ICRA 2026 workshop</span></a>
+            <a class="tile" href="/news.html" target="_blank" rel="noopener"><time>Mar 15, 2026</time><span>Served as editor for MDPI Drones</span></a>
+            <a class="tile" href="/news.html" target="_blank" rel="noopener"><time>Feb 15, 2026</time><span>Served as associate editor for IROS 2026</span></a>
+          </div>
+        </div>
+      </div>
+      <span class="win-close"></span><span class="grab"></span>
+    </section>
+
+    <!-- 1 research -->
+    <section class="win" data-label="Research" aria-label="Research">
+      <div class="pane">
+        <div class="head">
+          <div><h2>Research</h2><p>Seven directions, one goal: autonomy on tiny robots.</p></div>
+          <a class="pill" href="/research-areas.html" target="_blank" rel="noopener">Open <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+        <div class="body">
+          <div class="grid2">
+            <div class="tile area"><div class="thumb" style="background-image:url('/img/publications/gapflyt-poster.jpg')"></div><div class="txt"><h4>Active Vision for Robot Navigation</h4><p>High-speed quadrotor navigation with only onboard sensing and compute.</p></div></div>
+            <div class="tile area"><div class="thumb" style="background-image:url('https://chahatdeep.github.io/assets/img/research/EVPropNet_S.gif')"></div><div class="txt"><h4>Neuromorphic Perception</h4><p>Algorithms for event cameras, inspired by biological vision.</p></div></div>
+            <div class="tile area"><div class="thumb" style="background-image:url('/img/research/DroneCAD2.png')"></div><div class="txt"><h4>Micro-scale Drone Development</h4><p>Embedded design and CAD for the smallest aerial robots.</p></div></div>
+            <div class="tile area"><div class="thumb" style="background-image:url('/img/research/coded.jpg')"></div><div class="txt"><h4>Computational Imaging</h4><p>Coded optics for navigation and 3D reconstruction.</p></div></div>
+            <div class="tile area"><div class="thumb" style="background-image:url('/img/research/visual-navigation-foundation-models.jpg')"></div><div class="txt"><h4>Visual Navigation with Foundation Models</h4><p>Large pretrained models guiding robots through new places.</p></div></div>
+            <div class="tile area"><div class="thumb" style="background-image:url('https://chahatdeep.github.io/assets/img/research/worldgen_S.gif')"></div><div class="txt"><h4>Sim2Real</h4><p>Training in generated worlds, flying in the real one.</p></div></div>
+            <div class="tile area"><div class="thumb" style="background-image:url('https://chahatdeep.github.io/assets/img/research/RoboBeeHive2.jpg')"></div><div class="txt"><h4>Drone Navigation for Good</h4><p>Quadrotor pollination in the wild.</p></div></div>
+            <a class="tile area" href="/openings.html" target="_blank" rel="noopener" style="justify-content:center;align-items:center;text-align:center;padding:24px"><i class="fa-solid fa-plus" style="font-size:28px;color:var(--gold);margin-bottom:10px"></i><h4>Work with us</h4><p class="muted small">See open positions</p></a>
+          </div>
+        </div>
+      </div>
+      <span class="win-close"></span><span class="grab"></span>
+    </section>
+
+    <!-- 2 publications -->
+    <section class="win" data-label="Publications" aria-label="Publications">
+      <div class="pane">
+        <div class="head">
+          <div><h2>Publications</h2><p>New project pages and selected papers.</p></div>
+          <a class="pill" href="/publications.html" target="_blank" rel="noopener">All papers <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+        <div class="body">
+          <h3 class="sec">IROS 2026 Workshop on Insect-scale Autonomy</h3>
+          <div class="proj">
+            <a class="tile" href="/research/fold-to-fit.html" target="_blank" rel="noopener"><i class="fa-solid fa-helicopter"></i><div><h4>Fold-to-Fit</h4><p>Propeller interaction and control of a coaxial-bicopter quadrotor</p></div></a>
+            <a class="tile" href="/research/TinyFlow-workshop.html" target="_blank" rel="noopener"><i class="fa-solid fa-wind"></i><div><h4>TinyFlow</h4><p>Breaking the warping bottleneck for edge optical flow</p></div></a>
+            <a class="tile" href="/research/NibbleFlow.html" target="_blank" rel="noopener"><i class="fa-solid fa-microchip"></i><div><h4>NibbleFlow</h4><p>Breaking the warping bottleneck for edge optical flow</p></div></a>
+          </div>
+          <h3 class="sec">Selected papers</h3>
+          <div class="pubs">
+            <a class="tile" href="/publications.html" target="_blank" rel="noopener"><span class="yr">2024</span><span class="t">Minimal Perception: Enabling Autonomy in Resource-Constrained Robots<span class="v">Frontiers in Robotics and AI</span></span></a>
+            <a class="tile" href="/publications.html" target="_blank" rel="noopener"><span class="yr">2024</span><span class="t">CodedVO: Coded Visual Odometry<span class="v">IEEE Robotics and Automation Letters</span></span></a>
+            <a class="tile" href="/publications.html" target="_blank" rel="noopener"><span class="yr">2024</span><span class="t">CodedEvents: Optimal PSF Engineering for 3D Tracking with Event Cameras<span class="v">CVPR</span></span></a>
+            <a class="tile" href="/publications.html" target="_blank" rel="noopener"><span class="yr">2024</span><span class="t">Microsaccade-inspired Event Camera for Robotics<span class="v">Science Robotics</span></span></a>
+            <a class="tile" href="/publications.html" target="_blank" rel="noopener"><span class="yr">2024</span><span class="t">Active Human Pose Estimation via an Autonomous UAV Agent<span class="v">IROS</span></span></a>
+            <a class="tile" href="/publications.html" target="_blank" rel="noopener"><span class="yr">2023</span><span class="t">Ajna: Generalized Deep Uncertainty for Minimal Perception on Parsimonious Robots<span class="v">Science Robotics</span></span></a>
+          </div>
+        </div>
+      </div>
+      <span class="win-close"></span><span class="grab"></span>
+    </section>
+
+    <!-- 3 team -->
+    <section class="win" data-label="Team" aria-label="Team">
+      <div class="pane">
+        <div class="head">
+          <div><h2>Team</h2><p>The people behind PRAISe.</p></div>
+          <a class="pill" href="/team.html" target="_blank" rel="noopener">Open <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+        <div class="body">
+          <div class="tile pi">
+            <img src="/img/team/chahat-13.jpg" alt="Chahat Deep Singh">
+            <div>
+              <div class="eyebrow">Principal Investigator</div>
+              <h4>Chahat Deep Singh</h4>
+              <p>Assistant Professor, CU Boulder</p>
+              <div class="links">
+                <a href="https://scholar.google.com/citations?user=ASaUMpsAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+                <a href="https://x.com/chahatdeep" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=chahatdeep" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+          <h3 class="sec">Graduate students</h3>
+          <div class="people">
+            <div class="tile person"><img src="/img/team/thanush.jpg" alt=""><b>Thanushraam Suresh Kumar</b></div>
+            <div class="tile person"><img src="/img/team/xiaoao.png" alt=""><b>Xiao'ao Song</b></div>
+            <div class="tile person"><img src="/img/team/pravesh_cropped.jpg" alt=""><b>Pravesh Rana</b></div>
+            <div class="tile person"><img src="/img/team/jimmy.jpg" alt=""><b>Tam (Jimmy) Tran</b></div>
+            <div class="tile person"><img src="/img/team/ethan.jpg" alt=""><b>Ethan K.</b></div>
+          </div>
+          <h3 class="sec">Alumni</h3>
+          <div class="alumni">
+            <div class="tile"><b>Akash Chinthamanipeta</b><span>Automation & Robotics Engineer, Algae Barn</span></div>
+            <div class="tile"><b>Sarath Chandra V</b><span>Mechanical Engineer, Figure AI</span></div>
+            <div class="tile"><b>Mohammad Qazim Bhat</b><span>M.S. CS, CU Boulder</span></div>
+          </div>
+        </div>
+      </div>
+      <span class="win-close"></span><span class="grab"></span>
+    </section>
+
+    <!-- 4 teaching -->
+    <section class="win" data-label="Teaching" aria-label="Teaching">
+      <div class="pane">
+        <div class="head">
+          <div><h2>Teaching</h2><p>Graduate courses and senior design.</p></div>
+          <a class="pill" href="/teaching.html" target="_blank" rel="noopener">Open <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+        <div class="body">
+          <a class="tile course now" href="/teaching/advancedcv-fall2026.html" target="_blank" rel="noopener"><span class="code">MCEN 5228-010</span><div><h4>Advanced Computer Vision</h4><p>Geometry and learning-based methods</p></div><span class="term">Fall 2026 · Now</span></a>
+          <a class="tile course" href="/teaching/ai4engg-spring2026.html" target="_blank" rel="noopener"><span class="code">MCEN 5228-003</span><div><h4>AI for Engineers</h4><p>Machine learning for engineering problems</p></div><span class="term">Spring 2026</span></a>
+          <a class="tile course" href="/teaching/advancedcv-fall2025.html" target="_blank" rel="noopener"><span class="code">MCEN 5228-009</span><div><h4>Advanced Computer Vision</h4><p>Geometry and learning-based methods</p></div><span class="term">Fall 2025</span></a>
+          <a class="tile course" href="/teaching/haq-spring2025.html" target="_blank" rel="noopener"><span class="code">Senior Design</span><div><h4>HAQ Lab: Autonomous Rover</h4><p>with Prof. Michael Hannigan</p></div><span class="term">Spring 2025</span></a>
+          <a class="tile course" href="/teaching/medtronicnav-spring2025.html" target="_blank" rel="noopener"><span class="code">Senior Design</span><div><h4>Medtronic Navigation: Snapshot Registration</h4><p>with Medtronic plc</p></div><span class="term">Spring 2025</span></a>
+        </div>
+      </div>
+      <span class="win-close"></span><span class="grab"></span>
+    </section>
+
+    <!-- 5 openings -->
+    <section class="win" data-label="Join" aria-label="Openings and contact">
+      <div class="pane">
+        <div class="head">
+          <div><h2>Join PRAISe</h2><p>Open positions and how to find us.</p></div>
+        </div>
+        <div class="body">
+          <div class="tile posting">
+            <span class="eyebrow">New opening</span>
+            <h4>Postdoctoral Researcher</h4>
+            <p class="sub">Event and Neuromorphic Vision for High-Speed Aerial Robots</p>
+            <div class="chips"><span>Boulder, CO, on-site</span><span>1-year appointment, renewable</span><span>Sub-10 ms perception</span></div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <a class="pill gold" href="https://forms.gle/HUvZ2gQN4r799ir5A" target="_blank" rel="noopener">Apply <i class="fa-solid fa-arrow-right"></i></a>
+              <a class="pill" href="/openings.html" target="_blank" rel="noopener">Details</a>
+            </div>
+            <p class="note">Open only to U.S. citizens and lawful permanent residents.</p>
+          </div>
+          <h3 class="sec">Find us</h3>
+          <div class="contact">
+            <div class="tile"><i class="fa-solid fa-building"></i>Labs: ECES 1B14 and DLC 2B40</div>
+            <div class="tile"><i class="fa-solid fa-door-open"></i>Office: ECES 152</div>
+            <a class="tile" href="https://mailhide.io/e/c7L2GJRn" target="_blank" rel="noopener"><i class="fa-solid fa-envelope"></i>Email the lab</a>
+            <a class="tile" href="https://github.com/praisecu" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>github.com/praisecu</a>
+          </div>
+        </div>
+      </div>
+      <span class="win-close"></span><span class="grab"></span>
+    </section>
+
+  </div>
+</main>
+
+<nav class="tabbar" id="tabbar" role="tablist" aria-label="Windows"></nav>
+<div class="hint">← → to move between windows</div>
+
+<script>
+(() => {
+  const wins = [...document.querySelectorAll(".win")];
+  const tabbar = document.getElementById("tabbar");
+  const ring = document.getElementById("ring");
+  const env = document.getElementById("env");
+  const icons = ["fa-house", "fa-flask", "fa-book-open", "fa-user-group", "fa-chalkboard-user", "fa-briefcase"];
+  const STEP = 42;
+  let R = 1350, U = 1;
+  function fit() {
+    const wide = innerWidth > 900;
+    U = wide ? Math.max(.85, Math.min(2.6, innerWidth * .62 / 760, innerHeight / 740)) : 1;
+    document.documentElement.style.fontSize = (16 * U) + "px";
+    R = 1350 * U;
+  }
+  fit();
+  let active = 0;
+
+  wins.forEach((w, i) => {
+    const b = document.createElement("button");
+    b.setAttribute("role", "tab");
+    b.innerHTML = `<i class="fa-solid ${icons[i]}"></i><span class="full">${w.dataset.label}</span><span class="short">${w.dataset.label === "Publications" ? "Papers" : w.dataset.label}</span>` +
+      (i === 5 ? ` <span class="badge lbl-badge">New</span>` : "");
+    b.addEventListener("click", () => go(i));
+    tabbar.appendChild(b);
+    w.addEventListener("click", () => { if (i !== active) go(i); });
+  });
+
+  function layout() {
+    wins.forEach((w, i) => {
+      const d = i - active;
+      const a = d * STEP * Math.PI / 180;
+      const x = R * Math.sin(a), z = -R * (1 - Math.cos(a));
+      const far = Math.abs(d) > 1;
+      w.style.transform = `translate3d(${x}px, 0, ${z - (d ? 260 * U : 0)}px) rotateY(${-d * STEP}deg)`;
+      w.style.opacity = far ? 0 : d ? .62 : 1;
+      w.style.filter = d ? "saturate(.8)" : "none";
+      w.style.pointerEvents = far ? "none" : "auto";
+      w.style.zIndex = 10 - Math.abs(d);
+      w.classList.toggle("side", d !== 0);
+      w.classList.toggle("active", d === 0);
+      tabbar.children[i].setAttribute("aria-selected", d === 0);
+    });
+    env.style.transform = `scale(1.06) translateX(${-active * 14}px)`;
+  }
+  function go(i) { active = Math.max(0, Math.min(wins.length - 1, i)); layout(); }
+
+  const bodies = [...document.querySelectorAll(".body")];
+  const fade = () => bodies.forEach(b => b.classList.toggle("more", b.scrollTop + b.clientHeight < b.scrollHeight - 4));
+  bodies.forEach(b => b.addEventListener("scroll", fade, { passive: true }));
+  fade();
+  addEventListener("resize", () => { fit(); layout(); fade(); });
+  addEventListener("keydown", e => {
+    if (e.key === "ArrowRight") go(active + 1);
+    if (e.key === "ArrowLeft") go(active - 1);
+  });
+  addEventListener("pointermove", e => {
+    if (innerWidth <= 900) return;
+    const rx = (e.clientY / innerHeight - .5) * -3, ry = (e.clientX / innerWidth - .5) * 4;
+    ring.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+  });
+
+  const clock = document.getElementById("clock");
+  const tick = () => clock.textContent = new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+  tick(); setInterval(tick, 30000);
+  layout();
+})();
+</script>
+</body>
+</html>

@@ -8,6 +8,27 @@
     content="width=device-width, initial-scale=1"
   >
 
+  {#- Apple Vision Pro opens the spatial home view by default. Safari on
+      visionOS reports a Mac user agent with touch input, like an iPad, but
+      unlike iPad it exposes WebXR. ?classic stays on this page for the
+      rest of the session. #}
+  <script>
+    (function () {
+      try {
+        if (/[?&]classic\b/.test(location.search)) {
+          sessionStorage.setItem("praise-classic", "1");
+          return;
+        }
+        if (sessionStorage.getItem("praise-classic")) return;
+      } catch (error) {}
+      var visionPro =
+        /Macintosh/.test(navigator.userAgent) &&
+        navigator.maxTouchPoints > 0 &&
+        "xr" in navigator;
+      if (visionPro) location.replace("/spatial/");
+    })();
+  </script>
+
 <title>PRAISe Lab | Robotics, Perception and AI at CU Boulder</title>
 
 <meta
