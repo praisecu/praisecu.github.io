@@ -1,3 +1,7 @@
+---
+permalink: /spatial/index.html
+eleventyExcludeFromCollections: true
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -111,17 +115,6 @@ a { color: inherit; text-decoration: none; }
   content: attr(data-label); position: absolute; inset: auto 0 -3.25rem 0; text-align: center;
   font-size: 0.9375rem; font-weight: 700; color: var(--text-2);
 }
-.grab {
-  position: absolute; left: 50%; bottom: -1.375rem; width: 7.5rem; height: 0.4375rem;
-  transform: translateX(-50%); border-radius: 6.1875rem; background: rgba(255,255,255,.42);
-  transition: opacity .4s;
-}
-.win.side .grab { opacity: 0; }
-.win-close {
-  position: absolute; left: calc(50% - 5.125rem); bottom: -1.6875rem; width: 1.0625rem; height: 1.0625rem;
-  border-radius: 50%; background: rgba(255,255,255,.28);
-}
-.win.side .win-close { opacity: 0; }
 
 .head { padding: 1.625rem 2.125rem 0.875rem; display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; }
 .head h2 { margin: 0; font-size: 1.875rem; font-weight: 800; letter-spacing: -0.0187rem; }
@@ -222,6 +215,56 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
 .contact > * { padding: 1rem 1.125rem; display: flex; gap: 0.875rem; align-items: center; font-size: 0.9375rem; }
 .contact i { color: var(--gold); width: 1.25rem; text-align: center; }
 
+
+/* content shared with the regular pages */
+.prose { font-size: 1.125rem; line-height: 1.55; color: var(--text); margin-bottom: 1.5rem; }
+.prose p { margin: 0 0 .9rem; }
+.prose a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.prose strong { color: var(--text); }
+.highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin-bottom: 1.5rem; }
+.hl { display: flex; flex-direction: column; overflow: hidden; }
+.hl-img { display: block; aspect-ratio: 16 / 9; background: rgba(255,255,255,.92); }
+.hl-img img, .hl-img video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hl-img.contain img { object-fit: contain; }
+.hl-t { padding: .7rem .85rem .85rem; font-size: .875rem; font-weight: 700; line-height: 1.35; }
+.news a { padding: .6rem .9rem .6rem .6rem; }
+.n-img { flex: none; width: 3.5rem; height: 3.5rem; border-radius: .75rem; overflow: hidden; background: rgba(255,255,255,.9); }
+.n-img img, .n-img video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.n-txt { display: flex; flex-direction: column; gap: .15rem; }
+.n-txt time { width: auto; }
+.n-txt b { font-size: 1rem; font-weight: 700; line-height: 1.3; }
+.areas { display: grid; gap: .9rem; }
+.areas .area { flex-direction: row; }
+.areas .thumb { flex: none; width: 38%; height: auto; min-height: 10rem; background: #111; }
+.areas .thumb img, .areas .thumb video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.areas .txt { padding: 1rem 1.1rem 1.1rem; }
+.chips a { font-size: .8125rem; padding: .35rem .75rem; border-radius: 999px; background: var(--glass-3); color: var(--text); font-weight: 600; transition: background .2s; }
+.chips a:hover { background: rgba(255,255,255,.26); }
+.chips { margin: .75rem 0 0; }
+.chips.plain { margin: 0 0 1rem; }
+.pubs { gap: .75rem; margin-bottom: 1.5rem; }
+.pub { display: flex; gap: 1rem; padding: .85rem; align-items: flex-start; }
+.p-img { flex: none; width: 10.5rem; aspect-ratio: 16 / 10; border-radius: .9rem; overflow: hidden; background: rgba(255,255,255,.92); display: block; }
+.p-img img, .p-img video { width: 100%; height: 100%; object-fit: contain; display: block; }
+.pub .date { font-size: .8125rem; font-weight: 800; color: var(--gold); }
+.pub h4 { margin: .2rem 0 .25rem; font-size: 1.0625rem; line-height: 1.3; }
+.pub .venue { margin: 0 0 .2rem; font-size: .875rem; color: var(--text-2); font-weight: 600; }
+.pub .authors { margin: 0; font-size: .8125rem; color: var(--text-3); line-height: 1.45; }
+.course { padding: .75rem; }
+.c-img { flex: none; width: 8.5rem; aspect-ratio: 16 / 9; border-radius: .75rem; overflow: hidden; background: rgba(255,255,255,.92); }
+.c-img img, .c-img video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.c-txt { display: flex; flex-direction: column; gap: .15rem; }
+.c-txt .code { width: auto; }
+.c-txt b { font-size: 1.0625rem; }
+.c-txt .sub { font-size: .875rem; color: var(--text-2); }
+.course.now { outline: 2px solid var(--gold); outline-offset: -2px; }
+.person .links, .pi .links { display: flex; gap: .4rem; justify-content: center; margin-top: .6rem; }
+.person .links a { width: 2rem; height: 2rem; border-radius: 50%; display: grid; place-items: center; background: var(--glass-3); font-size: .8125rem; }
+.pi .links { justify-content: flex-start; }
+.people { grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); }
+.post-img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; border-radius: 1rem; margin-bottom: 1rem; display: block; }
+.posting .actions { display: flex; gap: .6rem; flex-wrap: wrap; }
+
 /* ---------- tab bar ornament ---------- */
 .tabbar {
   position: fixed; left: 50%; bottom: 1.625rem; transform: translateX(-50%);
@@ -256,7 +299,9 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
   .hero h1 { font-size: 1.875rem; }
   .hero img { width: 4rem; height: 4rem; border-radius: 1.125rem; }
   .stats { grid-template-columns: repeat(2, 1fr); }
-  .grid2, .contact { grid-template-columns: 1fr; }
+  .grid2, .contact, .highlights { grid-template-columns: 1fr; }
+  .areas .area, .pub { flex-direction: column; }
+  .areas .thumb, .p-img { width: 100%; }
   .people { grid-template-columns: repeat(2, 1fr); }
   .course { flex-wrap: wrap; }
   .course .term { margin-left: 0; }
@@ -290,166 +335,277 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
   <a class="classic" href="/?classic">Classic site</a>
 </div>
 
+{%- set home = collections.all | pageData("/") -%}
+{%- set research = collections.all | pageData("/research-areas.html") -%}
+{%- set pubs = collections.all | pageData("/publications.html") -%}
+{%- set teach = collections.all | pageData("/teaching.html") -%}
+{%- set team = collections.all | pageData("/team.html") -%}
+{%- set media = collections.all | pageData("/media.html") -%}
+{%- set openings = collections.all | pageData("/openings.html") -%}
+{%- set newsPage = collections.all | pageData("/news.html") -%}
+{%- macro src(u) -%}{% if u and not ("://" in u) and u[0] != "/" %}/{{ u }}{% else %}{{ u }}{% endif %}{%- endmacro -%}
+{%- macro thumb(u, alt="", cls="") -%}
+  {%- if u and (u | lower).endsWith(".mp4") -%}
+  <video class="{{ cls }}" src="{{ src(u) }}" autoplay muted loop playsinline aria-label="{{ alt }}"></video>
+  {%- elif u -%}
+  <img class="{{ cls }}" src="{{ src(u) }}" alt="{{ alt }}" loading="lazy">
+  {%- endif -%}
+{%- endmacro -%}
+{%- macro ext(u) -%}{% if u and "://" in u %} target="_blank" rel="noopener"{% endif %}{%- endmacro -%}
 <main class="stage">
   <div class="ring" id="ring">
 
-    <!-- 0 home -->
-    <section class="win" data-label="Home" aria-label="Home">
+    <!-- Home: index.md and the latest news -->
+    <section class="win" data-label="Home" data-icon="fa-house" aria-label="Home">
       <div class="pane">
-        <div class="body" style="padding-top:30px">
+        <div class="body" style="padding-top:1.875rem">
           <div class="hero">
-            <img src="/img/logo/praise.webp" alt="PRAISe Lab logo">
+            <img src="/img/logo/praise.webp" alt="">
             <div>
               <div class="eyebrow">University of Colorado Boulder</div>
               <h1>PRAISe Lab</h1>
               <p>Perception, Robotics, AI and Sensing</p>
             </div>
           </div>
-          <p class="mission">Minimal perception, novel sensing and onboard computation for tiny robot autonomy. From event cameras to coded optics, we build robots that see and decide with milliwatts of compute.</p>
-          <div class="stats">
-            <div class="tile stat"><b>7</b><span>research areas</span></div>
-            <div class="tile stat"><b>6</b><span>lab members</span></div>
-            <div class="tile stat"><b>3</b><span>workshop papers in 2026</span></div>
-            <div class="tile stat"><b>5</b><span>courses taught</span></div>
+          <div class="prose">{{ collections.all | pageBody("/") | markdown | safe }}</div>
+          <h3 class="sec">Highlights</h3>
+          <div class="highlights">
+            {%- for slide in home.hero_slides %}
+            <a class="tile hl" href="{{ slide.text_url or slide.image_url }}"{{ ext(slide.text_url or slide.image_url) }}>
+              <span class="hl-img {{ 'contain' if slide.fit == 'contain' }}">{{ thumb(slide.image, slide.alt) }}</span>
+              <span class="hl-t">{{ slide.title }}</span>
+            </a>
+            {%- endfor %}
           </div>
           <h3 class="sec">Latest news</h3>
           <div class="news">
-            <a class="tile" href="/research/TinyFlow-workshop.html" target="_blank" rel="noopener"><time>Oct 1, 2026</time><span>TinyFlow wins the Best Poster Award at IROS 2026 (Workshop)</span></a>
-            <a class="tile" href="/research/fold-to-fit.html" target="_blank" rel="noopener"><time>Oct 1, 2026</time><span>Fold-to-Fit presented at IROS 2026 (Workshop)</span></a>
-            <a class="tile" href="/news.html" target="_blank" rel="noopener"><time>Jun 10, 2026</time><span>IROS workshop accepted: Insect-scale Autonomy</span></a>
-            <a class="tile" href="/news.html" target="_blank" rel="noopener"><time>Jun 1, 2026</time><span>Paper presented at the ICRA 2026 workshop</span></a>
+            {%- for item in newsPage.news | sortNewsNewest | take(6) %}
+            <a class="tile" href="{{ src(item.url) if item.url else '/news.html' }}"{{ ext(item.url) }}>
+              <span class="n-img">{{ thumb(item.image, item.image_alt) }}</span>
+              <span class="n-txt"><time>{{ item.date }}</time><b>{{ item.title }}</b></span>
+            </a>
+            {%- endfor %}
           </div>
         </div>
       </div>
-      <span class="win-close"></span><span class="grab"></span>
     </section>
 
-    <!-- 1 research -->
-    <section class="win" data-label="Research" aria-label="Research">
+    <!-- Research: research-areas.md -->
+    <section class="win" data-label="Research" data-icon="fa-flask" aria-label="Research areas">
       <div class="pane">
         <div class="head">
-          <div><h2>Research</h2><p>Seven directions, one goal: autonomy on tiny robots.</p></div>
-          <a class="pill" href="/research-areas.html" target="_blank" rel="noopener">Open <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <div><h2>{{ research.title }}</h2><p>{{ research.summary }}</p></div>
+          <a class="pill" href="/research-areas.html">Open <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
         <div class="body">
-          <div class="grid2">
-            <div class="tile area"><div class="thumb" style="background-image:url('/img/publications/gapflyt-poster.jpg')"></div><div class="txt"><h4>Active Vision for Robot Navigation</h4><p>High-speed quadrotor navigation with only onboard sensing and compute.</p></div></div>
-            <div class="tile area"><div class="thumb" style="background-image:url('https://chahatdeep.github.io/assets/img/research/EVPropNet_S.gif')"></div><div class="txt"><h4>Neuromorphic Perception</h4><p>Algorithms for event cameras, inspired by biological vision.</p></div></div>
-            <div class="tile area"><div class="thumb" style="background-image:url('/img/research/DroneCAD2.png')"></div><div class="txt"><h4>Micro-scale Drone Development</h4><p>Embedded design and CAD for the smallest aerial robots.</p></div></div>
-            <div class="tile area"><div class="thumb" style="background-image:url('/img/research/coded.jpg')"></div><div class="txt"><h4>Computational Imaging</h4><p>Coded optics for navigation and 3D reconstruction.</p></div></div>
-            <div class="tile area"><div class="thumb" style="background-image:url('/img/research/visual-navigation-foundation-models.jpg')"></div><div class="txt"><h4>Visual Navigation with Foundation Models</h4><p>Large pretrained models guiding robots through new places.</p></div></div>
-            <div class="tile area"><div class="thumb" style="background-image:url('https://chahatdeep.github.io/assets/img/research/worldgen_S.gif')"></div><div class="txt"><h4>Sim2Real</h4><p>Training in generated worlds, flying in the real one.</p></div></div>
-            <div class="tile area"><div class="thumb" style="background-image:url('https://chahatdeep.github.io/assets/img/research/RoboBeeHive2.jpg')"></div><div class="txt"><h4>Drone Navigation for Good</h4><p>Quadrotor pollination in the wild.</p></div></div>
-            <a class="tile area" href="/openings.html" target="_blank" rel="noopener" style="justify-content:center;align-items:center;text-align:center;padding:24px"><i class="fa-solid fa-plus" style="font-size:28px;color:var(--gold);margin-bottom:10px"></i><h4>Work with us</h4><p class="muted small">See open positions</p></a>
+          <div class="areas">
+            {%- for area in research.research_areas %}
+            <article class="tile area">
+              <div class="thumb">{{ thumb(area.image, area.title) }}</div>
+              <div class="txt">
+                <h4>{{ area.title }}</h4>
+                <p>{{ area.description }}</p>
+                {%- if area.links %}
+                <div class="chips">
+                  {%- for link in area.links %}<a href="{{ link.url }}"{{ ext(link.url) }}>{{ link.label }}</a>{% endfor %}
+                </div>
+                {%- endif %}
+              </div>
+            </article>
+            {%- endfor %}
           </div>
         </div>
       </div>
-      <span class="win-close"></span><span class="grab"></span>
     </section>
 
-    <!-- 2 publications -->
-    <section class="win" data-label="Publications" aria-label="Publications">
+    <!-- Publications: publications.md -->
+    <section class="win" data-label="Publications" data-short="Papers" data-icon="fa-book-open" aria-label="Publications">
       <div class="pane">
         <div class="head">
-          <div><h2>Publications</h2><p>New project pages and selected papers.</p></div>
-          <a class="pill" href="/publications.html" target="_blank" rel="noopener">All papers <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <div><h2>{{ pubs.title }}</h2><p>{{ pubs.summary }}</p></div>
+          <a class="pill" href="/publications.html">Open <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
         <div class="body">
-          <h3 class="sec">2026 workshop papers</h3>
-          <div class="proj">
-            <a class="tile" href="/research/fold-to-fit.html" target="_blank" rel="noopener"><i class="fa-solid fa-helicopter"></i><div><h4>Fold-to-Fit</h4><p>Propeller interaction and control of a coaxial-bicopter quadrotor. IROS 2026 Workshop</p></div></a>
-            <a class="tile" href="/research/TinyFlow-workshop.html" target="_blank" rel="noopener"><i class="fa-solid fa-wind"></i><div><h4>TinyFlow</h4><p>Breaking the warping bottleneck for edge optical flow. IROS 2026 Workshop, Best Poster Award</p></div></a>
-            <a class="tile" href="/img/papers/VESTA-Bound-ICRA-SpaRo-2026.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-moon"></i><div><h4>Safety-Bounded Space Robot Navigation</h4><p>Vision-language model integration. ICRA 2026 SpaRo Workshop</p></div></a>
-          </div>
-          <h3 class="sec">Selected papers</h3>
           <div class="pubs">
-            <a class="tile" href="/publications.html" target="_blank" rel="noopener"><span class="yr">2024</span><span class="t">Minimal Perception: Enabling Autonomy in Resource-Constrained Robots<span class="v">Frontiers in Robotics and AI</span></span></a>
-            <a class="tile" href="/publications.html" target="_blank" rel="noopener"><span class="yr">2024</span><span class="t">CodedVO: Coded Visual Odometry<span class="v">IEEE Robotics and Automation Letters</span></span></a>
-            <a class="tile" href="/publications.html" target="_blank" rel="noopener"><span class="yr">2024</span><span class="t">CodedEvents: Optimal PSF Engineering for 3D Tracking with Event Cameras<span class="v">CVPR</span></span></a>
-            <a class="tile" href="/publications.html" target="_blank" rel="noopener"><span class="yr">2024</span><span class="t">Microsaccade-inspired Event Camera for Robotics<span class="v">Science Robotics</span></span></a>
-            <a class="tile" href="/publications.html" target="_blank" rel="noopener"><span class="yr">2024</span><span class="t">Active Human Pose Estimation via an Autonomous UAV Agent<span class="v">IROS</span></span></a>
-            <a class="tile" href="/publications.html" target="_blank" rel="noopener"><span class="yr">2023</span><span class="t">Ajna: Generalized Deep Uncertainty for Minimal Perception on Parsimonious Robots<span class="v">Science Robotics</span></span></a>
+            {%- for p in pubs.publications %}
+            <article class="tile pub">
+              <a class="p-img" href="{{ p.primary_url }}"{{ ext(p.primary_url) }}>{{ thumb(p.image, p.title) }}</a>
+              <div>
+                <span class="date">{{ p.date }}</span>
+                <h4><a href="{{ p.primary_url }}"{{ ext(p.primary_url) }}>{{ p.title }}</a></h4>
+                <p class="venue">{{ p.venue }}</p>
+                <p class="authors">{{ p.authors }}</p>
+                {%- if p.links %}
+                <div class="chips">
+                  {%- for link in p.links %}<a href="{{ link.url }}"{{ ext(link.url) }}>{{ link.label }}</a>{% endfor %}
+                </div>
+                {%- endif %}
+              </div>
+            </article>
+            {%- endfor %}
           </div>
         </div>
       </div>
-      <span class="win-close"></span><span class="grab"></span>
     </section>
 
-    <!-- 3 team -->
-    <section class="win" data-label="Team" aria-label="Team">
+    <!-- Teaching: teaching.md -->
+    <section class="win" data-label="Teaching" data-icon="fa-chalkboard-user" aria-label="Teaching">
       <div class="pane">
         <div class="head">
-          <div><h2>Team</h2><p>The people behind PRAISe.</p></div>
-          <a class="pill" href="/team.html" target="_blank" rel="noopener">Open <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <div><h2>{{ teach.title }}</h2><p>{{ teach.kicker }}</p></div>
+          <a class="pill" href="/teaching.html">Open <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
         <div class="body">
+          {%- for term in teach.teaching_terms %}
+          {%- set firstTerm = loop.first %}
+          <h3 class="sec">{{ term.name }}</h3>
+          {%- for course in term.courses %}
+          <a class="tile course{{ ' now' if loop.first and firstTerm }}" href="{{ course.url }}"{{ ext(course.url) }}>
+            <span class="c-img">{{ thumb(course.media, course.media_alt) }}</span>
+            <span class="c-txt">
+              <span class="code">{{ course.code }}</span>
+              <b>{{ course.title }}</b>
+              {%- if course.subtitle %}<span class="sub">{{ course.subtitle }}</span>{% endif %}
+            </span>
+          </a>
+          {%- endfor %}
+          {%- endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- Team: team.md -->
+    <section class="win" data-label="Team" data-icon="fa-user-group" aria-label="Team">
+      <div class="pane">
+        <div class="head">
+          <div><h2>{{ team.title }}</h2><p>{{ team.kicker }}</p></div>
+          <a class="pill" href="/team.html">Open <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+        <div class="body">
+          {%- set pi = team.principal_investigator %}
           <div class="tile pi">
-            <img src="/img/team/chahat-13.jpg" alt="Chahat Deep Singh">
+            <img src="{{ pi.image }}" alt="{{ pi.name }}">
             <div>
-              <div class="eyebrow">Principal Investigator</div>
-              <h4>Chahat Deep Singh</h4>
-              <p>Assistant Professor, CU Boulder</p>
+              <div class="eyebrow">{{ pi.role }}</div>
+              <h4>{{ pi.name }}</h4>
               <div class="links">
-                <a href="https://scholar.google.com/citations?user=ASaUMpsAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
-                <a href="https://x.com/chahatdeep" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=chahatdeep" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                {%- for link in pi.links %}
+                <a href="{{ link.url }}"{{ ext(link.url) }} aria-label="{{ link.label }}" title="{{ link.label }}"><i class="{{ 'fa-brands fa-x-twitter' if link.type == 'x' else ('fa-brands fa-linkedin-in' if link.type == 'linkedin' else ('fa-brands fa-github' if link.type == 'github' else 'fa-solid fa-graduation-cap')) }}"></i></a>
+                {%- endfor %}
               </div>
             </div>
           </div>
-          <h3 class="sec">Graduate students</h3>
+          <h3 class="sec">Current students</h3>
           <div class="people">
-            <div class="tile person"><img src="/img/team/thanush.jpg" alt=""><b>Thanushraam Suresh Kumar</b></div>
-            <div class="tile person"><img src="/img/team/xiaoao.png" alt=""><b>Xiao'ao Song</b></div>
-            <div class="tile person"><img src="/img/team/pravesh_cropped.jpg" alt=""><b>Pravesh Rana</b></div>
-            <div class="tile person"><img src="/img/team/jimmy.jpg" alt=""><b>Tam (Jimmy) Tran</b></div>
-            <div class="tile person"><img src="/img/team/ethan.jpg" alt=""><b>Ethan K.</b></div>
+            {%- for person in team.current_students %}
+            <div class="tile person">
+              <img src="{{ person.image }}" alt="">
+              <b>{{ person.name }}</b>
+              <span>{{ person.role }}</span>
+              {%- if person.links %}
+              <div class="links">
+                {%- for link in person.links %}
+                <a href="{{ link.url }}"{{ ext(link.url) }} aria-label="{{ link.label }}" title="{{ link.label }}"><i class="{{ 'fa-brands fa-x-twitter' if link.type == 'x' else ('fa-brands fa-linkedin-in' if link.type == 'linkedin' else ('fa-brands fa-github' if link.type == 'github' else 'fa-solid fa-graduation-cap')) }}"></i></a>
+                {%- endfor %}
+              </div>
+              {%- endif %}
+            </div>
+            {%- endfor %}
           </div>
+          {%- if team.alumni %}
           <h3 class="sec">Alumni</h3>
           <div class="alumni">
-            <div class="tile"><b>Akash Chinthamanipeta</b><span>Automation & Robotics Engineer, Algae Barn</span></div>
-            <div class="tile"><b>Sarath Chandra V</b><span>Mechanical Engineer, Figure AI</span></div>
-            <div class="tile"><b>Mohammad Qazim Bhat</b><span>M.S. CS, CU Boulder</span></div>
+            {%- for person in team.alumni %}
+            <div class="tile"><b>{{ person.name }}</b><span>{{ person.destination }}</span></div>
+            {%- endfor %}
           </div>
+          {%- endif %}
         </div>
       </div>
-      <span class="win-close"></span><span class="grab"></span>
     </section>
 
-    <!-- 4 teaching -->
-    <section class="win" data-label="Teaching" aria-label="Teaching">
+    <!-- Media: media.md -->
+    <section class="win" data-label="Media" data-icon="fa-newspaper" aria-label="Media">
       <div class="pane">
         <div class="head">
-          <div><h2>Teaching</h2><p>Graduate courses and senior design.</p></div>
-          <a class="pill" href="/teaching.html" target="_blank" rel="noopener">Open <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <div><h2>{{ media.title }}</h2><p>{{ media.summary }}</p></div>
+          <a class="pill" href="/media.html">Open <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
         <div class="body">
-          <a class="tile course now" href="/teaching/advancedcv-fall2026.html" target="_blank" rel="noopener"><span class="code">MCEN 5228-010</span><div><h4>Advanced Computer Vision</h4><p>Geometry and learning-based methods</p></div><span class="term">Fall 2026 · Now</span></a>
-          <a class="tile course" href="/teaching/ai4engg-spring2026.html" target="_blank" rel="noopener"><span class="code">MCEN 5228-003</span><div><h4>AI for Engineers</h4><p>Machine learning for engineering problems</p></div><span class="term">Spring 2026</span></a>
-          <a class="tile course" href="/teaching/advancedcv-fall2025.html" target="_blank" rel="noopener"><span class="code">MCEN 5228-009</span><div><h4>Advanced Computer Vision</h4><p>Geometry and learning-based methods</p></div><span class="term">Fall 2025</span></a>
-          <a class="tile course" href="/teaching/haq-spring2025.html" target="_blank" rel="noopener"><span class="code">Senior Design</span><div><h4>HAQ Lab: Autonomous Rover</h4><p>with Prof. Michael Hannigan</p></div><span class="term">Spring 2025</span></a>
-          <a class="tile course" href="/teaching/medtronicnav-spring2025.html" target="_blank" rel="noopener"><span class="code">Senior Design</span><div><h4>Medtronic Navigation: Snapshot Registration</h4><p>with Medtronic plc</p></div><span class="term">Spring 2025</span></a>
+          <h3 class="sec">In the news</h3>
+          <div class="pubs">
+            {%- for m in media.media_coverage %}
+            <article class="tile pub">
+              <a class="p-img" href="{{ m.primary_url }}"{{ ext(m.primary_url) }}>{{ thumb(m.image, m.title) }}</a>
+              <div>
+                <span class="date">{{ m.source }} · {{ m.date }}</span>
+                <h4><a href="{{ m.primary_url }}"{{ ext(m.primary_url) }}>{{ m.title }}</a></h4>
+                <p class="authors">{{ m.description }}</p>
+                {%- if m.links %}
+                <div class="chips">
+                  {%- for link in m.links %}<a href="{{ link.url }}"{{ ext(link.url) }}>{{ link.label }}</a>{% endfor %}
+                </div>
+                {%- endif %}
+              </div>
+            </article>
+            {%- endfor %}
+          </div>
+          {%- if media.talks %}
+          <h3 class="sec">Talks</h3>
+          <div class="pubs">
+            {%- for t in media.talks %}
+            <article class="tile pub">
+              <a class="p-img" href="{{ t.primary_url }}"{{ ext(t.primary_url) }}>{{ thumb(t.image, t.title) }}</a>
+              <div>
+                <span class="date">{{ t.date }}</span>
+                <h4><a href="{{ t.primary_url }}"{{ ext(t.primary_url) }}>{{ t.title }}</a></h4>
+                {%- if t.subtitle %}<p class="venue">{{ t.subtitle }}</p>{% endif %}
+                {%- if t.speaker %}<p class="authors">{{ t.speaker }}</p>{% endif %}
+                {%- if t.links %}
+                <div class="chips">
+                  {%- for link in t.links %}<a href="{{ link.url }}"{{ ext(link.url) }}>{{ link.label }}</a>{% endfor %}
+                </div>
+                {%- endif %}
+              </div>
+            </article>
+            {%- endfor %}
+          </div>
+          {%- endif %}
         </div>
       </div>
-      <span class="win-close"></span><span class="grab"></span>
     </section>
 
-    <!-- 5 openings -->
-    <section class="win" data-label="Join" aria-label="Openings and contact">
+    <!-- Openings: openings.md -->
+    <section class="win" data-label="Openings" data-icon="fa-briefcase" data-badge="{{ navBadges.openings }}" aria-label="Openings">
       <div class="pane">
         <div class="head">
-          <div><h2>Join PRAISe</h2><p>Open positions and how to find us.</p></div>
+          <div><h2>{{ openings.title }}</h2><p>{{ openings.kicker }}</p></div>
+          <a class="pill" href="/openings.html">Open <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
         <div class="body">
+          {%- for post in openings.postings %}
           <div class="tile posting">
-            <span class="eyebrow">New opening</span>
-            <h4>Postdoctoral Researcher</h4>
-            <p class="sub">Event and Neuromorphic Vision for High-Speed Aerial Robots</p>
-            <div class="chips"><span>Boulder, CO, on-site</span><span>1-year appointment, renewable</span><span>Sub-10 ms perception</span></div>
-            <div style="display:flex;gap:10px;flex-wrap:wrap">
-              <a class="pill gold" href="https://forms.gle/HUvZ2gQN4r799ir5A" target="_blank" rel="noopener">Apply <i class="fa-solid fa-arrow-right"></i></a>
-              <a class="pill" href="/openings.html" target="_blank" rel="noopener">Details</a>
+            {%- if post.image %}<img class="post-img" src="{{ post.image }}" alt="{{ post.image_alt }}">{% endif %}
+            {%- if post.status %}<span class="eyebrow">{{ post.status }}</span>{% endif %}
+            <h4>{{ post.title }}</h4>
+            {%- if post.subtitle %}<p class="sub">{{ post.subtitle }}</p>{% endif %}
+            {%- if post.meta %}
+            <div class="chips plain">{% for m in post.meta %}<span>{{ m }}</span>{% endfor %}</div>
+            {%- endif %}
+            <div class="actions">
+              {%- if post.apply_url %}<a class="pill gold" href="{{ post.apply_url }}"{{ ext(post.apply_url) }}>{{ post.apply_label or "Apply" }} <i class="fa-solid fa-arrow-right"></i></a>{% endif %}
+              <a class="pill" href="/openings.html">Details</a>
             </div>
-            <p class="note">Open only to U.S. citizens and lawful permanent residents.</p>
+            {%- if post.apply_note %}<p class="note">{{ post.apply_note }}</p>{% endif %}
+          </div>
+          {%- endfor %}
+          <div class="tile posting">
+            <span class="eyebrow">Prospective students</span>
+            <p class="sub">{{ openings.summary }}</p>
+            <div class="actions">
+              {%- if openings.application_url %}<a class="pill gold" href="{{ openings.application_url }}"{{ ext(openings.application_url) }}>{{ openings.application_label }} <i class="fa-solid fa-arrow-right"></i></a>{% endif %}
+              {%- if openings.secondary_url %}<a class="pill" href="{{ openings.secondary_url }}">{{ openings.secondary_label }}</a>{% endif %}
+            </div>
           </div>
           <h3 class="sec">Find us</h3>
           <div class="contact">
@@ -460,7 +616,6 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
           </div>
         </div>
       </div>
-      <span class="win-close"></span><span class="grab"></span>
     </section>
 
   </div>
@@ -475,7 +630,6 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
   const tabbar = document.getElementById("tabbar");
   const ring = document.getElementById("ring");
   const env = document.getElementById("env");
-  const icons = ["fa-house", "fa-flask", "fa-book-open", "fa-user-group", "fa-chalkboard-user", "fa-briefcase"];
   const STEP = 42;
   let R = 1350, U = 1;
   function fit() {
@@ -490,8 +644,8 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
   wins.forEach((w, i) => {
     const b = document.createElement("button");
     b.setAttribute("role", "tab");
-    b.innerHTML = `<i class="fa-solid ${icons[i]}"></i><span class="full">${w.dataset.label}</span><span class="short">${w.dataset.label === "Publications" ? "Papers" : w.dataset.label}</span>` +
-      (i === 5 ? ` <span class="badge lbl-badge">New</span>` : "");
+    b.innerHTML = `<i class="fa-solid ${w.dataset.icon}"></i><span class="full">${w.dataset.label}</span><span class="short">${w.dataset.short || w.dataset.label}</span>` +
+      (w.dataset.badge ? ` <span class="badge lbl-badge">${w.dataset.badge}</span>` : "");
     b.addEventListener("click", () => go(i));
     tabbar.appendChild(b);
     w.addEventListener("click", () => { if (i !== active) go(i); });

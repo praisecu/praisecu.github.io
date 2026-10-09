@@ -1,6 +1,8 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 
+import markdownIt from "markdown-it";
+
 import researchProjectPages from "./eleventy.research.js";
 
 export default function (eleventyConfig) {
@@ -47,8 +49,7 @@ export default function (eleventyConfig) {
     "owl.carousel",
     "teaching/css",
     "teaching/img",
-    "teaching/js",
-    "spatial"
+    "teaching/js"
   ];
 
   for (const directory of assetDirectories) {
@@ -272,6 +273,29 @@ export default function (eleventyConfig) {
 
     return "@" + type + "{" + key + ",\n" + body + "\n}";
   });
+
+  /*
+   * Front matter of another page, found by its URL. The spatial view
+   * uses this to show the same content as the regular pages.
+   */
+  eleventyConfig.addFilter("pageData", (items = [], url = "") => {
+    const match = items.find((item) => item.url === url);
+    return match ? match.data : {};
+  });
+
+  /*
+   * Markdown body of another page, found by its URL, without its
+   * front matter.
+   */
+  eleventyConfig.addFilter("pageBody", (items = [], url = "") => {
+    const match = items.find((item) => item.url === url);
+    const raw = match?.rawInput || "";
+    return raw.replace(/^---[\s\S]*?\n---\s*/, "");
+  });
+
+  eleventyConfig.addFilter("markdown", (text = "") =>
+    markdownIt({ html: true }).render(String(text))
+  );
 
   /*
    * Return only the requested number of items.
