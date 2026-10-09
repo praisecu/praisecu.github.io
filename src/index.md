@@ -13,7 +13,7 @@ hero_slides:
   #   fit: cover
 
 
-  - title: Submit to Insect-scale Autonomy IROS workshop | Deadline - Sep 15, 2026
+  - title: Insect-scale Autonomy Workshop | Held at IROS 2026 in Pittsburgh, PA
     text_url: https://insect-autonomy.github.io/
     image_url: https://insect-autonomy.github.io/
     image: https://insect-autonomy.github.io/insect-autonomy-banner.jpg
