@@ -26,7 +26,7 @@ publications:
   - title: "TinyFlow: Breaking the Warping Bottleneck for Edge Optical Flow"
     date: "IROS Workshop · Oct 2026"
     year: 2026
-    image: "/research/TinyFlow-workshop/static/images/motivation.jpg"
+    image: "/research/TinyFlow-workshop/static/images/card.png"
     primary_url: "/research/TinyFlow-workshop.html"
     venue: "IROS 2026 Workshop on Insect-scale Autonomy | Best Poster Award"
     authors: "Xiao'ao Song, Chahat Deep Singh"
