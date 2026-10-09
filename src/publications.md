@@ -11,7 +11,7 @@ publications:
   - title: "Fold-to-Fit: Propeller Interaction and Control of a Coaxial-Bicopter Quadrotor"
     date: "IROS Workshop · Oct 2026"
     year: 2026
-    image: "/research/fold-to-fit/static/images/social.jpg"
+    image: "/research/fold-to-fit/static/images/card.jpg"
     primary_url: "/research/fold-to-fit.html"
     venue: "IROS 2026 Workshop on Insect-scale Autonomy"
     authors: "Pravesh Rana Vadapalli, Chahat Deep Singh"

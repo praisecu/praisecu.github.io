@@ -11,7 +11,7 @@ news:
   - title: Paper Presented in IROS 2026 (Workshop) | Fold-to-Fit
     date: Oct 1, 2026
     date_iso: 2026-10-01
-    image: /research/fold-to-fit/static/images/social.jpg
+    image: /research/fold-to-fit/static/images/card.jpg
     image_alt: TinyMorph folding from a quadrotor into a coaxial bicopter
     url: /research/fold-to-fit.html
     external: false
