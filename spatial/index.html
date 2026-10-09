@@ -477,7 +477,7 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
   let R = 1350, U = 1;
   function fit() {
     const wide = innerWidth > 900;
-    U = wide ? Math.max(.85, Math.min(2.6, innerWidth * .62 / 760, innerHeight / 740)) : 1;
+    U = wide ? Math.max(.85, Math.min(2.1, .8 * Math.min(innerWidth * .62 / 760, innerHeight / 740))) : 1;
     document.documentElement.style.fontSize = (16 * U) + "px";
     R = 1350 * U;
   }
