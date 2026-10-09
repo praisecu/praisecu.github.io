@@ -42,10 +42,13 @@ publications:
     date: "ICRA Workshop · Jun 2026"
     year: 2026
     image: "/img/papers/VESTA-Bound-ICRA-Workshop.png"
-    primary_url: "https://www.youtube.com/watch?v=TWIeqfySpkk"
+    primary_url: "/img/papers/VESTA-Bound-ICRA-SpaRo-2026.pdf"
     venue: "ICRA 2026 SpaRo Workshop"
-    authors: "Tam Tran, Chahat Deep Singh"
+    authors: "Jimmy Tran, Chahat Deep Singh"
     links:
+      - label: PDF
+        type: pdf
+        url: "/img/papers/VESTA-Bound-ICRA-SpaRo-2026.pdf"
       - label: Video
         type: video
         url: "https://www.youtube.com/watch?v=TWIeqfySpkk"
