@@ -78,6 +78,7 @@ a { color: inherit; text-decoration: none; }
 /* ---------- stage ---------- */
 .stage {
   position: fixed; inset: 0;
+  touch-action: pan-y;
   perspective: 100rem; perspective-origin: 50% 45%;
 }
 .ring {
@@ -103,6 +104,8 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
 }
 .win.side { cursor: pointer; }
+.ring.dragging .win { transition: none; }
+.ring.dragging ~ * , .ring.dragging { user-select: none; }
 .win.side .pane { pointer-events: none; }
 .win.side::after {
   content: attr(data-label); position: absolute; inset: auto 0 -3.25rem 0; text-align: center;
@@ -306,15 +309,15 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
           <div class="stats">
             <div class="tile stat"><b>7</b><span>research areas</span></div>
             <div class="tile stat"><b>6</b><span>lab members</span></div>
-            <div class="tile stat"><b>3</b><span>IROS 2026 workshop papers</span></div>
+            <div class="tile stat"><b>3</b><span>workshop papers in 2026</span></div>
             <div class="tile stat"><b>5</b><span>courses taught</span></div>
           </div>
           <h3 class="sec">Latest news</h3>
           <div class="news">
+            <a class="tile" href="/research/TinyFlow-workshop.html" target="_blank" rel="noopener"><time>Oct 1, 2026</time><span>TinyFlow wins the Best Poster Award at IROS 2026 (Workshop)</span></a>
+            <a class="tile" href="/research/fold-to-fit.html" target="_blank" rel="noopener"><time>Oct 1, 2026</time><span>Fold-to-Fit presented at IROS 2026 (Workshop)</span></a>
             <a class="tile" href="/news.html" target="_blank" rel="noopener"><time>Jun 10, 2026</time><span>IROS workshop accepted: Insect-scale Autonomy</span></a>
             <a class="tile" href="/news.html" target="_blank" rel="noopener"><time>Jun 1, 2026</time><span>Paper presented at the ICRA 2026 workshop</span></a>
-            <a class="tile" href="/news.html" target="_blank" rel="noopener"><time>Mar 15, 2026</time><span>Served as editor for MDPI Drones</span></a>
-            <a class="tile" href="/news.html" target="_blank" rel="noopener"><time>Feb 15, 2026</time><span>Served as associate editor for IROS 2026</span></a>
           </div>
         </div>
       </div>
@@ -352,11 +355,11 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
           <a class="pill" href="/publications.html" target="_blank" rel="noopener">All papers <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
         <div class="body">
-          <h3 class="sec">IROS 2026 Workshop on Insect-scale Autonomy</h3>
+          <h3 class="sec">2026 workshop papers</h3>
           <div class="proj">
-            <a class="tile" href="/research/fold-to-fit.html" target="_blank" rel="noopener"><i class="fa-solid fa-helicopter"></i><div><h4>Fold-to-Fit</h4><p>Propeller interaction and control of a coaxial-bicopter quadrotor</p></div></a>
-            <a class="tile" href="/research/TinyFlow-workshop.html" target="_blank" rel="noopener"><i class="fa-solid fa-wind"></i><div><h4>TinyFlow</h4><p>Breaking the warping bottleneck for edge optical flow</p></div></a>
-            <a class="tile" href="/research/NibbleFlow.html" target="_blank" rel="noopener"><i class="fa-solid fa-microchip"></i><div><h4>NibbleFlow</h4><p>Breaking the warping bottleneck for edge optical flow</p></div></a>
+            <a class="tile" href="/research/fold-to-fit.html" target="_blank" rel="noopener"><i class="fa-solid fa-helicopter"></i><div><h4>Fold-to-Fit</h4><p>Propeller interaction and control of a coaxial-bicopter quadrotor. IROS 2026 Workshop</p></div></a>
+            <a class="tile" href="/research/TinyFlow-workshop.html" target="_blank" rel="noopener"><i class="fa-solid fa-wind"></i><div><h4>TinyFlow</h4><p>Breaking the warping bottleneck for edge optical flow. IROS 2026 Workshop, Best Poster Award</p></div></a>
+            <a class="tile" href="/img/papers/VESTA-Bound-ICRA-SpaRo-2026.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-moon"></i><div><h4>Safety-Bounded Space Robot Navigation</h4><p>Vision-language model integration. ICRA 2026 SpaRo Workshop</p></div></a>
           </div>
           <h3 class="sec">Selected papers</h3>
           <div class="pubs">
@@ -464,7 +467,7 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
 </main>
 
 <nav class="tabbar" id="tabbar" role="tablist" aria-label="Windows"></nav>
-<div class="hint">← → to move between windows</div>
+<div class="hint">Swipe or ← → to move between windows</div>
 
 <script>
 (() => {
@@ -494,22 +497,24 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
     w.addEventListener("click", () => { if (i !== active) go(i); });
   });
 
-  function layout() {
+  // pos is the window position on the arc; fractional while dragging.
+  function layout(pos = active) {
     wins.forEach((w, i) => {
-      const d = i - active;
+      const d = i - pos, ad = Math.abs(d);
       const a = d * STEP * Math.PI / 180;
       const x = R * Math.sin(a), z = -R * (1 - Math.cos(a));
-      const far = Math.abs(d) > 1;
-      w.style.transform = `translate3d(${x}px, 0, ${z - (d ? 260 * U : 0)}px) rotateY(${-d * STEP}deg)`;
-      w.style.opacity = far ? 0 : d ? .62 : 1;
-      w.style.filter = d ? "saturate(.8)" : "none";
+      const far = ad >= 1.5;
+      w.style.transform = `translate3d(${x}px, 0, ${z - Math.min(ad, 1) * 260 * U}px) rotateY(${-d * STEP}deg)`;
+      w.style.opacity = ad <= 1 ? 1 - .38 * ad : Math.max(0, .62 * (2 - ad) * 2 - .62);
+      w.style.filter = ad > .05 ? "saturate(.8)" : "none";
       w.style.pointerEvents = far ? "none" : "auto";
-      w.style.zIndex = 10 - Math.abs(d);
-      w.classList.toggle("side", d !== 0);
-      w.classList.toggle("active", d === 0);
-      tabbar.children[i].setAttribute("aria-selected", d === 0);
+      w.style.zIndex = 10 - Math.round(ad);
+      const on = i === Math.round(pos);
+      w.classList.toggle("side", !on);
+      w.classList.toggle("active", on);
+      tabbar.children[i].setAttribute("aria-selected", on);
     });
-    env.style.transform = `scale(1.06) translateX(${-active * 14}px)`;
+    env.style.transform = `scale(1.06) translateX(${-pos * 14}px)`;
   }
   function go(i) { active = Math.max(0, Math.min(wins.length - 1, i)); layout(); }
 
@@ -518,6 +523,61 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
   bodies.forEach(b => b.addEventListener("scroll", fade, { passive: true }));
   fade();
   addEventListener("resize", () => { fit(); layout(); fade(); });
+  // Horizontal swipes and scrolls move between windows: trackpad and
+  // mouse horizontal scrolling, touch swipes, and pinch-and-drag on Vision Pro.
+  let wheelX = 0, wheelLock = 0, wheelReset;
+  addEventListener("wheel", e => {
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+    e.preventDefault();
+    if (Date.now() < wheelLock) return;
+    wheelX += e.deltaX;
+    clearTimeout(wheelReset);
+    wheelReset = setTimeout(() => wheelX = 0, 180);
+    if (Math.abs(wheelX) > 70) {
+      go(active + Math.sign(wheelX));
+      wheelX = 0;
+      wheelLock = Date.now() + 550;
+    }
+  }, { passive: false });
+
+  const stage = document.querySelector(".stage");
+  let drag = null, swallowClick = false;
+  stage.addEventListener("pointerdown", e => {
+    if (e.button !== 0) return;
+    drag = { x: e.clientX, y: e.clientY, id: e.pointerId, moving: false };
+  });
+  addEventListener("pointermove", e => {
+    if (!drag || e.pointerId !== drag.id) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (!drag.moving) {
+      if (Math.abs(dx) < 12 || Math.abs(dx) < Math.abs(dy) * 1.3) {
+        if (Math.abs(dy) > 12) drag = null;
+        return;
+      }
+      drag.moving = true;
+      ring.classList.add("dragging");
+      try { stage.setPointerCapture(drag.id); } catch (error) {}
+    }
+    const span = Math.min(innerWidth * .6, 900);
+    const pos = Math.max(-.35, Math.min(wins.length - .65, active - dx / span));
+    layout(pos);
+  });
+  const endDrag = e => {
+    if (!drag || e.pointerId !== drag.id) return;
+    if (drag.moving) {
+      const dx = e.clientX - drag.x, span = Math.min(innerWidth * .6, 900);
+      ring.classList.remove("dragging");
+      swallowClick = true;
+      setTimeout(() => swallowClick = false, 0);
+      const step = Math.abs(dx) > span * .18 ? -Math.sign(dx) * Math.max(1, Math.round(Math.abs(dx) / span)) : 0;
+      go(active + step);
+    }
+    drag = null;
+  };
+  addEventListener("pointerup", endDrag);
+  addEventListener("pointercancel", e => { if (drag && drag.moving) { ring.classList.remove("dragging"); layout(); } drag = null; });
+  addEventListener("click", e => { if (swallowClick) { e.preventDefault(); e.stopPropagation(); } }, true);
+
   addEventListener("keydown", e => {
     if (e.key === "ArrowRight") go(active + 1);
     if (e.key === "ArrowLeft") go(active - 1);
