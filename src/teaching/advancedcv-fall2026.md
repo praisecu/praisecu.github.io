@@ -28,7 +28,7 @@ announcements:
   - date: October 25, 2026
     date_iso: 2026-10-25
     type: lecture
-    text: "Recordings for Lectures 12 to 15 (Two-View Geometry, Structure from Motion and Volumetric Rendering) are now posted."
+    text: "Lectures 12 to 15 (Two-View Geometry, Structure from Motion and Volumetric Rendering) slides and recordings are now posted."
 
   - date: October 6, 2026
     date_iso: 2026-10-06
@@ -175,10 +175,10 @@ Rough estimates. Free-tier sessions disconnect, but the starter notebooks checkp
 |10|Coded Deep Depth|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQCyexnnsiPbSLA5RbzUM2WuAT80sMows9O9vVeSy_19dgU?e=QvB2a6)|[Link](https://cuboulder.zoom.us/rec/share/UNv6UpZCWD6TBiQbPO0fh8rWOVv9UVIcYnvsyfiOizhaHRKaFB3WpT5BfBWpLTOp.q316LeGVssn_1mgg)|
 |11|Coded Deep Depth — 2|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQALE_djqBrjQaOXGo_tUmhMAakMnBigGSJdoomH1JjsMGc?e=jhTKat)|[Link](https://cuboulder.zoom.us/rec/share/WWpNS0gqG4pzP8tayjIRME0iVOwBsTw5wzvkt8fXoj7fOdPtNex2tfX-4mSMfx7K.hGll7gAY8X2762Cn)|
 |11b|Project 2 Release|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQC5cc8n-MGfTp01t8TTFGpSARsQZowf0pOJ3YoJh7gDRBw?e=rjvIiX)|—|
-|12|Two-View Geometry and Stereopsis|—|[Link](https://cuboulder.zoom.us/rec/share/RCvatodqMqut1MngmRIw8apH4elcyEZhwhB3TU4SD7Yze3G8WmniTiTUIcZb0Ca4.i_YJsmBJeS48by57)|
-|13|Structure from Motion — 1|—|[Link](https://cuboulder.zoom.us/rec/share/nM7piJ-DSoaf2jQygKJkNFDhHpPd_KXc3iY5p2gL9ag58O8CrZfJlcxG-3fxNJvU.p4wPZnKPccYZOPhf)|
-|14|Structure from Motion — 2|—|[Link](https://cuboulder.zoom.us/rec/share/fIlSdXdrJnIgskU9ABrb2HxvfDO38QenTki6dHGoQZaFmBQNXdRrBbdxyoDEu3ca.HtRaKF3LhlgbyfKF)|
-|15|Volumetric Rendering|—|[Link](https://cuboulder.zoom.us/rec/share/Akr-LwVo2PfdpU2tiKIORBy_FIcyj-zRkD9kmX0WGm5w5XVDTJmzJReTavcneiM9.ScmA0t63qyJE4dxf)|
+|12|Two-View Geometry and Stereopsis|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQATnOr3-aTnSbzGphAbsNn3ASFK9h9ckn4xMdt9xtlfwQ4?e=iIzPSf)|[Link](https://cuboulder.zoom.us/rec/share/RCvatodqMqut1MngmRIw8apH4elcyEZhwhB3TU4SD7Yze3G8WmniTiTUIcZb0Ca4.i_YJsmBJeS48by57)|
+|13|Structure from Motion — 1|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQC5keeEYJJnQa-q18_-IpJiATwn-j4xHmPI8dJWrZB3-J8?e=OmiIpV)|[Link](https://cuboulder.zoom.us/rec/share/nM7piJ-DSoaf2jQygKJkNFDhHpPd_KXc3iY5p2gL9ag58O8CrZfJlcxG-3fxNJvU.p4wPZnKPccYZOPhf)|
+|14|Structure from Motion — 2|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQCBs1337XhRRaM6MlO0HKjQAWMTmYnEExRyHlz-p_TBO90?e=K4ts3g)|[Link](https://cuboulder.zoom.us/rec/share/fIlSdXdrJnIgskU9ABrb2HxvfDO38QenTki6dHGoQZaFmBQNXdRrBbdxyoDEu3ca.HtRaKF3LhlgbyfKF)|
+|15|Volumetric Rendering|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQDhSrSuERBRSIqt0qWr5zj4AYl22pQQ_V8rxnPNycfz1Kc?e=diXEY7)|[Link](https://cuboulder.zoom.us/rec/share/Akr-LwVo2PfdpU2tiKIORBy_FIcyj-zRkD9kmX0WGm5w5XVDTJmzJReTavcneiM9.ScmA0t63qyJE4dxf)|
 |16|Neural Radiance Fields|—|—|
 |17|More NeRFs|—|—|
 |18|3D Gaussian Splatting|—|—|
