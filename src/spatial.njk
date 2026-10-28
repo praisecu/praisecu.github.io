@@ -477,7 +477,7 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
           {%- set firstTerm = loop.first %}
           <h3 class="sec">{{ term.name }}</h3>
           {%- for course in term.courses %}
-          <a class="tile course{{ ' now' if loop.first and firstTerm }}" href="{{ course.url }}"{{ ext(course.url) }}>
+          <a class="tile course" href="{{ course.url }}"{{ ext(course.url) }}>
             <span class="c-img">{{ thumb(course.media, course.media_alt) }}</span>
             <span class="c-txt">
               <span class="code">{{ course.code }}</span>

@@ -8,6 +8,23 @@ description: Courses at CU Boulder taught by the PRAISe Lab in machine learning,
 permalink: /teaching.html
 
 teaching_terms:
+  - name: Spring 2027
+    id: spring-2027
+    courses:
+      - code: MCEN 2043-002
+        title: Dynamics
+        subtitle: Kinematics and Kinetics of Particles and Rigid Bodies
+        url: /teaching/dynamics-spring2027.html
+        media: /img/teaching/Dynamics-Banner/Dynamics.png
+        media_type: image
+        media_fit: contain
+        media_alt: Dynamics course banner
+        description: >-
+          An undergraduate course on the dynamic behavior of particles and
+          rigid bodies: 2-D and 3-D kinematics and kinetics; work and energy;
+          impulse and momentum; collisions and vibration. The syllabus is
+          tentative and will be updated before the semester begins.
+
   - name: Fall 2026
     id: fall-2026
     courses:
