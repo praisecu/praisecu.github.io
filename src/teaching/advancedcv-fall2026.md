@@ -25,6 +25,11 @@ quick_info:
 # Use type: lecture | assignment | schedule | setup
 announcements:
 
+  - date: October 27, 2026
+    date_iso: 2026-10-27
+    type: lecture
+    text: "Lecture 16 (Neural Radiance Fields) slides are now posted."
+
   - date: October 25, 2026
     date_iso: 2026-10-25
     type: lecture
@@ -179,7 +184,7 @@ Rough estimates. Free-tier sessions disconnect, but the starter notebooks checkp
 |13|Structure from Motion — 1|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQC5keeEYJJnQa-q18_-IpJiATwn-j4xHmPI8dJWrZB3-J8?e=OmiIpV)|[Link](https://cuboulder.zoom.us/rec/share/nM7piJ-DSoaf2jQygKJkNFDhHpPd_KXc3iY5p2gL9ag58O8CrZfJlcxG-3fxNJvU.p4wPZnKPccYZOPhf)|
 |14|Structure from Motion — 2|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQCBs1337XhRRaM6MlO0HKjQAWMTmYnEExRyHlz-p_TBO90?e=K4ts3g)|[Link](https://cuboulder.zoom.us/rec/share/fIlSdXdrJnIgskU9ABrb2HxvfDO38QenTki6dHGoQZaFmBQNXdRrBbdxyoDEu3ca.HtRaKF3LhlgbyfKF)|
 |15|Volumetric Rendering|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQDhSrSuERBRSIqt0qWr5zj4AYl22pQQ_V8rxnPNycfz1Kc?e=diXEY7)|[Link](https://cuboulder.zoom.us/rec/share/Akr-LwVo2PfdpU2tiKIORBy_FIcyj-zRkD9kmX0WGm5w5XVDTJmzJReTavcneiM9.ScmA0t63qyJE4dxf)|
-|16|Neural Radiance Fields|—|—|
+|16|Neural Radiance Fields|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQA7vnll0DaqQ4OUNT7mvMxBAUooJivKNI7KH9Dd7B-Pv3U?e=O3uZOB)|—|
 |17|More NeRFs|—|—|
 |18|3D Gaussian Splatting|—|—|
 |19|Motion Fields and Optical Flow|—|—|
