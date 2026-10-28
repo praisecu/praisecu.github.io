@@ -28,7 +28,7 @@ announcements:
   - date: October 27, 2026
     date_iso: 2026-10-27
     type: lecture
-    text: "Lectures 16 and 17 (Neural Radiance Fields and More NeRFs) slides are now posted."
+    text: "Lectures 16 and 17 (Neural Radiance Fields and More NeRFs) slides and recordings are now posted. Lecture 17 is online only and optional."
 
   - date: October 25, 2026
     date_iso: 2026-10-25
@@ -184,8 +184,8 @@ Rough estimates. Free-tier sessions disconnect, but the starter notebooks checkp
 |13|Structure from Motion — 1|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQC5keeEYJJnQa-q18_-IpJiATwn-j4xHmPI8dJWrZB3-J8?e=OmiIpV)|[Link](https://cuboulder.zoom.us/rec/share/nM7piJ-DSoaf2jQygKJkNFDhHpPd_KXc3iY5p2gL9ag58O8CrZfJlcxG-3fxNJvU.p4wPZnKPccYZOPhf)|
 |14|Structure from Motion — 2|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQCBs1337XhRRaM6MlO0HKjQAWMTmYnEExRyHlz-p_TBO90?e=K4ts3g)|[Link](https://cuboulder.zoom.us/rec/share/fIlSdXdrJnIgskU9ABrb2HxvfDO38QenTki6dHGoQZaFmBQNXdRrBbdxyoDEu3ca.HtRaKF3LhlgbyfKF)|
 |15|Volumetric Rendering|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQDhSrSuERBRSIqt0qWr5zj4AYl22pQQ_V8rxnPNycfz1Kc?e=diXEY7)|[Link](https://cuboulder.zoom.us/rec/share/Akr-LwVo2PfdpU2tiKIORBy_FIcyj-zRkD9kmX0WGm5w5XVDTJmzJReTavcneiM9.ScmA0t63qyJE4dxf)|
-|16|Neural Radiance Fields|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQA7vnll0DaqQ4OUNT7mvMxBAUooJivKNI7KH9Dd7B-Pv3U?e=O3uZOB)|—|
-|17|More NeRFs|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQC7mNEfMCqSSKGxLFUiVUWCAaEyjbBurdOqypu_B1uM63g?e=w5JODt)|—|
+|16|Neural Radiance Fields|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQA7vnll0DaqQ4OUNT7mvMxBAUooJivKNI7KH9Dd7B-Pv3U?e=O3uZOB)|[Link](https://cuboulder.zoom.us/rec/share/762CzIiyNP8WxXpDJXB9gD5-IBseGZUJgcw7xzblst8dDLW9dg4C5MwIthfSeh-I.ta2SLNSFj64Ik5hg)|
+|17|More NeRFs (online only, optional)|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQC7mNEfMCqSSKGxLFUiVUWCAaEyjbBurdOqypu_B1uM63g?e=w5JODt)|[Link](https://o365coloradoedu-my.sharepoint.com/:v:/g/personal/chsi1006_colorado_edu/IQDUd5D1RDB6SriH-7fE2FDAAc660htdlMUP_W4cXbiB0tM?e=KDEwI6)|
 |18|3D Gaussian Splatting|—|—|
 |19|Motion Fields and Optical Flow|—|—|
 
