@@ -1,5 +1,6 @@
 ---
-title: "TinyFlow: Breaking the Warping Bottleneck for Edge Optical Flow"
+title: "Rethinking Warping for Optical Flow on Edge Accelerators"
+subtitle: "TinyFlow"
 description: "TinyFlow is a 1.26M-parameter warp-free optical flow network that keeps iterative refinement and compiles to a single static INT8 graph for edge accelerators such as the Hailo-8."
 image: static/images/social.jpg
 keywords: [optical flow, edge AI, Hailo-8, quantization, INT8, tiny robots, TinyFlow]
@@ -35,7 +36,7 @@ math: true
 
 bibtex: |
   @misc{song2026tinyflow,
-    title        = {TinyFlow: Breaking the Warping Bottleneck for Edge Optical Flow},
+    title        = {Rethinking Warping for Optical Flow on Edge Accelerators},
     author       = {Song, Xiao'ao and Singh, Chahat Deep},
     howpublished = {IROS 2026 Workshop on Insect-scale Autonomy, Pittsburgh, PA, USA},
     month        = oct,

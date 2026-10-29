@@ -23,7 +23,7 @@ publications:
         type: project
         url: "/research/fold-to-fit.html"
 
-  - title: "TinyFlow: Breaking the Warping Bottleneck for Edge Optical Flow"
+  - title: "Rethinking Warping for Optical Flow on Edge Accelerators"
     date: "IROS Workshop · Oct 2026"
     year: 2026
     image: "/research/TinyFlow-workshop/static/images/card-square.jpg"
