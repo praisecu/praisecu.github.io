@@ -25,6 +25,11 @@ quick_info:
 # Use type: lecture | assignment | schedule | setup
 announcements:
 
+  - date: October 30, 2026
+    date_iso: 2026-10-30
+    type: lecture
+    text: "Lecture 18 (3D Gaussian Splatting) slides are now posted."
+
   - date: October 27, 2026
     date_iso: 2026-10-27
     type: lecture
@@ -186,7 +191,7 @@ Rough estimates. Free-tier sessions disconnect, but the starter notebooks checkp
 |15|Volumetric Rendering|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQDhSrSuERBRSIqt0qWr5zj4AYl22pQQ_V8rxnPNycfz1Kc?e=diXEY7)|[Link](https://cuboulder.zoom.us/rec/share/Akr-LwVo2PfdpU2tiKIORBy_FIcyj-zRkD9kmX0WGm5w5XVDTJmzJReTavcneiM9.ScmA0t63qyJE4dxf)|
 |16|Neural Radiance Fields|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQA7vnll0DaqQ4OUNT7mvMxBAUooJivKNI7KH9Dd7B-Pv3U?e=O3uZOB)|[Link](https://cuboulder.zoom.us/rec/share/762CzIiyNP8WxXpDJXB9gD5-IBseGZUJgcw7xzblst8dDLW9dg4C5MwIthfSeh-I.ta2SLNSFj64Ik5hg)|
 |17|More NeRFs (online only, optional)|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQC7mNEfMCqSSKGxLFUiVUWCAaEyjbBurdOqypu_B1uM63g?e=w5JODt)|[Link](https://o365coloradoedu-my.sharepoint.com/:v:/g/personal/chsi1006_colorado_edu/IQDUd5D1RDB6SriH-7fE2FDAAc660htdlMUP_W4cXbiB0tM?e=KDEwI6)|
-|18|3D Gaussian Splatting|—|—|
+|18|3D Gaussian Splatting|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQCHRCfcfbY2QqfDes1ZOPsvARgZDoW2GyS-wYQzU60MTuI?e=c9i8ZE)|—|
 |19|Motion Fields and Optical Flow|—|—|
 
 <p class="course-table-note"><span class="course-table-note__marker">&dagger;</span> Lecture videos are available only to CU Boulder members signed in with a <code>colorado.edu</code> account.</p>
