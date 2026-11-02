@@ -52,7 +52,7 @@ announcements:
   - date: November 2, 2026
     date_iso: 2026-11-02
     type: assignment
-    text: "P3: Blob the Builder is released and is due Thursday, December 10, 2026."
+    text: "P3: Blob the Builder Part 1 is released. Part 2 will be released in class on Thursday, November 12. P3 is due Thursday, December 10, 2026."
 
   - date: October 30, 2026
     date_iso: 2026-10-30
@@ -246,7 +246,7 @@ Students may discuss concepts with team members and other class members, but may
 |1|[P1: Panorama!](https://colab.research.google.com/drive/1bU_OAJUjFJ54Qqh-tCoWJRwQBe2T6Vn-?usp=sharing)|Sep 2, 2026|Sep 21, 2026|
 |2|[Homework: Calibrate My Camera](https://colab.research.google.com/drive/1myxPNeH5my6UFm_rD-rCKAuIQCtfZ9mU?usp=sharing)|Sep 22, 2026|Sep 30, 2026|
 |3|P2: Coded Deep Depth — [Part 1](https://colab.research.google.com/drive/1M9t9gxG-1Yeb7DXVzPOBNC77q97Pq7xj?usp=sharing) / [Part 2](https://colab.research.google.com/drive/1k_TQLih9xIZ3j_c8weAFaOq2OOd2xONr?usp=sharing)|Sep 30, 2026|Oct 20, 2026|
-|4|P3: Blob the Builder — [Part 1](https://colab.research.google.com/drive/1VbKRHL0ICznVLjisC5cO2615s1JsX3u_?usp=sharing) / Part 2|Nov 2, 2026|Dec 10, 2026|
+|4|P3: Blob the Builder — [Part 1](https://colab.research.google.com/drive/1VbKRHL0ICznVLjisC5cO2615s1JsX3u_?usp=sharing) / Part 2 (releases Nov 12)|Nov 2, 2026|Dec 10, 2026|
 |5|Midterm — In Class|Nov 10, 2026|—|
 |6|P4: Monocular Visual Odometry|Nov 17, 2026|Dec 10, 2026|
 
