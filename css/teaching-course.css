@@ -3725,7 +3725,7 @@ html[data-theme="dark"]
   .course-quick__surface {
     width: 100%;
     min-width: 0;
-    height: 220px;
+    height: auto;
     min-height: 220px;
 
     box-sizing: border-box;
