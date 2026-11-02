@@ -370,6 +370,28 @@
                   </div>
                 {% endif %}
 
+
+                {% for row in quick_info.rows %}
+                  <div class="course-quick__row">
+                    <dt>{{ row.label }}</dt>
+
+                    <dd>
+                      {% if row.url %}
+                        <a
+                          class="course-quick__row-link"
+                          href="{{ row.url }}"
+                          {% if row.external %}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          {% endif %}
+                        >{{ row.text }}</a>
+                      {% else %}
+                        {{ row.text }}
+                      {% endif %}
+                    </dd>
+                  </div>
+                {% endfor %}
+
               </dl>
 
             </div>

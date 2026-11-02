@@ -19,11 +19,40 @@ quick_info:
   instructor: Chahat Deep Singh
   class_hours: "Tue/Thu, 3:30 PM–4:45 PM"
   location: "ECCS 1B14"
-  office_hours: TBD
+  rows:
+    - label: Syllabus
+      text: Download PDF
+      url: /extras/teaching/MCEN5228-Fall2026-Syllabus.pdf
+      external: true
+    - label: Course Materials
+      text: "This page: slides, recordings, notebooks, due dates, policies"
+    - label: Announcements & Questions
+      text: Piazza
+      url: https://piazza.com/colorado/fall2026/mcen5228010
+      external: true
+    - label: Submissions & Grades
+      text: Canvas
+      url: https://canvas.colorado.edu/courses/139889
+      external: true
 
 # Only the five newest announcements are shown on the page.
 # Use type: lecture | assignment | schedule | setup
 announcements:
+
+  - date: November 2, 2026
+    date_iso: 2026-11-02
+    type: schedule
+    text: "Course page updated with a PDF syllabus, grading weights, submission guidelines, and tips for working in pairs. The midterm is in class on Tuesday, November 10."
+
+  - date: November 2, 2026
+    date_iso: 2026-11-02
+    type: lecture
+    text: "Lecture 19 (Motion Fields and Optical Flow) slides are now posted."
+
+  - date: November 2, 2026
+    date_iso: 2026-11-02
+    type: assignment
+    text: "P3: Blob the Builder is released and is due Thursday, December 10, 2026."
 
   - date: October 30, 2026
     date_iso: 2026-10-30
@@ -151,7 +180,7 @@ Topics include camera sensors and calibration, image formation, single-view geom
 
 All course announcements will be made through [Piazza](https://piazza.com/colorado/fall2026/mcen5228010), which is the main mode of communication during the course.
 
-Please do not contact the instructor or teaching assistant by email unless the matter is an emergency. Do not contact the instructional staff through social-media platforms regarding course content. **Canvas** will be used only for grading and assignment submissions.
+Please do not contact the instructor by email unless the matter is an emergency. Do not contact the instructional staff through social-media platforms regarding course content. **Canvas** will be used only for grading and assignment submissions.
 
 <h2 id="advancedcv-software">Software Environment</h2>
 
@@ -170,6 +199,8 @@ Rough estimates. Free-tier sessions disconnect, but the starter notebooks checkp
 
 
 <h2 id="advancedcv-lectures">Lectures</h2>
+
+Slides are posted here before each lecture. Recordings are added after class.
 
 |No.|Topic|Slides|Video<sup>&dagger;</sup>|
 |-:|-|:-:|:-:|
@@ -192,7 +223,14 @@ Rough estimates. Free-tier sessions disconnect, but the starter notebooks checkp
 |16|Neural Radiance Fields|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQA7vnll0DaqQ4OUNT7mvMxBAUooJivKNI7KH9Dd7B-Pv3U?e=O3uZOB)|[Link](https://cuboulder.zoom.us/rec/share/762CzIiyNP8WxXpDJXB9gD5-IBseGZUJgcw7xzblst8dDLW9dg4C5MwIthfSeh-I.ta2SLNSFj64Ik5hg)|
 |17|More NeRFs (online only, optional)|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQC7mNEfMCqSSKGxLFUiVUWCAaEyjbBurdOqypu_B1uM63g?e=w5JODt)|[Link](https://o365coloradoedu-my.sharepoint.com/:v:/g/personal/chsi1006_colorado_edu/IQDUd5D1RDB6SriH-7fE2FDAAc660htdlMUP_W4cXbiB0tM?e=KDEwI6)|
 |18|3D Gaussian Splatting|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQCHRCfcfbY2QqfDes1ZOPsvARgZDoW2GyS-wYQzU60MTuI?e=c9i8ZE)|[Link](https://cuboulder.zoom.us/rec/share/CYc3YPDnwO5YJXDZaEnAmIHqO4dPMoxDaDl3OjbGU1L7SfCbYDNvzGx1hLqh6f3g.b8gmsJjfIGdKu23D)|
-|19|Motion Fields and Optical Flow|—|—|
+|19|Motion Fields and Optical Flow|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQDkXZ0IanlpTK8H0Vi52t3jASOCMLKJ2kHwScmxt7z5CVY?e=zEyTHo)|—|
+|20|Introduction to Deep Learning and Neural Networks|—|—|
+|21|Neural Network Architectures|—|—|
+|22|More Neural Networks and Transformers|—|—|
+|23|Diffusion Models|—|—|
+|24|AI Applications in Computer Vision — 1|—|—|
+|25|AI Applications in Computer Vision — 2|—|—|
+|26|Neuromorphic Vision and Robot Autonomy|—|—|
 
 <p class="course-table-note"><span class="course-table-note__marker">&dagger;</span> Lecture videos are available only to CU Boulder members signed in with a <code>colorado.edu</code> account.</p>
 
@@ -208,9 +246,49 @@ Students may discuss concepts with team members and other class members, but may
 |1|[P1: Panorama!](https://colab.research.google.com/drive/1bU_OAJUjFJ54Qqh-tCoWJRwQBe2T6Vn-?usp=sharing)|Sep 2, 2026|Sep 21, 2026|
 |2|[Homework: Calibrate My Camera](https://colab.research.google.com/drive/1myxPNeH5my6UFm_rD-rCKAuIQCtfZ9mU?usp=sharing)|Sep 22, 2026|Sep 30, 2026|
 |3|P2: Coded Deep Depth — [Part 1](https://colab.research.google.com/drive/1M9t9gxG-1Yeb7DXVzPOBNC77q97Pq7xj?usp=sharing) / [Part 2](https://colab.research.google.com/drive/1k_TQLih9xIZ3j_c8weAFaOq2OOd2xONr?usp=sharing)|Sep 30, 2026|Oct 20, 2026|
-|4|P3: Blob the Builder — Part 1 / Part 2|—|—|
-|5|Midterm — In Class|—|—|
-|6|P4: Monocular Visual Odometry|—|—|
+|4|P3: Blob the Builder — [Part 1](https://colab.research.google.com/drive/1VbKRHL0ICznVLjisC5cO2615s1JsX3u_?usp=sharing) / Part 2|Nov 2, 2026|Dec 10, 2026|
+|5|Midterm — In Class|Nov 10, 2026|—|
+|6|P4: Monocular Visual Odometry|Nov 17, 2026|Dec 10, 2026|
+
+<h2 id="advancedcv-grading">Grading</h2>
+
+|Component|Weight|
+|-|:-:|
+|P1: Panorama!|16%|
+|P2: Coded Deep Depth|20%|
+|P3: Blob the Builder|25%|
+|P4: Monocular Visual Odometry|16%|
+|Homework: Calibrate My Camera|8%|
+|Midterm (in class)|15%|
+|**Total**|**100%**|
+
+<h2 id="advancedcv-pairs">Working in Pairs</h2>
+
+Projects are done in pairs, but each partner should understand every part of the submission. Splitting the work so that one person writes all the code and the other writes the report means each of you misses half of what the project teaches. Some ways to divide the work:
+
+- **Work through the core algorithm together.** Pair-program the key step of each project (for example, homography estimation in P1) or implement it separately and compare results.
+- **Split by role, then swap.** One partner leads the implementation and the other leads experiments and the report; switch roles on the next project.
+- **Review each other's work.** Before submitting, each partner reads and runs the other's code and edits the other's sections of the report.
+
+Each report should end with a short **Contributions** paragraph stating what each partner did.
+
+<h2 id="advancedcv-submission">Submission Guidelines</h2>
+
+These apply to every project. Each project's release slides list the specific results its report must include.
+
+Submit **one zip file per group on Canvas**, named `student1_student2_pN.zip` (for example, `smith_lee_p1.zip`) and no larger than **300 MB**. It must contain:
+
+1. **`Report.pdf`**: your report, typeset in LaTeX using the IEEE Transactions or Conference format.
+2. **`PN.txt`**: the link to your Google Colab notebook (for example, `P1.txt`). Set the notebook's sharing to **Anyone with the link** so it can be opened for grading, but do not post or send the link to anyone outside your group.
+3. **A PDF export of your Colab notebook** with all outputs and results visible.
+
+The report must:
+
+- Show the input and output images for each step of the pipeline, and the final results for every dataset. Put all images in `Report.pdf`.
+- Explain the design choices you made and how you handled difficult cases, as each project asks.
+- Cite collaborators and outside sources (see the Collaboration Policy below) and end with a **Contributions** paragraph.
+
+A reference PDF for each project is posted on Piazza. If you are using late days, follow the steps in the Late Policy below.
 
 <h2 id="advancedcv-late-policy">Late Policy</h2>
 
@@ -240,6 +318,10 @@ The following limits apply:
 - Free and publicly available books, journal articles, conference papers, and webpages may be used as research materials.
 - Paid solution services may not be used.
 - Clearly and explicitly cite all outside sources and materials.
+
+<h3 id="advancedcv-ai">Use of AI Tools</h3>
+
+You may not use generative AI tools (such as ChatGPT, Claude, Gemini, or Copilot) to write any text you submit, including your report. You may use them to check your own writing for errors such as spelling and grammar. Submitting AI-written text is treated as unauthorized assistance under the Honor Code.
 
 Uncited use of external sources is treated as presenting another person's work as your own and violates university academic-integrity policy. Unless otherwise specified, the [CU Boulder Code of Academic Integrity](https://catalog.colorado.edu/graduate/academic-integrity/) applies.
 

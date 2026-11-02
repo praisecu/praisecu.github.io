@@ -4300,3 +4300,19 @@ html[data-theme="dark"]
 .course-content__body #advancedcv-training-time + p + table tbody tr + tr td {
     border-top: 1px solid #efefe9;
 }
+
+/* Links inside Quick Information rows (syllabus, Piazza, Canvas). */
+.course-quick__row-link {
+    color: #6f5d1b;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(111, 93, 27, 0.34);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.course-quick__row-link:hover,
+.course-quick__row-link:focus {
+    color: #1d1e00;
+    text-decoration-color: #c8ae5c;
+}

@@ -1424,3 +1424,13 @@ html[data-theme="dark"] .posting-card__actions-note {
   border-left-color: #d6bd72 !important;
   color: #f3efe3 !important;
 }
+
+html[data-theme="dark"] .course-quick__row-link {
+  color: #e8ce78 !important;
+}
+
+html[data-theme="dark"] .course-quick__row-link:hover,
+html[data-theme="dark"] .course-quick__row-link:focus-visible {
+  color: #ffffff !important;
+  text-decoration-color: #f4d978 !important;
+}

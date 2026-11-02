@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MCEN 5228 Advanced Computer Vision — Fall 2026 Syllabus</title>
+<!-- Source for MCEN5228-Fall2026-Syllabus.pdf. Regenerate with:
+     msedge --headless --no-pdf-header-footer --print-to-pdf=MCEN5228-Fall2026-Syllabus.pdf MCEN5228-Fall2026-Syllabus.html -->
+<style>
+  @page { size: letter; margin: 0.6in 0.7in; }
+  :root { --ink: #1b1f24; --muted: #5a6470; --line: #d9dee4; --accent: #6b5a1e; --soft: #f5f2e8; }
+  * { box-sizing: border-box; }
+  body { font: 10.5pt/1.45 "Segoe UI", "Helvetica Neue", Arial, sans-serif; color: var(--ink); margin: 0; }
+  h1 { font-size: 20pt; margin: 0 0 2pt; line-height: 1.15; }
+  h2 { font-size: 12.5pt; margin: 16pt 0 5pt; padding-bottom: 3pt; border-bottom: 1.5pt solid var(--accent); break-after: avoid; }
+  h3 { font-size: 10.5pt; margin: 10pt 0 3pt; break-after: avoid; }
+  p { margin: 0 0 6pt; }
+  ul, ol { margin: 0 0 6pt; padding-left: 18pt; }
+  li { margin-bottom: 2pt; }
+  a { color: var(--accent); text-decoration: none; }
+  code { font: 9.5pt Consolas, "Courier New", monospace; background: var(--soft); padding: 0 3pt; border-radius: 2pt; }
+  .sub { font-size: 12pt; color: var(--muted); margin: 0 0 10pt; }
+  .info { display: grid; grid-template-columns: max-content 1fr; gap: 3pt 14pt; padding: 8pt 10pt; background: var(--soft); border-radius: 4pt; margin-bottom: 4pt; }
+  .info dt { font-weight: 600; }
+  .info dd { margin: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 4pt 0 8pt; font-size: 10pt; break-inside: avoid; }
+  th, td { border-bottom: 0.75pt solid var(--line); padding: 4pt 6pt; text-align: left; vertical-align: top; }
+  th { font-weight: 600; background: var(--soft); }
+  td.r, th.r { text-align: right; }
+  .cols { columns: 2; column-gap: 20pt; break-inside: avoid; }
+  .cols li { break-inside: avoid; }
+  .note { color: var(--muted); font-size: 9.5pt; }
+  .policies p, .policies li { font-size: 9.5pt; }
+  .updated { color: var(--muted); font-size: 9pt; margin-top: 14pt; }
+</style>
+</head>
+<body>
+
+<h1>MCEN 5228-010: Advanced Computer Vision</h1>
+<p class="sub">Geometry and Learning-based Methods in Computer Vision · Fall 2026 · University of Colorado Boulder</p>
+
+<dl class="info">
+  <dt>Instructor</dt><dd>Prof. Chahat Deep Singh</dd>
+  <dt>Class</dt><dd>Tuesday and Thursday, 3:30–4:45 PM, ECCS 1B14</dd>
+  <dt>Course page</dt><dd><a href="https://www.praisecu.com/teaching/advancedcv-fall2026.html">praisecu.com/teaching/advancedcv-fall2026.html</a></dd>
+  <dt>Piazza</dt><dd><a href="https://piazza.com/colorado/fall2026/mcen5228010">piazza.com/colorado/fall2026/mcen5228010</a></dd>
+  <dt>Canvas</dt><dd><a href="https://canvas.colorado.edu/courses/139889">canvas.colorado.edu/courses/139889</a></dd>
+  <dt>Last updated</dt><dd>November 2, 2026. If this syllabus and the course page differ, the course page is current.</dd>
+</dl>
+
+<h2>Course Description</h2>
+<p>This advanced graduate course covers classical, geometric, and deep learning methods in computer vision. It begins with the mathematical foundations of computer vision and progresses to recent deep-learning advances. Its objective is to introduce formal perception tools for students interested in robot autonomy and 3D perception.</p>
+<p>Topics include camera sensors and calibration, image formation, single-view geometry, projective transformations, multi-view geometry, structure from motion, optical flow, computational imaging, radiance fields, volumetric rendering, and deep-learning-based depth and reconstruction methods.</p>
+<p><strong>Prerequisites:</strong> Linear algebra and proficiency with Python or another scripting language. Prior computer vision experience is not required.</p>
+
+<h2>Where to Find Everything</h2>
+<table>
+  <tr><th>What</th><th>Where</th></tr>
+  <tr><td>Slides, recordings, assignment notebooks, due dates, and course policies</td><td>Course page</td></tr>
+  <tr><td>Announcements and questions</td><td>Piazza (the main communication channel; sign up with your <code>colorado.edu</code> ID)</td></tr>
+  <tr><td>Assignment submissions and grades</td><td>Canvas</td></tr>
+</table>
+<p>Slides are posted on the course page before each lecture, and recordings are added after class. Please do not contact the instructor by email unless the matter is an emergency, and do not contact the instructor through social-media platforms about course content.</p>
+
+<h2>Software Environment</h2>
+<p>We use Python 3 with OpenCV, PyTorch, NumPy, scikit-learn, and Matplotlib. Assignments use Google Colab; you may also work on your own machine. A GPU is needed only for P2 Part 2 and P3 Part 2, and the free Colab T4 GPU is enough for both. You do not need to pay for anything in this course.</p>
+
+<h2>Grading</h2>
+<table>
+  <tr><th>Component</th><th class="r">Weight</th></tr>
+  <tr><td>P1: Panorama!</td><td class="r">16%</td></tr>
+  <tr><td>P2: Coded Deep Depth</td><td class="r">20%</td></tr>
+  <tr><td>P3: Blob the Builder</td><td class="r">25%</td></tr>
+  <tr><td>P4: Monocular Visual Odometry</td><td class="r">16%</td></tr>
+  <tr><td>Homework: Calibrate My Camera</td><td class="r">8%</td></tr>
+  <tr><td>Midterm (in class)</td><td class="r">15%</td></tr>
+  <tr><th>Total</th><th class="r">100%</th></tr>
+</table>
+
+<h2>Assignments and Due Dates</h2>
+<table>
+  <tr><th>Assignment</th><th>Released</th><th>Due</th></tr>
+  <tr><td>P1: Panorama!</td><td>Sep 2, 2026</td><td>Sep 21, 2026</td></tr>
+  <tr><td>Homework: Calibrate My Camera</td><td>Sep 22, 2026</td><td>Sep 30, 2026</td></tr>
+  <tr><td>P2: Coded Deep Depth</td><td>Sep 30, 2026</td><td>Oct 20, 2026</td></tr>
+  <tr><td>P3: Blob the Builder</td><td>Nov 2, 2026</td><td>Dec 10, 2026</td></tr>
+  <tr><td>P4: Monocular Visual Odometry</td><td>Nov 17, 2026</td><td>Dec 10, 2026</td></tr>
+  <tr><td>Midterm (in class)</td><td colspan="2">Tuesday, Nov 10, 2026</td></tr>
+</table>
+<p>All four projects and the homework may be done in groups of two. Submitting the homework individually earns 25% extra credit on it. Assignment notebooks are linked from the course page.</p>
+
+<h2>Working in Pairs</h2>
+<p>Projects are done in pairs, but each partner should understand every part of the submission. Splitting the work so that one person writes all the code and the other writes the report means each of you misses half of what the project teaches. Some ways to divide the work:</p>
+<ul>
+  <li><strong>Work through the core algorithm together.</strong> Pair-program the key step of each project (for example, homography estimation in P1) or implement it separately and compare results.</li>
+  <li><strong>Split by role, then swap.</strong> One partner leads the implementation and the other leads experiments and the report; switch roles on the next project.</li>
+  <li><strong>Review each other's work.</strong> Before submitting, each partner reads and runs the other's code and edits the other's sections of the report.</li>
+</ul>
+<p>Each report should end with a short <strong>Contributions</strong> paragraph stating what each partner did.</p>
+
+<h2>Lecture Topics</h2>
+<ol class="cols">
+  <li>Introduction</li>
+  <li>Image Formation</li>
+  <li>All About Features!</li>
+  <li>Projections and Transformations</li>
+  <li>Non-Rigid Transformation and Camera Models</li>
+  <li>Camera Calibration and Introduction to Computer Graphics</li>
+  <li>Curves and Rendering</li>
+  <li>Single View Geometry</li>
+  <li>Introduction to Computational Imaging</li>
+  <li>Coded Deep Depth</li>
+  <li>Coded Deep Depth, part 2</li>
+  <li>Two-View Geometry and Stereopsis</li>
+  <li>Structure from Motion, part 1</li>
+  <li>Structure from Motion, part 2</li>
+  <li>Volumetric Rendering</li>
+  <li>Neural Radiance Fields</li>
+  <li>More NeRFs (online only, optional)</li>
+  <li>3D Gaussian Splatting</li>
+  <li>Motion Fields and Optical Flow</li>
+  <li>Introduction to Deep Learning and Neural Networks</li>
+  <li>Neural Network Architectures</li>
+  <li>More Neural Networks and Transformers</li>
+  <li>Diffusion Models</li>
+  <li>AI Applications in Computer Vision, part 1</li>
+  <li>AI Applications in Computer Vision, part 2</li>
+  <li>Neuromorphic Vision and Robot Autonomy</li>
+</ol>
+
+<h2>Submission Guidelines</h2>
+<p>These apply to every project. Each project's release slides list the specific results its report must include.</p>
+<p>Submit <strong>one zip file per group on Canvas</strong>, named <code>student1_student2_pN.zip</code> (for example, <code>smith_lee_p1.zip</code>) and no larger than <strong>300 MB</strong>. It must contain:</p>
+<ol>
+  <li><code>Report.pdf</code>: your report, typeset in LaTeX using the IEEE Transactions or Conference format.</li>
+  <li><code>PN.txt</code>: the link to your Google Colab notebook (for example, <code>P1.txt</code>). Set the notebook's sharing to <strong>Anyone with the link</strong> so it can be opened for grading, but do not post or send the link to anyone outside your group.</li>
+  <li>A PDF export of your Colab notebook with all outputs and results visible.</li>
+</ol>
+<p>The report must:</p>
+<ul>
+  <li>Show the input and output images for each step of the pipeline, and the final results for every dataset. Put all images in <code>Report.pdf</code>.</li>
+  <li>Explain the design choices you made and how you handled difficult cases, as each project asks.</li>
+  <li>Cite collaborators and outside sources (see the Collaboration Policy) and end with a Contributions paragraph.</li>
+</ul>
+<p>A reference PDF for each project is posted on Piazza.</p>
+
+<h2>Late Policy</h2>
+<p>This course is fast-paced, with concepts building on each other, so staying current is important. Late assignments incur a <strong>20% penalty per day</strong>. You have a total of <strong>six late days</strong> to use across assignments, except the final project. Late days must be used as full days; for example, full credit on an assignment submitted two days late requires two late days. When using late days:</p>
+<ol>
+  <li>Include <strong>"USING X LATE DAY(S)"</strong> in the submission title.</li>
+  <li>Add a Canvas comment identifying the late-day usage.</li>
+  <li>Keep track of the late days you have left.</li>
+</ol>
+<p>A late penalty is applied when late-day usage is not identified in the Canvas submission.</p>
+
+<h2>Collaboration Policy</h2>
+<p>Collaboration is encouraged, but you must understand the difference between collaboration and cheating. You may discuss concepts with your partner and classmates on Piazza and in person, but submitted work must reflect your own understanding.</p>
+<ul>
+  <li>Cite collaborators by name at the top of the report, including relevant Piazza posts.</li>
+  <li>Do not share or copy code. Discussing concepts and how code works is permitted.</li>
+  <li>Free, publicly available books, papers, and webpages may be used as research materials; paid solution services may not.</li>
+  <li>Clearly and explicitly cite all outside sources and materials.</li>
+</ul>
+<p>Uncited use of outside sources is treated as presenting another person's work as your own.</p>
+
+<h3>Use of AI Tools</h3>
+<p>You may not use generative AI tools (such as ChatGPT, Claude, Gemini, or Copilot) to write any text you submit, including your report. You may use them to check your own writing for errors such as spelling and grammar. Submitting AI-written text is treated as unauthorized assistance under the Honor Code.</p>
+
+<div class="policies">
+<h2>University Policies</h2>
+
+<h3>Honor Code</h3>
+<p>All students enrolled in a University of Colorado Boulder course are responsible for knowing and adhering to the <a href="https://www.colorado.edu/sccr/students/honor-code-and-student-code-conduct">Honor Code</a>. Violations of the Honor Code may include but are not limited to: plagiarism (including use of paper writing services or technology [such as essay bots]), cheating, fabrication, lying, bribery, threat, unauthorized access to academic materials, clicker fraud, submitting the same or similar work in more than one course without permission from all course instructors involved, and aiding academic dishonesty. Understanding the course's syllabus is a vital part of adhering to the Honor Code.</p>
+<p>All incidents of academic misconduct will be reported to Student Conduct &amp; Conflict Resolution: StudentConduct@colorado.edu. Students found responsible for violating the Honor Code will be assigned resolution outcomes from Student Conduct &amp; Conflict Resolution and will be subject to academic sanctions from the faculty member. Visit <a href="https://www.colorado.edu/sccr/students/honor-code-and-student-code-conduct">Honor Code</a> for more information on the academic integrity policy.</p>
+
+<h3>Accommodation for Disabilities, Temporary Medical Conditions, and Medical Isolation</h3>
+<p>If you qualify for accommodations because of a disability, please submit your accommodation letter from Disability Services to your faculty member in a timely manner so that your needs can be addressed. Disability Services determines accommodations based on documented disabilities in the academic environment. Information on requesting accommodations is located on the <a href="https://www.colorado.edu/disabilityservices/">Disability Services website</a>. Contact Disability Services at 303-492-8671 or DSinfo@colorado.edu for further assistance. If you have a temporary medical condition, see <a href="https://www.colorado.edu/disabilityservices/students/temporary-medical-conditions">Temporary Medical Conditions</a> on the Disability Services website.</p>
+<p>If you have a temporary illness, injury or required medical isolation for which you require adjustment, send the instructor a private post on Piazza as soon as you can. You do not need to say what the illness is, and no doctor's note is required. We will agree on adjusted deadlines.</p>
+
+<h3>Accommodation for Religious Obligations</h3>
+<p>Instructional faculty members must make every reasonable effort to accommodate all students who have conflicts with scheduled exams, assignment deadlines or required attendance due to a religious observance. Whenever possible, students must notify the instructional faculty member at least two weeks in advance of the expected exam, assignment deadline, or attendance conflict to request an accommodation for religious observance. If the start date of the course is less than two weeks before the date of requested accommodation, students must notify the instructional faculty member on the start date of the course. See the <a href="https://www.colorado.edu/compliance/student-academic-accommodations-religious-observances-policy">Student Academic Accommodations for Religious Observances Policy</a> for more information.</p>
+<p>In this class, send the instructor a private post on Piazza at least two weeks in advance, naming the date and the exam or deadline affected. Late days are not used for religious accommodations.</p>
+
+<h3>Student Names and Pronouns</h3>
+<p>CU Boulder recognizes that students' legal information does not always align with how they identify. If you wish to have a name other than your legal name appear on your instructors' class rosters and in Canvas, or if you wish to choose pronouns to appear on your instructors' class rosters and in Canvas, visit the <a href="https://www.colorado.edu/registrar/students/records/info/preferred">Registrar's website</a> for instructions on how to change your personal information in university systems.</p>
+
+<h3>Classroom Behavior</h3>
+<p>Students and faculty are responsible for maintaining an appropriate learning environment in all instructional settings, whether in person, remote, or online. Failure to adhere to such behavioral standards may be subject to discipline. Professional courtesy and sensitivity are especially important with respect to individuals and topics dealing with race, color, national origin, sex, pregnancy, age, disability, creed, religion, sexual orientation, gender identity, gender expression, veteran status, marital status, political affiliation, or political philosophy.</p>
+<p>Additional classroom behavior information: <a href="https://www.colorado.edu/compliance/policies/student-classroom-course-related-behavior">Student Classroom and Course-Related Behavior Policy</a>; <a href="https://www.colorado.edu/sccr/students/honor-code-and-student-code-conduct">Student Code of Conduct</a>; <a href="https://www.colorado.edu/oiec/">Office of Institutional Equity and Compliance</a>.</p>
+
+<h3>Sexual Misconduct, Discrimination, Harassment and/or Related Retaliation</h3>
+<p>CU Boulder is committed to fostering a productive and welcoming learning, working, and living environment. University policy prohibits <a href="https://www.colorado.edu/oiec/policies/protected-class-nondiscrimination-policy/protected-class-definitions">protected-class</a> discrimination and harassment, sexual misconduct (harassment, exploitation, and assault), intimate partner abuse (dating or domestic violence), stalking, and related retaliation by or against members of our community on- or off-campus. Denial of an approved accommodation for disability, religious observance, or pregnancy or pregnancy related medical conditions may be discriminatory.</p>
+<p>The <a href="https://www.colorado.edu/oiec/">Office of Institutional Equity and Compliance (OIEC)</a> addresses these concerns, and individuals who have been subjected to misconduct can contact OIEC at 303-492-2127 or email OIEC@colorado.edu. Information about university policies, <a href="https://www.colorado.edu/oiec/reporting-resolutions/making-report">OIEC reporting options</a>, and <a href="https://www.colorado.edu/oiec/support-resources">OIEC support resources</a> including confidential services can be found on the <a href="https://www.colorado.edu/oiec/">OIEC website</a>.</p>
+<p>Faculty and graduate instructors are required to inform OIEC when someone discloses misconduct regardless of when or where it occurred. This is to ensure that those impacted receive outreach from OIEC about resolution options and support resources. To learn more about reporting and support options for a variety of concerns, visit the <a href="https://www.colorado.edu/dontignoreit/">Don't Ignore It page</a>.</p>
+
+<h3>Mental Health and Wellness</h3>
+<p>The University of Colorado Boulder is committed to supporting students' mental health and overall wellbeing. If personal, academic, or emotional challenges are affecting your wellbeing or success, <a href="https://www.colorado.edu/counseling/">Counseling and Psychiatric Services (CAPS)</a> is here to help. CAPS offers counseling, referrals, psychiatric care, crisis support, and much more. Visit CAPS in the C4C, or call (303) 492-2277, 24/7.</p>
+</div>
+
+</body>
+</html>
