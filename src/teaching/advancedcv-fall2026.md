@@ -47,7 +47,7 @@ announcements:
   - date: November 2, 2026
     date_iso: 2026-11-02
     type: lecture
-    text: "Lecture 19 (Motion Fields and Optical Flow) slides are now posted."
+    text: "Lecture 19 (Motion Fields and Optical Flow) slides and recording are now posted."
 
   - date: November 2, 2026
     date_iso: 2026-11-02
@@ -223,7 +223,7 @@ Slides are posted here before each lecture. Recordings are added after class.
 |16|Neural Radiance Fields|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQA7vnll0DaqQ4OUNT7mvMxBAUooJivKNI7KH9Dd7B-Pv3U?e=O3uZOB)|[Link](https://cuboulder.zoom.us/rec/share/762CzIiyNP8WxXpDJXB9gD5-IBseGZUJgcw7xzblst8dDLW9dg4C5MwIthfSeh-I.ta2SLNSFj64Ik5hg)|
 |17|More NeRFs (online only, optional)|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQC7mNEfMCqSSKGxLFUiVUWCAaEyjbBurdOqypu_B1uM63g?e=w5JODt)|[Link](https://o365coloradoedu-my.sharepoint.com/:v:/g/personal/chsi1006_colorado_edu/IQDUd5D1RDB6SriH-7fE2FDAAc660htdlMUP_W4cXbiB0tM?e=KDEwI6)|
 |18|3D Gaussian Splatting|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQCHRCfcfbY2QqfDes1ZOPsvARgZDoW2GyS-wYQzU60MTuI?e=c9i8ZE)|[Link](https://cuboulder.zoom.us/rec/share/CYc3YPDnwO5YJXDZaEnAmIHqO4dPMoxDaDl3OjbGU1L7SfCbYDNvzGx1hLqh6f3g.b8gmsJjfIGdKu23D)|
-|19|Motion Fields and Optical Flow|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQDkXZ0IanlpTK8H0Vi52t3jASOCMLKJ2kHwScmxt7z5CVY?e=zEyTHo)|—|
+|19|Motion Fields and Optical Flow|[Link](https://o365coloradoedu-my.sharepoint.com/:b:/g/personal/chsi1006_colorado_edu/IQDkXZ0IanlpTK8H0Vi52t3jASOCMLKJ2kHwScmxt7z5CVY?e=zEyTHo)|[Link](https://cuboulder.zoom.us/rec/share/LI1niU2H0aRQa7RcQ499Fx8vnkUA9Gbvo1srlnylDkqNUjxy9KPZoZoTJ5EAjQEc.gjzGHW7R_g3XCU82)|
 |20|Introduction to Deep Learning and Neural Networks|—|—|
 |21|Neural Network Architectures|—|—|
 |22|More Neural Networks and Transformers|—|—|
