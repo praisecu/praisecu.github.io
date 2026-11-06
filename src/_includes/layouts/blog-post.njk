@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>{{ title }} | PRAISe Lab at CU Boulder</title>
+
+  <meta
+    name="description"
+    content="{{ description | default('PRAISe Lab at the University of Colorado Boulder.') }}"
+  >
+
+  <meta property="og:title" content="{{ title }} | PRAISe Lab">
+  <meta
+    property="og:description"
+    content="{{ description | default('PRAISe Lab at the University of Colorado Boulder.') }}"
+  >
+  <meta
+    property="og:image"
+    content="https://www.praisecu.com{{ image | default('/img/logo/praise-logo.webp') }}"
+  >
+
+  <link rel="icon" type="image/x-icon" href="/img/logo/praise.webp">
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap"
+  >
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/markdown-pages.css">
+  <link rel="stylesheet" href="/css/modern-header.css">
+  <link rel="stylesheet" href="/css/modern-footer.css">
+  <link rel="stylesheet" href="/css/blog-post.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.querySelector('.blog-post__body'), { throwOnError: false })"
+  ></script>
+
+  <script
+    src="https://kit.fontawesome.com/4ad8d74216.js"
+    crossorigin="anonymous"
+  ></script>
+
+  {% include "components/seo.njk" %}
+
+  {% include "components/analytics.njk" %}
+
+  {% include "components/pwa-head.njk" %}
+</head>
+
+<body class="blog-page">
+  {% include "components/modern-header.njk" %}
+
+  <main class="blog-post">
+    <header class="blog-post__header">
+      {% if kicker %}
+        <p class="blog-post__kicker">{{ kicker }}</p>
+      {% endif %}
+
+      <h1 class="blog-post__title">{{ title }}</h1>
+
+      {% if summary %}
+        <p class="blog-post__summary">{{ summary }}</p>
+      {% endif %}
+
+      {% if byline %}
+        <p class="blog-post__byline">{{ byline }}</p>
+      {% endif %}
+    </header>
+
+    <article class="blog-post__body">
+      {{ content | safe }}
+    </article>
+  </main>
+
+  {% include "components/modern-footer.njk" %}
+
+  <script src="/js/jquery.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/modern-header.js"></script>
+</body>
+</html>

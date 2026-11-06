@@ -1,0 +1,216 @@
+---
+layout: layouts/blog-post.njk
+title: The Motion Field Equation
+kicker: Motion Field and Optical Flow
+summary: How camera motion and scene depth determine image velocity.
+byline: Prof. Chahat Deep Singh | MCEN 5228 Advanced Computer Vision
+description: A concise derivation of the motion field equation and its consequences for depth perception, the focus of expansion, time to contact and optical flow.
+image: /img/blog/optical-flow/camera-geometry.jpg
+permalink: /blog/optical-flow.html
+---
+{% raw %}
+<p>When a camera moves through a scene, each visible 3D point traces a path across the image plane. The <strong>motion field</strong> is the projection of this 3D motion onto the image: it assigns a 2D velocity to every image point. This post derives the motion field equation and shows what it reveals about scene depth and camera motion.</p>
+
+<h2>Setup</h2>
+
+<p>Assume a rigid, static scene and a camera with translational velocity \(\mathbf{V} = [V_x, V_y, V_z]^T\) and rotational velocity \(\boldsymbol{\Omega} = [\omega_x, \omega_y, \omega_z]^T\). A scene point \(\mathbf{P} = [X, Y, Z]^T\), expressed in the camera frame, projects to the normalized image point \(\mathbf{p} = [x, y, 1]^T\):</p>
+
+\[
+x = \frac{X}{Z}, \qquad y = \frac{Y}{Z}, \qquad \mathbf{p} = \frac{1}{Z}\mathbf{P}
+\]
+
+<figure class="blog-figure blog-figure--small">
+  <img src="/img/blog/optical-flow/camera-geometry.jpg" alt="Camera coordinate axes X, Y and Z with translational velocities v and rotational velocities omega, and an image plane on which a point moves with velocity p-dot" loading="lazy">
+  <figcaption>Camera frame, image plane and the six components of camera motion.</figcaption>
+</figure>
+
+<h2>Derivation</h2>
+
+<p><strong>Step 1: Motion of the point.</strong> Relative to the camera, a static point moves opposite to the camera's motion:</p>
+
+\[
+\dot{\mathbf{P}} = -\boldsymbol{\Omega} \times \mathbf{P} - \mathbf{V}
+\]
+
+<p>Expanding the cross product gives</p>
+
+\[
+\begin{aligned}
+\dot{X} &= -V_x - \omega_y Z + \omega_z Y \\
+\dot{Y} &= -V_y - \omega_z X + \omega_x Z \\
+\dot{Z} &= -V_z - \omega_x Y + \omega_y X
+\end{aligned}
+\]
+
+<p><strong>Step 2: Differentiate the projection.</strong> Applying the quotient rule to \(\mathbf{p} = \mathbf{P}/Z\) gives \(\dot{\mathbf{p}} = \dot{\mathbf{P}}/Z - (\dot{Z}/Z)\,\mathbf{p}\), or in components:</p>
+
+\[
+\dot{x} = \frac{\dot{X} - x\dot{Z}}{Z}, \qquad \dot{y} = \frac{\dot{Y} - y\dot{Z}}{Z}
+\]
+
+<p><strong>Step 3: Substitute.</strong> Inserting the expressions from Step 1 and replacing \(X/Z\) with \(x\) and \(Y/Z\) with \(y\) gives</p>
+
+\[
+\begin{aligned}
+\dot{x} &= \frac{xV_z - V_x}{Z} + xy\,\omega_x - (1 + x^2)\,\omega_y + y\,\omega_z \\[6pt]
+\dot{y} &= \frac{yV_z - V_y}{Z} + (1 + y^2)\,\omega_x - xy\,\omega_y - x\,\omega_z
+\end{aligned}
+\]
+
+<p>In matrix form, this is the <strong>motion field equation</strong>:</p>
+
+\[
+\dot{\mathbf{p}} =
+\underbrace{\frac{1}{Z}
+\begin{bmatrix}
+xV_z - V_x \\
+yV_z - V_y
+\end{bmatrix}}_{\text{translational flow}}
++
+\underbrace{\begin{bmatrix}
+xy & -(1 + x^2) & y \\
+(1 + y^2) & -xy & -x
+\end{bmatrix}
+\boldsymbol{\Omega}}_{\text{rotational flow}}
+\]
+
+<h2>Translation and Rotation</h2>
+
+<p>The two components behave very differently:</p>
+
+<ul>
+  <li><strong>Translational flow depends on depth.</strong> It scales with \(1/Z\), so nearby points move faster in the image. This effect is known as motion parallax.</li>
+  <li><strong>Rotational flow is independent of depth.</strong> \(Z\) does not appear in this term, so a purely rotating camera provides no information about scene structure.</li>
+  <li><strong>Scale is ambiguous.</strong> Translation and depth appear only as the ratio \(\mathbf{V}/Z\), so a single camera cannot recover absolute scale from image motion alone.</li>
+</ul>
+
+<h2>Special Cases</h2>
+
+<p>Setting all but one velocity component to zero isolates the basic flow patterns. The animations below are computed directly from the motion field equation at constant depth, with image \(x\) pointing right, image \(y\) pointing down and \(Z\) pointing forward. Reversing a velocity reverses its arrows.</p>
+
+<p><strong>Pure translation.</strong> Sideways motion gives uniform flow opposite to the camera, and forward motion gives radial flow:</p>
+
+<div class="blog-figure-grid blog-figure-grid--three">
+  <figure class="blog-figure">
+    <video src="/img/blog/optical-flow/flow-vx.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Animated uniform flow toward the left"></video>
+    <figcaption>\(V_x > 0\): camera moves right, flow is to the left.</figcaption>
+  </figure>
+  <figure class="blog-figure">
+    <video src="/img/blog/optical-flow/flow-vy.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Animated uniform flow upward"></video>
+    <figcaption>\(V_y > 0\): camera moves down, flow is upward.</figcaption>
+  </figure>
+  <figure class="blog-figure">
+    <video src="/img/blog/optical-flow/flow-vz.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Animated flow expanding from the focus of expansion"></video>
+    <figcaption>\(V_z > 0\): camera moves forward, flow expands.</figcaption>
+  </figure>
+</div>
+
+<p><strong>Pure rotation.</strong> Rotation about \(x\) or \(y\) gives nearly uniform flow near the image center that curves toward the edges, and rotation about the optical axis gives circular flow:</p>
+
+<div class="blog-figure-grid blog-figure-grid--three">
+  <figure class="blog-figure">
+    <video src="/img/blog/optical-flow/flow-wx.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Animated flow downward, curving near the edges"></video>
+    <figcaption>\(\omega_x > 0\): camera tilts up, flow is downward.</figcaption>
+  </figure>
+  <figure class="blog-figure">
+    <video src="/img/blog/optical-flow/flow-wy.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Animated flow toward the left, curving near the edges"></video>
+    <figcaption>\(\omega_y > 0\): camera pans right, flow is to the left.</figcaption>
+  </figure>
+  <figure class="blog-figure">
+    <video src="/img/blog/optical-flow/flow-wz.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Animated flow circling the image center"></video>
+    <figcaption>\(\omega_z > 0\): camera rolls, flow circles the center.</figcaption>
+  </figure>
+</div>
+
+<p>Near the image center, rotation about \(y\) and translation along \(x\) look nearly identical: for small \(x\) and \(y\), \(\dot{x} \approx -\omega_y\) and \(\dot{y} \approx 0\). The same holds for rotation about \(x\) and translation along \(y\), so the two are difficult to separate with a narrow field of view.</p>
+
+<figure class="blog-figure">
+  <video src="/img/blog/optical-flow/flow-ambiguity.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Animated rotation flow and translation flow side by side, with a red box marking a narrow field of view in which they look alike"></video>
+  <figcaption>Inside the red box, a narrow field of view, the two motions produce almost the same flow.</figcaption>
+</figure>
+
+<h2>Focus of Expansion</h2>
+
+<p>Factoring \(V_z\) out of the translational flow gives</p>
+
+\[
+\dot{\mathbf{p}}_{\text{trans}} = \frac{V_z}{Z}
+\begin{bmatrix}
+x - V_x/V_z \\
+y - V_y/V_z
+\end{bmatrix}
+\]
+
+<p>This flow is zero at a single image point, and every flow vector points along the line through it. This point is the <strong>focus of expansion</strong> (FOE), and it marks the camera's direction of travel:</p>
+
+\[
+\text{FOE} = \left(\frac{V_x}{V_z},\; \frac{V_y}{V_z}\right)
+\]
+
+<p>When \(V_z = 0\), the FOE moves to infinity and the flow vectors become parallel.</p>
+
+<h2>Time to Contact</h2>
+
+<p>The <strong>time to contact</strong> \(\tau\) is the time remaining before the camera reaches the plane of a point, assuming constant velocity:</p>
+
+\[
+\tau = \frac{Z}{V_z}
+\]
+
+<p>Taking the magnitude of the translational flow above and rearranging gives</p>
+
+\[
+\tau = \frac{Z}{V_z} = \frac{\|\mathbf{p} - \text{FOE}\|}{\|\dot{\mathbf{p}}_{\text{trans}}\|}
+\]
+
+<p>Notably, <strong>time to contact can be measured from a single moving camera without knowing either depth or speed</strong>, even though neither can be recovered individually. It requires only the flow vector and its distance from the FOE. Among points at the same distance from the FOE, longer flow vectors therefore indicate a more imminent collision.</p>
+
+<p>Time to contact is widely used for obstacle avoidance on small robots, and it also appears in nature. Gannets dive into the sea at high speed and fold their wings just before impact, and their timing is consistent with a time-to-contact estimate from image expansion [1, 2].</p>
+
+<h2>Motion Field vs. Optical Flow</h2>
+
+<p>A camera cannot measure the motion field directly. It observes only changing brightness patterns, and the apparent motion of these patterns is called <strong>optical flow</strong>. Optical flow is an observable approximation of the motion field, but the two are not always equal.</p>
+
+<figure class="blog-figure">
+  <video src="/img/blog/optical-flow/traffic-flow.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Traffic video with tracked vehicle motion on the left and color-coded optical flow on the right"></video>
+  <figcaption>Optical flow estimated from a traffic video, with color encoding the direction of motion.</figcaption>
+</figure>
+
+<p>A rotating sphere shows the difference. Both spheres below rotate, so both have the same motion field, but only the textured one produces optical flow. A uniform sphere looks unchanged.</p>
+
+<figure class="blog-figure">
+  <video src="/img/blog/optical-flow/rotating-spheres.mp4" autoplay muted loop playsinline preload="metadata" aria-label="A rotating golf ball with visible dimples and logo next to a rotating uniform sphere that looks unchanged"></video>
+  <figcaption>Motion without flow: the motion field is the same for both spheres, but the uniform sphere has no optical flow.</figcaption>
+</figure>
+
+<p>The reverse also occurs. A moving light changes the shading across a stationary sphere and its surroundings, which produces optical flow although the motion field is zero.</p>
+
+<figure class="blog-figure">
+  <video src="/img/blog/optical-flow/moving-light.mp4" autoplay muted loop playsinline preload="metadata" aria-label="A stationary white sphere with its shading and shadow changing as a light moves around it"></video>
+  <figcaption>Flow without motion: the sphere is stationary, and only the light moves.</figcaption>
+</figure>
+
+<p>Local measurements add a further ambiguity. Through a small window, only the component of motion perpendicular to an edge can be observed. This is the <strong>aperture problem</strong>, and it explains why a barber pole's stripes appear to move vertically although the pole rotates horizontally.</p>
+
+<div class="blog-figure-grid blog-figure-grid--three">
+  <figure class="blog-figure">
+    <img src="/img/blog/optical-flow/barber-pole.gif" alt="A rotating barber pole whose stripes appear to move upward" loading="lazy">
+    <figcaption>Barber pole: the motion field is horizontal, but the optical flow is vertical.</figcaption>
+  </figure>
+  <figure class="blog-figure">
+    <img src="/img/blog/optical-flow/barber-stripes.gif" alt="Diagonal stripes moving inside a tall narrow window" loading="lazy">
+    <figcaption>Stripes through a narrow window.</figcaption>
+  </figure>
+  <figure class="blog-figure">
+    <img src="/img/blog/optical-flow/aperture.gif" alt="Diagonal stripes moving behind a small circular window" loading="lazy">
+    <figcaption>Stripes through a small aperture.</figcaption>
+  </figure>
+</div>
+
+<h2>References</h2>
+
+<ol class="blog-references">
+  <li>D. N. Lee, "A theory of visual control of braking based on information about time-to-collision," <em>Perception</em>, 1976.</li>
+  <li>D. N. Lee and P. E. Reddish, "Plummeting gannets: a paradigm of ecological optics," <em>Nature</em>, 1981.</li>
+</ol>
+{% endraw %}
