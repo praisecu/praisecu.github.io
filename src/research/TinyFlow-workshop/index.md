@@ -23,6 +23,9 @@ links:
   - text: Paper
     url: static/TinyFlow-workshop.pdf
     icon: fas fa-file-pdf
+  - text: arXiv
+    url: https://arxiv.org/abs/2610.33338
+    icon: ai ai-arxiv
   - text: Results
     url: "#results"
     icon: fas fa-chart-line
