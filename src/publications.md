@@ -8,6 +8,22 @@ description: Journal and conference papers from the PRAISe Lab at CU Boulder in 
 permalink: /publications.html
 
 publications:
+  - title: "TinyFlow: Breaking the Warping Bottleneck for Edge Optical Flow"
+    date: "arXiv · Oct 2026"
+    year: 2026
+    image: "/research/TinyFlow-workshop/static/images/card-square.jpg"
+    primary_url: "https://arxiv.org/abs/2610.33338"
+    venue: "arXiv preprint arXiv:2610.33338"
+    bibtex_type: misc
+    authors: "Xiao'ao Song, Chahat Deep Singh"
+    links:
+      - label: arXiv
+        type: pdf
+        url: "https://arxiv.org/abs/2610.33338"
+      - label: Project
+        type: project
+        url: "/research/TinyFlow-workshop.html"
+
   - title: "Fold-to-Fit: Propeller Interaction and Control of a Coaxial-Bicopter Quadrotor"
     date: "IROS Workshop · Oct 2026"
     year: 2026
