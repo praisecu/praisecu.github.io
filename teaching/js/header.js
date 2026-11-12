@@ -80,9 +80,9 @@ headerTemplate.innerHTML = `
             <div class="submenu-wrapper">
               <div class="submenu-inner">
                 <ul class="dropdown-menu">
+                  <li><a href="../publications">Publications</a></li>
                   <li><a href="../research-areas">Research Areas</a></li>
                   <!-- <li><a href="../software" style="font-size:19px">Tutorials/Softwares/Datasets</a></li> -->
-                  <li><a href="../publications">Recent Publications</a></li>
                   <!-- <li><a href="../research-facilities" style="font-size:20px;">Research Facilities</a></li> -->
                 </ul>
               </div>

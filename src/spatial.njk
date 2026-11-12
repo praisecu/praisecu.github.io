@@ -407,34 +407,6 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
       </div>
     </section>
 
-    <!-- Research: research-areas.md -->
-    <section class="win" data-label="Research" data-icon="fa-flask" aria-label="Research areas">
-      <div class="pane">
-        <div class="head">
-          <div><h2>{{ research.title }}</h2><p>{{ research.summary }}</p></div>
-          <a class="pill" href="/research-areas.html">Open <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-        </div>
-        <div class="body">
-          <div class="areas">
-            {%- for area in research.research_areas %}
-            <article class="tile area">
-              <div class="thumb">{{ thumb(area.image, area.title) }}</div>
-              <div class="txt">
-                <h4>{{ area.title }}</h4>
-                <p>{{ area.description }}</p>
-                {%- if area.links %}
-                <div class="chips">
-                  {%- for link in area.links %}<a href="{{ link.url }}"{{ ext(link.url) }}>{{ link.label }}</a>{% endfor %}
-                </div>
-                {%- endif %}
-              </div>
-            </article>
-            {%- endfor %}
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Publications: publications.md -->
     <section class="win" data-label="Publications" data-short="Papers" data-icon="fa-book-open" aria-label="Publications">
       <div class="pane">
@@ -455,6 +427,34 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
                 {%- if p.links %}
                 <div class="chips">
                   {%- for link in p.links %}<a href="{{ link.url }}"{{ ext(link.url) }}>{{ link.label }}</a>{% endfor %}
+                </div>
+                {%- endif %}
+              </div>
+            </article>
+            {%- endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research: research-areas.md -->
+    <section class="win" data-label="Research" data-icon="fa-flask" aria-label="Research areas">
+      <div class="pane">
+        <div class="head">
+          <div><h2>{{ research.title }}</h2><p>{{ research.summary }}</p></div>
+          <a class="pill" href="/research-areas.html">Open <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+        <div class="body">
+          <div class="areas">
+            {%- for area in research.research_areas %}
+            <article class="tile area">
+              <div class="thumb">{{ thumb(area.image, area.title) }}</div>
+              <div class="txt">
+                <h4>{{ area.title }}</h4>
+                <p>{{ area.description }}</p>
+                {%- if area.links %}
+                <div class="chips">
+                  {%- for link in area.links %}<a href="{{ link.url }}"{{ ext(link.url) }}>{{ link.label }}</a>{% endfor %}
                 </div>
                 {%- endif %}
               </div>
