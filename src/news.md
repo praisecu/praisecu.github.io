@@ -11,8 +11,9 @@ news:
   - title: TinyFlow Preprint Available on arXiv
     date: Oct 23, 2026
     date_iso: 2026-10-23
-    image: /research/TinyFlow-workshop/static/images/card-square.jpg
-    image_alt: TinyFlow optical flow of a running figure
+    image: /research/TinyFlow-workshop/static/images/card-preprint.jpg
+    home_image: /research/TinyFlow-workshop/static/images/card-home.jpg
+    image_alt: A scene beside its TinyFlow optical flow estimate
     url: https://arxiv.org/abs/2610.33338
     description: "The TinyFlow preprint by Xiao'ao Song and Chahat Deep Singh, a 1.26M-parameter warp-free optical flow network for edge accelerators, is now available on arXiv (2610.33338)."
     external: true

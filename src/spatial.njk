@@ -398,7 +398,7 @@ h3.sec { font-size: 1.125rem; margin: 0.25rem 0 0.75rem; font-weight: 800; }
           <div class="news">
             {%- for item in newsPage.news | sortNewsNewest | take(6) %}
             <a class="tile" href="{{ src(item.url) if item.url else '/news.html' }}"{{ ext(item.url) }}>
-              <span class="n-img">{{ thumb(item.image, item.image_alt) }}</span>
+              <span class="n-img">{{ thumb(item.home_image or item.image, item.image_alt) }}</span>
               <span class="n-txt"><time>{{ item.date }}</time><b>{{ item.title }}</b></span>
             </a>
             {%- endfor %}

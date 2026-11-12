@@ -15,10 +15,12 @@
         <div class="news-entry__link news-entry__link--static">
       {% endif %}
 
-        {% if item.image %}
+        {# home_image replaces image on the homepage only #}
+        {% set entry_image = item.home_image if (news_home and item.home_image) else item.image %}
+        {% if entry_image %}
           <div class="news-entry__media">
             <img
-              src="{{ item.image }}"
+              src="{{ entry_image }}"
               alt="{{ item.image_alt | default(item.title) }}"
               loading="lazy"
             >

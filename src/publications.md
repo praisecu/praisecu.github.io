@@ -11,7 +11,7 @@ publications:
   - title: "TinyFlow: Breaking the Warping Bottleneck for Edge Optical Flow"
     date: "arXiv · Oct 2026"
     year: 2026
-    image: "/research/TinyFlow-workshop/static/images/card-square.jpg"
+    image: "/research/TinyFlow-workshop/static/images/card-preprint.jpg"
     primary_url: "https://arxiv.org/abs/2610.33338"
     venue: "arXiv preprint arXiv:2610.33338"
     bibtex_type: misc

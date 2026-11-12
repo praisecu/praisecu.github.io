@@ -306,6 +306,7 @@
 
         {% if news_page and news_page.data.news %}
           {% set items = news_page.data.news | sortNewsNewest | take(8) %}
+          {% set news_home = true %}
 
           {% include "components/news-feed.njk" %}
         {% else %}
