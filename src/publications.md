@@ -50,9 +50,6 @@ publications:
       - label: PDF
         type: pdf
         url: "/research/TinyFlow-workshop/static/TinyFlow-workshop.pdf"
-      - label: arXiv
-        type: pdf
-        url: "https://arxiv.org/abs/2610.33338"
       - label: Project
         type: project
         url: "/research/TinyFlow-workshop.html"
