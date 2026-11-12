@@ -257,8 +257,13 @@
     padding: 30px 0;
   }
 
+  /* Same size as the Research Areas cards on phones */
   .publication-item__media {
+    width: min(94%, 430px);
+    margin-right: auto;
+    margin-left: auto;
     aspect-ratio: 16 / 9;
+    border-radius: 11px;
   }
 
   .publication-item__title {
