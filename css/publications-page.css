@@ -266,6 +266,19 @@
     border-radius: 11px;
   }
 
+  .publication-item__body {
+    align-items: center;
+    text-align: center;
+  }
+
+  .publication-item__heading {
+    align-items: center;
+  }
+
+  .publication-item__links {
+    justify-content: center;
+  }
+
   .publication-item__title {
     font-size: 23px;
   }
