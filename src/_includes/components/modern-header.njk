@@ -164,7 +164,15 @@
   </a>
 
   <a
-    class="mobile-bottom-nav__item{% if nav == 'research' %} is-active{% endif %}"
+    class="mobile-bottom-nav__item{% if page.url == '/publications.html' %} is-active{% endif %}"
+    href="/publications.html"
+  >
+    <i class="fa fa-book" aria-hidden="true"></i>
+    <span>Publications</span>
+  </a>
+
+  <a
+    class="mobile-bottom-nav__item{% if nav == 'research' and page.url != '/publications.html' %} is-active{% endif %}"
     href="/research-areas.html"
   >
     <i class="fa fa-flask" aria-hidden="true"></i>
@@ -179,16 +187,8 @@
     <span>Teaching</span>
   </a>
 
-  <a
-    class="mobile-bottom-nav__item{% if nav == 'team' %} is-active{% endif %}"
-    href="/team.html"
-  >
-    <i class="fa fa-users" aria-hidden="true"></i>
-    <span>Team</span>
-  </a>
-
   <button
-    class="mobile-bottom-nav__item mobile-bottom-nav__more{% if nav == 'media' or nav == 'openings' %} is-active{% endif %}"
+    class="mobile-bottom-nav__item mobile-bottom-nav__more{% if nav == 'team' or nav == 'media' or nav == 'openings' %} is-active{% endif %}"
     type="button"
     aria-expanded="false"
     aria-controls="mobile-more-menu"
@@ -233,9 +233,9 @@
     </div>
 
     <div class="mobile-more-menu__links">
-      <a href="/publications.html">
-        <i class="fa fa-book" aria-hidden="true"></i>
-        <span>Publications</span>
+      <a href="/openings.html">
+        <i class="fa fa-briefcase" aria-hidden="true"></i>
+        <span>Openings{% if navBadges.openings %} <b class="nav-badge">{{ navBadges.openings }}</b>{% endif %}</span>
       </a>
 
       <a href="/blog/">
@@ -243,14 +243,14 @@
         <span>Blog</span>
       </a>
 
+      <a href="/team.html">
+        <i class="fa fa-users" aria-hidden="true"></i>
+        <span>Team</span>
+      </a>
+
       <a href="/media.html">
         <i class="fa fa-camera" aria-hidden="true"></i>
         <span>Media</span>
-      </a>
-
-      <a href="/openings.html">
-        <i class="fa fa-briefcase" aria-hidden="true"></i>
-        <span>Openings{% if navBadges.openings %} <b class="nav-badge">{{ navBadges.openings }}</b>{% endif %}</span>
       </a>
     </div>
   </div>
