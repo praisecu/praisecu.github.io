@@ -39,6 +39,11 @@ quick_info:
 # Use type: lecture | assignment | schedule | setup
 announcements:
 
+  - date: November 17, 2026
+    date_iso: 2026-11-17
+    type: assignment
+    text: "P4: Monocular Visual Odometry is released. P4 is due Thursday, December 10, 2026."
+
   - date: November 2, 2026
     date_iso: 2026-11-02
     type: schedule
@@ -248,7 +253,7 @@ Students may discuss concepts with team members and other class members, but may
 |3|P2: Coded Deep Depth — [Part 1](https://colab.research.google.com/drive/1M9t9gxG-1Yeb7DXVzPOBNC77q97Pq7xj?usp=sharing) / [Part 2](https://colab.research.google.com/drive/1k_TQLih9xIZ3j_c8weAFaOq2OOd2xONr?usp=sharing)|Sep 30, 2026|Oct 20, 2026|
 |4|P3: Blob the Builder — [Part 1](https://colab.research.google.com/drive/1VbKRHL0ICznVLjisC5cO2615s1JsX3u_?usp=sharing) / Part 2 (releases Nov 12)|Nov 2, 2026|Dec 10, 2026|
 |5|Midterm — In Class|Nov 10, 2026|—|
-|6|P4: Monocular Visual Odometry|Nov 17, 2026|Dec 10, 2026|
+|6|[P4: Monocular Visual Odometry](https://colab.research.google.com/drive/1c3AtkShXPlfQGGVqcTrg4a6L-2PIiofw?usp=sharing)|Nov 17, 2026|Dec 10, 2026|
 
 <h2 id="advancedcv-grading">Grading</h2>
 
