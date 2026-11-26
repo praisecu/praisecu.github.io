@@ -1267,15 +1267,6 @@ input[type="range"].slider::-moz-range-track {
 .tf-range-row input[type="range"] { width: 100%; accent-color: var(--tf-orange); }
 .tf-range-row output { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--pp-ink); text-align: right; }
 
-/* Capture range table */
-.tf-scales { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
-.tf-scales th, .tf-scales td { padding: 0.45rem 0.5rem; border-bottom: 1px solid var(--pp-border); text-align: left; vertical-align: middle; }
-.tf-scales th { font: 800 0.78rem/1.2 var(--pp-font-heading); letter-spacing: 0.05em; text-transform: uppercase; color: var(--pp-muted); }
-.tf-scales td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
-.tf-scales input[type="range"] { width: 100%; min-width: 6rem; accent-color: var(--tf-orange); }
-.tf-reach { position: relative; height: 0.7rem; border-radius: 999px; background: var(--tf-grid); min-width: 6rem; }
-.tf-reach i { position: absolute; top: 0; bottom: 0; left: 50%; border-radius: 999px; background: var(--tf-orange); }
-
 /* Flow explorer (reuses the site's .compare slider) */
 .tf-explorer .compare-figure { margin: 0; }
 .tf-explorer .tf-input { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.75rem; margin-top: 0.85rem; }
@@ -1294,18 +1285,13 @@ input[type="range"].slider::-moz-range-track {
 @media (max-width: 768px) {
   .tf-widget { padding: 1rem 0.8rem 0.85rem; }
   .tf-warp { grid-template-columns: minmax(0, 1fr); }
-  .tf-scales .tf-hide-sm { display: none; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .tf-svg .tf-anim { transition: width 0.35s ease, x 0.35s ease, y 0.35s ease, height 0.35s ease, cx 0.35s ease, cy 0.35s ease; }
 }
 .tf-group[hidden] { display: none; }
-.content.page-content table.tf-scales { display: table; width: 100%; margin: 0; }
 .content.page-content .tf-explorer .tf-input figure { margin: 0; }
 @media (max-width: 768px) {
-  #tf-scale-widget { overflow-x: auto; }
-  .tf-scales th, .tf-scales td { padding: 0.4rem 0.3rem; font-size: 0.84rem; }
-  .tf-scales input[type="range"] { min-width: 0; width: 5.5rem; }
   .tf-range-row { grid-template-columns: 6.8rem minmax(0, 1fr) 2rem; font-size: 0.85rem; }
   .tf-readout { grid-template-columns: repeat(auto-fit, minmax(7.2rem, 1fr)); }
   .tf-readout b { font-size: 1.1rem; }

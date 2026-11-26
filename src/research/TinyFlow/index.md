@@ -110,16 +110,6 @@ One correlation offset at scale $$s$$ corresponds to $$s$$ pixels at full resolu
 
 Each refinement step adds a **bounded** correction, $$\Delta\mathbf{u}^s_t = d_s \tanh\big(g_s([C^s_0, f^s_1, \mathbf{u}^s_t]) / d_s\big)$$, with $$d_{16}=4$$, $$d_8=2$$ and $$d_4=1$$. The cost volume is computed once per scale and never recentered. The current flow enters the update block as an input channel instead. Because every step is bounded, the numeric range of every flow tensor is known before training, which keeps the regression stable and makes the tensors representable in 8-bit encodings.
 
-<figure class="tf-widget" id="tf-scale-widget">
-<table class="tf-scales">
-<thead><tr><th>Scale</th><th>Radius r</th><th class="num">Reach</th><th class="tf-hide-sm">Reach at full resolution</th><th class="num">Channels</th></tr></thead>
-<tbody id="tf-scale-body"></tbody>
-</table>
-<div class="tf-range-row" style="margin-top:1rem"><label for="tf-iters">Iterations T</label><input type="range" id="tf-iters" min="1" max="12" value="8"><output id="tf-iters-out">8</output></div>
-<div class="tf-readout" id="tf-iters-readout"></div>
-<figcaption><strong>Try it.</strong> Change the radius at each scale to see how far its window reaches and how many correlation channels it costs. The paper's radii are marked. The iteration slider shows the largest flow the bounded heads can represent at full resolution: the 1/16 head adds at most d<sub>16</sub>·16 px, and T steps at 1/8 and 1/4 add at most T·d<sub>8</sub>·8 and T·d<sub>4</sub>·4 px. TinyFlow trains with T = 4 and is deployed with T = 8.</figcaption>
-</figure>
-
 ## Architecture
 
 {% figure src="static/images/architecture.png", alt="TinyFlow architecture: a shared encoder builds a feature pyramid at 1/4, 1/8 and 1/16; at each scale a feature projector and a separable correlation with radius 3, 6 or 8 feed a flow prediction head, refined coarse to fine with four weight-tied iterations at 1/8 and 1/4", caption="**TinyFlow architecture.** **(a)** A shared encoder builds a multi-scale feature pyramid. Separable correlation matches the features at each scale and the flow is refined coarse-to-fine. **(b)** The backbone encoder is built from lightweight feature-extraction blocks of depth-wise and point-wise convolutions. **(c)** The three flow prediction heads have the same architecture but separate weights." %}
@@ -389,40 +379,6 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
     wIn.addEventListener("input", function () { st.w = +wIn.value; draw(); });
     chipGroup(root, "data-warp-mode", function (v) { st.mode = v; draw(); });
     draw();
-  })();
-
-  /* ---------------- Capture range and bounded steps ---------------- */
-  (function () {
-    var body = document.getElementById("tf-scale-body"); if (!body) return;
-    var scales = [{ s: 16, r: 8, d: 4 }, { s: 8, r: 6, d: 2 }, { s: 4, r: 3, d: 1 }];
-    var MAXR = 12, MAXPX = MAXR * 16;
-    scales.forEach(function (sc, i) {
-      var tr = document.createElement("tr");
-      tr.innerHTML = "<td><strong>1/" + sc.s + "</strong></td>" +
-        "<td><input type=\"range\" min=\"1\" max=\"" + MAXR + "\" value=\"" + sc.r + "\" aria-label=\"Radius at 1/" + sc.s + "\"></td>" +
-        "<td class=\"num\"><b class=\"tf-r\"></b></td>" +
-        "<td class=\"tf-hide-sm\"><div class=\"tf-reach\"><i></i></div></td>" +
-        "<td class=\"num tf-k\"></td>";
-      body.appendChild(tr);
-      var inp = tr.querySelector("input");
-      function upd() {
-        var r = +inp.value, reach = r * sc.s, w = 50 * reach / MAXPX;
-        tr.querySelector(".tf-r").innerHTML = "r = " + r + (r === sc.r ? " <small class=\"tf-ours\">paper</small>" : "") + "<br><span style=\"font-weight:400\">±" + reach + " px</span>";
-        var bar = tr.querySelector(".tf-reach i"); bar.style.left = (50 - w) + "%"; bar.style.width = (2 * w) + "%";
-        tr.querySelector(".tf-k").innerHTML = 2 * (2 * r + 1) + "<br><small style=\"color:var(--pp-muted)\">full " + (2 * r + 1) * (2 * r + 1) + "</small>";
-      }
-      inp.addEventListener("input", upd); upd();
-    });
-    var it = document.getElementById("tf-iters"), out = document.getElementById("tf-iters-out"), ro = document.getElementById("tf-iters-readout");
-    function upd2() {
-      var T = +it.value; out.textContent = T;
-      var a = 4 * 16, b = T * 2 * 8, c = T * 1 * 4;
-      ro.innerHTML = "<div><b>±" + a + " px</b><span>initial flow at 1/16, d<sub>16</sub> = 4</span></div>" +
-        "<div><b>±" + b + " px</b><span>" + T + " steps at 1/8, d<sub>8</sub> = 2</span></div>" +
-        "<div><b>±" + c + " px</b><span>" + T + " steps at 1/4, d<sub>4</sub> = 1</span></div>" +
-        "<div><b>±" + (a + b + c) + " px</b><span>largest representable flow" + (T === 8 ? ", as deployed" : T === 4 ? ", as trained" : "") + "</span></div>";
-    }
-    it.addEventListener("input", upd2); upd2();
   })();
 
   /* ---------------- Training: quantization penalty and soup ---------------- */
