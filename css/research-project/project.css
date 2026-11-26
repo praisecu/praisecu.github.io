@@ -1350,3 +1350,6 @@ input[type="range"].slider::-moz-range-track {
 .tf-controls { gap: 0.35rem 1rem; margin-bottom: 0.55rem; }
 .tf-widget figcaption, .tf-widget .tf-note { margin-top: 0.45rem; }
 #tf-warp-widget .tf-chip, #tf-train-widget .tf-chip, .tf-pair .tf-chip { height: 1.45rem; padding: 0 0.6rem; font-size: 0.78rem; }
+/* TinyFlow: centered widget captions */
+.content.page-content .tf-widget figcaption,
+.content.page-content .tf-widget > .tf-note { text-align: center; }
