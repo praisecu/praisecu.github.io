@@ -559,9 +559,9 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
       var g = el("g", {}, svg);
       el("circle", { cx: sx(p.fps), cy: sy(p.epe), r: p.k === "tinyflow" ? 10 : 8, fill: COL[p.k], stroke: "var(--pp-surface)", "stroke-width": 2 }, g);
       // label centred above the dot, kept inside the chart
-      var half = p.k === "tinyflow" ? 82 : 70, lx = Math.max(half + 4, Math.min(W - half - 4, sx(p.fps))), ly = sy(p.epe);
-      el("text", { x: lx, y: ly - 30, "text-anchor": "middle", "font-size": 13, class: p.k === "tinyflow" ? "tf-strong" : "" }, g, NAME[p.k] + " (" + PARAMS[p.k] + ")");
-      el("text", { x: lx, y: ly - 15, "text-anchor": "middle", "font-size": 11.5, class: "tf-muted" }, g, p.fps + " FPS, " + p.epe.toFixed(2) + " EPE");
+      var half = p.k === "tinyflow" ? 82 : 70, lx = Math.max(L + half + 6, Math.min(W - half - 4, sx(p.fps))), ly = sy(p.epe);
+      el("text", { x: lx, y: ly - 30, "text-anchor": "middle", "font-size": 13, "paint-order": "stroke", stroke: "var(--pp-surface)", "stroke-width": 4, "stroke-linejoin": "round", class: p.k === "tinyflow" ? "tf-strong" : "" }, g, NAME[p.k] + " (" + PARAMS[p.k] + ")");
+      el("text", { x: lx, y: ly - 15, "text-anchor": "middle", "font-size": 11.5, "paint-order": "stroke", stroke: "var(--pp-surface)", "stroke-width": 4, "stroke-linejoin": "round", class: "tf-muted" }, g, p.fps + " FPS, " + p.epe.toFixed(2) + " EPE");
       tip(g, NAME[p.k] + ": " + p.fps + " FPS, " + p.epe + " EPE");
     });
     }
