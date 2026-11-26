@@ -18,9 +18,6 @@ affiliations:
   - Perception, Robotics, AI and Sensing (PRAISe) Lab, University of Colorado Boulder
 
 links:
-  - text: Paper
-    url: https://arxiv.org/pdf/2610.33338
-    icon: fas fa-file-pdf
   - text: arXiv
     url: https://arxiv.org/abs/2610.33338
     icon: ai ai-arxiv
