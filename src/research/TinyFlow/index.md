@@ -36,8 +36,8 @@ links:
 
 teaser:
   image: static/images/teaser.jpg
-  alt: "Left: an image pair goes through edge-aware training and an edge accelerator, and TinyFlow's flow matches the ground truth. Middle: parameters against Sintel Clean EPE for EdgeFlowNet, NanoFlowNet and TinyFlow in F32 and INT8. Right: visual odometry trajectories on a UZH-FPV flight."
-  caption: "**(a)** Our warp-free optical flow network with only **1.26M parameters** uses a pair of input images to predict dense, accurate optical flow on edge AI accelerators. **(b)** Sintel Clean: TinyFlow has the lowest EPE with **54% fewer parameters** than EdgeFlowNet and the smallest quantization gap, 0.16 against 0.29 for EdgeFlowNet and 0.72 for NanoFlowNet, evaluated on 384×512 px images. **(c)** Flow-only monocular VO on the real UZH-FPV dataset (ground truth in black): TinyFlow INT8 reaches **2.04 m** ATE against 2.41 m for EdgeFlowNet and 15.84 m for NanoFlowNet."
+  alt: "Two RGB frames of a runner go into TinyFlow, a 1.26M-parameter network with no warping that compiles to one static INT8 graph and runs on a Hailo-8 accelerator. Its dense optical flow output closely matches the ground truth."
+  caption: "**TinyFlow** predicts dense optical flow from a pair of input images with only **1.26M parameters**. It keeps iterative coarse-to-fine refinement but removes the warp, so the whole network compiles as **a single static INT8 graph** for edge AI accelerators such as the Hailo-8."
 
 math: true
 
