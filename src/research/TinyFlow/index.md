@@ -657,7 +657,7 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
     function draw() {
       hbars(svg, ["tinyflow", "edgeflownet", "nanoflownet"].map(function (k) {
         return { key: k, label: NAME[k], value: E[k][cur], color: COL[k] };
-      }), { left: 150, max: 95, barH: 26, gap: 14 });
+      }), { left: 150, max: 95, barH: 15, gap: 7 });
       var cells = [["Second frame, " + CND[cur].toLowerCase(), "c" + cur + "_second", null], ["Ground truth", "gt", null]]
         .concat(["tinyflow", "edgeflownet", "nanoflownet"].map(function (k) { return [NAME[k], "c" + cur + "_" + k, k]; }));
       grid.innerHTML = cells.map(function (c) {
