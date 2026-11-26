@@ -61,27 +61,25 @@ Quantization-aware fine-tuning, warp-teacher distillation, and model souping red
 
 ## Why warping is the bottleneck
 
-Deployable optical flow has so far meant giving up the mechanism that makes optical flow accurate. Every network that runs on an edge accelerator today, like NanoFlowNet and EdgeFlowNet, is a single feed-forward pass, and every network at the top of the accuracy benchmarks is iterative. Iterative estimators refine their prediction in a loop that **warps** features by the current flow before each correction, usually through `grid_sample`, so that each step only has to resolve the motion that remains.
+Accurate flow networks refine iteratively, **warping** features by the current flow with `grid_sample`. That warp reads memory at addresses computed at run time, which a fixed-dataflow accelerator cannot do, so deployable networks drop iteration and lose accuracy.
 
-That warp reads memory at addresses computed from the data at run time, and an accelerator that executes a fixed dataflow graph has no way to perform it. When the operator is not supported, the network either fails to compile or the warp executes on the host CPU and the accelerator's throughput advantage is lost. Deployable networks therefore leave out iterative refinement, and **their lower accuracy follows from that omission rather than from their smaller size.**
-
-<div class="key-idea"><strong>The idea.</strong> TinyFlow keeps the iterative refinement loop and removes the warp. It correlates the two frames over a fixed window of constant offsets, so the flow estimate selects among channel values rather than steering memory addresses. The data dependence that makes warping undeployable does not disappear. It moves into ordinary arithmetic.</div>
+<div class="key-idea"><strong>The idea.</strong> Keep the refinement loop, remove the warp. Correlate over a fixed window of constant offsets, so the data dependence moves from memory addresses into ordinary arithmetic.</div>
 
 ## Warp-free matching
 
-TinyFlow correlates the projected features of the two frames directly over a fixed window of offsets,
+TinyFlow correlates the two frames over a fixed window of offsets,
 
 $$
 C^s_0(\mathbf{x}, \boldsymbol{\delta}) \triangleq \left\langle \hat{f}^s_1(\mathbf{x}),\, \hat{f}^s_2(\mathbf{x} + \boldsymbol{\delta}) \right\rangle, \qquad \boldsymbol{\delta} \in \{-r_s,\ldots,r_s\}^2 .
 $$
 
-A warped residual cost volume reads the second frame at $$\mathbf{x} + \mathbf{u}^s(\mathbf{x}) + \boldsymbol{\delta}$$ instead. For integer flow it is a shifted read of the fixed one,
+and for integer flow the warped volume is just a shifted read of it,
 
 $$
 C^s_{\mathbf{u}}(\mathbf{x}, \boldsymbol{\delta}) = C^s_0\big(\mathbf{x}, \boldsymbol{\delta} + \mathbf{u}^s(\mathbf{x})\big),
 $$
 
-so for the full window, warping adds no matching evidence that the fixed volume does not already contain. Its only effect is to recenter the search window on the current estimate. TinyFlow keeps the window centered at zero and makes the radii large enough that the true displacement does not leave it.
+so warping only recenters the window. TinyFlow keeps it centered and wide enough.
 
 <figure class="tf-widget" id="tf-warp-widget">
 <div class="tf-warp">
@@ -96,26 +94,12 @@ so for the full window, warping adds no matching evidence that the fixed volume 
 <div class="tf-status" id="tf-warp-status"></div>
 </div>
 </div>
-<figcaption><strong>Try it.</strong> Drag in the grid, or focus it and use the arrow keys, to set the current flow <em>u</em>. The orange cells are the fixed window that TinyFlow computes once. The gold outline is the window that a warping network would read around <em>x + u</em>. While the gold window stays inside the orange one, warping only rereads values the fixed volume already holds. TinyFlow computes the two axis marginals of the window, 2(2r+1) channels instead of (2r+1)<sup>2</sup>.</figcaption>
+<figcaption><strong>Try it.</strong> Drag to set the flow <em>u</em>. Orange is the fixed window TinyFlow computes once, gold is what a warp would read. Inside the orange, warping adds nothing new.</figcaption>
 </figure>
-
-## Architecture
-
-{% figure src="static/images/architecture.png", alt="TinyFlow architecture: a shared encoder builds a feature pyramid at 1/4, 1/8 and 1/16; at each scale a feature projector and a separable correlation with radius 3, 6 or 8 feed a flow prediction head, refined coarse to fine with four weight-tied iterations at 1/8 and 1/4", caption="**TinyFlow architecture.** **(a)** A shared encoder builds a multi-scale feature pyramid. Separable correlation matches the features at each scale and the flow is refined coarse-to-fine. **(b)** The backbone encoder is built from lightweight feature-extraction blocks of depth-wise and point-wise convolutions. **(c)** The three flow prediction heads have the same architecture but separate weights." %}
-
-**Feature projector.** Instead of a per-pixel L2 normalization, which needs a channel reduction and a data-dependent division, the features pass through a small learnable projector, $$\hat{\mathbf{f}} = \mathrm{BN}(\mathrm{Conv}_{1\times1}\mathbf{f}) / \sqrt{C}$$. The convolution, the batch normalization and the fixed scale fuse into one integer-legal operation.
-
-**Edge-compilable correlation.** A shift by a constant offset is a convolution with a one-hot kernel, so each marginal becomes three fixed-weight layers. One-hot convolutions produce the shifted copies of the second frame's features in an offset-major layout, an elementwise product multiplies them with the replicated first-frame features, and a grouped 1×1 convolution with unit weights sums the channels of each offset. No weight in the construction is learned and no memory address depends on the input. To the compiler the volume is ordinary `Conv` and `Mul` layers.
 
 ## Edge-aware training
 
-Quantizing a trained checkpoint after the fact is not sufficient. Post-training quantization of the base checkpoint raises Sintel Clean EPE from 6.92 in Float32 to 8.09 in INT8, a penalty of 1.17, because weights trained in floating point have never had to tolerate rounding. TinyFlow is therefore fine-tuned under simulated quantization, with fake-quantization nodes at exactly the points where the accelerator compiler will quantize: per-channel symmetric INT8 weights and per-tensor asymmetric UINT8 activations.
-
-- **Warp-teacher distillation.** A warped variant of TinyFlow that performs `grid_sample` warping is more accurate but cannot be deployed. It still guides the quantized network during fine-tuning.
-- **INT8-aware model soup.** Float and quantized accuracy do not rank checkpoints the same way, so checkpoints are selected and averaged by their INT8 accuracy.
-- **Training mixture and iterations.** FlyingThings3D is mixed into the FlyingChairs fine-tuning data, and the weight-tied update blocks run eight iterations at inference instead of the four used in training.
-
-MPI-Sintel is used only for testing, never for training, fine-tuning or calibration.
+Post-training quantization costs 1.17 EPE. Quantization-aware fine-tuning with **warp-teacher distillation** and an **INT8-aware model soup** cuts it to 0.16. Sintel is never used for training.
 
 <figure class="tf-widget" id="tf-train-widget">
 <div class="tf-controls"><div class="tf-group"><span class="tf-group-label">Show</span><button class="tf-chip" type="button" data-train="gap" aria-pressed="true">Quantization penalty</button><button class="tf-chip" type="button" data-train="soup" aria-pressed="false">Model soup</button></div><div class="tf-group" id="tf-train-pass" hidden><span class="tf-group-label">Pass</span><button class="tf-chip" type="button" data-pass="0" aria-pressed="true">Sintel Clean</button><button class="tf-chip" type="button" data-pass="1" aria-pressed="false">Sintel Final</button></div></div>
@@ -127,7 +111,7 @@ MPI-Sintel is used only for testing, never for training, fine-tuning or calibrat
 
 ## See the difference
 
-Pick a scene and drag the slider. These frame pairs from the FlyingChairs validation set and Sintel were selected to show the difference: TinyFlow INT8 is near 1 EPE on each of them, while EdgeFlowNet INT8 is clearly worse. All models run INT8 with the paper's checkpoints and evaluation protocol. Hue encodes flow direction and brightness encodes magnitude, normalized per pair to the ground truth's scale.
+Drag the slider. Selected pairs where TinyFlow is near 1 EPE, all models in INT8.
 
 <figure class="tf-widget tf-explorer" id="tf-explorer">
 <div class="tf-controls">
@@ -147,7 +131,7 @@ Pick a scene and drag the slider. These frame pairs from the FlyingChairs valida
 
 ## Results
 
-All models are trained on FlyingChairs and FlyingThings3D and tested on MPI-Sintel and the FlyingChairs validation set, with EPE in pixels (lower is better). Large reference models are shown for context. They depend on flow-dependent resampling and cannot be deployed on the edge accelerators that the paper targets.
+End-point error in pixels, lower is better. Dashed reference models cannot be deployed.
 
 <figure class="tf-widget" id="tf-bench-widget">
 <div class="tf-controls">
@@ -171,11 +155,7 @@ All models are trained on FlyingChairs and FlyingThings3D and tested on MPI-Sint
 
 <p class="table-note">Bold marks the best deployable result. All models are evaluated on 384×512 px images except NanoFlowNet (†), which is evaluated at its native resolution of 112×160 px.</p>
 
-TinyFlow outperforms EdgeFlowNet on every benchmark in both precisions while using **54% fewer parameters** (1.26M against 2.75M). Under INT8 it reaches 6.29 / 7.13 EPE on Sintel Clean and Final against 6.46 / 7.62 for EdgeFlowNet, and its FlyingChairs EPE is **31% lower** (2.71 against 3.91). FlowNetS is more accurate on the mean but uses about 30× more parameters, and NeuFlow v2 is more accurate still but depends on flow-dependent resampling. Among the deployable models, TinyFlow offers the best trade-off between accuracy and size.
-
 ### Error by motion magnitude
-
-The first two bins, below 10 px and 10 to 40 px, hold roughly 90% of Sintel pixels. On Sintel Clean under INT8, TinyFlow leads every deployable model on both, and it edges the 30× larger FlowNetS between 10 and 40 px. On Sintel Final its advantage at large motion is even more pronounced: beyond 128 px the margin over EdgeFlowNet reaches 14.4 EPE in both precisions.
 
 <figure class="tf-widget" id="tf-bins-widget">
 <div class="tf-controls">
@@ -185,21 +165,21 @@ The first two bins, below 10 px and 10 to 40 px, hold roughly 90% of Sintel pixe
 </div>
 <svg class="tf-svg" id="tf-bins-svg" viewBox="0 0 640 300" role="img" aria-label="EPE by motion magnitude"></svg>
 <div class="tf-legend" id="tf-bins-legend"></div>
-<figcaption>EPE by ground-truth motion magnitude, from Table II of the paper. Reference models are drawn dashed and exist only in Float32. In the relative view, values above 1 mean more error than TinyFlow in that bin.</figcaption>
+<figcaption>Above 1 means more error than TinyFlow in that motion range.</figcaption>
 </figure>
 
 ### On the Hailo-8
 
-The models are deployed on a Raspberry Pi 5 with a Hailo-8 AI accelerator, measured on the same chip and the same 100-pair Sintel Clean sample. Iterative refinement improves accuracy at the cost of latency, while the parameter count stays below that of EdgeFlowNet.
+Raspberry Pi 5 with a Hailo-8, 100-pair Sintel Clean sample.
 
 <figure class="tf-widget" id="tf-hailo-widget">
 <svg class="tf-svg" id="tf-hailo-svg" viewBox="0 0 640 260" role="img" aria-label="Frames per second against EPE on the Hailo-8"></svg>
-<figcaption>Throughput against accuracy on a Raspberry Pi 5 with a Hailo-8, on a 100-pair Sintel Clean sample. Hover a point for its numbers. Up and to the right is better.</figcaption>
+<figcaption>Up and to the right is better.</figcaption>
 </figure>
 
 ## Visual odometry
 
-Dense flow on a small robot is rarely the end product, so the paper tests whether the ranking survives a downstream task. Every deployable model runs at INT8 and feeds the same five-point RANSAC pose estimator. No depth is used and the translation scale is taken from the ground truth, so the metrics measure only how well the flow constrains the camera rotation and the direction of travel. Over all eleven sequences TinyFlow has the lowest ATE on **seven**, EdgeFlowNet on four and NanoFlowNet on none.
+INT8 flow into the same pose estimator, no depth. TinyFlow has the lowest ATE on **7 of 11** sequences.
 
 <figure class="tf-widget" id="tf-vo-widget">
 <div class="tf-controls">
@@ -209,26 +189,22 @@ Dense flow on a small robot is rarely the end product, so the paper tests whethe
 <svg class="tf-svg" id="tf-vo-svg" viewBox="0 0 640 420" role="img" aria-label="Visual odometry errors per sequence"></svg>
 <div class="tf-legend"><span style="--sw:var(--tf-orange)">TinyFlow (Ours)</span><span style="--sw:var(--tf-blue)">EdgeFlowNet</span><span style="--sw:var(--tf-purple)">NanoFlowNet</span><span id="tf-vo-gt-key" style="--sw:var(--pp-ink)">Ground-truth flow (ATE)</span></div>
 <div class="tf-readout" id="tf-vo-readout"></div>
-<figcaption>Flow-only monocular visual odometry with the INT8 models. ATE is the position RMSE in metres after SE(3) alignment, Rotation the median per-frame rotation error and Direction the mean per-frame translation direction error. The ground-truth flow through the same estimator gives a 0.26 m mean ATE on TartanAir, an order of magnitude below every learned model, so the remaining error lies in the flow rather than in the estimator.</figcaption>
+<figcaption>ATE after SE(3) alignment. The black tick is the ground-truth flow through the same estimator.</figcaption>
 </figure>
 
-{% figure src="static/videos/vo_trajectories.mp4", poster="static/videos/vo_trajectories.jpg", alt="Animation of the estimated visual odometry trajectories of TinyFlow, EdgeFlowNet and NanoFlowNet being drawn against the ground truth on one UZH-FPV flight and three TartanAir trajectories", caption="**Flow-only visual odometry trajectories at INT8.** TinyFlow (orange), EdgeFlowNet (blue) and NanoFlowNet (purple) against the ground truth (black) for one UZH-FPV flight (a) and three TartanAir trajectories (b to d), drawn frame by frame. TinyFlow stays on the ground-truth path through loops and sharp turns, EdgeFlowNet drifts on the return legs, and NanoFlowNet leaves the path." %}
+{% figure src="static/videos/vo_trajectories.mp4", poster="static/videos/vo_trajectories.jpg", alt="Animation of the estimated visual odometry trajectories of TinyFlow, EdgeFlowNet and NanoFlowNet being drawn against the ground truth on one UZH-FPV flight and three TartanAir trajectories", caption="Trajectories drawn frame by frame against the ground truth (dashed)." %}
 
 ## Robustness to illumination change
 
-Benchmarks render both frames under identical lighting, whereas auto-exposure on a moving robot changes the brightness of the second frame relative to the first. The paper applies gamma, brightness scaling and an additive offset to the second frame of a fixed 209-pair Sintel Clean subset and leaves the ground truth untouched. TinyFlow stays within **5.92 to 8.99 EPE** across all eight conditions, while EdgeFlowNet rises to 27 to 61 and NanoFlowNet to 18 to 90. The paper attributes this to the tanh-bounded update heads, which limit the flow TinyFlow can emit regardless of how far the features shift.
+Gamma, brightness and offset changes on the second frame. TinyFlow stays within **5.92 to 8.99 EPE**, while EdgeFlowNet rises to 27 to 61 and NanoFlowNet to 18 to 90.
 
 <figure class="tf-widget" id="tf-illum-widget">
 <div class="tf-controls"><div class="tf-group" id="tf-illum-chips"><span class="tf-group-label">Second frame</span></div></div>
 <svg class="tf-svg" id="tf-illum-svg" viewBox="0 0 640 170" role="img" aria-label="EPE under illumination change"></svg>
 <div class="tf-illum-grid" id="tf-illum-grid"></div>
-<figcaption>Top, mean EPE of the INT8 models on the paper's 209-pair Sintel Clean subset (Table III) under the selected change, applied to the second frame only. Bottom, the same change on one Sintel Clean pair (alley_2), the pair of the paper's illumination figure, with each model's EPE on that pair. Every flow panel shares the ground truth's color scale, so an over-estimated flow saturates. NanoFlowNet runs at its native 112×160.</figcaption>
+<figcaption>Top, mean over 209 Sintel Clean pairs. Bottom, one pair.</figcaption>
 </figure>
 
-
-## Conclusion
-
-TinyFlow is an edge-deployable 1.26M-parameter optical flow network that retains iterative refinement and removes warping. Its fixed-window correlation carries the data dependence of warping in channel values rather than in memory addresses. TinyFlow outperforms EdgeFlowNet on Sintel Clean, Sintel Final and FlyingChairs in both precisions with 54% fewer parameters, and leads NanoFlowNet by a wide margin at every motion magnitude. The ranking carries over to flow-only visual odometry, where TinyFlow has the lowest ATE on seven of the eleven TartanAir and UZH-FPV sequences.
 
 Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.singh@colorado.edu](mailto:chahat.singh@colorado.edu)
 
@@ -380,7 +356,7 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
           { key: "ptq", label: "Post-training", sub: "6.92 → 8.09", value: 1.17, color: "var(--tf-ref)" },
           { key: "tinyflow", label: "TinyFlow recipe", sub: "6.13 → 6.29", value: 0.16, color: "var(--tf-orange)" }
         ], { left: 150, max: 1.3, barH: 34, gap: 22, ticks: 4 });
-        cap.innerHTML = "Increase in Sintel Clean EPE from Float32 to INT8. Post-training quantization of the base checkpoint costs 1.17 EPE. Quantization-aware fine-tuning with warp-teacher distillation and an INT8-aware model soup costs 0.16 on Clean (6.13 to 6.29) and 0.18 on Final (6.95 to 7.13).";
+        cap.innerHTML = "Sintel Clean EPE added by INT8.";
       } else {
         var v = st.pass === 0 ? [6.27, 6.37, 6.21, 6.13] : [7.21, 7.06, 7.12, 6.95];
         hbars(svg, [
@@ -389,7 +365,7 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
           { key: "e3", label: "Epoch C", value: v[2], color: "var(--tf-ref-2)" },
           { key: "tinyflow", label: "Soup (average)", value: v[3], color: "var(--tf-orange)" }
         ], { left: 150, max: 8, barH: 26, gap: 12, ticks: 4 });
-        cap.innerHTML = "Sintel " + (st.pass === 0 ? "Clean" : "Final") + " EPE of the three best fine-tuning epochs and of their weight average. The soup outperforms each of its ingredients on both passes.";
+        cap.innerHTML = "The averaged weights beat every ingredient.";
       }
     }
     chipGroup(root, "data-train", function (v) { st.view = v; draw(); });
@@ -468,8 +444,7 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
       });
       hbars(svg, rows, { left: 150, unit: st.m === 3 ? "%" : "", barH: 26, gap: 14 });
       var t = T[st.prec].tinyflow[st.m], e = T[st.prec].edgeflownet[st.m];
-      cap.innerHTML = (st.prec === "F32" ? "Float32" : "INT8") + " " + MET[st.m] + ". TinyFlow is " + (100 * (e - t) / e).toFixed(0) + "% lower than EdgeFlowNet here" +
-        (st.prec === "F32" ? ". Dashed bars are reference models, which rely on flow-dependent resampling and are not edge-deployable." : ". Reference models are not shown in INT8 because they cannot be deployed.");
+      cap.innerHTML = "TinyFlow is " + (100 * (e - t) / e).toFixed(0) + "% lower than EdgeFlowNet.";
     }
     function drawGap() {
       clear(svg);
@@ -492,7 +467,7 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
         var d = q - f;
         el("text", { x: Math.max(sx(f), sx(q)) + 12, y: y + 4.5, "font-size": 12.5, class: k === "tinyflow" ? "tf-strong" : "" }, svg, (d >= 0 ? "+" : "") + d.toFixed(2));
       });
-      cap.innerHTML = "Change in " + MET[st.m] + " from Float32 (filled) to INT8 (open), as in Table I, where NanoFlowNet runs at its native 112×160. On Sintel Clean TinyFlow's quantization gap is 0.16, against 0.29 for EdgeFlowNet.";
+      cap.innerHTML = "Float32 (filled) to INT8 (open).";
     }
     chipGroup(root, "data-prec", function (v) { st.prec = v; draw(); });
     chipGroup(root, "data-metric", function (v) { st.m = +v; draw(); });
