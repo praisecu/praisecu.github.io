@@ -99,7 +99,7 @@ Post-training quantization costs 1.17 EPE. Quantization-aware fine-tuning with *
 
 ## Qualitative Results
 
-Drag the slider. Selected Sintel Clean, Sintel Final and FlyingChairs pairs, all models in INT8.
+Drag the slider to compare predictions on example pairs from Sintel Clean, Sintel Final and FlyingChairs. All models run in INT8.
 
 <figure class="tf-widget tf-explorer" id="tf-explorer">
 <div class="tf-controls">
