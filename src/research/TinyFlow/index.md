@@ -483,7 +483,7 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
     var st = { pass: "clean", prec: "INT8", scale: "rel" };
     function draw() {
       clear(svg);
-      var W = vw(svg), H = W < 600 ? 280 : 300, L = 52, R = 12, T = 14, Bt = 40;
+      var W = vw(svg), H = W < 600 ? 280 : 300, L = 56, R = 12, T = 14, Bt = 42;
       svg.setAttribute("viewBox", "0 0 " + W + " " + H);
       var set = D[st.pass][st.prec], keys = Object.keys(set).sort(function (a, b) { return (REF[a] ? 1 : 0) - (REF[b] ? 1 : 0); });
       var sx = function (i) { return L + (W - L - R) * (i + 0.5) / B.length; };
@@ -500,11 +500,11 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
       }
       ticks.forEach(function (t) {
         el("line", { x1: L, x2: W - R, y1: sy(t), y2: sy(t), class: "tf-gridline", "stroke-width": st.scale === "rel" && t === 1 ? 2 : 1 }, svg);
-        el("text", { x: L - 8, y: sy(t) + 4, "text-anchor": "end", "font-size": 11, class: "tf-muted" }, svg, String(t));
+        el("text", { x: L - 8, y: sy(t) + 4, "text-anchor": "end", "font-size": 12, class: "tf-muted" }, svg, String(t));
       });
-      el("text", { x: 14, y: T + (H - T - Bt) / 2, transform: "rotate(-90 14 " + (T + (H - T - Bt) / 2) + ")", "text-anchor": "middle", "font-size": 11, class: "tf-muted" }, svg, lab);
+      el("text", { x: 15, y: T + (H - T - Bt) / 2, transform: "rotate(-90 15 " + (T + (H - T - Bt) / 2) + ")", "text-anchor": "middle", "font-size": 13.5 }, svg, lab);
       B.forEach(function (b, i) { el("text", { x: sx(i), y: H - Bt + 20, "text-anchor": "middle", "font-size": W < 600 ? 10.5 : 12 }, svg, W < 600 ? b.replace(" px", "") : b); });
-      el("text", { x: (L + W - R) / 2, y: H - 4, "text-anchor": "middle", "font-size": 11, class: "tf-muted" }, svg, "ground-truth motion magnitude");
+      el("text", { x: (L + W - R) / 2, y: H - 3, "text-anchor": "middle", "font-size": 13.5 }, svg, "ground-truth motion magnitude");
       keys.forEach(function (k) {
         var v = set[k].map(function (x, i) { return st.scale === "log" ? x : x / set.tinyflow[i]; });
         var d = v.map(function (x, i) { return (i ? "L" : "M") + sx(i).toFixed(1) + " " + sy(x).toFixed(1); }).join(" ");
@@ -528,20 +528,20 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
     var P = [{ k: "tinyflow", fps: 10.5, epe: 5.76 }, { k: "edgeflownet", fps: 64, epe: 6.38 }, { k: "nanoflownet", fps: 190, epe: 7.50 }];
     function drawH() {
     clear(svg);
-    var W = vw(svg), H = W < 600 ? 345 : 260, L = 56, R = 16, T = 18, Bt = 44;
+    var W = vw(svg), H = W < 600 ? 345 : 260, L = 60, R = 16, T = 18, Bt = 46;
     svg.setAttribute("viewBox", "0 0 " + W + " " + H);
     var sx = function (f) { return L + (W - L - R) * (Math.log10(f) - Math.log10(5)) / (Math.log10(400) - Math.log10(5)); };
     var sy = function (e) { return T + (H - T - Bt) * (e - 5.4) / (7.9 - 5.4); };
     [5, 10, 20, 50, 100, 200, 400].forEach(function (f) {
       el("line", { x1: sx(f), x2: sx(f), y1: T, y2: H - Bt, class: "tf-gridline" }, svg);
-      el("text", { x: sx(f), y: H - Bt + 18, "text-anchor": "middle", "font-size": 11, class: "tf-muted" }, svg, String(f));
+      el("text", { x: sx(f), y: H - Bt + 18, "text-anchor": "middle", "font-size": 12, class: "tf-muted" }, svg, String(f));
     });
     [5.5, 6, 6.5, 7, 7.5].forEach(function (e) {
       el("line", { x1: L, x2: W - R, y1: sy(e), y2: sy(e), class: "tf-gridline" }, svg);
-      el("text", { x: L - 8, y: sy(e) + 4, "text-anchor": "end", "font-size": 11, class: "tf-muted" }, svg, e.toFixed(1));
+      el("text", { x: L - 8, y: sy(e) + 4, "text-anchor": "end", "font-size": 12, class: "tf-muted" }, svg, e.toFixed(1));
     });
-    el("text", { x: (L + W - R) / 2, y: H - 6, "text-anchor": "middle", "font-size": 11, class: "tf-muted" }, svg, "frames per second on the Hailo-8 (log scale)");
-    el("text", { x: 14, y: T + (H - T - Bt) / 2, transform: "rotate(-90 14 " + (T + (H - T - Bt) / 2) + ")", "text-anchor": "middle", "font-size": 11, class: "tf-muted" }, svg, "Sintel Clean EPE");
+    el("text", { x: (L + W - R) / 2, y: H - 5, "text-anchor": "middle", "font-size": 13.5 }, svg, "frames per second on the Hailo-8 (log scale)");
+    el("text", { x: 15, y: T + (H - T - Bt) / 2, transform: "rotate(-90 15 " + (T + (H - T - Bt) / 2) + ")", "text-anchor": "middle", "font-size": 13.5 }, svg, "Sintel Clean EPE");
     P.forEach(function (p) {
       var g = el("g", {}, svg);
       el("circle", { cx: sx(p.fps), cy: sy(p.epe), r: p.k === "tinyflow" ? 10 : 8, fill: COL[p.k], stroke: "var(--pp-surface)", "stroke-width": 2 }, g);
