@@ -30,9 +30,6 @@ links:
   - text: Results
     url: "#results"
     icon: fas fa-chart-line
-  - text: Workshop version
-    url: /research/TinyFlow-workshop.html
-    icon: fas fa-scroll
 
 teaser:
   video: static/videos/teaser.mp4
