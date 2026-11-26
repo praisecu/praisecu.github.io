@@ -90,7 +90,7 @@ $$
 Post-training quantization costs 1.17 EPE. Quantization-aware fine-tuning with **warp-teacher distillation** and an **INT8-aware model soup** cuts it to 0.16. Sintel is never used for training.
 
 <figure class="tf-widget" id="tf-train-widget">
-<div class="tf-controls"><div class="tf-group"><span class="tf-group-label">Show</span><button class="tf-chip" type="button" data-train="gap" aria-pressed="true">Quantization penalty</button><button class="tf-chip" type="button" data-train="soup" aria-pressed="false">Model soup</button></div><div class="tf-group" id="tf-train-pass" hidden><span class="tf-group-label">Pass</span><button class="tf-chip" type="button" data-pass="0" aria-pressed="true">Sintel Clean</button><button class="tf-chip" type="button" data-pass="1" aria-pressed="false">Sintel Final</button></div></div>
+<div class="tf-controls"><div class="tf-group"><span class="tf-group-label">Show</span><button class="tf-chip" type="button" data-train="gap" aria-pressed="true">Float32 → INT8</button><button class="tf-chip" type="button" data-train="soup" aria-pressed="false">Model soup</button></div><div class="tf-group" id="tf-train-pass" hidden><span class="tf-group-label">Pass</span><button class="tf-chip" type="button" data-pass="0" aria-pressed="true">Sintel Clean</button><button class="tf-chip" type="button" data-pass="1" aria-pressed="false">Sintel Final</button></div></div>
 <svg class="tf-svg" id="tf-train-svg" viewBox="0 0 640 230" role="img" aria-label="Training chart"></svg>
 <figcaption id="tf-train-cap"></figcaption>
 </figure>
@@ -243,25 +243,26 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
   /* Horizontal bar chart. rows: [{key, label, value, color, ref, sub}] */
   function hbars(svg, rows, opt) {
     clear(svg);
-    var W = vw(svg), L = W < 600 ? 112 : (opt.left || 150), R = W < 600 ? 52 : 70, top = 8, bh = opt.barH || 26, gap = opt.gap || 12;
-    var H = top + rows.length * (bh + gap) + 24;
+    var fs = opt.fs || 1;                       // text scale
+    var W = vw(svg), L = W < 600 ? 112 * fs : (opt.left || 150), R = (W < 600 ? 52 : 70) * fs, top = 8, bh = opt.barH || 26, gap = opt.gap || 12;
+    var H = top + rows.length * (bh + gap) + 24 * fs;
     svg.setAttribute("viewBox", "0 0 " + W + " " + H);
     var vmax = opt.max || Math.max.apply(null, rows.map(function (r) { return r.value; })) * 1.04;
     var step = niceStep(vmax, opt.ticks || 5), max = Math.ceil(vmax / step) * step;
     var sx = function (v) { return L + (W - L - R) * v / max; };
     for (var tv = 0; tv <= max + 1e-9; tv += step) {
       var x = sx(tv);
-      el("line", { x1: x, x2: x, y1: top - 4, y2: H - 22, class: "tf-gridline" }, svg);
-      el("text", { x: x, y: H - 6, "text-anchor": "middle", "font-size": 11, class: "tf-muted" }, svg, tickLabel(tv, step));
+      el("line", { x1: x, x2: x, y1: top - 4, y2: H - 22 * fs, class: "tf-gridline" }, svg);
+      el("text", { x: x, y: H - 6, "text-anchor": "middle", "font-size": 11 * fs, class: "tf-muted" }, svg, tickLabel(tv, step));
     }
     rows.forEach(function (r, i) {
       var y = top + i * (bh + gap);
-      el("text", { x: L - 10, y: y + bh / 2 + 4.5, "text-anchor": "end", "font-size": 13, class: r.key === "tinyflow" ? "tf-strong" : "" }, svg, r.label);
-      if (r.sub) el("text", { x: L - 10, y: y + bh / 2 + 17, "text-anchor": "end", "font-size": 10, class: "tf-muted" }, svg, r.sub);
+      el("text", { x: L - 10, y: y + bh / 2 + 4.5, "text-anchor": "end", "font-size": 13 * fs, class: r.key === "tinyflow" ? "tf-strong" : "" }, svg, r.label);
+      if (r.sub) el("text", { x: L - 10, y: y + bh / 2 + 4.5 + 13 * fs, "text-anchor": "end", "font-size": 10.5 * fs, class: "tf-muted" }, svg, r.sub);
       var bar = el("rect", { x: L, y: y, height: bh, width: Math.max(1, sx(r.value) - L), rx: 4, fill: r.color, opacity: r.ref ? 0.75 : 1, class: "tf-anim" }, svg);
       if (r.ref) bar.setAttribute("stroke-dasharray", "4 3"), bar.setAttribute("stroke", "var(--pp-muted)"), bar.setAttribute("fill-opacity", "0.55");
       tip(bar, r.label + ": " + fmt(r.value));
-      el("text", { x: sx(r.value) + 6, y: y + bh / 2 + 4.5, "font-size": 12.5, class: r.key === "tinyflow" ? "tf-strong" : "" }, svg, fmt(r.value) + (opt.unit || ""));
+      el("text", { x: sx(r.value) + 6, y: y + bh / 2 + 4.5, "font-size": 12.5 * fs, class: r.key === "tinyflow" ? "tf-strong" : "" }, svg, fmt(r.value) + (opt.unit || ""));
     });
   }
 
@@ -334,14 +335,43 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
     var root = document.getElementById("tf-train-widget"); if (!root) return;
     var svg = document.getElementById("tf-train-svg"), cap = document.getElementById("tf-train-cap"), passG = document.getElementById("tf-train-pass");
     var st = { view: "gap", pass: 0 };
+    /* Float32 (filled) to INT8 (open) on one EPE axis, one row per method */
+    function quantGap() {
+      clear(svg);
+      var rows = [
+        { label: "Quantize after training", sub: "post-training INT8", f: 6.92, q: 8.09, col: "var(--tf-ref)" },
+        { label: "TinyFlow", sub: "quantization-aware fine-tuning", f: 6.13, q: 6.29, col: "var(--tf-orange)", ours: true }
+      ];
+      var W = vw(svg), narrow = W < 600, L = narrow ? 150 : 250, R = 30, top = 44, rowH = 70, H = top + rows.length * rowH + 52;
+      svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+      var a = 5.7, b = 8.4, sx = function (v) { return L + (W - L - R) * (v - a) / (b - a); };
+      for (var t = 6; t <= 8; t += 0.5) {
+        el("line", { x1: sx(t), x2: sx(t), y1: top - 14, y2: H - 46, class: "tf-gridline" }, svg);
+        el("text", { x: sx(t), y: H - 28, "text-anchor": "middle", "font-size": 14, class: "tf-muted" }, svg, t.toFixed(1));
+      }
+      el("text", { x: (L + W - R) / 2, y: H - 6, "text-anchor": "middle", "font-size": 15 }, svg, "Sintel Clean EPE (lower is better)");
+      // legend
+      el("circle", { cx: L + 8, cy: 14, r: 7, fill: "var(--pp-ink)" }, svg);
+      el("text", { x: L + 22, y: 19, "font-size": 15 }, svg, "Float32");
+      el("circle", { cx: L + 112, cy: 14, r: 7, fill: "var(--pp-surface)", stroke: "var(--pp-ink)", "stroke-width": 2.5 }, svg);
+      el("text", { x: L + 126, y: 19, "font-size": 15 }, svg, "INT8");
+      rows.forEach(function (r, i) {
+        var y = top + i * rowH + rowH / 2 - 6;
+        el("text", { x: L - 16, y: y + 1, "text-anchor": "end", "font-size": narrow ? 15 : 17, class: r.ours ? "tf-strong" : "" }, svg, r.label);
+        el("text", { x: L - 16, y: y + 20, "text-anchor": "end", "font-size": narrow ? 12 : 13.5, class: "tf-muted" }, svg, r.sub);
+        el("line", { x1: sx(r.f), x2: sx(r.q), y1: y - 4, y2: y - 4, stroke: r.col, "stroke-width": 5, "stroke-linecap": "round" }, svg);
+        var c1 = el("circle", { cx: sx(r.f), cy: y - 4, r: 9, fill: r.col }, svg); tip(c1, "Float32 " + r.f);
+        var c2 = el("circle", { cx: sx(r.q), cy: y - 4, r: 9, fill: "var(--pp-surface)", stroke: r.col, "stroke-width": 3.5 }, svg); tip(c2, "INT8 " + r.q);
+        el("text", { x: (sx(r.f) + sx(r.q)) / 2, y: y - 18, "text-anchor": "middle", "font-size": 16, class: r.ours ? "tf-strong" : "" }, svg, "+" + (r.q - r.f).toFixed(2));
+        el("text", { x: sx(r.f) - 14, y: y + 1, "text-anchor": "end", "font-size": 14, class: "tf-muted" }, svg, r.f.toFixed(2));
+        el("text", { x: sx(r.q) + 14, y: y + 1, "text-anchor": "start", "font-size": 14, class: "tf-muted" }, svg, r.q.toFixed(2));
+      });
+    }
     function draw() {
       passG.hidden = st.view !== "soup";
       if (st.view === "gap") {
-        hbars(svg, [
-          { key: "ptq", label: "Post-training", sub: "6.92 → 8.09", value: 1.17, color: "var(--tf-ref)" },
-          { key: "tinyflow", label: "TinyFlow recipe", sub: "6.13 → 6.29", value: 0.16, color: "var(--tf-orange)" }
-        ], { left: 150, max: 1.3, barH: 24, gap: 12, ticks: 4 });
-        cap.innerHTML = "Sintel Clean EPE added by INT8.";
+        quantGap();
+        cap.innerHTML = "Sintel Clean EPE of the same network before (Float32) and after (INT8) conversion. The number is the error the conversion adds.";
       } else {
         var v = st.pass === 0 ? [6.27, 6.37, 6.21, 6.13] : [7.21, 7.06, 7.12, 6.95];
         hbars(svg, [
@@ -349,7 +379,7 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
           { key: "e2", label: "Epoch B", value: v[1], color: "var(--tf-ref-2)" },
           { key: "e3", label: "Epoch C", value: v[2], color: "var(--tf-ref-2)" },
           { key: "tinyflow", label: "Soup (average)", value: v[3], color: "var(--tf-orange)" }
-        ], { left: 150, max: 8, barH: 20, gap: 8, ticks: 4 });
+        ], { left: 200, max: 8, barH: 24, gap: 12, ticks: 4, fs: 1.35 });
         cap.innerHTML = "The averaged weights beat every ingredient.";
       }
     }
