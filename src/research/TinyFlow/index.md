@@ -5,7 +5,6 @@ description: "TinyFlow is a 1.26M-parameter warp-free optical flow network that 
 image: static/images/social.jpg
 keywords: [optical flow, edge AI, Hailo-8, quantization, INT8, warp-free, iterative refinement, visual odometry, tiny robots, TinyFlow]
 
-venue: "arXiv 2026"
 citation_date: "2026/10"
 paper_title: "TinyFlow: Breaking the Warping Bottleneck for Edge Optical Flow"
 
