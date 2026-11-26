@@ -1363,3 +1363,22 @@ input[type="range"].slider::-moz-range-track {
 .tf-explorer .tf-ex-rest figcaption b { color: var(--pp-ink); font-variant-numeric: tabular-nums; }
 .tf-pair .tf-widget > svg { margin-top: auto; margin-bottom: auto; }
 .content.page-content .tf-pair h3 { text-align: center; }
+/* TinyFlow: dropdowns with a custom chevron and room on the right */
+.tf-explorer select {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 1.6rem;
+  padding: 0 2rem 0 0.75rem;
+  line-height: 1;
+  font-size: 0.82rem;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%233b3b36' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 0.65rem auto;
+}
+:root[data-theme="dark"] .tf-explorer select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23d1d1ca' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.tf-explorer select:hover { border-color: var(--pp-gold); }
+.tf-explorer select:focus-visible { outline: 2px solid var(--pp-gold); outline-offset: 2px; }
