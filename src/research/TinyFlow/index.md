@@ -158,6 +158,7 @@ INT8 flow into the same pose estimator, no depth. TinyFlow has the lowest ATE on
 
 {% figure src="static/videos/vo_trajectories.mp4", poster="static/videos/vo_trajectories.jpg", alt="Animation of the estimated visual odometry trajectories of TinyFlow, EdgeFlowNet and NanoFlowNet being drawn against the ground truth on one UZH-FPV flight and three TartanAir trajectories", caption="Trajectories drawn frame by frame against the ground truth (dashed)." %}
 
+{# VO per-sequence chart, hidden for now. Remove this comment wrapper to show it again.
 <figure class="tf-widget" id="tf-vo-widget">
 <div class="tf-controls">
 <div class="tf-group"><span class="tf-group-label">Metric</span><button class="tf-chip" type="button" data-vo="0" aria-pressed="true">ATE (m)</button><button class="tf-chip" type="button" data-vo="1" aria-pressed="false">Rotation (°)</button><button class="tf-chip" type="button" data-vo="2" aria-pressed="false">Direction (°)</button></div>
@@ -168,6 +169,7 @@ INT8 flow into the same pose estimator, no depth. TinyFlow has the lowest ATE on
 <div class="tf-readout" id="tf-vo-readout"></div>
 <figcaption>ATE after SE(3) alignment. The tick marks the ground-truth flow through the same estimator.</figcaption>
 </figure>
+#}
 
 ## Robustness to illumination change
 
