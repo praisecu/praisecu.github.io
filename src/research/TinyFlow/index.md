@@ -105,7 +105,7 @@ Post-training quantization costs 1.17 EPE. Quantization-aware fine-tuning with *
 
 ## Qualitative Results
 
-Drag the slider. Selected pairs where TinyFlow is near 1 EPE, all models in INT8.
+Drag the slider. Selected Sintel Clean, Sintel Final and FlyingChairs pairs, all models in INT8.
 
 <figure class="tf-widget tf-explorer" id="tf-explorer">
 <div class="tf-controls">
@@ -115,7 +115,7 @@ Drag the slider. Selected pairs where TinyFlow is near 1 EPE, all models in INT8
 <div class="tf-group"><label class="tf-group-label" for="tf-ex-left">Left</label><select id="tf-ex-left"></select></div>
 <div class="tf-group"><label class="tf-group-label" for="tf-ex-right">Right</label><select id="tf-ex-right"></select></div>
 </div>
-<div class="tf-ex-pair"><figure class="media-figure compare-figure"><div class="compare" id="tf-ex-compare"><img class="compare-after" id="tf-ex-after" src="/research/TinyFlow/static/images/explorer/f0_tinyflow.jpg" alt="TinyFlow (Ours)"><img class="compare-before" id="tf-ex-before" src="/research/TinyFlow/static/images/explorer/f0_edgeflownet.jpg" alt="EdgeFlowNet"><div class="compare-handle" aria-hidden="true"></div><span class="compare-label compare-label-before" id="tf-ex-lbl-before">EdgeFlowNet</span><span class="compare-label compare-label-after" id="tf-ex-lbl-after">TinyFlow (Ours)</span><input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Comparison slider"></div></figure><figure class="tf-ex-in"><img id="tf-ex-input" src="/research/TinyFlow/static/images/explorer/f0_input.jpg" alt="Input frame"><figcaption id="tf-ex-input-cap">Input</figcaption></figure></div>
+<div class="tf-ex-pair"><figure class="media-figure compare-figure"><div class="compare" id="tf-ex-compare"><img class="compare-after" id="tf-ex-after" src="/research/TinyFlow/static/images/explorer/clean_bandage_1_tinyflow.jpg" alt="TinyFlow (Ours)"><img class="compare-before" id="tf-ex-before" src="/research/TinyFlow/static/images/explorer/clean_bandage_1_edgeflownet.jpg" alt="EdgeFlowNet"><div class="compare-handle" aria-hidden="true"></div><span class="compare-label compare-label-before" id="tf-ex-lbl-before">EdgeFlowNet</span><span class="compare-label compare-label-after" id="tf-ex-lbl-after">TinyFlow (Ours)</span><input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Comparison slider"></div></figure><figure class="tf-ex-in"><img id="tf-ex-input" src="/research/TinyFlow/static/images/explorer/clean_bandage_1_input.jpg" alt="Input frame"><figcaption id="tf-ex-input-cap">Input</figcaption></figure></div>
 <div class="tf-readout" id="tf-ex-epe"></div>
 <figcaption id="tf-ex-note"></figcaption>
 </figure>
@@ -369,12 +369,12 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
     var root = document.getElementById("tf-explorer"); if (!root) return;
     var DIR = "/research/TinyFlow/static/images/explorer/";
     var SC = [
-      { label: "Chairs 21803", set: "FlyingChairs validation", e: { tinyflow: 0.69, edgeflownet: 2.77, nanoflownet: 4.34 } },
-      { label: "bandage_1", set: "Sintel Clean", e: { tinyflow: 1.62, edgeflownet: 4.37, nanoflownet: 2.84 } },
-      { label: "Chairs 05449", set: "FlyingChairs validation", e: { tinyflow: 0.71, edgeflownet: 1.64, nanoflownet: 1.77 } },
-      { label: "Chairs 06162", set: "FlyingChairs validation", e: { tinyflow: 1.08, edgeflownet: 1.88, nanoflownet: 5.95 } },
-      { label: "Chairs 06703", set: "FlyingChairs validation", e: { tinyflow: 1.06, edgeflownet: 2.06, nanoflownet: 3.93 } },
-      { label: "Chairs 04299", set: "FlyingChairs validation", e: { tinyflow: 1.07, edgeflownet: 1.81, nanoflownet: 3.38 } }
+      { key: "clean_bandage_1", label: "bandage_1", set: "Sintel Clean", e: { tinyflow: 1.62, edgeflownet: 4.37, nanoflownet: 2.84 } },
+      { key: "clean_ambush_7", label: "ambush_7", set: "Sintel Clean", e: { tinyflow: 1.83, edgeflownet: 3.30, nanoflownet: 9.37 } },
+      { key: "final_alley_2", label: "alley_2", set: "Sintel Final", e: { tinyflow: 1.00, edgeflownet: 1.50, nanoflownet: 2.11 } },
+      { key: "final_mountain_1", label: "mountain_1", set: "Sintel Final", e: { tinyflow: 1.84, edgeflownet: 2.49, nanoflownet: 4.05 } },
+      { key: "chairs_21803", label: "21803", set: "FlyingChairs", e: { tinyflow: 0.69, edgeflownet: 2.77, nanoflownet: 4.34 } },
+      { key: "chairs_05449", label: "05449", set: "FlyingChairs", e: { tinyflow: 0.71, edgeflownet: 1.64, nanoflownet: 1.77 } }
     ];
     var MK = ["tinyflow", "edgeflownet", "nanoflownet"];
     var st = { row: 0, left: "edgeflownet", right: "tinyflow" };
@@ -382,7 +382,7 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
     var btns = SC.map(function (s, i) {
       var b = document.createElement("button");
       b.type = "button"; b.className = "tf-chip"; b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
-      b.textContent = s.label;
+      b.innerHTML = "<small style=\"opacity:.7\">" + (s.set === "FlyingChairs" ? "Chairs" : s.set.replace("Sintel ", "")) + " · </small>" + s.label;
       b.addEventListener("click", function () { press(btns, b); st.row = i; draw(); });
       scenes.appendChild(b); return b;
     });
@@ -399,14 +399,14 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
     selR.addEventListener("change", function () { st.right = selR.value; draw(); });
     function lbl(k) { var e = SC[st.row].e[k]; return NAME[k] + (e === undefined ? "" : " · " + e.toFixed(2) + " EPE"); }
     function draw() {
-      var f = DIR + "f" + st.row + "_", s = SC[st.row];
+      var s = SC[st.row], f = DIR + s.key + "_";
       var before = document.getElementById("tf-ex-before"), after = document.getElementById("tf-ex-after");
       before.src = f + st.left + ".jpg"; before.alt = NAME[st.left];
       after.src = f + st.right + ".jpg"; after.alt = NAME[st.right];
       document.getElementById("tf-ex-lbl-before").textContent = lbl(st.left);
       document.getElementById("tf-ex-lbl-after").textContent = lbl(st.right);
       document.getElementById("tf-ex-input").src = f + "input.jpg";
-      document.getElementById("tf-ex-input-cap").textContent = "Input, " + s.set + (s.set.indexOf("Sintel") === 0 ? ", " + s.label : "");
+      document.getElementById("tf-ex-input-cap").textContent = "Input, " + s.set + " " + s.label;
       document.getElementById("tf-ex-epe").innerHTML = MK.map(function (k) {
         return "<div style=\"border-color:" + (k === "tinyflow" ? "var(--tf-orange)" : "var(--pp-border)") + "\"><b style=\"color:" +
           (k === "tinyflow" ? "var(--tf-orange-text)" : "var(--pp-ink)") + "\">" + s.e[k].toFixed(2) + "</b><span>" + NAME[k] + " EPE</span></div>";
