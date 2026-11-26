@@ -27,6 +27,12 @@ links:
   - text: Results
     url: "#results"
     icon: fas fa-chart-line
+  - text: Code (Coming Soon)
+    url: "#coming-soon"
+    icon: fab fa-github
+  - text: Video (Coming Soon)
+    url: "#coming-soon"
+    icon: fab fa-youtube
 
 teaser:
   video: static/videos/teaser.mp4

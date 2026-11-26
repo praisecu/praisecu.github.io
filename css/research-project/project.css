@@ -1336,3 +1336,5 @@ input[type="range"].slider::-moz-range-track {
 .tf-pair > div { display: flex; flex-direction: column; }
 .tf-pair .tf-widget { flex: 1; display: flex; flex-direction: column; }
 .tf-pair .tf-widget > figcaption { margin-top: auto; padding-top: 0.4rem; }
+/* Header buttons for items not released yet (url "#coming-soon") */
+.publication-links a[href="#coming-soon"] { pointer-events: none; cursor: default; opacity: 0.6; }
