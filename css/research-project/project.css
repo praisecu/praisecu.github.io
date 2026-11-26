@@ -1353,3 +1353,11 @@ input[type="range"].slider::-moz-range-track {
 /* TinyFlow: centered widget captions */
 .content.page-content .tf-widget figcaption,
 .content.page-content .tf-widget > .tf-note { text-align: center; }
+/* TinyFlow: motion-magnitude chart as a single centred card */
+#tf-bins-widget { max-width: 640px; margin-left: auto; margin-right: auto; }
+/* TinyFlow explorer: the two predictions not in the slider */
+.tf-explorer .tf-ex-rest { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; margin-top: 0.9rem; }
+.content.page-content .tf-explorer .tf-ex-rest figure { margin: 0; }
+.tf-explorer .tf-ex-rest img { width: 100%; display: block; border-radius: var(--pp-radius-lg); }
+.content.page-content .tf-explorer .tf-ex-rest figcaption { display: flex; justify-content: center; gap: 0.4rem; margin-top: 0.35rem; font-size: 0.84rem; color: var(--pp-muted); font-style: normal; }
+.tf-explorer .tf-ex-rest figcaption b { color: var(--pp-ink); font-variant-numeric: tabular-nums; }

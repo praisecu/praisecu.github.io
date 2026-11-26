@@ -110,6 +110,7 @@ Drag the slider. Selected Sintel Clean, Sintel Final and FlyingChairs pairs, all
 <div class="tf-group"><label class="tf-group-label" for="tf-ex-right">Right</label><select id="tf-ex-right"></select></div>
 </div>
 <div class="tf-ex-pair"><figure class="media-figure compare-figure"><div class="compare" id="tf-ex-compare"><img class="compare-after" id="tf-ex-after" src="/research/TinyFlow/static/images/explorer/clean_ambush_7_gt.jpg" alt="Ground truth"><img class="compare-before" id="tf-ex-before" src="/research/TinyFlow/static/images/explorer/clean_ambush_7_tinyflow.jpg" alt="TinyFlow (Ours)"><div class="compare-handle" aria-hidden="true"></div><span class="compare-label compare-label-before" id="tf-ex-lbl-before">TinyFlow (Ours)</span><span class="compare-label compare-label-after" id="tf-ex-lbl-after">Ground truth</span><input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Comparison slider"></div></figure><figure class="tf-ex-in"><img id="tf-ex-input" src="/research/TinyFlow/static/images/explorer/clean_ambush_7_input.jpg" alt="Input frame"><figcaption id="tf-ex-input-cap">Input</figcaption></figure></div>
+<div class="tf-ex-rest" id="tf-ex-rest"></div>
 <div class="tf-readout" id="tf-ex-epe"></div>
 <figcaption id="tf-ex-note"></figcaption>
 </figure>
@@ -129,9 +130,8 @@ End-point error in pixels, lower is better. Dashed reference models cannot be de
 <figcaption id="tf-bench-cap"></figcaption>
 </figure>
 
-<div class="tf-pair">
-<div>
-<h3>Error by motion magnitude</h3>
+### Error by motion magnitude
+
 <figure class="tf-widget" id="tf-bins-widget">
 <div class="tf-controls">
 <div class="tf-group"><span class="tf-group-label">Pass</span><button class="tf-chip" type="button" data-bpass="clean" aria-pressed="true">Sintel Clean</button><button class="tf-chip" type="button" data-bpass="final" aria-pressed="false">Sintel Final</button></div>
@@ -142,15 +142,6 @@ End-point error in pixels, lower is better. Dashed reference models cannot be de
 <div class="tf-legend" id="tf-bins-legend"></div>
 <figcaption>Above 1 means more error than TinyFlow in that motion range.</figcaption>
 </figure>
-</div>
-<div>
-<h3>On the Hailo-8</h3>
-<figure class="tf-widget" id="tf-hailo-widget">
-<svg class="tf-svg" id="tf-hailo-svg" viewBox="0 0 640 260" role="img" aria-label="Frames per second against EPE on the Hailo-8"></svg>
-<figcaption>Raspberry Pi 5 with a Hailo-8, 100-pair Sintel Clean sample. Up and to the right is better.</figcaption>
-</figure>
-</div>
-</div>
 
 ## Visual odometry
 
@@ -419,6 +410,13 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
       document.getElementById("tf-ex-lbl-before").textContent = lbl(st.left);
       document.getElementById("tf-ex-lbl-after").textContent = lbl(st.right);
       document.getElementById("tf-ex-input").src = f + "input.jpg";
+      // the two predictions the slider is not showing, side by side
+      var rest = ["gt"].concat(MK).filter(function (k) { return k !== st.left && k !== st.right; }).slice(0, 2);
+      document.getElementById("tf-ex-rest").innerHTML = rest.map(function (k) {
+        var e = s.e[k];
+        return "<figure><img src=\"" + f + k + ".jpg\" alt=\"" + NAME[k] + "\"><figcaption><span>" + NAME[k] + "</span>" +
+          (e === undefined ? "" : "<b>" + e.toFixed(2) + " EPE</b>") + "</figcaption></figure>";
+      }).join("");
       document.getElementById("tf-ex-input-cap").textContent = "Input, " + s.set + " " + s.label;
       document.getElementById("tf-ex-epe").innerHTML = MK.map(function (k) {
         return "<div style=\"border-color:" + (k === "tinyflow" ? "var(--tf-orange)" : "var(--pp-border)") + "\"><b style=\"color:" +
