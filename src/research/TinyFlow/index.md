@@ -50,7 +50,7 @@ bibtex: |
   <div class="stat-card"><span class="stat-value">1.26<small>M</small></span><span class="stat-label">parameters, warp-free, one static INT8 graph</span></div>
   <div class="stat-card"><span class="stat-value">54%</span><span class="stat-label">fewer parameters than EdgeFlowNet, and more accurate on every benchmark</span></div>
   <div class="stat-card"><span class="stat-value">+0.16</span><span class="stat-label">EPE from Float32 to INT8 on Sintel Clean, down from over +1.0</span></div>
-  <div class="stat-card"><span class="stat-value">85%</span><span class="stat-label">lower error than EdgeFlowNet under illumination change, averaged over eight lighting conditions</span></div>
+  <div class="stat-card"><span class="stat-value">85%</span><span class="stat-label">lower error than existing deployable models under illumination change, averaged over eight lighting conditions</span></div>
 </div>
 
 ## Abstract
