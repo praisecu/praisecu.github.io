@@ -63,19 +63,11 @@ Quantization-aware fine-tuning, warp-teacher distillation, and model souping red
 
 ## Warp-free matching
 
-Iterative networks warp features with `grid_sample`, a run-time memory lookup that edge accelerators cannot execute, so TinyFlow keeps the refinement loop and instead correlates the two frames over a fixed window of offsets,
+Iterative networks warp features with `grid_sample`, a run-time memory lookup that edge accelerators cannot execute. TinyFlow instead correlates the two frames over a fixed window $$C^s_0$$ that it computes once. For integer flow the warped volume $$C^s_{\mathbf{u}}$$ is just a shifted read of it, so warping only recenters the window, and TinyFlow keeps the window centered and wide enough:
 
 $$
-C^s_0(\mathbf{x}, \boldsymbol{\delta}) \triangleq \left\langle \hat{f}^s_1(\mathbf{x}),\, \hat{f}^s_2(\mathbf{x} + \boldsymbol{\delta}) \right\rangle, \qquad \boldsymbol{\delta} \in \{-r_s,\ldots,r_s\}^2 .
+C^s_0(\mathbf{x}, \boldsymbol{\delta}) = \left\langle \hat{f}^s_1(\mathbf{x}),\, \hat{f}^s_2(\mathbf{x} + \boldsymbol{\delta}) \right\rangle,\ \ \boldsymbol{\delta} \in \{-r_s,\ldots,r_s\}^2 \qquad\Rightarrow\qquad C^s_{\mathbf{u}}(\mathbf{x}, \boldsymbol{\delta}) = C^s_0\big(\mathbf{x}, \boldsymbol{\delta} + \mathbf{u}^s(\mathbf{x})\big).
 $$
-
-and for integer flow the warped volume is just a shifted read of it,
-
-$$
-C^s_{\mathbf{u}}(\mathbf{x}, \boldsymbol{\delta}) = C^s_0\big(\mathbf{x}, \boldsymbol{\delta} + \mathbf{u}^s(\mathbf{x})\big),
-$$
-
-so warping only recenters the window. TinyFlow keeps it centered and wide enough.
 
 <figure class="tf-widget" id="tf-warp-widget">
 <div class="tf-warp">
