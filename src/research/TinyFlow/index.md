@@ -59,15 +59,9 @@ High-performance optical flow networks are difficult to deploy on resource-const
 
 Quantization-aware fine-tuning, warp-teacher distillation, and model souping reduce the Float32-to-INT8 penalty to **below 0.2 end-point error (EPE)** on MPI-Sintel. TinyFlow outperforms EdgeFlowNet and NanoFlowNet on Sintel Clean, Sintel Final, and FlyingChairs in both Float32 and INT8, while using **54% fewer parameters** than EdgeFlowNet, and our INT8 model achieves **6.29 / 7.13 EPE** on Sintel Clean / Final. In flow-only monocular visual odometry on TartanAir and UZH-FPV, the same INT8 model yields the lowest trajectory error on **seven of eleven** sequences.
 
-## Why warping is the bottleneck
-
-Accurate flow networks refine iteratively, **warping** features by the current flow with `grid_sample`. That warp reads memory at addresses computed at run time, which a fixed-dataflow accelerator cannot do, so deployable networks drop iteration and lose accuracy.
-
-<div class="key-idea"><strong>The idea.</strong> Keep the refinement loop, remove the warp. Correlate over a fixed window of constant offsets, so the data dependence moves from memory addresses into ordinary arithmetic.</div>
-
 ## Warp-free matching
 
-TinyFlow correlates the two frames over a fixed window of offsets,
+Iterative networks warp features with `grid_sample`, a run-time memory lookup that edge accelerators cannot execute, so TinyFlow keeps the refinement loop and instead correlates the two frames over a fixed window of offsets,
 
 $$
 C^s_0(\mathbf{x}, \boldsymbol{\delta}) \triangleq \left\langle \hat{f}^s_1(\mathbf{x}),\, \hat{f}^s_2(\mathbf{x} + \boldsymbol{\delta}) \right\rangle, \qquad \boldsymbol{\delta} \in \{-r_s,\ldots,r_s\}^2 .
