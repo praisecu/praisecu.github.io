@@ -528,7 +528,7 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
     var P = [{ k: "tinyflow", fps: 10.5, epe: 5.76 }, { k: "edgeflownet", fps: 64, epe: 6.38 }, { k: "nanoflownet", fps: 190, epe: 7.50 }];
     function drawH() {
     clear(svg);
-    var W = vw(svg), H = 260, L = 56, R = 16, T = 18, Bt = 44;
+    var W = vw(svg), H = W < 600 ? 345 : 260, L = 56, R = 16, T = 18, Bt = 44;
     svg.setAttribute("viewBox", "0 0 " + W + " " + H);
     var sx = function (f) { return L + (W - L - R) * (Math.log10(f) - Math.log10(5)) / (Math.log10(400) - Math.log10(5)); };
     var sy = function (e) { return T + (H - T - Bt) * (e - 5.4) / (7.9 - 5.4); };
