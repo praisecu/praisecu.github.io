@@ -103,7 +103,7 @@ Post-training quantization costs 1.17 EPE. Quantization-aware fine-tuning with *
 
 <div id="compare"></div>
 
-## See the difference
+## Qualitative Results
 
 Drag the slider. Selected pairs where TinyFlow is near 1 EPE, all models in INT8.
 
