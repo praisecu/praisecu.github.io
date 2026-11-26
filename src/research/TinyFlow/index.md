@@ -104,12 +104,6 @@ so for the full window, warping adds no matching evidence that the fixed volume 
 <figcaption><strong>Try it.</strong> Drag in the grid, or focus it and use the arrow keys, to set the current flow <em>u</em>. The orange cells are the fixed window that TinyFlow computes once. The gold outline is the window that a warping network would read around <em>x + u</em>. While the gold window stays inside the orange one, warping only rereads values the fixed volume already holds. TinyFlow computes the two axis marginals of the window, 2(2r+1) channels instead of (2r+1)<sup>2</sup>.</figcaption>
 </figure>
 
-### Capture range and bounded steps
-
-One correlation offset at scale $$s$$ corresponds to $$s$$ pixels at full resolution, so a radius $$r_s$$ reaches $$\pm r_s s$$ pixels along each axis. Coarse-to-fine refinement lets each scale capture only the residual that the coarser estimate leaves behind, so large radii belong to the coarse scales, where the grid is small and the added correlation channels are cheap. TinyFlow uses $$r_{16}=8$$, $$r_8=6$$ and $$r_4=3$$, which cover ±128, ±48 and ±12 pixels.
-
-Each refinement step adds a **bounded** correction, $$\Delta\mathbf{u}^s_t = d_s \tanh\big(g_s([C^s_0, f^s_1, \mathbf{u}^s_t]) / d_s\big)$$, with $$d_{16}=4$$, $$d_8=2$$ and $$d_4=1$$. The cost volume is computed once per scale and never recentered. The current flow enters the update block as an input channel instead. Because every step is bounded, the numeric range of every flow tensor is known before training, which keeps the regression stable and makes the tensors representable in 8-bit encodings.
-
 ## Architecture
 
 {% figure src="static/images/architecture.png", alt="TinyFlow architecture: a shared encoder builds a feature pyramid at 1/4, 1/8 and 1/16; at each scale a feature projector and a separable correlation with radius 3, 6 or 8 feed a flow prediction head, refined coarse to fine with four weight-tied iterations at 1/8 and 1/4", caption="**TinyFlow architecture.** **(a)** A shared encoder builds a multi-scale feature pyramid. Separable correlation matches the features at each scale and the flow is refined coarse-to-fine. **(b)** The backbone encoder is built from lightweight feature-extraction blocks of depth-wise and point-wise convolutions. **(c)** The three flow prediction heads have the same architecture but separate weights." %}
