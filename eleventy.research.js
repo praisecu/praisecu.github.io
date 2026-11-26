@@ -11,6 +11,9 @@
 const MEDIA_GLOB =
   "src/research/**/*.{mp4,webm,mov,m4v,jpg,jpeg,png,gif,webp,avif,svg,pdf}";
 
+/* A page's own stylesheet and script (front matter: extra_css, extra_js). */
+const PAGE_CODE_GLOB = "src/research/**/static/**/*.{css,js}";
+
 const VIDEO_FILE = /\.(mp4|webm|mov|m4v)$/i;
 
 const escapeAttr = (value) =>
@@ -146,6 +149,7 @@ function media({
 
 export default function researchProjectPages(eleventyConfig) {
   eleventyConfig.addPassthroughCopy(MEDIA_GLOB);
+  eleventyConfig.addPassthroughCopy(PAGE_CODE_GLOB);
 
   /* Guides that live next to the pages are for GitHub, not the site. */
   eleventyConfig.ignores.add("src/research/**/README.md");
