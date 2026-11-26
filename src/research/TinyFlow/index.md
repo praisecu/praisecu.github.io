@@ -148,8 +148,9 @@ End-point error in pixels, lower is better. Dashed reference models cannot be de
 
 <p class="table-note">Bold marks the best deployable result. All models are evaluated on 384×512 px images except NanoFlowNet (†), which is evaluated at its native resolution of 112×160 px.</p>
 
-### Error by motion magnitude
-
+<div class="tf-pair">
+<div>
+<h3>Error by motion magnitude</h3>
 <figure class="tf-widget" id="tf-bins-widget">
 <div class="tf-controls">
 <div class="tf-group"><span class="tf-group-label">Pass</span><button class="tf-chip" type="button" data-bpass="clean" aria-pressed="true">Sintel Clean</button><button class="tf-chip" type="button" data-bpass="final" aria-pressed="false">Sintel Final</button></div>
@@ -160,15 +161,16 @@ End-point error in pixels, lower is better. Dashed reference models cannot be de
 <div class="tf-legend" id="tf-bins-legend"></div>
 <figcaption>Above 1 means more error than TinyFlow in that motion range.</figcaption>
 </figure>
-
-### On the Hailo-8
-
-Raspberry Pi 5 with a Hailo-8, 100-pair Sintel Clean sample.
-
+</div>
+<div>
+<h3>On the Hailo-8</h3>
 <figure class="tf-widget" id="tf-hailo-widget">
 <svg class="tf-svg" id="tf-hailo-svg" viewBox="0 0 640 260" role="img" aria-label="Frames per second against EPE on the Hailo-8"></svg>
-<figcaption>Up and to the right is better.</figcaption>
+<figcaption>Raspberry Pi 5 with a Hailo-8, 100-pair Sintel Clean sample. Up and to the right is better.</figcaption>
 </figure>
+</div>
+</div>
+
 
 ## Visual odometry
 

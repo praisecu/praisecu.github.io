@@ -1322,3 +1322,13 @@ input[type="range"].slider::-moz-range-track {
 #tf-train-widget .tf-controls { margin-bottom: 0.5rem; }
 #tf-train-widget .tf-chip { padding: 0.2rem 0.65rem; font-size: 0.8rem; }
 #tf-train-widget figcaption { margin-top: 0.4rem; font-size: 0.84rem; }
+/* Motion-magnitude and Hailo-8 charts side by side */
+.tf-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.25rem; align-items: start; margin: 1.5rem 0 2rem; }
+.content.page-content .tf-pair h3 { margin: 0 0 0.6rem; font-size: 1.15rem; }
+.tf-pair .tf-widget { margin: 0; padding: 0.85rem 0.9rem 0.75rem; }
+.tf-pair .tf-controls { gap: 0.35rem 0.8rem; margin-bottom: 0.5rem; }
+.tf-pair .tf-chip { padding: 0.18rem 0.6rem; font-size: 0.78rem; }
+.tf-pair .tf-group-label { font-size: 0.7rem; }
+.tf-pair .tf-legend { font-size: 0.78rem; gap: 0.25rem 0.8rem; }
+.tf-pair figcaption { font-size: 0.82rem; margin-top: 0.4rem; }
+@media (max-width: 900px) { .tf-pair { grid-template-columns: minmax(0, 1fr); } }
