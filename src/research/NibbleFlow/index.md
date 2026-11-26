@@ -28,7 +28,7 @@ links:
 teaser:
   image: static/images/teaser.png
   alt: "Sintel flow from RAFT-small, RAPIDFlow and NibbleFlow in FP32, with 4-bit weights and a linear output layer, and with 4-bit weights and SEM, next to a bar chart of Sintel clean EPE for each network"
-  caption: "**One layer decides whether iterative flow survives 4 bits.** With a linear output layer (middle), 4-bit weights wash out the flow of every network. With **SEM** (right), the same networks stay close to floating point. Far right, Sintel clean EPE in FP32, with 4-bit weights and a linear output, and with 4-bit weights and SEM."
+  caption: "**Sign-Exponent-Mantissa refinement for 4-bit optical flow.** Each network is shown in FP32 and with 4-bit weights, with its linear output layer or with **SEM**. The 4-bit results use post-training quantization to 4-bit weights and 8-bit activations, except NibbleFlow with SEM, which runs as INT4 on the Hailo-8. Left, one Sintel clean pair (ambush_7) with the EPE and parameter count in each panel; the FP32 panels of RAFT-small and RAPIDFlow use SEM. Right, Sintel clean EPE. **SEM significantly reduces the 4-bit error of every network.**"
 
 math: true
 
@@ -42,10 +42,10 @@ bibtex: |
 ---
 
 <div class="stat-strip">
-  <div class="stat-card"><span class="stat-value">86%</span><span class="stat-label">of the 4-bit error removed by changing one layer</span></div>
+  <div class="stat-card"><span class="stat-value"><small>up to </small>86%</span><span class="stat-label">of the error that 4-bit weights add, removed by SEM</span></div>
   <div class="stat-card"><span class="stat-value">0.51<small>M</small></span><span class="stat-label">parameters, with 86% of the weights in 4 bits</span></div>
-  <div class="stat-card"><span class="stat-value">45%</span><span class="stat-label">lower Sintel error than the best deployable baseline</span></div>
-  <div class="stat-card"><span class="stat-value">&lt;1<small> px</small></span><span class="stat-label">of EPE lost from FP32 to INT4 for the Hailo-8</span></div>
+  <div class="stat-card"><span class="stat-value"><small>up to </small>45%</span><span class="stat-label">lower Sintel error than the best deployable baseline</span></div>
+  <div class="stat-card"><span class="stat-value">&lt;1<small> px</small></span><span class="stat-label">of EPE lost to the FP32 version on Sintel</span></div>
 </div>
 
 ## Abstract
@@ -58,17 +58,17 @@ We introduce **SEM**, an output layer that instead predicts each flow update as 
 
 ## Motivation
 
-{% figure src="static/images/motivation.jpg", alt="A small drone flying past a brick wall, with its path drawn as a colored trail", caption="Tiny robots need dense motion at every pixel, computed by an accelerator that draws about a watt." %}
+Optical flow underpins visual odometry, structure from motion, tracking and navigation, and its accuracy today is driven by iterative refinement, in which an update block repeatedly corrects the current estimate. These methods run in floating point on desktop GPUs, whereas small robots and other battery-powered devices rely on edge AI accelerators such as the Hailo-8 and the Coral Edge TPU, which deliver several TOPS within a few watts.
 
-The most accurate flow networks refine their estimate over many iterations, and an update block decides each correction. Edge accelerators such as the Hailo-8 can run such a loop once the warp is removed, but they also store weights in as little as **4 bits**. At that precision, iterative networks fall apart. We asked which part of the network breaks, and the answer turned out to be a single layer.
+This efficiency comes at a price, since these accelerators execute only a **static graph with integer weights** and keep all weights in the memory on the chip, which often leaves **only 4 bits per weight**. Under such quantization, iterative flow networks lose much of their accuracy, while the networks that were designed for these chips are far less accurate to begin with. As a result, accurate optical flow has remained out of reach on the very hardware that needs it.
 
 ## The problem lives in one layer
 
 Refinement asks one output layer for steps of very different sizes. The first iterations must cover most of the motion, while the last ones only polish it. At the first step of our coarsest level alone, the needed steps span **seven octaves**, from $$2^{-6}$$ to $$2^{1}$$ pixels.
 
-A linear output represents a step the way a **fixed point** number represents a value. Its error is absolute, so the same rounding error that is negligible for a large step swamps a small one. The window of steps it can take accurately therefore has a fixed width.
+A standard linear output head represents a step the way a **fixed point** number represents a value. Its error is absolute, so this error decides the smallest step the head can take accurately, while the largest value of the last layer decides the largest one. The window of accurate steps therefore has a fixed width.
 
-{% figure src="static/images/range.png", width="760px", alt="Bar chart of the measured range of steps one update takes: the linear update covers 5.6 octaves and stops below one pixel, while SEM covers 7.0 octaves and spans the whole needed range", caption="**Measured on trained networks.** At the first update of the 1/32 level, the linear update covers only 5.6 octaves and saturates below one pixel. SEM covers 7.0 octaves, wider at both ends, matching the span of its exponents." %}
+{% figure src="static/images/range.png", width="760px", alt="Bar chart of the measured range of steps one update takes: the linear update covers 5.6 octaves and stops below one pixel, while SEM covers 7.0 octaves and spans the whole needed range", caption="**Measured dynamic range of one step.** At the first step of the 1/32 level, the linear update saturates below one pixel and covers only 5.6 octaves, whereas SEM follows the needed step from 2<sup>−6.9</sup> to 2<sup>0.1</sup> pixels, a range of 7.0 octaves that matches the span of its exponents." %}
 
 ## SEM: a floating point step
 
@@ -91,13 +91,13 @@ Because only the output layer changes, SEM drops into **any network that refines
 
 {% figure src="static/images/architecture.png", alt="NibbleFlow architecture: features at 1/8, 1/16 and 1/32 are correlated along fixed directions without warping, and one shared SEM update block refines the flow coarse to fine", caption="**(a)** Features at 1/8, 1/16 and 1/32 are correlated along fixed directions, so nothing is warped, and the flow is refined coarse to fine from zero. **(b)** The SEM update block predicts each step as the product of a sign, an exponent and a mantissa." %}
 
-NibbleFlow is built around SEM to run as **one static graph** on an edge accelerator. It refines without a warp by correlating features along fixed directions, eight at 1/32, six at 1/16 and four at 1/8, and it shares a single SEM update block of width 96 across all three levels. The result has **0.51M parameters**, compiles for a Hailo-8 with **86% of its weights in 4 bits**, and is quantized with the Hailo compiler's quantization-aware fine-tuning without any Sintel data.
+We build a network around SEM that an edge accelerator can run as **a single static graph**. Without a warp, each level correlates the two frames only along a few directions through each pixel, eight directions at 1/32, six at 1/16 and four at 1/8, and all three levels use **a single SEM update block** of width 96. NibbleFlow has **0.51M parameters** and runs on a Hailo-8 with **86% of its weights in 4 bits**. It is quantized with the Hailo compiler and its quantization-aware fine-tuning, which uses no Sintel data.
 
 <div id="compare"></div>
 
 ## See the difference
 
-Drag the slider. Both sides come from **the same network with 4-bit weights**; only the output layer differs. The numbers are the end-point error of this Sintel clean frame, from Fig. 3 of the paper.
+Drag the slider. Both sides are the same network in INT4, with its linear output layer or with SEM, on one Sintel clean pair from Fig. 3 of the paper, with the EPE of the pair.
 
 {% grid items="static/images/panel_input.jpg, static/images/panel_gt.jpg", captions="Input frame (Sintel clean) | Ground truth flow", columns=2 %}
 
@@ -109,7 +109,7 @@ Drag the slider. Both sides come from **the same network with 4-bit weights**; o
 
 {% compare before="static/images/panel_nibble_linear.jpg", after="static/images/panel_nibble_sem.jpg", before_label="Linear · 6.51 EPE", after_label="SEM · 1.41 EPE" %}
 
-{% figure src="static/images/qualitative.jpg", alt="Grid of flow fields from RAPIDFlow, RAFT-small, IRR-PWC and NibbleFlow on Sintel clean, Sintel final and FlyingChairs, each in FP32, linear INT4 and SEM INT4", caption="Four iterative networks on Sintel clean, Sintel final and FlyingChairs, each in FP32, with a linear output in INT4, and with SEM in INT4. With the linear layer, every network loses much of the flow in INT4, which becomes washed out, noisy or dominated by a spurious motion. With SEM, the flow stays close to FP32." %}
+{% figure src="static/images/qualitative.jpg", alt="Grid of flow fields from RAPIDFlow, RAFT-small, IRR-PWC and NibbleFlow on Sintel clean, Sintel final and FlyingChairs, each in FP32, linear INT4 and SEM INT4", caption="**The linear output layer and SEM in four iterative flow networks.** Each network is shown in FP32 and in INT4, with its linear output layer or with SEM, and the EPE of the pair is given in each panel. With the linear layer, every network loses much of the flow in INT4, whereas with SEM the flow stays close to FP32." %}
 
 <div id="results"></div>
 
@@ -117,7 +117,7 @@ Drag the slider. Both sides come from **the same network with 4-bit weights**; o
 
 ### SEM in existing networks
 
-We replace only the convolution that regresses the update in three networks that refine very differently: RAFT-small (a GRU at one scale), RAPIDFlow (coarse to fine with a shared block) and IRR-PWC (a pyramid with shared weights). Both versions are trained identically on FlyingChairs only. In floating point, SEM costs no accuracy in RAFT-small and RAPIDFlow. With 4-bit weights, it changes everything.
+RAFT-small iterates a GRU at a single scale, RAPIDFlow refines from coarse to fine with a shared block, and IRR-PWC refines a feature pyramid with shared weights. In each network, we replace the convolution that regresses the update by the SEM head, with the same exponents for all networks and no tuning, and change nothing else. Both versions are trained from scratch on FlyingChairs with the official settings and the same seed. Replacing the output layer costs no accuracy in RAFT-small and RAPIDFlow in floating point. **The picture changes completely once the weights are quantized to 4 bits.**
 
 | Network | FP32 | INT4, linear | INT4, SEM |
 |---|:---:|:---:|:---:|
@@ -128,7 +128,7 @@ We replace only the convolution that regresses the update in three networks that
 
 <p class="table-note">Sintel clean EPE (lower is better). FP32 is the linear version. INT4 is 4-bit weights with 8-bit activations, simulated with the same quantizer for both versions. With one iteration of RAPIDFlow, 4-bit weights add 4.41 EPE to the linear version and only 0.61 to SEM, which removes 86% of the added error.</p>
 
-**Where the error comes from.** Quantizing one part of RAPIDFlow at a time, the 4-bit weights of the last convolution alone, the layer that SEM replaces, cost the linear version **4.98 of the 5.00 EPE** that quantizing every layer costs. With SEM, the same weights cost only **0.10**. Keeping that one layer in 8 bits also rescues the linear version; SEM simply makes the output layer tolerate 4 bits like every other layer.
+**Attribution of the quantization error.** Quantizing one part of the network at a time locates this loss in a single layer. In RAPIDFlow with a single iteration, the 4-bit weights of the last convolution alone, which is the layer that SEM replaces, cost the linear version **4.98 of the 5.00 EPE** that quantizing every layer costs, and SEM only **0.10**. Keeping this one layer in 8 bits also rescues the linear version, which then matches SEM. The value of SEM is that its output layer tolerates 4-bit weights like every other layer, so no layer needs special treatment.
 
 ### Comparison with edge optical flow networks
 
@@ -140,7 +140,7 @@ We replace only the convolution that regresses the update in three networks that
 
 <p class="table-note">EPE of the INT4 networks quantized for the Hailo-8 (lower is better), on all 1041 Sintel pairs and 640 FlyingChairs validation pairs. In FP32, NibbleFlow reaches 3.88 / 4.76 on Sintel clean / final. No network is trained or calibrated on Sintel.</p>
 
-NibbleFlow loses less than one pixel to its floating point version and cuts the Sintel clean error of EdgeFlowNet by **45%** with **5.4× fewer parameters**. NanoFlowNet is smaller and faster, but its INT4 error is more than twice as high. Iterative refinement buys this accuracy at a lower frame rate than the single-pass baselines.
+With 86% of its weights in 4 bits, NibbleFlow loses less than one pixel of EPE and reaches 4.76 and 5.68, which cuts the error of EdgeFlowNet, the best deployable baseline, by **up to 45%**, with **5.4× fewer parameters**. NanoFlowNet is smaller and faster, but its INT4 error is more than twice as high.
 
 ### A controlled test of the update alone
 
@@ -153,9 +153,9 @@ NibbleFlow loses less than one pixel to its floating point version and cuts the 
 
 ## Downstream: visual odometry
 
-{% figure src="static/images/vo_traj.png", alt="Estimated trajectories of NibbleFlow, EdgeFlowNet and NanoFlowNet against the ground truth on two UZH-FPV flights and two TartanAir trajectories", caption="Monocular visual odometry from optical flow alone, with every network in INT4. NibbleFlow (orange) keeps the loops and turns closest to the ground truth (black), EdgeFlowNet (blue) keeps the shape but drifts, and NanoFlowNet (purple) jitters and leaves the path." %}
+{% figure src="static/images/vo_traj.png", alt="Estimated trajectories of NibbleFlow, EdgeFlowNet and NanoFlowNet against the ground truth on two UZH-FPV flights and two TartanAir trajectories", caption="**Visual odometry trajectories from optical flow alone with the INT4 models.** Estimated paths of NibbleFlow (orange), EdgeFlowNet (blue) and NanoFlowNet (purple) against the ground truth (black) for two UZH-FPV flights (a, b) and two TartanAir trajectories (c, d). NibbleFlow has the lowest ATE on all four and keeps the shape of the loops and of the turns, EdgeFlowNet keeps the shape but drifts further from the ground truth path, and the path of NanoFlowNet jitters and leaves it." %}
 
-Dense flow on a small robot is rarely the end product, so we feed each INT4 network into the same pose estimator, the five point algorithm inside RANSAC, with no depth and the scale taken from the ground truth.
+Dense flow on a small robot is rarely the end product, so we test whether the ranking survives a downstream task. The three deployable networks run in INT4 and feed the same pose estimator, the five point algorithm inside RANSAC. No depth is used and the translation scale is taken from the ground truth, so the metrics measure only how well the flow constrains the camera rotation and the direction of travel.
 
 | Mean ATE (m) | NibbleFlow | EdgeFlowNet | NanoFlowNet | Ground truth flow |
 |---|:---:|:---:|:---:|:---:|
@@ -166,6 +166,6 @@ Dense flow on a small robot is rarely the end product, so we feed each INT4 netw
 
 ## Beyond optical flow
 
-SEM changes nothing but the representation of the step, so the same principle applies to **any iterative regressor that must run in fixed point arithmetic**, such as depth or disparity refinement. NibbleFlow builds on the warp-free refinement scheme of [TinyFlow](/research/TinyFlow-workshop.html).
+We believe that the same principle applies to **any iterative regressor that must run in fixed point arithmetic**, such as depth or disparity refinement. We will release our code and trained checkpoints upon acceptance.
 
 Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.singh@colorado.edu](mailto:chahat.singh@colorado.edu)
