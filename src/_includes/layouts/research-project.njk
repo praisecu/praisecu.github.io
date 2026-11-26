@@ -125,7 +125,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">{{ title }}</h1>
+          <h1 class="title is-1 publication-title">{% if title_html %}{{ title_html | safe }}{% else %}{{ title }}{% endif %}</h1>
           {%- if subtitle %}
           <p class="subtitle is-4 publication-subtitle">{{ subtitle }}</p>
           {%- endif %}

@@ -1,5 +1,7 @@
 ---
 title: "NibbleFlow: Sign-Exponent-Mantissa Refinement for 4-Bit Optical Flow"
+# Optional: the same title with markup for the page heading only (tab title and metadata use title).
+title_html: '<span class="title-accent">Nibble</span>Flow: <span class="sem">S</span>ign-<span class="sem">E</span>xponent-<span class="sem">M</span>antissa Refinement for 4-Bit Optical Flow'
 description: "SEM replaces the linear output layer of iterative optical flow networks with a floating point step, a sign, an exponent and a mantissa. It removes up to 86% of the error that 4-bit weights add, and NibbleFlow, built around it, runs on a Hailo-8 with 0.51M parameters."
 image: static/images/social.jpg
 keywords: [optical flow, edge AI, Hailo-8, 4-bit quantization, INT4, iterative refinement, tiny robots, NibbleFlow, SEM]
@@ -54,7 +56,7 @@ Accurate optical flow relies on iterative refinement, yet the edge accelerators 
 
 We trace this loss to a single layer, the linear output of the update block. Refinement needs steps whose sizes differ by more than a factor of one hundred, but a linear output represents them like a fixed point number. The rounding error of its weights therefore adds the same error to every update, however small, and this error accumulates over the iterations.
 
-We introduce **SEM**, an output layer that instead predicts each flow update as a floating point number with a **S**ign, an **E**xponent and a **M**antissa. A rounding error then perturbs each update only in proportion to its size, while every output remains bounded and easy to quantize. Replacing only the output layer of existing networks such as RAFT-small and RAPIDFlow preserves their floating point accuracy and removes **up to 86%** of the error that 4-bit weights add. Built around SEM, **NibbleFlow** has only **0.51M parameters** and runs on a Hailo-8 with most of its weights in 4 bits. It loses less than one pixel of EPE to its floating point version and cuts the Sintel error of the best deployable baseline by **up to 45%**, with **5.4× fewer parameters**.
+We introduce <strong class="sem">SEM</strong>, an output layer that instead predicts each flow update as a floating point number with a <strong class="sem">S</strong>ign, an <strong class="sem">E</strong>xponent and a <strong class="sem">M</strong>antissa. A rounding error then perturbs each update only in proportion to its size, while every output remains bounded and easy to quantize. Replacing only the output layer of existing networks such as RAFT-small and RAPIDFlow preserves their floating point accuracy and removes **up to 86%** of the error that 4-bit weights add. Built around SEM, **NibbleFlow** has only **0.51M parameters** and runs on a Hailo-8 with most of its weights in 4 bits. It loses less than one pixel of EPE to its floating point version and cuts the Sintel error of the best deployable baseline by **up to 45%**, with **5.4× fewer parameters**.
 
 ## Motivation
 
@@ -78,7 +80,7 @@ A standard linear output head represents a step the way a **fixed point** number
 <figcaption><strong>Measured dynamic range of one step.</strong> At the first step of the 1/32 level, the linear update saturates below one pixel and covers only 5.6 octaves, a 49× range of step sizes, whereas SEM follows the needed step from 2<sup>−6.9</sup> to 2<sup>0.1</sup> pixels, 7.0 octaves or a 128× range, which matches the span of its exponents.</figcaption>
 </figure>
 
-## SEM: a floating point step
+## <span class="sem">SEM</span>: a floating point step
 
 A floating point number escapes this limit because it stores the order of magnitude separately from the significant digits. SEM lets the update block do the same. For each flow component, it predicts a sign logit $$a$$, exponent logits $$\boldsymbol{\ell}$$ over powers of two, and a mantissa logit $$b$$, and the step is their product:
 
