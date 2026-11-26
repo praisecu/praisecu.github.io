@@ -129,19 +129,6 @@ End-point error in pixels, lower is better. Dashed reference models cannot be de
 <figcaption id="tf-bench-cap"></figcaption>
 </figure>
 
-| Model | Params | Precision | Sintel Clean | Sintel Final | Chairs | >3 px (%) |
-|---|:---:|:---:|:---:|:---:|:---:|:---:|
-| *FlowNetS (reference)* | 38.7M | F32 | 4.86 | 6.38 | 1.85 | 22.9 |
-| *NeuFlow v2 (reference)* | 9.03M | F32 | 1.59 | 2.91 | 1.27 | 6.4 |
-| EdgeFlowNet | 2.75M | F32 | 6.17 | 7.30 | 3.59 | 21.2 |
-| | | INT8 | 6.46 | 7.62 | 3.91 | 22.1 |
-| NanoFlowNet† | 0.17M | F32 | 7.71 | 8.76 | 6.02 | 38.8 |
-| | | INT8 | 7.99 | 8.68 | 6.28 | 40.7 |
-| **TinyFlow (Ours)** | **1.26M** | F32 | **6.13** | **6.95** | **2.66** | **20.6** |
-| | | INT8 | **6.29** | **7.13** | **2.71** | **21.1** |
-
-<p class="table-note">Bold marks the best deployable result. All models are evaluated on 384×512 px images except NanoFlowNet (†), which is evaluated at its native resolution of 112×160 px.</p>
-
 <div class="tf-pair">
 <div>
 <h3>Error by motion magnitude</h3>
@@ -164,7 +151,6 @@ End-point error in pixels, lower is better. Dashed reference models cannot be de
 </figure>
 </div>
 </div>
-
 
 ## Visual odometry
 
