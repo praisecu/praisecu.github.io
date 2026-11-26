@@ -148,9 +148,6 @@ Pick a scene and drag the slider. These frame pairs from the FlyingChairs valida
 <figcaption id="tf-ex-note"></figcaption>
 </figure>
 
-The paper's own qualitative comparison, with the two large reference models included:
-
-{% figure src="static/images/qualitative.jpg", alt="Grid of flow fields: input, ground truth, FlowNetS, NeuFlow v2, EdgeFlowNet, NanoFlowNet and TinyFlow on one FlyingChairs pair and four pairs each from Sintel Clean and Sintel Final, with the EPE in each panel", caption="**Qualitative comparison.** FlowNetS and NeuFlow v2 are reference models outside the deployable comparison. Rows are the lowest-EPE frame of each scene under TinyFlow, chosen among scenes with visible object motion. TinyFlow recovers the cleanest and sharpest motion segments among the deployable models at the smallest parameter count, EdgeFlowNet fragments large motion, and NanoFlowNet produces structured noise." %}
 
 <div id="results"></div>
 
