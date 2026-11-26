@@ -1296,3 +1296,12 @@ input[type="range"].slider::-moz-range-track {
   .tf-readout { grid-template-columns: repeat(auto-fit, minmax(7.2rem, 1fr)); }
   .tf-readout b { font-size: 1.1rem; }
 }
+/* Illumination frames */
+.tf-illum-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0.75rem; margin-top: 0.8rem; }
+.content.page-content .tf-illum-grid figure:nth-child(-n+2) { grid-column: span 3; }
+.content.page-content .tf-illum-grid figure:nth-child(n+3) { grid-column: span 2; }
+.content.page-content .tf-illum-grid figure { margin: 0; }
+.content.page-content .tf-illum-grid img { display: block; width: 100%; border-radius: var(--pp-radius-sm); }
+.content.page-content .tf-illum-grid figcaption { display: flex; flex-direction: column; margin-top: 0.35rem; font-size: 0.86rem; line-height: 1.35; color: var(--pp-muted); text-align: center; font-style: normal; }
+.tf-illum-grid figcaption b { font-variant-numeric: tabular-nums; }
+@media (max-width: 768px) { .content.page-content .tf-illum-grid figure:nth-child(n) { grid-column: span 6; } .content.page-content .tf-illum-grid figure:nth-child(n+3) { grid-column: span 3; } }

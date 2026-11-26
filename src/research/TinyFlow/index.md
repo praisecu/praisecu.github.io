@@ -35,8 +35,9 @@ links:
     icon: fas fa-scroll
 
 teaser:
-  image: static/images/teaser.jpg
-  alt: "Two RGB frames of a runner go into TinyFlow, a 1.26M-parameter network with no warping that compiles to one static INT8 graph and runs on a Hailo-8 accelerator. Its dense optical flow output closely matches the ground truth."
+  video: static/videos/teaser.mp4
+  poster: static/images/teaser.jpg
+  alt: "Video. Two RGB frames of a runner go into TinyFlow, a 1.26M-parameter network that rethinks the warping function, compiles to one static INT8 graph and runs on a Hailo-8 accelerator. Its dense optical flow output closely matches the ground truth."
   caption: "**TinyFlow** predicts dense optical flow from a pair of input images with only **1.26M parameters**. It keeps iterative coarse-to-fine refinement but removes the warp, so the whole network compiles as **a single static INT8 graph** for edge AI accelerators such as the Hailo-8."
 
 math: true
@@ -132,7 +133,7 @@ MPI-Sintel is used only for testing, never for training, fine-tuning or calibrat
 
 ## See the difference
 
-Pick a scene and two predictions, then drag the slider. These are the nine frame pairs of the paper's qualitative comparison, one from the FlyingChairs validation set and four each from Sintel Clean and Final. Hue encodes flow direction and brightness encodes magnitude, normalized per row to the ground truth's scale, and the number in each panel is its EPE.
+Pick a scene and drag the slider. These frame pairs from the FlyingChairs validation set and Sintel were selected to show the difference: TinyFlow INT8 is near 1 EPE on each of them, while EdgeFlowNet INT8 is clearly worse. All models run INT8 with the paper's checkpoints and evaluation protocol. Hue encodes flow direction and brightness encodes magnitude, normalized per pair to the ground truth's scale.
 
 <figure class="tf-widget tf-explorer" id="tf-explorer">
 <div class="tf-controls">
@@ -142,10 +143,12 @@ Pick a scene and two predictions, then drag the slider. These are the nine frame
 <div class="tf-group"><label class="tf-group-label" for="tf-ex-left">Left</label><select id="tf-ex-left"></select></div>
 <div class="tf-group"><label class="tf-group-label" for="tf-ex-right">Right</label><select id="tf-ex-right"></select></div>
 </div>
-<div class="tf-ex-pair"><figure class="media-figure compare-figure"><div class="compare" id="tf-ex-compare"><img class="compare-after" id="tf-ex-after" src="/research/TinyFlow/static/images/qual/r0_tinyflow.jpg" alt="TinyFlow (Ours)"><img class="compare-before" id="tf-ex-before" src="/research/TinyFlow/static/images/qual/r0_gt.jpg" alt="Ground truth"><div class="compare-handle" aria-hidden="true"></div><span class="compare-label compare-label-before" id="tf-ex-lbl-before">Ground truth</span><span class="compare-label compare-label-after" id="tf-ex-lbl-after">TinyFlow (Ours)</span><input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Comparison slider"></div></figure><figure class="tf-ex-in"><img id="tf-ex-input" src="/research/TinyFlow/static/images/qual/r0_input.jpg" alt="Input frame"><figcaption id="tf-ex-input-cap">Input</figcaption></figure></div>
+<div class="tf-ex-pair"><figure class="media-figure compare-figure"><div class="compare" id="tf-ex-compare"><img class="compare-after" id="tf-ex-after" src="/research/TinyFlow/static/images/explorer/f0_tinyflow.jpg" alt="TinyFlow (Ours)"><img class="compare-before" id="tf-ex-before" src="/research/TinyFlow/static/images/explorer/f0_edgeflownet.jpg" alt="EdgeFlowNet"><div class="compare-handle" aria-hidden="true"></div><span class="compare-label compare-label-before" id="tf-ex-lbl-before">EdgeFlowNet</span><span class="compare-label compare-label-after" id="tf-ex-lbl-after">TinyFlow (Ours)</span><input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Comparison slider"></div></figure><figure class="tf-ex-in"><img id="tf-ex-input" src="/research/TinyFlow/static/images/explorer/f0_input.jpg" alt="Input frame"><figcaption id="tf-ex-input-cap">Input</figcaption></figure></div>
 <div class="tf-readout" id="tf-ex-epe"></div>
 <figcaption id="tf-ex-note"></figcaption>
 </figure>
+
+The paper's own qualitative comparison, with the two large reference models included:
 
 {% figure src="static/images/qualitative.jpg", alt="Grid of flow fields: input, ground truth, FlowNetS, NeuFlow v2, EdgeFlowNet, NanoFlowNet and TinyFlow on one FlyingChairs pair and four pairs each from Sintel Clean and Sintel Final, with the EPE in each panel", caption="**Qualitative comparison.** FlowNetS and NeuFlow v2 are reference models outside the deployable comparison. Rows are the lowest-EPE frame of each scene under TinyFlow, chosen among scenes with visible object motion. TinyFlow recovers the cleanest and sharpest motion segments among the deployable models at the smallest parameter count, EdgeFlowNet fragments large motion, and NanoFlowNet produces structured noise." %}
 
@@ -218,7 +221,7 @@ Dense flow on a small robot is rarely the end product, so the paper tests whethe
 <figcaption>Flow-only monocular visual odometry with the INT8 models. ATE is the position RMSE in metres after SE(3) alignment, Rotation the median per-frame rotation error and Direction the mean per-frame translation direction error. The ground-truth flow through the same estimator gives a 0.26 m mean ATE on TartanAir, an order of magnitude below every learned model, so the remaining error lies in the flow rather than in the estimator.</figcaption>
 </figure>
 
-{% figure src="static/images/vo_traj.jpg", alt="Estimated visual odometry trajectories of TinyFlow, EdgeFlowNet and NanoFlowNet against the ground truth on one UZH-FPV flight and three TartanAir trajectories", caption="**Flow-only visual odometry trajectories at INT8.** TinyFlow (orange), EdgeFlowNet (blue) and NanoFlowNet (purple) against the ground truth (black) for one UZH-FPV flight (a) and three TartanAir trajectories (b to d). TinyFlow stays on the ground-truth path through loops and sharp turns, EdgeFlowNet drifts on the return legs, and NanoFlowNet leaves the path." %}
+{% figure src="static/videos/vo_trajectories.mp4", poster="static/videos/vo_trajectories.jpg", alt="Animation of the estimated visual odometry trajectories of TinyFlow, EdgeFlowNet and NanoFlowNet being drawn against the ground truth on one UZH-FPV flight and three TartanAir trajectories", caption="**Flow-only visual odometry trajectories at INT8.** TinyFlow (orange), EdgeFlowNet (blue) and NanoFlowNet (purple) against the ground truth (black) for one UZH-FPV flight (a) and three TartanAir trajectories (b to d), drawn frame by frame. TinyFlow stays on the ground-truth path through loops and sharp turns, EdgeFlowNet drifts on the return legs, and NanoFlowNet leaves the path." %}
 
 ## Robustness to illumination change
 
@@ -227,10 +230,10 @@ Benchmarks render both frames under identical lighting, whereas auto-exposure on
 <figure class="tf-widget" id="tf-illum-widget">
 <div class="tf-controls"><div class="tf-group" id="tf-illum-chips"><span class="tf-group-label">Second frame</span></div></div>
 <svg class="tf-svg" id="tf-illum-svg" viewBox="0 0 640 170" role="img" aria-label="EPE under illumination change"></svg>
-<figcaption>EPE of the INT8 models under the selected change, applied to the second frame only. NanoFlowNet runs at its native 112×160.</figcaption>
+<div class="tf-illum-grid" id="tf-illum-grid"></div>
+<figcaption>Top, mean EPE of the INT8 models on the paper's 209-pair Sintel Clean subset (Table III) under the selected change, applied to the second frame only. Bottom, the same change on one Sintel Clean pair (alley_2), the pair of the paper's illumination figure, with each model's EPE on that pair. Every flow panel shares the ground truth's color scale, so an over-estimated flow saturates. NanoFlowNet runs at its native 112×160.</figcaption>
 </figure>
 
-{% figure src="static/images/illumination.jpg", alt="One Sintel Clean pair, unchanged and with gamma 1.5, brightness 0.8 and offset +20 applied to the second frame, with the flow of TinyFlow, EdgeFlowNet and NanoFlowNet", caption="One Sintel Clean pair, unchanged and with gamma 1.5, brightness scaling by 0.8 and an offset of +20 applied to the second frame. The first column shows the second frame each model receives. TinyFlow moves from 0.90 to at most 1.12 EPE under the three changes, while EdgeFlowNet predicts flow up to four times the true magnitude. All models run INT8." %}
 
 ## Conclusion
 
@@ -406,59 +409,52 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
   /* ---------------- Flow explorer ---------------- */
   (function () {
     var root = document.getElementById("tf-explorer"); if (!root) return;
+    var DIR = "/research/TinyFlow/static/images/explorer/";
     var SC = [
-      { label: "FlyingChairs", set: "FlyingChairs validation", e: [0.49, 0.37, 2.77, 3.15, 0.71] },
-      { label: "cave_2", set: "Sintel Clean", e: [1.62, 0.53, 1.49, 3.01, 1.55] },
-      { label: "bandage_1", set: "Sintel Clean", e: [2.76, 0.94, 2.21, 3.05, 1.88] },
-      { label: "cave_4", set: "Sintel Clean", e: [2.62, 1.25, 2.64, 3.83, 2.36] },
-      { label: "market_6", set: "Sintel Clean", e: [3.55, 1.25, 6.79, 5.93, 2.68] },
-      { label: "mountain_1", set: "Sintel Final", e: [2.12, 0.45, 2.49, 3.82, 1.68] },
-      { label: "ambush_5", set: "Sintel Final", e: [2.80, 1.21, 2.82, 5.34, 2.29] },
-      { label: "cave_4", set: "Sintel Final", e: [2.46, 1.15, 3.40, 4.00, 2.51] },
-      { label: "bandage_1", set: "Sintel Final", e: [3.93, 1.04, 3.05, 5.02, 2.72] }
+      { label: "Chairs 21803", set: "FlyingChairs validation", e: { tinyflow: 0.69, edgeflownet: 2.77, nanoflownet: 4.34 } },
+      { label: "bandage_1", set: "Sintel Clean", e: { tinyflow: 1.62, edgeflownet: 4.37, nanoflownet: 2.84 } },
+      { label: "Chairs 05449", set: "FlyingChairs validation", e: { tinyflow: 0.71, edgeflownet: 1.64, nanoflownet: 1.77 } },
+      { label: "Chairs 06162", set: "FlyingChairs validation", e: { tinyflow: 1.08, edgeflownet: 1.88, nanoflownet: 5.95 } },
+      { label: "Chairs 06703", set: "FlyingChairs validation", e: { tinyflow: 1.06, edgeflownet: 2.06, nanoflownet: 3.93 } },
+      { label: "Chairs 04299", set: "FlyingChairs validation", e: { tinyflow: 1.07, edgeflownet: 1.81, nanoflownet: 3.38 } }
     ];
-    var MK = ["flownets", "neuflow", "edgeflownet", "nanoflownet", "tinyflow"];
-    var st = { row: 0, left: "gt", right: "tinyflow" };
+    var MK = ["tinyflow", "edgeflownet", "nanoflownet"];
+    var st = { row: 0, left: "edgeflownet", right: "tinyflow" };
     var scenes = document.getElementById("tf-ex-scenes");
     var btns = SC.map(function (s, i) {
       var b = document.createElement("button");
       b.type = "button"; b.className = "tf-chip"; b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
-      b.innerHTML = (i === 0 ? "" : "<small style=\"opacity:.7\">" + (s.set === "Sintel Clean" ? "Clean · " : "Final · ") + "</small>") + s.label;
+      b.textContent = s.label;
       b.addEventListener("click", function () { press(btns, b); st.row = i; draw(); });
       scenes.appendChild(b); return b;
     });
     var selL = document.getElementById("tf-ex-left"), selR = document.getElementById("tf-ex-right");
-    function fill(sel, withGt) {
-      (withGt ? ["gt"] : []).concat(["tinyflow", "edgeflownet", "nanoflownet", "flownets", "neuflow"]).forEach(function (k) {
+    [selL, selR].forEach(function (sel) {
+      ["gt"].concat(MK).forEach(function (k) {
         var o = document.createElement("option"); o.value = k;
-        o.textContent = NAME[k] + (PARAMS[k] ? " (" + PARAMS[k] + ")" : "") + (REF[k] ? ", reference" : "");
+        o.textContent = NAME[k] + (PARAMS[k] ? " (" + PARAMS[k] + ")" : "");
         sel.appendChild(o);
       });
-    }
-    fill(selL, true); fill(selR, true); selL.value = "gt"; selR.value = "tinyflow";
+    });
+    selL.value = st.left; selR.value = st.right;
     selL.addEventListener("change", function () { st.left = selL.value; draw(); });
     selR.addEventListener("change", function () { st.right = selR.value; draw(); });
-    function epe(k) { var i = MK.indexOf(k); return i < 0 ? null : SC[st.row].e[i]; }
-    function lbl(k) { var e = epe(k); return NAME[k] + (e === null ? "" : " · " + e.toFixed(2) + " EPE"); }
+    function lbl(k) { var e = SC[st.row].e[k]; return NAME[k] + (e === undefined ? "" : " · " + e.toFixed(2) + " EPE"); }
     function draw() {
-      var r = "r" + st.row + "_";
+      var f = DIR + "f" + st.row + "_", s = SC[st.row];
       var before = document.getElementById("tf-ex-before"), after = document.getElementById("tf-ex-after");
-      before.src = BASE + r + st.left + ".jpg"; before.alt = NAME[st.left];
-      after.src = BASE + r + st.right + ".jpg"; after.alt = NAME[st.right];
+      before.src = f + st.left + ".jpg"; before.alt = NAME[st.left];
+      after.src = f + st.right + ".jpg"; after.alt = NAME[st.right];
       document.getElementById("tf-ex-lbl-before").textContent = lbl(st.left);
       document.getElementById("tf-ex-lbl-after").textContent = lbl(st.right);
-      document.getElementById("tf-ex-input").src = BASE + r + "input.jpg";
-      document.getElementById("tf-ex-input-cap").textContent = "Input, " + SC[st.row].set + (st.row ? ", " + SC[st.row].label : "");
-      var e = SC[st.row].e, ro = document.getElementById("tf-ex-epe");
-      ro.innerHTML = MK.slice().reverse().map(function (k) {
-        var v = epe(k), best = !REF[k] && v === Math.min(e[2], e[3], e[4]);
-        return "<div style=\"border-color:" + (best ? "var(--tf-orange)" : "var(--pp-border)") + "\"><b style=\"color:" + (k === "tinyflow" ? "var(--tf-orange-text)" : "var(--pp-ink)") + "\">" + v.toFixed(2) + "</b><span>" + NAME[k] + (REF[k] ? " (reference)" : "") + "</span></div>";
+      document.getElementById("tf-ex-input").src = f + "input.jpg";
+      document.getElementById("tf-ex-input-cap").textContent = "Input, " + s.set + (s.set.indexOf("Sintel") === 0 ? ", " + s.label : "");
+      document.getElementById("tf-ex-epe").innerHTML = MK.map(function (k) {
+        return "<div style=\"border-color:" + (k === "tinyflow" ? "var(--tf-orange)" : "var(--pp-border)") + "\"><b style=\"color:" +
+          (k === "tinyflow" ? "var(--tf-orange-text)" : "var(--pp-ink)") + "\">" + s.e[k].toFixed(2) + "</b><span>" + NAME[k] + " EPE</span></div>";
       }).join("");
-      var ratioE = (e[2] / e[4]).toFixed(1), ratioN = (e[3] / e[4]).toFixed(1);
-      document.getElementById("tf-ex-note").innerHTML = (e[4] <= e[2]
-        ? "On this pair TinyFlow's error is " + ratioE + "× lower than EdgeFlowNet's and " + ratioN + "× lower than NanoFlowNet's."
-        : "On this pair EdgeFlowNet is slightly lower than TinyFlow, and TinyFlow's error is " + ratioN + "× lower than NanoFlowNet's.") +
-        " The orange outline marks the best deployable model. EPE values are those printed in the paper's figure.";
+      document.getElementById("tf-ex-note").innerHTML = "On this pair TinyFlow's error is " + (s.e.edgeflownet / s.e.tinyflow).toFixed(1) +
+        "× lower than EdgeFlowNet's and " + (s.e.nanoflownet / s.e.tinyflow).toFixed(1) + "× lower than NanoFlowNet's.";
     }
     draw();
   })();
@@ -683,10 +679,22 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
       b.addEventListener("click", function () { press(bs, b); cur = i; draw(); });
       chips.appendChild(b); return b;
     });
+    var P = {
+      tinyflow: [0.90, 1.08, 0.98, 0.95, 1.06, 1.05, 3.19, 1.12, 0.99],
+      edgeflownet: [0.92, 30.18, 11.76, 23.34, 38.43, 36.46, 19.54, 22.10, 32.46],
+      nanoflownet: [2.35, 30.22, 5.90, 7.25, 11.39, 11.00, 6.79, 8.92, 9.37]
+    };
+    var grid = document.getElementById("tf-illum-grid"), DIR = "/research/TinyFlow/static/images/illum/";
     function draw() {
       hbars(svg, ["tinyflow", "edgeflownet", "nanoflownet"].map(function (k) {
         return { key: k, label: NAME[k], value: E[k][cur], color: COL[k] };
       }), { left: 150, max: 95, barH: 26, gap: 14 });
+      var cells = [["Second frame, " + CND[cur].toLowerCase(), "c" + cur + "_second", null], ["Ground truth", "gt", null]]
+        .concat(["tinyflow", "edgeflownet", "nanoflownet"].map(function (k) { return [NAME[k], "c" + cur + "_" + k, k]; }));
+      grid.innerHTML = cells.map(function (c) {
+        var e = c[2] ? "<b style=\"color:" + (c[2] === "tinyflow" ? "var(--tf-orange-text)" : "var(--pp-ink)") + "\">" + P[c[2]][cur].toFixed(2) + " EPE</b>" : "";
+        return "<figure><img src=\"" + DIR + c[1] + ".jpg\" alt=\"" + c[0] + "\" loading=\"lazy\"><figcaption><span>" + c[0] + "</span>" + e + "</figcaption></figure>";
+      }).join("");
     }
     draw(); redraws.push(draw);
   })();
