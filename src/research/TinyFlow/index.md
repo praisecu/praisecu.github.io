@@ -121,6 +121,9 @@ Drag the slider. Selected Sintel Clean, Sintel Final and FlyingChairs pairs, all
 
 End-point error in pixels, lower is better. Dashed reference models cannot be deployed.
 
+<div class="tf-pair">
+<div>
+<h3>Error on each benchmark</h3>
 <figure class="tf-widget" id="tf-bench-widget">
 <div class="tf-controls">
 <div class="tf-group"><span class="tf-group-label">Precision</span><button class="tf-chip" type="button" data-prec="F32" aria-pressed="false">Float32</button><button class="tf-chip" type="button" data-prec="INT8" aria-pressed="true">INT8</button><button class="tf-chip" type="button" data-prec="GAP" aria-pressed="false">F32 → INT8</button></div>
@@ -129,9 +132,9 @@ End-point error in pixels, lower is better. Dashed reference models cannot be de
 <svg class="tf-svg" id="tf-bench-svg" viewBox="0 0 640 260" role="img" aria-label="Benchmark chart"></svg>
 <figcaption id="tf-bench-cap"></figcaption>
 </figure>
-
-### Error by motion magnitude
-
+</div>
+<div>
+<h3>Error by motion magnitude</h3>
 <figure class="tf-widget" id="tf-bins-widget">
 <div class="tf-controls">
 <div class="tf-group"><span class="tf-group-label">Pass</span><button class="tf-chip" type="button" data-bpass="clean" aria-pressed="true">Sintel Clean</button><button class="tf-chip" type="button" data-bpass="final" aria-pressed="false">Sintel Final</button></div>
@@ -142,6 +145,8 @@ End-point error in pixels, lower is better. Dashed reference models cannot be de
 <div class="tf-legend" id="tf-bins-legend"></div>
 <figcaption>Above 1 means more error than TinyFlow in that motion range.</figcaption>
 </figure>
+</div>
+</div>
 
 ## Visual odometry
 
@@ -444,7 +449,7 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
       var rows = keys.map(function (k) {
         return { key: k, label: NAME[k], sub: PARAMS[k] + (REF[k] ? ", reference" : (k === "nanoflownet" ? ", at 112×160" : "")), value: T[st.prec][k][st.m], color: COL[k], ref: REF[k] };
       });
-      hbars(svg, rows, { left: 150, unit: st.m === 3 ? "%" : "", barH: 17, gap: 15 });
+      hbars(svg, rows, { left: 150, unit: st.m === 3 ? "%" : "", barH: vw(svg) < 600 ? 26 : 17, gap: vw(svg) < 600 ? 24 : 15 });
       var t = T[st.prec].tinyflow[st.m], e = T[st.prec].edgeflownet[st.m];
       cap.innerHTML = "TinyFlow is " + (100 * (e - t) / e).toFixed(0) + "% lower than EdgeFlowNet.";
     }
