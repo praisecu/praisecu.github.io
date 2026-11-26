@@ -1340,3 +1340,7 @@ input[type="range"].slider::-moz-range-track {
 .publication-links a[href="#coming-soon"] { pointer-events: none; cursor: default; opacity: 0.6; }
 /* TinyFlow: half the gap between the teaser and the stat cards */
 .content.page-content .stat-strip.tf-stats { margin-top: -40px; }
+/* TinyFlow: tighter space around display equations */
+.content.page-content:has(.tf-stats) .math-block { margin: 0.6rem 0; }
+.content.page-content:has(.tf-stats) .math-block .katex-display { margin: 0; }
+#tf-warp-widget { margin-top: 0.75rem; }
