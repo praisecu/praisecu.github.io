@@ -21,11 +21,8 @@ links:
   - text: arXiv
     url: https://arxiv.org/abs/2610.33338
     icon: ai ai-arxiv
-  - text: Interactive
-    url: "#compare"
-    icon: fas fa-sliders
   - text: Results
-    url: "#results"
+    url: "#compare"
     icon: fas fa-chart-line
   - text: Code (Coming Soon)
     url: "#coming-soon"
