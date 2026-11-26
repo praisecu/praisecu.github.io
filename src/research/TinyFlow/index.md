@@ -346,7 +346,7 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
         hbars(svg, [
           { key: "ptq", label: "Post-training", sub: "6.92 → 8.09", value: 1.17, color: "var(--tf-ref)" },
           { key: "tinyflow", label: "TinyFlow recipe", sub: "6.13 → 6.29", value: 0.16, color: "var(--tf-orange)" }
-        ], { left: 150, max: 1.3, barH: 34, gap: 22, ticks: 4 });
+        ], { left: 150, max: 1.3, barH: 24, gap: 12, ticks: 4 });
         cap.innerHTML = "Sintel Clean EPE added by INT8.";
       } else {
         var v = st.pass === 0 ? [6.27, 6.37, 6.21, 6.13] : [7.21, 7.06, 7.12, 6.95];
@@ -355,7 +355,7 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
           { key: "e2", label: "Epoch B", value: v[1], color: "var(--tf-ref-2)" },
           { key: "e3", label: "Epoch C", value: v[2], color: "var(--tf-ref-2)" },
           { key: "tinyflow", label: "Soup (average)", value: v[3], color: "var(--tf-orange)" }
-        ], { left: 150, max: 8, barH: 26, gap: 12, ticks: 4 });
+        ], { left: 150, max: 8, barH: 20, gap: 8, ticks: 4 });
         cap.innerHTML = "The averaged weights beat every ingredient.";
       }
     }

@@ -1317,3 +1317,8 @@ input[type="range"].slider::-moz-range-track {
 #tf-warp-widget .tf-status { margin-top: 0.5rem; padding: 0.45rem 0.7rem; font-size: 0.84rem; }
 #tf-warp-widget figcaption { margin-top: 0.6rem; font-size: 0.84rem; }
 @media (max-width: 768px) { #tf-warp-widget .tf-warp { grid-template-columns: minmax(0, 1fr); } #tf-warp-widget svg { max-width: 220px; margin: 0 auto; } }
+/* Compact training widget */
+#tf-train-widget { max-width: 620px; margin-left: auto; margin-right: auto; padding: 0.9rem 1rem 0.8rem; }
+#tf-train-widget .tf-controls { margin-bottom: 0.5rem; }
+#tf-train-widget .tf-chip { padding: 0.2rem 0.65rem; font-size: 0.8rem; }
+#tf-train-widget figcaption { margin-top: 0.4rem; font-size: 0.84rem; }
