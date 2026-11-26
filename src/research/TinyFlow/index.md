@@ -176,11 +176,11 @@ INT8 flow into the same pose estimator, no depth. TinyFlow has the lowest ATE on
 Gamma, brightness and offset changes on the second frame. TinyFlow stays within **5.92 to 8.99 EPE**, while EdgeFlowNet rises to 27 to 61 and NanoFlowNet to 18 to 90.
 
 <figure class="tf-widget" id="tf-illum-widget">
-<div class="tf-controls"><div class="tf-group" id="tf-illum-scenes"><span class="tf-group-label">Pair</span><button class="tf-chip" type="button" data-illum-scene="ambush7_" aria-pressed="true">Clean · ambush_7</button><button class="tf-chip" type="button" data-illum-scene="" aria-pressed="false">Clean · alley_2</button></div></div>
+<div class="tf-controls"><div class="tf-group" id="tf-illum-scenes"><span class="tf-group-label">Pair</span><button class="tf-chip" type="button" data-illum-scene="ambush7_" aria-pressed="true">Clean · ambush_7</button><button class="tf-chip" type="button" data-illum-scene="" aria-pressed="false">Clean · alley_2</button><button class="tf-chip" type="button" data-illum-scene="runner_" aria-pressed="false">Synthetic · runner</button></div></div>
 <div class="tf-controls"><div class="tf-group" id="tf-illum-chips"><span class="tf-group-label">Second frame</span></div></div>
 <svg class="tf-svg" id="tf-illum-svg" viewBox="0 0 640 170" role="img" aria-label="EPE under illumination change"></svg>
 <div class="tf-illum-grid" id="tf-illum-grid"></div>
-<figcaption>Top, mean over 209 Sintel Clean pairs. Bottom, one pair.</figcaption>
+<figcaption>Top, mean over 209 Sintel Clean pairs. Bottom, the selected pair.</figcaption>
 </figure>
 
 Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.singh@colorado.edu](mailto:chahat.singh@colorado.edu)
@@ -655,7 +655,10 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
             nanoflownet: [2.35, 30.22, 5.90, 7.25, 11.39, 11.00, 6.79, 8.92, 9.37] },
       "ambush7_": { tinyflow: [1.66, 2.18, 1.74, 2.00, 2.10, 1.91, 1.88, 1.86, 1.84],
             edgeflownet: [3.30, 83.06, 53.32, 55.18, 74.24, 53.45, 49.18, 71.83, 69.01],
-            nanoflownet: [9.37, 86.00, 41.43, 46.03, 154.63, 49.19, 43.35, 144.38, 111.23] }
+            nanoflownet: [9.37, 86.00, 41.43, 46.03, 154.63, 49.19, 43.35, 144.38, 111.23] },
+      "runner_": { tinyflow: [0.55, 0.59, 0.56, 0.58, 0.67, 0.61, 0.57, 0.55, 0.61],
+            edgeflownet: [0.79, 49.01, 39.03, 43.62, 38.90, 42.06, 46.41, 45.50, 43.68],
+            nanoflownet: [3.39, 98.18, 52.73, 78.49, 89.59, 79.45, 83.73, 99.19, 90.56] }
     };
     var pair = "ambush7_";
     chipGroup(root, "data-illum-scene", function (v) { pair = v; draw(); });
