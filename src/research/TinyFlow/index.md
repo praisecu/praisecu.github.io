@@ -120,7 +120,6 @@ Drag the slider. Selected Sintel Clean, Sintel Final and FlyingChairs pairs, all
 <figcaption id="tf-ex-note"></figcaption>
 </figure>
 
-
 <div id="results"></div>
 
 ## Results
@@ -175,6 +174,8 @@ Raspberry Pi 5 with a Hailo-8, 100-pair Sintel Clean sample.
 
 INT8 flow into the same pose estimator, no depth. TinyFlow has the lowest ATE on **7 of 11** sequences.
 
+{% figure src="static/videos/vo_trajectories.mp4", poster="static/videos/vo_trajectories.jpg", alt="Animation of the estimated visual odometry trajectories of TinyFlow, EdgeFlowNet and NanoFlowNet being drawn against the ground truth on one UZH-FPV flight and three TartanAir trajectories", caption="Trajectories drawn frame by frame against the ground truth (dashed)." %}
+
 <figure class="tf-widget" id="tf-vo-widget">
 <div class="tf-controls">
 <div class="tf-group"><span class="tf-group-label">Metric</span><button class="tf-chip" type="button" data-vo="0" aria-pressed="true">ATE (m)</button><button class="tf-chip" type="button" data-vo="1" aria-pressed="false">Rotation (°)</button><button class="tf-chip" type="button" data-vo="2" aria-pressed="false">Direction (°)</button></div>
@@ -183,10 +184,8 @@ INT8 flow into the same pose estimator, no depth. TinyFlow has the lowest ATE on
 <svg class="tf-svg" id="tf-vo-svg" viewBox="0 0 640 420" role="img" aria-label="Visual odometry errors per sequence"></svg>
 <div class="tf-legend"><span style="--sw:var(--tf-orange)">TinyFlow (Ours)</span><span style="--sw:var(--tf-blue)">EdgeFlowNet</span><span style="--sw:var(--tf-purple)">NanoFlowNet</span><span id="tf-vo-gt-key" style="--sw:var(--pp-ink)">Ground-truth flow (ATE)</span></div>
 <div class="tf-readout" id="tf-vo-readout"></div>
-<figcaption>ATE after SE(3) alignment. The black tick is the ground-truth flow through the same estimator.</figcaption>
+<figcaption>ATE after SE(3) alignment. The tick marks the ground-truth flow through the same estimator.</figcaption>
 </figure>
-
-{% figure src="static/videos/vo_trajectories.mp4", poster="static/videos/vo_trajectories.jpg", alt="Animation of the estimated visual odometry trajectories of TinyFlow, EdgeFlowNet and NanoFlowNet being drawn against the ground truth on one UZH-FPV flight and three TartanAir trajectories", caption="Trajectories drawn frame by frame against the ground truth (dashed)." %}
 
 ## Robustness to illumination change
 
@@ -198,7 +197,6 @@ Gamma, brightness and offset changes on the second frame. TinyFlow stays within 
 <div class="tf-illum-grid" id="tf-illum-grid"></div>
 <figcaption>Top, mean over 209 Sintel Clean pairs. Bottom, one pair.</figcaption>
 </figure>
-
 
 Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.singh@colorado.edu](mailto:chahat.singh@colorado.edu)
 
