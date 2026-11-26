@@ -176,7 +176,7 @@ INT8 flow into the same pose estimator, no depth. TinyFlow has the lowest ATE on
 Gamma, brightness and offset changes on the second frame. TinyFlow stays within **5.92 to 8.99 EPE**, while EdgeFlowNet rises to 27 to 61 and NanoFlowNet to 18 to 90.
 
 <figure class="tf-widget" id="tf-illum-widget">
-<div class="tf-controls"><div class="tf-group" id="tf-illum-scenes"><span class="tf-group-label">Pair</span><button class="tf-chip" type="button" data-illum-scene="ambush7_" aria-pressed="true">Clean · ambush_7</button><button class="tf-chip" type="button" data-illum-scene="" aria-pressed="false">Clean · alley_2</button><button class="tf-chip" type="button" data-illum-scene="runner_" aria-pressed="false">Synthetic · runner</button></div></div>
+<div class="tf-controls"><div class="tf-group" id="tf-illum-scenes"><span class="tf-group-label">Pair</span><button class="tf-chip" type="button" data-illum-scene="runner_" aria-pressed="true">Synthetic · runner</button><button class="tf-chip" type="button" data-illum-scene="ambush7_" aria-pressed="false">Clean · ambush_7</button><button class="tf-chip" type="button" data-illum-scene="" aria-pressed="false">Clean · alley_2</button></div></div>
 <div class="tf-controls"><div class="tf-group" id="tf-illum-chips"><span class="tf-group-label">Second frame</span></div></div>
 <svg class="tf-svg" id="tf-illum-svg" viewBox="0 0 640 170" role="img" aria-label="EPE under illumination change"></svg>
 <div class="tf-illum-grid" id="tf-illum-grid"></div>
@@ -544,7 +544,7 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
     var W = vw(svg), H = W < 600 ? 345 : 260, L = 60, R = 16, T = 18, Bt = 46;
     svg.setAttribute("viewBox", "0 0 " + W + " " + H);
     var sx = function (f) { return L + (W - L - R) * (Math.log10(f) - Math.log10(5)) / (Math.log10(400) - Math.log10(5)); };
-    var sy = function (e) { return T + (H - T - Bt) * (e - 5.4) / (7.9 - 5.4); };
+    var sy = function (e) { return T + (H - T - Bt) * (e - 5.2) / (7.8 - 5.2); };
     [5, 10, 20, 50, 100, 200, 400].forEach(function (f) {
       el("line", { x1: sx(f), x2: sx(f), y1: T, y2: H - Bt, class: "tf-gridline" }, svg);
       el("text", { x: sx(f), y: H - Bt + 18, "text-anchor": "middle", "font-size": 12, class: "tf-muted" }, svg, String(f));
@@ -558,9 +558,10 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
     P.forEach(function (p) {
       var g = el("g", {}, svg);
       el("circle", { cx: sx(p.fps), cy: sy(p.epe), r: p.k === "tinyflow" ? 10 : 8, fill: COL[p.k], stroke: "var(--pp-surface)", "stroke-width": 2 }, g);
-      var right = sx(p.fps) > W * 0.62, lx = right ? sx(p.fps) - 14 : sx(p.fps) + 14, an = right ? "end" : "start";
-      el("text", { x: lx, y: sy(p.epe) - 4, "text-anchor": an, "font-size": 13, class: p.k === "tinyflow" ? "tf-strong" : "" }, g, NAME[p.k] + " (" + PARAMS[p.k] + ")");
-      el("text", { x: lx, y: sy(p.epe) + 12, "text-anchor": an, "font-size": 11.5, class: "tf-muted" }, g, p.fps + " FPS, " + p.epe.toFixed(2) + " EPE");
+      // label centred above the dot, kept inside the chart
+      var half = p.k === "tinyflow" ? 82 : 70, lx = Math.max(half + 4, Math.min(W - half - 4, sx(p.fps))), ly = sy(p.epe);
+      el("text", { x: lx, y: ly - 30, "text-anchor": "middle", "font-size": 13, class: p.k === "tinyflow" ? "tf-strong" : "" }, g, NAME[p.k] + " (" + PARAMS[p.k] + ")");
+      el("text", { x: lx, y: ly - 15, "text-anchor": "middle", "font-size": 11.5, class: "tf-muted" }, g, p.fps + " FPS, " + p.epe.toFixed(2) + " EPE");
       tip(g, NAME[p.k] + ": " + p.fps + " FPS, " + p.epe + " EPE");
     });
     }
@@ -660,7 +661,7 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
             edgeflownet: [0.79, 49.01, 39.03, 43.62, 38.90, 42.06, 46.41, 45.50, 43.68],
             nanoflownet: [3.39, 98.18, 52.73, 78.49, 89.59, 79.45, 83.73, 99.19, 90.56] }
     };
-    var pair = "ambush7_";
+    var pair = "runner_";
     chipGroup(root, "data-illum-scene", function (v) { pair = v; draw(); });
     var grid = document.getElementById("tf-illum-grid"), DIR = "/research/TinyFlow/static/images/illum/";
     function draw() {
