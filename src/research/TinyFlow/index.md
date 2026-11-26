@@ -78,17 +78,17 @@ so warping only recenters the window. TinyFlow keeps it centered and wide enough
 <figure class="tf-widget" id="tf-warp-widget">
 <div class="tf-warp">
 <div>
-<svg class="tf-svg" id="tf-warp-svg" viewBox="0 0 340 340" tabindex="0" role="img" aria-label="Offset grid of the second frame around one pixel. Drag to set the current flow."></svg>
+<svg class="tf-svg" id="tf-warp-svg" viewBox="0 0 220 220" tabindex="0" role="img" aria-label="Offset grid of the second frame around one pixel. Drag to set the current flow."></svg>
 </div>
 <div>
-<div class="tf-range-row"><label for="tf-warp-r">Window radius r</label><input type="range" id="tf-warp-r" min="1" max="7" value="3"><output id="tf-warp-r-out">3</output></div>
-<div class="tf-range-row"><label for="tf-warp-w">Warped window</label><input type="range" id="tf-warp-w" min="0" max="3" value="1"><output id="tf-warp-w-out">1</output></div>
-<div class="tf-controls" style="margin:0.6rem 0 0"><div class="tf-group"><span class="tf-group-label">Volume</span><button class="tf-chip" type="button" data-warp-mode="full" aria-pressed="false">Full window</button><button class="tf-chip" type="button" data-warp-mode="marg" aria-pressed="true">Axis marginals</button></div></div>
-<div class="tf-readout"><div><b id="tf-warp-u">(2, 1)</b><span>current flow u, in grid px</span></div><div><b id="tf-warp-k">14</b><span>correlation channels per pixel</span></div></div>
+<div class="tf-range-row"><label for="tf-warp-r">Radius r</label><input type="range" id="tf-warp-r" min="1" max="5" value="3"><output id="tf-warp-r-out">3</output></div>
+<div class="tf-range-row"><label for="tf-warp-w">Warp window</label><input type="range" id="tf-warp-w" min="0" max="3" value="1"><output id="tf-warp-w-out">1</output></div>
+<div class="tf-controls" style="margin:0.6rem 0 0"><div class="tf-group"><span class="tf-group-label">Volume</span><button class="tf-chip" type="button" data-warp-mode="full" aria-pressed="false">Full</button><button class="tf-chip" type="button" data-warp-mode="marg" aria-pressed="true">Marginals</button></div></div>
+<p class="tf-warp-line" id="tf-warp-line"></p>
 <div class="tf-status" id="tf-warp-status"></div>
 </div>
 </div>
-<figcaption><strong>Try it.</strong> Drag to set the flow <em>u</em>. Orange is the fixed window TinyFlow computes once, gold is what a warp would read. Inside the orange, warping adds nothing new.</figcaption>
+<figcaption>Drag to set the flow <em>u</em>. Orange: the fixed window. Gold: what a warp would read.</figcaption>
 </figure>
 
 ## Edge-aware training
@@ -276,7 +276,7 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
     var root = document.getElementById("tf-warp-widget"); if (!root) return;
     var svg = document.getElementById("tf-warp-svg");
     var rIn = document.getElementById("tf-warp-r"), wIn = document.getElementById("tf-warp-w");
-    var N = 17, C = 8, cell = 20, pad = 0;
+    var N = 11, C = 5, cell = 20, pad = 0;
     var st = { r: 3, w: 1, ux: 2, uy: 1, mode: "marg" };
     function draw() {
       clear(svg);
@@ -304,17 +304,14 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
       el("text", { x: tx + 9, y: ty + 16, "font-size": 12, class: "tf-strong" }, svg, "x + u");
       var covered = Math.max(Math.abs(st.ux), Math.abs(st.uy)) + w <= r;
       var full = (2 * r + 1) * (2 * r + 1), marg = 2 * (2 * r + 1);
-      document.getElementById("tf-warp-u").textContent = "(" + st.ux + ", " + st.uy + ")";
-      document.getElementById("tf-warp-k").textContent = st.mode === "full" ? String(full) : marg + " (vs " + full + ")";
+      document.getElementById("tf-warp-line").innerHTML = "u = (" + st.ux + ", " + st.uy + ") · <b>" + (st.mode === "full" ? full : marg) +
+        "</b> channels" + (st.mode === "full" ? "" : " (full window " + full + ")");
       document.getElementById("tf-warp-r-out").textContent = r;
       document.getElementById("tf-warp-w-out").textContent = w;
       var s = document.getElementById("tf-warp-status");
       s.classList.toggle("tf-bad", !covered);
-      var inside = st.mode === "full"
-        ? "<strong>Inside the window.</strong> Every value the warped window reads, C<sub>u</sub>(x, δ) = C<sub>0</sub>(x, δ + u), is already in the fixed volume, so warping only recenters the search."
-        : "<strong>Inside the reach of both marginals.</strong> For the axis marginals the same identity holds along each axis when the orthogonal part of the residual is small relative to the smoothness of the features, which the coarse-to-fine schedule is designed to keep true.";
-      s.innerHTML = covered ? inside
-        : "<strong>Outside the window.</strong> The warp would read offsets the fixed volume does not hold. TinyFlow avoids this by refining coarse to fine, so each scale only has to capture the residual left by the coarser estimate, and by using large radii at the coarse scales.";
+      s.innerHTML = covered ? "<strong>Inside.</strong> Warping would only reread values the fixed window already holds."
+        : "<strong>Outside.</strong> Coarse-to-fine refinement keeps the residual inside the window.";
     }
     function setFromEvent(ev) {
       var pt = svg.createSVGPoint(); pt.x = ev.clientX; pt.y = ev.clientY;
