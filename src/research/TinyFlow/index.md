@@ -176,6 +176,7 @@ INT8 flow into the same pose estimator, no depth. TinyFlow has the lowest ATE on
 Gamma, brightness and offset changes on the second frame. TinyFlow stays within **5.92 to 8.99 EPE**, while EdgeFlowNet rises to 27 to 61 and NanoFlowNet to 18 to 90.
 
 <figure class="tf-widget" id="tf-illum-widget">
+<div class="tf-controls"><div class="tf-group" id="tf-illum-scenes"><span class="tf-group-label">Pair</span><button class="tf-chip" type="button" data-illum-scene="ambush7_" aria-pressed="true">Clean · ambush_7</button><button class="tf-chip" type="button" data-illum-scene="" aria-pressed="false">Clean · alley_2</button></div></div>
 <div class="tf-controls"><div class="tf-group" id="tf-illum-chips"><span class="tf-group-label">Second frame</span></div></div>
 <svg class="tf-svg" id="tf-illum-svg" viewBox="0 0 640 170" role="img" aria-label="EPE under illumination change"></svg>
 <div class="tf-illum-grid" id="tf-illum-grid"></div>
@@ -451,8 +452,8 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
     }
     function drawGap() {
       clear(svg);
-      var keys = ["tinyflow", "edgeflownet", "nanoflownet"], W = vw(svg), L = W < 600 ? 112 : 150, R = W < 600 ? 50 : 60, top = 18, rowH = 54;
-      var H = top + keys.length * rowH + 30; svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+      var keys = ["tinyflow", "edgeflownet", "nanoflownet"], W = vw(svg), L = W < 600 ? 112 : 150, R = W < 600 ? 50 : 60, top = 12, rowH = 32;
+      var H = top + keys.length * rowH + 26; svg.setAttribute("viewBox", "0 0 " + W + " " + H);
       var vals = []; keys.forEach(function (k) { vals.push(T.F32[k][st.m], T.INT8[k][st.m]); });
       var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals), span = hi - lo;
       var step = niceStep(span * 1.5, 5), a = Math.floor((lo - span * 0.2) / step) * step, b = Math.ceil((hi + span * 0.2) / step) * step;
@@ -462,11 +463,11 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
         el("text", { x: sx(tv), y: H - 8, "text-anchor": "middle", "font-size": 11, class: "tf-muted" }, svg, tickLabel(tv, step));
       }
       keys.forEach(function (k, i) {
-        var y = top + i * rowH + 14, f = T.F32[k][st.m], q = T.INT8[k][st.m];
+        var y = top + i * rowH + 10, f = T.F32[k][st.m], q = T.INT8[k][st.m];
         el("text", { x: L - 10, y: y + 4.5, "text-anchor": "end", "font-size": 13, class: k === "tinyflow" ? "tf-strong" : "" }, svg, NAME[k]);
         el("line", { x1: sx(f), x2: sx(q), y1: y, y2: y, stroke: COL[k], "stroke-width": 4, "stroke-linecap": "round" }, svg);
-        var c1 = el("circle", { cx: sx(f), cy: y, r: 7, fill: COL[k] }, svg); tip(c1, NAME[k] + " Float32: " + f);
-        var c2 = el("circle", { cx: sx(q), cy: y, r: 7, fill: "var(--pp-surface)", stroke: COL[k], "stroke-width": 3 }, svg); tip(c2, NAME[k] + " INT8: " + q);
+        var c1 = el("circle", { cx: sx(f), cy: y, r: 6, fill: COL[k] }, svg); tip(c1, NAME[k] + " Float32: " + f);
+        var c2 = el("circle", { cx: sx(q), cy: y, r: 6, fill: "var(--pp-surface)", stroke: COL[k], "stroke-width": 2.5 }, svg); tip(c2, NAME[k] + " INT8: " + q);
         var d = q - f;
         el("text", { x: Math.max(sx(f), sx(q)) + 12, y: y + 4.5, "font-size": 12.5, class: k === "tinyflow" ? "tf-strong" : "" }, svg, (d >= 0 ? "+" : "") + d.toFixed(2));
       });
@@ -648,18 +649,24 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
       b.addEventListener("click", function () { press(bs, b); cur = i; draw(); });
       chips.appendChild(b); return b;
     });
-    var P = {
-      tinyflow: [0.90, 1.08, 0.98, 0.95, 1.06, 1.05, 3.19, 1.12, 0.99],
-      edgeflownet: [0.92, 30.18, 11.76, 23.34, 38.43, 36.46, 19.54, 22.10, 32.46],
-      nanoflownet: [2.35, 30.22, 5.90, 7.25, 11.39, 11.00, 6.79, 8.92, 9.37]
+    var PAIRS = {
+      "": { tinyflow: [0.90, 1.08, 0.98, 0.95, 1.06, 1.05, 3.19, 1.12, 0.99],
+            edgeflownet: [0.92, 30.18, 11.76, 23.34, 38.43, 36.46, 19.54, 22.10, 32.46],
+            nanoflownet: [2.35, 30.22, 5.90, 7.25, 11.39, 11.00, 6.79, 8.92, 9.37] },
+      "ambush7_": { tinyflow: [1.66, 2.18, 1.74, 2.00, 2.10, 1.91, 1.88, 1.86, 1.84],
+            edgeflownet: [3.30, 83.06, 53.32, 55.18, 74.24, 53.45, 49.18, 71.83, 69.01],
+            nanoflownet: [9.37, 86.00, 41.43, 46.03, 154.63, 49.19, 43.35, 144.38, 111.23] }
     };
+    var pair = "ambush7_";
+    chipGroup(root, "data-illum-scene", function (v) { pair = v; draw(); });
     var grid = document.getElementById("tf-illum-grid"), DIR = "/research/TinyFlow/static/images/illum/";
     function draw() {
       hbars(svg, ["tinyflow", "edgeflownet", "nanoflownet"].map(function (k) {
         return { key: k, label: NAME[k], value: E[k][cur], color: COL[k] };
       }), { left: 150, max: 95, barH: 15, gap: 7 });
-      var cells = [["Second frame, " + CND[cur].toLowerCase(), "c" + cur + "_second", null], ["Ground truth", "gt", null]]
-        .concat(["tinyflow", "edgeflownet", "nanoflownet"].map(function (k) { return [NAME[k], "c" + cur + "_" + k, k]; }));
+      var P = PAIRS[pair];
+      var cells = [["Second frame, " + CND[cur].toLowerCase(), pair + "c" + cur + "_second", null], ["Ground truth", pair + "gt", null]]
+        .concat(["tinyflow", "edgeflownet", "nanoflownet"].map(function (k) { return [NAME[k], pair + "c" + cur + "_" + k, k]; }));
       grid.innerHTML = cells.map(function (c) {
         var e = c[2] ? "<b style=\"color:" + (c[2] === "tinyflow" ? "var(--tf-orange-text)" : "var(--pp-ink)") + "\">" + P[c[2]][cur].toFixed(2) + " EPE</b>" : "";
         return "<figure><img src=\"" + DIR + c[1] + ".jpg\" alt=\"" + c[0] + "\" loading=\"lazy\"><figcaption><span>" + c[0] + "</span>" + e + "</figcaption></figure>";
