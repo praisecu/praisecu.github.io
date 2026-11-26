@@ -980,7 +980,7 @@ input[type="range"].slider::-moz-range-track {
 :root {
   --rb-sem-top: #3d7d3e;
   --rb-sem-bottom: #24572a;
-  --rb-sem-text: #2b6a31;
+  --rb-sem-text: var(--sem, #22702f);
   --rb-lin-top: #ebc768;
   --rb-lin-bottom: #d4a63e;
   --rb-lin-text: #8a6a12;
@@ -988,7 +988,7 @@ input[type="range"].slider::-moz-range-track {
 :root[data-theme="dark"] {
   --rb-sem-top: #4a9a4c;
   --rb-sem-bottom: #2d6b32;
-  --rb-sem-text: #7fcc83;
+  --rb-sem-text: var(--sem, #8ddc92);
   --rb-lin-top: #e6c26a;
   --rb-lin-bottom: #c99a33;
   --rb-lin-text: #e3c271;
@@ -1110,3 +1110,16 @@ input[type="range"].slider::-moz-range-track {
   .range-bars .rb-end-a { left: var(--a); right: auto; }
   .range-bars .rb-end-b { right: calc(100% - var(--b)); left: auto; }
 }
+
+/* SEM accent (research/NibbleFlow): a deep green on the light page and a light
+   green on the dark page, both well above 4.5:1 contrast with the background.
+   .title-accent colors part of a heading set through title_html. */
+:root { --sem: #22702f; }
+:root[data-theme="dark"] { --sem: #8ddc92; }
+.sem,
+.content .sem,
+.publication-title .title-accent {
+  color: var(--sem);
+}
+.sem { font-weight: 800; }
+.content.page-content h2 .sem { color: var(--sem); }

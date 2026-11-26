@@ -39,6 +39,7 @@ Everything between the `---` lines at the top of `index.md` is YAML. Only `title
 | Field | What it does |
 |---|---|
 | `title` | Paper title. **Wrap it in quotes if it contains a colon.** |
+| `title_html` | Optional. The title with HTML markup for the page heading only, e.g. `'<span class="title-accent">Nibble</span>Flow: ...'` to color a word. The browser tab and link previews keep using `title`. |
 | `subtitle` | Optional line under the title. |
 | `description` | One or two sentences, used by search engines and link previews. |
 | `image` | Preview image for link previews on Slack, X, etc. (JPG/PNG, about 1200×630). |
