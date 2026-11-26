@@ -863,3 +863,71 @@ input[type="range"].slider::-moz-range-track {
     border-radius: var(--pp-radius-lg) var(--pp-radius-lg) 0 0;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Optional highlight blocks for project pages (used by research/NibbleFlow).
+   <div class="stat-strip"> with <div class="stat-card"> children, and
+   <div class="key-idea"> for a one-paragraph takeaway. Theme-aware.
+   --------------------------------------------------------------------------- */
+.content.page-content .stat-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin: 0.5rem 0 2.4rem;
+}
+.content.page-content .stat-card {
+  background: var(--pp-surface);
+  border: 1px solid var(--pp-border);
+  border-radius: var(--pp-radius-md);
+  padding: 1rem 0.8rem 0.95rem;
+  text-align: center;
+  box-shadow: 0 8px 22px var(--pp-shadow);
+}
+.content.page-content .stat-card::before {
+  content: "";
+  display: block;
+  width: 2.2rem;
+  height: 3px;
+  margin: 0 auto 0.75rem;
+  border-radius: 2px;
+  background: var(--pp-gold);
+}
+.content.page-content .stat-value {
+  display: block;
+  font-family: var(--pp-font-heading);
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: var(--pp-ink);
+}
+.content.page-content .stat-value small {
+  font-size: 0.55em;
+  font-weight: 700;
+}
+.content.page-content .stat-label {
+  display: block;
+  margin-top: 0.45rem;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  color: var(--pp-muted);
+}
+.content.page-content .key-idea {
+  margin: 1.6rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--pp-gold);
+  border-radius: var(--pp-radius-sm);
+  background: var(--pp-gold-tint);
+  color: var(--pp-text);
+}
+.content.page-content .key-idea strong {
+  color: var(--pp-ink);
+}
+@media (max-width: 768px) {
+  .content.page-content .stat-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+  .content.page-content .stat-value {
+    font-size: 1.6rem;
+  }
+}
