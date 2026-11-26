@@ -445,7 +445,7 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
       var rows = keys.map(function (k) {
         return { key: k, label: NAME[k], sub: PARAMS[k] + (REF[k] ? ", reference" : (k === "nanoflownet" ? ", at 112×160" : "")), value: T[st.prec][k][st.m], color: COL[k], ref: REF[k] };
       });
-      hbars(svg, rows, { left: 150, unit: st.m === 3 ? "%" : "", barH: 26, gap: 14 });
+      hbars(svg, rows, { left: 150, unit: st.m === 3 ? "%" : "", barH: 17, gap: 15 });
       var t = T[st.prec].tinyflow[st.m], e = T[st.prec].edgeflownet[st.m];
       cap.innerHTML = "TinyFlow is " + (100 * (e - t) / e).toFixed(0) + "% lower than EdgeFlowNet.";
     }
