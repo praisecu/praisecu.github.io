@@ -1362,3 +1362,4 @@ input[type="range"].slider::-moz-range-track {
 .content.page-content .tf-explorer .tf-ex-rest figcaption { display: flex; justify-content: center; gap: 0.4rem; margin-top: 0.35rem; font-size: 0.84rem; color: var(--pp-muted); font-style: normal; }
 .tf-explorer .tf-ex-rest figcaption b { color: var(--pp-ink); font-variant-numeric: tabular-nums; }
 .tf-pair .tf-widget > svg { margin-top: auto; margin-bottom: auto; }
+.content.page-content .tf-pair h3 { text-align: center; }
