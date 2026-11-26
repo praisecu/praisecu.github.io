@@ -68,7 +68,15 @@ Refinement asks one output layer for steps of very different sizes. The first it
 
 A standard linear output head represents a step the way a **fixed point** number represents a value. Its error is absolute, so this error decides the smallest step the head can take accurately, while the largest value of the last layer decides the largest one. The window of accurate steps therefore has a fixed width.
 
-{% figure src="static/images/range.png", width="760px", alt="Bar chart of the measured range of steps one update takes: the linear update covers 5.6 octaves and stops below one pixel, while SEM covers 7.0 octaves and spans the whole needed range", caption="**Measured dynamic range of one step.** At the first step of the 1/32 level, the linear update saturates below one pixel and covers only 5.6 octaves, whereas SEM follows the needed step from 2<sup>−6.9</sup> to 2<sup>0.1</sup> pixels, a range of 7.0 octaves that matches the span of its exponents." %}
+<figure class="media-figure range-figure">
+<div class="range-bars" role="img" aria-label="Measured range of one step. Linear update, 0.013 to 0.66 pixels, a 49 times range. SEM, 0.008 to 1.07 pixels, a 128 times range.">
+<div class="rb-name">Linear</div>
+<div class="rb-track rb-linear" style="--lo:-6.3;--hi:-0.6"><span class="rb-end rb-end-a">0.013 px</span><div class="rb-bar"><span>49× Range</span></div><span class="rb-end rb-end-b">0.66 px</span></div>
+<div class="rb-name rb-name-sem">SEM (Ours)</div>
+<div class="rb-track rb-sem" style="--lo:-6.9;--hi:0.1"><span class="rb-end rb-end-a">0.008 px</span><div class="rb-bar"><span>128× Range</span></div><span class="rb-end rb-end-b">1.07 px</span></div>
+</div>
+<figcaption><strong>Measured dynamic range of one step.</strong> At the first step of the 1/32 level, the linear update saturates below one pixel and covers only 5.6 octaves, a 49× range of step sizes, whereas SEM follows the needed step from 2<sup>−6.9</sup> to 2<sup>0.1</sup> pixels, 7.0 octaves or a 128× range, which matches the span of its exponents.</figcaption>
+</figure>
 
 ## SEM: a floating point step
 
@@ -101,9 +109,9 @@ Drag the slider. Both sides are the same network in INT4, with its linear output
 
 {% grid items="static/images/panel_input.jpg, static/images/panel_gt.jpg", captions="Input frame (Sintel clean) | Ground truth flow", columns=2 %}
 
-### RAFT-small with 4-bit weights
+### RAPIDFlow with 4-bit weights
 
-{% compare before="static/images/panel_raft_linear.jpg", after="static/images/panel_raft_sem.jpg", before_label="Linear · 15.05 EPE", after_label="SEM · 3.50 EPE" %}
+{% compare before="static/images/panel_rapid_linear.jpg", after="static/images/panel_rapid_sem.jpg", before_label="Linear · 3.65 EPE", after_label="SEM · 1.24 EPE" %}
 
 ### NibbleFlow with 4-bit weights
 
