@@ -453,7 +453,7 @@
       [0.689, "Full-resolution guide", "Run the guide at full resolution, with 12 instead of 4 iterations."],
       [0.681, "Blend weight at its plateau", "Set the weight to 0.70, in the flat optimum measured on the server."],
       [0.678, "Mirror averaging", "Average each branch with its prediction on the mirrored input."],
-      [0.670, "Multi-scale averaging", "Average the event branch over two scales. This is the strongest output-level fusion we could build."],
+      [0.670, "Multi-scale averaging", "Average the event branch over multiple scales. This is the strongest output-level fusion we could build."],
       [0.636, "Dense guidance replaces the blend", "The guide flow, its gate and its residual become inputs of the estimator, and the refinement starts from the guide. One pass, step 35k."],
       [0.612, "Symmetric ensemble", "Average the original, the mirrored and two downscaled inputs, with the guide inputs transformed alike."],
       [0.607, "Single model", "The checkpoint with the lowest validation error, at step 115k."],

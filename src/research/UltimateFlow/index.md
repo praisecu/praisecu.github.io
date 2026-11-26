@@ -130,7 +130,7 @@ UltimateFlow ranks first of 39 entries by EPE on the DSEC-Flow test server (Nove
 
 <figure class="media-figure">
 <div class="uf-chart" id="uf-leaderboard"></div>
-<figcaption><strong>DSEC-Flow test server</strong> (416 frames in 7 sequences, hidden ground truth). EPE against 3PE for every published method. Circles use events, triangles use events and RGB frames. †Pretrained on synthetic event data. Lower left is better.</figcaption>
+<figcaption><strong>DSEC-Flow test server</strong> (416 frames in 7 sequences, hidden ground truth). EPE against 3PE for the published event-based methods. Circles use events, triangles use events and RGB frames. †Pretrained on synthetic event data. Lower left is better.</figcaption>
 </figure>
 
 | Method | Input | EPE | 1PE | 2PE | 3PE | AE |
