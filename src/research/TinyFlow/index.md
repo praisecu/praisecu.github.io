@@ -115,7 +115,7 @@ Drag the slider. Selected Sintel Clean, Sintel Final and FlyingChairs pairs, all
 <div class="tf-group"><label class="tf-group-label" for="tf-ex-left">Left</label><select id="tf-ex-left"></select></div>
 <div class="tf-group"><label class="tf-group-label" for="tf-ex-right">Right</label><select id="tf-ex-right"></select></div>
 </div>
-<div class="tf-ex-pair"><figure class="media-figure compare-figure"><div class="compare" id="tf-ex-compare"><img class="compare-after" id="tf-ex-after" src="/research/TinyFlow/static/images/explorer/clean_bandage_1_gt.jpg" alt="Ground truth"><img class="compare-before" id="tf-ex-before" src="/research/TinyFlow/static/images/explorer/clean_bandage_1_tinyflow.jpg" alt="TinyFlow (Ours)"><div class="compare-handle" aria-hidden="true"></div><span class="compare-label compare-label-before" id="tf-ex-lbl-before">TinyFlow (Ours)</span><span class="compare-label compare-label-after" id="tf-ex-lbl-after">Ground truth</span><input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Comparison slider"></div></figure><figure class="tf-ex-in"><img id="tf-ex-input" src="/research/TinyFlow/static/images/explorer/clean_bandage_1_input.jpg" alt="Input frame"><figcaption id="tf-ex-input-cap">Input</figcaption></figure></div>
+<div class="tf-ex-pair"><figure class="media-figure compare-figure"><div class="compare" id="tf-ex-compare"><img class="compare-after" id="tf-ex-after" src="/research/TinyFlow/static/images/explorer/clean_ambush_7_gt.jpg" alt="Ground truth"><img class="compare-before" id="tf-ex-before" src="/research/TinyFlow/static/images/explorer/clean_ambush_7_tinyflow.jpg" alt="TinyFlow (Ours)"><div class="compare-handle" aria-hidden="true"></div><span class="compare-label compare-label-before" id="tf-ex-lbl-before">TinyFlow (Ours)</span><span class="compare-label compare-label-after" id="tf-ex-lbl-after">Ground truth</span><input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Comparison slider"></div></figure><figure class="tf-ex-in"><img id="tf-ex-input" src="/research/TinyFlow/static/images/explorer/clean_ambush_7_input.jpg" alt="Input frame"><figcaption id="tf-ex-input-cap">Input</figcaption></figure></div>
 <div class="tf-readout" id="tf-ex-epe"></div>
 <figcaption id="tf-ex-note"></figcaption>
 </figure>
@@ -369,10 +369,10 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
     var root = document.getElementById("tf-explorer"); if (!root) return;
     var DIR = "/research/TinyFlow/static/images/explorer/";
     var SC = [
-      { key: "clean_bandage_1", label: "bandage_1", set: "Sintel Clean", e: { tinyflow: 1.62, edgeflownet: 4.37, nanoflownet: 2.84 } },
       { key: "clean_ambush_7", label: "ambush_7", set: "Sintel Clean", e: { tinyflow: 1.83, edgeflownet: 3.30, nanoflownet: 9.37 } },
-      { key: "final_alley_2", label: "alley_2", set: "Sintel Final", e: { tinyflow: 1.00, edgeflownet: 1.50, nanoflownet: 2.11 } },
-      { key: "final_mountain_1", label: "mountain_1", set: "Sintel Final", e: { tinyflow: 1.84, edgeflownet: 2.49, nanoflownet: 4.05 } },
+      { key: "clean_bandage_1", label: "bandage_1", set: "Sintel Clean", e: { tinyflow: 1.62, edgeflownet: 4.37, nanoflownet: 2.84 } },
+      { key: "final_cave_2", label: "cave_2", set: "Sintel Final", e: { tinyflow: 1.66, edgeflownet: 1.97, nanoflownet: 3.31 } },
+      { key: "final_ambush_5", label: "ambush_5", set: "Sintel Final", e: { tinyflow: 1.80, edgeflownet: 2.38, nanoflownet: 3.96 } },
       { key: "chairs_21803", label: "21803", set: "FlyingChairs", e: { tinyflow: 0.69, edgeflownet: 2.77, nanoflownet: 4.34 } },
       { key: "chairs_05449", label: "05449", set: "FlyingChairs", e: { tinyflow: 0.71, edgeflownet: 1.64, nanoflownet: 1.77 } }
     ];
