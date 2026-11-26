@@ -142,8 +142,7 @@ Pick a scene and two predictions, then drag the slider. These are the nine frame
 <div class="tf-group"><label class="tf-group-label" for="tf-ex-left">Left</label><select id="tf-ex-left"></select></div>
 <div class="tf-group"><label class="tf-group-label" for="tf-ex-right">Right</label><select id="tf-ex-right"></select></div>
 </div>
-<figure class="media-figure compare-figure"><div class="compare" id="tf-ex-compare"><img class="compare-after" id="tf-ex-after" src="/research/TinyFlow/static/images/qual/r0_tinyflow.jpg" alt="TinyFlow (Ours)"><img class="compare-before" id="tf-ex-before" src="/research/TinyFlow/static/images/qual/r0_gt.jpg" alt="Ground truth"><div class="compare-handle" aria-hidden="true"></div><span class="compare-label compare-label-before" id="tf-ex-lbl-before">Ground truth</span><span class="compare-label compare-label-after" id="tf-ex-lbl-after">TinyFlow (Ours)</span><input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Comparison slider"></div></figure>
-<div class="tf-input"><figure><img id="tf-ex-input" src="/research/TinyFlow/static/images/qual/r0_input.jpg" alt="Input frame"><figcaption id="tf-ex-input-cap">Input</figcaption></figure><figure><img id="tf-ex-gt" src="/research/TinyFlow/static/images/qual/r0_gt.jpg" alt="Ground truth flow"><figcaption>Ground truth</figcaption></figure></div>
+<div class="tf-ex-pair"><figure class="media-figure compare-figure"><div class="compare" id="tf-ex-compare"><img class="compare-after" id="tf-ex-after" src="/research/TinyFlow/static/images/qual/r0_tinyflow.jpg" alt="TinyFlow (Ours)"><img class="compare-before" id="tf-ex-before" src="/research/TinyFlow/static/images/qual/r0_gt.jpg" alt="Ground truth"><div class="compare-handle" aria-hidden="true"></div><span class="compare-label compare-label-before" id="tf-ex-lbl-before">Ground truth</span><span class="compare-label compare-label-after" id="tf-ex-lbl-after">TinyFlow (Ours)</span><input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Comparison slider"></div></figure><figure class="tf-ex-in"><img id="tf-ex-input" src="/research/TinyFlow/static/images/qual/r0_input.jpg" alt="Input frame"><figcaption id="tf-ex-input-cap">Input</figcaption></figure></div>
 <div class="tf-readout" id="tf-ex-epe"></div>
 <figcaption id="tf-ex-note"></figcaption>
 </figure>
@@ -449,7 +448,6 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
       document.getElementById("tf-ex-lbl-before").textContent = lbl(st.left);
       document.getElementById("tf-ex-lbl-after").textContent = lbl(st.right);
       document.getElementById("tf-ex-input").src = BASE + r + "input.jpg";
-      document.getElementById("tf-ex-gt").src = BASE + r + "gt.jpg";
       document.getElementById("tf-ex-input-cap").textContent = "Input, " + SC[st.row].set + (st.row ? ", " + SC[st.row].label : "");
       var e = SC[st.row].e, ro = document.getElementById("tf-ex-epe");
       ro.innerHTML = MK.slice().reverse().map(function (k) {
