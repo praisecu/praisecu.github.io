@@ -125,7 +125,7 @@ Drag the slider. Selected Sintel Clean, Sintel Final and FlyingChairs pairs, all
 
 <div id="results"></div>
 
-## Results
+## Quantitative Results
 
 End-point error in pixels, lower is better. Dashed reference models cannot be deployed.
 
