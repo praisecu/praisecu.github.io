@@ -115,7 +115,7 @@ Drag the slider. Selected Sintel Clean, Sintel Final and FlyingChairs pairs, all
 <div class="tf-group"><label class="tf-group-label" for="tf-ex-left">Left</label><select id="tf-ex-left"></select></div>
 <div class="tf-group"><label class="tf-group-label" for="tf-ex-right">Right</label><select id="tf-ex-right"></select></div>
 </div>
-<div class="tf-ex-pair"><figure class="media-figure compare-figure"><div class="compare" id="tf-ex-compare"><img class="compare-after" id="tf-ex-after" src="/research/TinyFlow/static/images/explorer/clean_bandage_1_tinyflow.jpg" alt="TinyFlow (Ours)"><img class="compare-before" id="tf-ex-before" src="/research/TinyFlow/static/images/explorer/clean_bandage_1_edgeflownet.jpg" alt="EdgeFlowNet"><div class="compare-handle" aria-hidden="true"></div><span class="compare-label compare-label-before" id="tf-ex-lbl-before">EdgeFlowNet</span><span class="compare-label compare-label-after" id="tf-ex-lbl-after">TinyFlow (Ours)</span><input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Comparison slider"></div></figure><figure class="tf-ex-in"><img id="tf-ex-input" src="/research/TinyFlow/static/images/explorer/clean_bandage_1_input.jpg" alt="Input frame"><figcaption id="tf-ex-input-cap">Input</figcaption></figure></div>
+<div class="tf-ex-pair"><figure class="media-figure compare-figure"><div class="compare" id="tf-ex-compare"><img class="compare-after" id="tf-ex-after" src="/research/TinyFlow/static/images/explorer/clean_bandage_1_gt.jpg" alt="Ground truth"><img class="compare-before" id="tf-ex-before" src="/research/TinyFlow/static/images/explorer/clean_bandage_1_tinyflow.jpg" alt="TinyFlow (Ours)"><div class="compare-handle" aria-hidden="true"></div><span class="compare-label compare-label-before" id="tf-ex-lbl-before">TinyFlow (Ours)</span><span class="compare-label compare-label-after" id="tf-ex-lbl-after">Ground truth</span><input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Comparison slider"></div></figure><figure class="tf-ex-in"><img id="tf-ex-input" src="/research/TinyFlow/static/images/explorer/clean_bandage_1_input.jpg" alt="Input frame"><figcaption id="tf-ex-input-cap">Input</figcaption></figure></div>
 <div class="tf-readout" id="tf-ex-epe"></div>
 <figcaption id="tf-ex-note"></figcaption>
 </figure>
@@ -377,7 +377,7 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
       { key: "chairs_05449", label: "05449", set: "FlyingChairs", e: { tinyflow: 0.71, edgeflownet: 1.64, nanoflownet: 1.77 } }
     ];
     var MK = ["tinyflow", "edgeflownet", "nanoflownet"];
-    var st = { row: 0, left: "edgeflownet", right: "tinyflow" };
+    var st = { row: 0, left: "tinyflow", right: "gt" };
     var scenes = document.getElementById("tf-ex-scenes");
     var btns = SC.map(function (s, i) {
       var b = document.createElement("button");
