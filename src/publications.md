@@ -8,21 +8,65 @@ description: Journal and conference papers from the PRAISe Lab at CU Boulder in 
 permalink: /publications.html
 
 publications:
+  - title: "UltimateFlow: Frame-Guided Event Optical Flow with Depth Foundation Priors"
+    date: "Preprint · Nov 2026"
+    year: 2026
+    image: "/research/UltimateFlow/static/images/card.jpg"
+    primary_url: "/research/UltimateFlow.html"
+    venue: "Preprint | arXiv coming soon"
+    authors: "Chahat Deep Singh"
+    links:
+      - label: Project
+        type: project
+        url: "/research/UltimateFlow.html"
+      - label: Video
+        type: video
+        url: "/research/UltimateFlow.html#video"
+    bibtex: |
+      @misc{singh2026ultimateflow,
+        title  = {UltimateFlow: Frame-Guided Event Optical Flow with Depth Foundation Priors},
+        author = {Singh, Chahat Deep},
+        year   = {2026},
+        url    = {https://www.praisecu.com/research/UltimateFlow.html}
+      }
+
+  - title: "NibbleFlow: Sign-Exponent-Mantissa Refinement for 4-Bit Optical Flow"
+    date: "Preprint · Nov 2026"
+    year: 2026
+    image: "/research/NibbleFlow/static/images/card.jpg"
+    primary_url: "/research/NibbleFlow.html"
+    venue: "Preprint"
+    authors: "Xiao'ao Song, Chahat Deep Singh"
+    links:
+      - label: Project
+        type: project
+        url: "/research/NibbleFlow.html"
+      - label: PDF
+        type: pdf
+        url: "/research/NibbleFlow/static/NibbleFlow.pdf"
+    bibtex: |
+      @misc{song2026nibbleflow,
+        title  = {NibbleFlow: Sign-Exponent-Mantissa Refinement for 4-Bit Optical Flow},
+        author = {Song, Xiao'ao and Singh, Chahat Deep},
+        year   = {2026},
+        url    = {https://www.praisecu.com/research/NibbleFlow.html}
+      }
+
   - title: "TinyFlow: Breaking the Warping Bottleneck for Edge Optical Flow"
     date: "arXiv · Oct 2026"
     year: 2026
-    image: "/research/TinyFlow-workshop/static/images/card-preprint.jpg"
+    image: "/research/TinyFlow/static/images/card.jpg"
     primary_url: "https://arxiv.org/abs/2610.33338"
     venue: "arXiv preprint arXiv:2610.33338"
     bibtex_type: misc
     authors: "Xiao'ao Song, Chahat Deep Singh"
     links:
-      - label: arXiv
-        type: pdf
-        url: "https://arxiv.org/abs/2610.33338"
       - label: Project
         type: project
-        url: "/research/TinyFlow-workshop.html"
+        url: "/research/TinyFlow.html"
+      - label: PDF
+        type: pdf
+        url: "https://arxiv.org/abs/2610.33338"
 
   - title: "Fold-to-Fit: Propeller Interaction and Control of a Coaxial-Bicopter Quadrotor"
     date: "IROS Workshop · Oct 2026"
