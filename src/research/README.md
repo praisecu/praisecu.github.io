@@ -195,7 +195,7 @@ Each paper also gets an entry on the [publications page](../publications.md) and
 | `card-home.jpg` | 768×768 | the news item on the news and home pages (shown as a small square) |
 | your `image:` file | 1200×630 | link previews |
 
-The lab's cards split the image with white diagonals into the input and the result (TinyFlow: frame | flow, with the INT8 accelerator chip; UltimateFlow: frame | events | flow; NibbleFlow: input | 4-bit linear | 4-bit SEM, with short tags). Keep text off the publications card; short tags are fine.
+The lab's cards split the image with white diagonals into the input and the result (TinyFlow: frame | flow, with the INT8 accelerator chip; UltimateFlow: events drawn over the frame | flow; NibbleFlow: input | 4-bit linear | 4-bit SEM, with short tags). Keep text off the publications card; short tags are fine.
 
 **Publications entry** (in `src/publications.md`): buttons in the order Project, PDF (the arXiv link once there is one), Video, then the automatic Cite button; give the BibTeX from the page.
 
