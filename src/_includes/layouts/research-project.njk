@@ -154,7 +154,9 @@
           </div>
           {%- endif %}
 
-          {%- if affiliations %}
+          {%- if affiliations_html %}
+          <div class="is-size-5 publication-authors publication-affiliations">{{ affiliations_html | safe }}</div>
+          {%- elif affiliations %}
           <div class="is-size-5 publication-authors publication-affiliations">
             {%- for affiliation in affiliations %}
             <span class="author-block">

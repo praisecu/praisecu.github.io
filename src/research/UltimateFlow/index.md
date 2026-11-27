@@ -12,6 +12,7 @@ authors:
     url: https://chahatdeep.github.io/
 affiliations:
   - Perception, Robotics, AI and Sensing (PRAISe) Lab, University of Colorado Boulder
+affiliations_html: '<a href="/"><b>P</b>erception, <b>R</b>obotics, <b>AI</b> and <b>S</b>ensing (<b>PRAISe</b>) Lab</a><br><a href="https://www.colorado.edu/" target="_blank" rel="noopener">University of Colorado Boulder</a>'
 
 links:
   - text: Video
@@ -52,9 +53,9 @@ bibtex: |
 <div class="uf-facts">
 <div class="uf-fact">
 <span class="uf-fact-kicker">Benchmark Rank</span>
-<span class="uf-fact-num">1<small>st of 39</small></span>
+<span class="uf-fact-num">1<small>out of 39</small></span>
 <span class="uf-fact-viz" aria-hidden="true"><span class="uf-frank"></span></span>
-<span class="uf-fact-text">DSEC-Flow benchmark, by endpoint error.</span>
+<span class="uf-fact-text">DSEC-Flow benchmark, by endpoint error, as of Nov 10, 2026.</span>
 </div>
 <div class="uf-fact">
 <span class="uf-fact-kicker">Endpoint Error</span>
@@ -66,13 +67,13 @@ bibtex: |
 <span class="uf-fact-text">11% below the best published method.</span>
 </div>
 <div class="uf-fact">
-<span class="uf-fact-kicker">Oracle Gap Closed</span>
-<span class="uf-fact-num">53<small>%</small></span>
+<span class="uf-fact-kicker">Visual Odometry</span>
+<span class="uf-fact-num">20.5<small>% drift</small></span>
 <span class="uf-fact-viz" aria-hidden="true">
-<span class="uf-fgap" style="--w: 52.5%"><i></i></span>
-<span class="uf-fends"><span>Blend 0.487</span><span>Oracle 0.388</span></span>
+<span class="uf-fbar" style="--w: 100%"><span>E-RAFT</span><span>27.9%</span><i></i></span>
+<span class="uf-fbar is-ours" style="--w: 73.5%"><span>UltimateFlow</span><span>20.5%</span><i></i></span>
 </span>
-<span class="uf-fact-text">From the best output blend to a per-pixel oracle.</span>
+<span class="uf-fact-text">Translation drift on MVSEC outdoor_day1, against 31.2% for Spike-FlowNet.</span>
 </div>
 <div class="uf-fact">
 <span class="uf-fact-kicker">90% Fewer Events</span>
@@ -91,21 +92,21 @@ Event cameras capture fast motion and extreme lighting where frame cameras fail,
 
 <div id="explore"></div>
 
-## See It Move
+## Qualitative Comparison
 
-Drag the slider. The right side is always UltimateFlow (E+I).
+<p class="uf-lead">Drag the slider. The right side is always UltimateFlow (E+I).</p>
 
 <div class="uf-explorer" id="uf-explorer"></div>
 
 <p class="uf-note">Labels give the EPE on the whole test sequence, from the benchmark server. The public baseline checkpoints were trained on the validation sequence. UltimateFlow (E+I) is the 5-model ensemble.</p>
 
-## Guide the Estimator, Do Not Blend Its Output
+## Dense Guidance Versus Output Fusion
 
 A frozen frame-based flow model, the <span class="uf-frame"><strong>guide</strong></span>, sees the texture that events miss. There are two ways to use it.
 
 <div class="uf-duo">
 <div class="uf-duo-card">
-<span class="uf-kicker">The Straightforward Way</span>
+<span class="uf-kicker">Baseline</span>
 <h4>Blend at the Output</h4>
 <span class="uf-duo-eq">$$f^{\star}=G\,\big[w\,f^{\mathrm{T}}+(1-w)\,\hat f\,\big]+(1-G)\,\hat f$$</span>
 <p>One weight $$w$$ serves every pixel inside the gate $$G$$. The estimator never sees the guide.</p>
@@ -120,51 +121,46 @@ A frozen frame-based flow model, the <span class="uf-frame"><strong>guide</stron
 </div>
 </div>
 
-<div class="key-idea"><strong>The takeaway.</strong> Give the frozen model to the estimator as an input and a starting point, not as a second opinion blended at its output.</div>
+<div class="key-idea"><strong>Key insight.</strong> Give the frozen model to the estimator as an input and a starting point, not as a second opinion blended at its output.</div>
 
 ## Method
 
-{% figure src="static/images/architecture.webp", alt="Architecture of UltimateFlow. Frame branch: the frozen FlowSeek-T estimates the guide flow, a forward-backward consistency check gives the residual and the gate, and a rotation-only warp brings them into the event view. Event branch: encoders, correlation with Depth AnyEvent features, motion bases from depth, a guidance encoder added to the context, an initial flow from the guide, and iterative ConvNeXt updates.", caption="**Architecture.** A frozen frame-based guide gives a flow, a gate and a residual. They enter the event-based estimator as inputs and as its starting point." %}
-
-**Guide.** A frozen FlowSeek-T estimates the frame flow in both directions. Its round-trip residual gates out the pixels above 1.5 px, with no ground truth and no events.
-
-$$
-r(\mathbf{u})=\big\|f^{\mathrm{F}\rightarrow}(\mathbf{u})+f^{\mathrm{F}\leftarrow}\big(\mathbf{u}+f^{\mathrm{F}\rightarrow}(\mathbf{u})\big)\big\|,\qquad G=\mathbb{1}[\,r<\tau\,]
-$$
-
-**Estimator.** A recurrent event-based estimator, with frozen Depth AnyEvent features in its correlation and motion bases from the predicted depth.
-
-**Dense guidance.** Guide flow, gate and residual join the context, and the refinement starts from the guide wherever the gate accepts it.
-
-**No new labels.** The guide is never a training target. The gate accepts it on 66% of a frame, where LiDAR ground truth covers 18%.
+<figure class="media-figure">
+<div class="uf-scroll">
+<div class="uf-arch" role="img" aria-label="Architecture. Frame branch: two RGB frames go into a frozen, off-the-shelf RGB optical flow model (FlowSeek-T), which gives a guide flow, a gate of trusted pixels and a round-trip residual. Event branch: events go into encoders with a frozen event depth model (Depth AnyEvent), then into trained recurrent refinement, which outputs the optical flow. The guide outputs enter the refinement as inputs and as its starting flow.">
+<div class="uf-arch-tile" style="grid-area: 1 / 1"><img src="UltimateFlow/static/images/arch/frames.webp" alt="" loading="lazy"><span><i class="fas fa-camera" aria-hidden="true"></i> RGB Frames</span></div>
+<div class="uf-arch-arrow" style="grid-area: 1 / 2"></div>
+<div class="uf-arch-box is-frame" style="grid-area: 1 / 3"><span class="uf-arch-kicker"><i class="fas fa-snowflake" aria-hidden="true"></i> Frozen Depth and Flow Prior</span><b>Frame Guide</b><small>An RGB optical flow model (FlowSeek-T), checked forward and backward</small></div>
+<div class="uf-arch-arrow" style="grid-area: 1 / 4"></div>
+<div class="uf-arch-guide" style="grid-area: 1 / 5">
+<div class="uf-arch-tile is-small"><img src="UltimateFlow/static/images/arch/guide.webp" alt="" loading="lazy"><span>Guide Flow</span><em>its motion estimate</em></div>
+<div class="uf-arch-tile is-small"><img src="UltimateFlow/static/images/arch/gate.webp" alt="" loading="lazy"><span>Gate</span><em>pixels it trusts</em></div>
+<div class="uf-arch-tile is-small"><img src="UltimateFlow/static/images/arch/residual.webp" alt="" loading="lazy"><span>Residual</span><em>round-trip error</em></div>
+</div>
+<div class="uf-arch-down" style="grid-area: 2 / 5"><span>Inputs and starting flow</span></div>
+<div class="uf-arch-tile" style="grid-area: 3 / 1"><img src="UltimateFlow/static/images/arch/events.webp" alt="" loading="lazy"><span><i class="fas fa-bolt" aria-hidden="true"></i> Events</span></div>
+<div class="uf-arch-arrow" style="grid-area: 3 / 2"></div>
+<div class="uf-arch-box is-event" style="grid-area: 3 / 3"><span class="uf-arch-kicker"><i class="fas fa-snowflake" aria-hidden="true"></i> Frozen Depth Prior</span><b>Event Features</b><small>Encoders with an event depth model (Depth AnyEvent)</small></div>
+<div class="uf-arch-arrow" style="grid-area: 3 / 4"></div>
+<div class="uf-arch-box is-ours" style="grid-area: 3 / 5"><span class="uf-arch-kicker"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Trained</span><b>Recurrent Refinement</b><small>Refines the flow step by step, deciding per pixel how much to trust the guide</small></div>
+<div class="uf-arch-arrow" style="grid-area: 3 / 6"></div>
+<div class="uf-arch-tile is-out" style="grid-area: 3 / 7"><img src="UltimateFlow/static/images/arch/ours.webp" alt="" loading="lazy"><span><i class="fas fa-wind" aria-hidden="true"></i> UltimateFlow (E+I)</span></div>
+</div>
+<figcaption><strong>Architecture.</strong> The frozen guide's flow, gate and residual enter the event-based estimator as inputs and as its starting point.</figcaption>
+</figure>
 
 <div id="results"></div>
 
-## Results
+## DSEC-Flow Benchmark
 
-### DSEC-Flow Benchmark
-
-First of 39 entries by EPE on the test server (November 9, 2026). The single model, at 0.583, leads every published method on all metrics except AE.
+1 out of 39 entries by EPE on the DSEC-Flow test server, as of Nov 10, 2026.
 
 <figure class="media-figure">
 <div class="uf-chart" id="uf-leaderboard"></div>
 <figcaption><strong>DSEC-Flow test server.</strong> EPE against 3PE of the published event-based methods. Circles use events, triangles use events and frames. †Pretrained on synthetic event data.</figcaption>
 </figure>
 
-| Method | Input | EPE | 1PE | 2PE | 3PE | AE |
-|---|:---:|:---:|:---:|:---:|:---:|:---:|
-| E-RAFT | E | 0.788 | 12.74 | 4.74 | 2.68 | 2.85 |
-| BFlow | E+I | 0.69 | 9.70 | 3.42 | 1.88 | 2.42 |
-| EMatch | E | 0.640 | 7.86 | 2.83 | 1.69 | 2.46 |
-| STFlow† | E+I | 0.630 | 7.93 | 2.61 | 1.45 | 2.29 |
-| EDCPT† | E+I | 0.625 | 6.87 | 2.35 | 1.52 | 2.17 |
-| E-WAVE† | E+I | 0.623 | 7.26 | 2.54 | 1.56 | 2.24 |
-| **UltimateFlow† (E+I), single model** | E+I | 0.583 | 6.31 | 2.06 | 1.18 | 2.21 |
-| **UltimateFlow† (E+I), 5-model ensemble** | E+I | **0.554** | **6.01** | **1.94** | **1.11** | **2.08** |
-
-<p class="table-note">Lower is better. 1PE to 3PE in percent, AE in degrees. Both UltimateFlow rows include the test-time steps shown below.</p>
-
-### From 0.759 to 0.554
+### Test-Set Ablation
 
 Each step is one evaluation on the test server. Output-level fusion stops at 0.670. Dense guidance alone reaches 0.636.
 
@@ -173,24 +169,7 @@ Each step is one evaluation on the test server. Output-level fusion stops at 0.6
 <figcaption><strong>Ablation on the DSEC test set.</strong> Select a step to see what it adds.</figcaption>
 </figure>
 
-### Why Guidance Beats a Blend
-
-Dense guidance closes 53% of the gap between the best output blend and a per-pixel oracle, with no parameter fitted at inference.
-
-<figure class="media-figure">
-<div class="uf-panel uf-gap" role="img" aria-label="Validation EPE. Event-only model 0.546, best output blend 0.487, dense guidance 0.435, per-pixel oracle 0.388.">
-<div class="uf-gap-track">
-<div class="uf-gap-fill" style="--a:37.3%;--b:70.3%"></div>
-<div class="uf-gap-mark is-up" style="--x:0%"><span><b>0.546</b>Events Only</span></div>
-<div class="uf-gap-mark is-down" style="--x:37.3%"><span><b>0.487</b>Best Output Blend</span></div>
-<div class="uf-gap-mark is-ours is-up" style="--x:70.3%"><span><b>0.435</b>Dense Guidance</span></div>
-<div class="uf-gap-mark is-oracle is-down" style="--x:100%"><span><b>0.388</b>Per-Pixel Oracle</span></div>
-</div>
-</div>
-<figcaption><strong>Held-out validation EPE</strong> (1,448 frames, single pass). The oracle uses the ground truth.</figcaption>
-</figure>
-
-### Which Guidance Inputs Matter
+### Guidance-Input Ablation
 
 One guidance input removed at a time. The guide flow closes most of the gap, and starting from the guide closes the rest.
 
@@ -217,42 +196,29 @@ Pick a degradation. The tiles show one validation frame, and the bars the whole 
 
 <p class="uf-note">BFlow (E+I) was trained on this sequence. With 95% of the events removed it is ahead on this frame, but not on average. Dark frames are brightened for display.</p>
 
-## Beyond DSEC
+## Generalization Beyond DSEC
 
-### Fine-Tuned Evaluation on MVSEC
+### MVSEC Benchmark
 
-Fine-tuned on MVSEC, UltimateFlow has the lowest EPE of these methods on the three indoor sequences, and trails by 0.04 px outdoors.
+Fine-tuned on MVSEC, UltimateFlow has a lower EPE than EV-FlowNet, E-RAFT, TMA and EDCFlow on all three indoor sequences, and trails EDCFlow by 0.04 px outdoors.
 
-| Method | indoor_flying1 | indoor_flying2 | indoor_flying3 | outdoor_day1 |
-|---|:---:|:---:|:---:|:---:|
-| EV-FlowNet | 1.03 | 1.72 | 1.53 | 0.49 |
-| E-RAFT | 1.10 | 1.94 | 1.66 | 0.24 |
-| TMA | 1.06 | 1.81 | 1.58 | 0.25 |
-| EDCFlow | 0.97 | 1.49 | 1.38 | **0.23** |
-| **UltimateFlow (E+I)** | **0.84** | **1.47** | **1.27** | 0.27 |
+### Visual Odometry
 
-<p class="table-note">EPE in px, standard protocol, baselines as published. Self-supervised, model-based and event-plus-frame methods outside this table report lower indoor EPE.</p>
-
-### Camera Motion from Flow
-
-{% figure src="static/images/trajectories.webp", alt="Three top-view trajectories on MVSEC outdoor_day1 for the ground truth, UltimateFlow, E-RAFT and Spike-FlowNet, with the absolute trajectory error of each method", caption="**Trajectories from flow** on MVSEC outdoor_day1, three 40 s windows. ATE in each method's color, best in bold." %}
+{% figure src="static/videos/vo_trajectories.mp4", poster="static/videos/vo_trajectories.jpg", alt="Animation of the visual odometry trajectories of UltimateFlow, E-RAFT and Spike-FlowNet drawn against the ground truth on three 40 s windows of MVSEC outdoor_day1, with the camera frame of each moment", caption="**Trajectories from flow** on MVSEC outdoor_day1, drawn as the drive progresses, against the ground truth (dashed). ATE per method, best in bold." %}
 
 Poses chained from an essential matrix fitted to each flow. UltimateFlow has the lowest translation drift (20.5%, against 27.9% for E-RAFT and 31.2% for Spike-FlowNet). Indoors it trails Spike-FlowNet on the translation direction.
 
 <div id="video"></div>
 
-## Video
+## DSEC-Flow Results
 
 {% figure src="static/videos/results.mp4", poster="static/images/results_poster.jpg", controls=true, autoplay=false %}
 
-## Limitations
-
-Without its guide, or when frame noise collapses the gate, the model falls below the event-only one. The guide reads the frame at the end of the interval and dominates the runtime, so the method is neither causal nor low latency.
-
-Code and checkpoints will be released.
-
 ## Acknowledgments
 
-This work was supported by a Google Cloud Research Credits award from Google.
+<div class="uf-sponsor">
+<img src="/img/logo/gcp.png" alt="Google Cloud" width="56" height="56" loading="lazy">
+<p>This work was supported by a <strong>Google Cloud Research Credits</strong> award from Google.</p>
+</div>
 
-Contact: [chahat.singh@colorado.edu](mailto:chahat.singh@colorado.edu)
+<p class="uf-lead">Contact: <a href="mailto:chahat.singh@colorado.edu">chahat.singh@colorado.edu</a></p>
