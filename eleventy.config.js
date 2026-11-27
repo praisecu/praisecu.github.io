@@ -152,6 +152,16 @@ export default function (eleventyConfig) {
   /*
    * Sort news entries newest first using date_iso.
    */
+  /*
+   * Public address of a page. Research project pages are linked without
+   * their .html suffix (GitHub Pages serves /research/Name for
+   * /research/Name.html), so the canonical URL and the sitemap use that
+   * form too.
+   */
+  eleventyConfig.addFilter("publicUrl", (url = "/") =>
+    /^\/research\/[^/]+\.html$/.test(url) ? url.replace(/\.html$/, "") : url
+  );
+
   eleventyConfig.addFilter("sortNewsNewest", (items = []) => {
     return [...items].sort((first, second) => {
       const firstDate =

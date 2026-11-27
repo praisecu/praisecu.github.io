@@ -12,35 +12,35 @@ publications:
     date: "Preprint · Nov 2026"
     year: 2026
     image: "/research/UltimateFlow/static/images/card.jpg"
-    primary_url: "/research/UltimateFlow.html"
+    primary_url: "/research/UltimateFlow"
     venue: "Preprint | arXiv coming soon"
     authors: "Chahat Deep Singh"
     links:
       - label: Project
         type: project
-        url: "/research/UltimateFlow.html"
+        url: "/research/UltimateFlow"
       - label: Video
         type: video
-        url: "/research/UltimateFlow.html#video"
+        url: "/research/UltimateFlow#video"
     bibtex: |
       @misc{singh2026ultimateflow,
         title  = {UltimateFlow: Frame-Guided Event Optical Flow with Depth Foundation Priors},
         author = {Singh, Chahat Deep},
         year   = {2026},
-        url    = {https://www.praisecu.com/research/UltimateFlow.html}
+        url    = {https://www.praisecu.com/research/UltimateFlow}
       }
 
   - title: "NibbleFlow: Sign-Exponent-Mantissa Refinement for 4-Bit Optical Flow"
     date: "Preprint · Nov 2026"
     year: 2026
     image: "/research/NibbleFlow/static/images/card.jpg"
-    primary_url: "/research/NibbleFlow.html"
+    primary_url: "/research/NibbleFlow"
     venue: "Preprint"
     authors: "Xiao'ao Song, Chahat Deep Singh"
     links:
       - label: Project
         type: project
-        url: "/research/NibbleFlow.html"
+        url: "/research/NibbleFlow"
       - label: PDF
         type: pdf
         url: "/research/NibbleFlow/static/NibbleFlow.pdf"
@@ -49,7 +49,7 @@ publications:
         title  = {NibbleFlow: Sign-Exponent-Mantissa Refinement for 4-Bit Optical Flow},
         author = {Song, Xiao'ao and Singh, Chahat Deep},
         year   = {2026},
-        url    = {https://www.praisecu.com/research/NibbleFlow.html}
+        url    = {https://www.praisecu.com/research/NibbleFlow}
       }
 
   - title: "TinyFlow: Breaking the Warping Bottleneck for Edge Optical Flow"
@@ -63,7 +63,7 @@ publications:
     links:
       - label: Project
         type: project
-        url: "/research/TinyFlow.html"
+        url: "/research/TinyFlow"
       - label: PDF
         type: pdf
         url: "https://arxiv.org/abs/2610.33338"
@@ -72,7 +72,7 @@ publications:
     date: "IROS Workshop · Oct 2026"
     year: 2026
     image: "/research/fold-to-fit/static/images/card.jpg"
-    primary_url: "/research/fold-to-fit.html"
+    primary_url: "/research/fold-to-fit"
     venue: "IROS 2026 Workshop on Insect-scale Autonomy"
     authors: "Pravesh Rana Vadapalli, Chahat Deep Singh"
     links:
@@ -81,13 +81,13 @@ publications:
         url: "/research/fold-to-fit/static/fold-to-fit.pdf"
       - label: Project
         type: project
-        url: "/research/fold-to-fit.html"
+        url: "/research/fold-to-fit"
 
   - title: "Rethinking Warping for Optical Flow on Edge Accelerators"
     date: "IROS Workshop · Oct 2026"
     year: 2026
     image: "/research/TinyFlow-workshop/static/images/card-square.jpg"
-    primary_url: "/research/TinyFlow-workshop.html"
+    primary_url: "/research/TinyFlow-workshop"
     venue: "IROS 2026 Workshop on Insect-scale Autonomy | Best Poster Award"
     authors: "Xiao'ao Song, Chahat Deep Singh"
     links:
@@ -96,7 +96,7 @@ publications:
         url: "/research/TinyFlow-workshop/static/TinyFlow-workshop.pdf"
       - label: Project
         type: project
-        url: "/research/TinyFlow-workshop.html"
+        url: "/research/TinyFlow-workshop"
 
   - title: "Safety-Bounded Space Robot Navigation via Vision-Language Model Integration"
     date: "ICRA Workshop · Jun 2026"

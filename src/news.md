@@ -13,7 +13,7 @@ news:
     date_iso: 2026-11-29
     image: /research/UltimateFlow/static/images/card-home.jpg
     image_alt: A road after a tunnel exit, its events and the UltimateFlow optical flow estimate
-    url: /research/UltimateFlow.html
+    url: /research/UltimateFlow
     external: false
     description: "The UltimateFlow preprint, which guides an event camera optical flow network with RGB frames and depth foundation priors, is now available on arXiv."
 
@@ -22,7 +22,7 @@ news:
     date_iso: 2026-11-24
     image: /research/NibbleFlow/static/images/card-home.jpg
     image_alt: A Sintel frame beside NibbleFlow's 4-bit optical flow with a linear output layer and with SEM
-    url: /research/NibbleFlow.html
+    url: /research/NibbleFlow
     external: false
     description: "The NibbleFlow preprint, whose sign-exponent-mantissa refinement keeps optical flow accurate with 4-bit weights, is now available on arXiv."
 
@@ -31,7 +31,7 @@ news:
     date_iso: 2026-10-23
     image: /research/TinyFlow/static/images/card-home.jpg
     image_alt: A runner beside her TinyFlow optical flow, with the Hailo-8 INT8 accelerator chip
-    url: /research/TinyFlow.html
+    url: /research/TinyFlow
     description: "The TinyFlow preprint, a 1.26M-parameter warp-free optical flow network for edge accelerators, is now available on arXiv (2610.33338)."
     external: false
 
@@ -40,7 +40,7 @@ news:
     date_iso: 2026-10-01
     image: /research/fold-to-fit/static/images/card.jpg
     image_alt: TinyMorph folding from a quadrotor into a coaxial bicopter
-    url: /research/fold-to-fit.html
+    url: /research/fold-to-fit
     external: false
     description: "Fold-to-Fit: Propeller Interaction and Control of a Coaxial-Bicopter Quadrotor was presented at the IROS 2026 Workshop on Insect-scale Autonomy in Pittsburgh, PA."
 
@@ -49,7 +49,7 @@ news:
     date_iso: 2026-10-01
     image: /research/TinyFlow-workshop/static/images/card-square.jpg
     image_alt: TinyFlow optical flow of a running figure
-    url: /research/TinyFlow-workshop.html
+    url: /research/TinyFlow-workshop
     external: false
     description: "Rethinking Warping for Optical Flow on Edge Accelerators (TinyFlow) won the Best Poster Award at the IROS 2026 Workshop on Insect-scale Autonomy in Pittsburgh, PA, as voted by the workshop attendees."
 

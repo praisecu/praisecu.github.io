@@ -7,7 +7,7 @@
   which address is the real one.
 #}
 {% set site_url = "https://www.praisecu.com" %}
-{% set canonical_url = site_url + (page.url | default("/")) %}
+{% set canonical_url = site_url + (page.url | default("/") | publicUrl) %}
 
 <link
   rel="canonical"

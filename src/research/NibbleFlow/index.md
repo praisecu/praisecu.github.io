@@ -3,7 +3,7 @@ title: "NibbleFlow: Sign-Exponent-Mantissa Refinement for 4-Bit Optical Flow"
 # Optional: the same title with markup for the page heading only (tab title and metadata use title).
 title_html: '<span class="title-accent">Nibble</span>Flow: <span class="sem">S</span>ign-<span class="sem">E</span>xponent-<span class="sem">M</span>antissa Refinement for 4-Bit Optical Flow'
 description: "SEM replaces the linear output layer of iterative optical flow networks with a floating point step, a sign, an exponent and a mantissa. It removes up to 86% of the error that 4-bit weights add, and NibbleFlow, built around it, runs on a Hailo-8 with 0.51M parameters."
-image: static/images/social.jpg
+image: static/images/social-card.jpg
 keywords: [optical flow, edge AI, Hailo-8, 4-bit quantization, INT4, iterative refinement, tiny robots, NibbleFlow, SEM]
 
 citation_date: "2026/11"
@@ -39,7 +39,7 @@ bibtex: |
     title  = {NibbleFlow: Sign-Exponent-Mantissa Refinement for 4-Bit Optical Flow},
     author = {Song, Xiao'ao and Singh, Chahat Deep},
     year   = {2026},
-    url    = {https://www.praisecu.com/research/NibbleFlow.html}
+    url    = {https://www.praisecu.com/research/NibbleFlow}
   }
 ---
 
