@@ -23,6 +23,9 @@ links:
   - text: Results
     url: "#compare"
     icon: fas fa-chart-line
+  - text: BibTeX
+    url: "#BibTeX"
+    icon: fas fa-quote-right
   - text: Code (Coming Soon)
     url: "#coming-soon"
     icon: fab fa-github
@@ -31,9 +34,9 @@ links:
     icon: fab fa-youtube
 
 teaser:
-  video: static/videos/teaser.mp4
-  poster: static/images/teaser.jpg
-  alt: "Video. Two RGB frames of a runner go into TinyFlow, a 1.26M-parameter network that rethinks the warping function, compiles to one static INT8 graph and runs on a Hailo-8 accelerator. Its dense optical flow output closely matches the ground truth."
+  video: static/videos/teaser.mp4?v=2
+  poster: static/images/teaser.jpg?v=2
+  alt: "Video. A pair of frames of a runner goes into TinyFlow, a 1.26M-parameter network that rethinks the warping function, compiles to one static INT8 graph and runs on a Hailo-8 accelerator. Its dense optical flow output closely matches the ground truth."
   caption: "**TinyFlow** predicts dense optical flow from a pair of input images with only **1.26M parameters**. It keeps iterative coarse-to-fine refinement but removes the warp, so the whole network compiles as **a single static INT8 graph** for edge AI accelerators such as the Hailo-8."
 
 math: true
