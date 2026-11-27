@@ -47,14 +47,14 @@ bibtex: |
 </div>
 <div class="uf-tile uf-hero-out"><canvas data-tile="ours" data-cover="true" role="img" aria-label="Dense optical flow estimated by UltimateFlow for the same drive"></canvas><span class="uf-tag is-ours">UltimateFlow (E+I)</span></div>
 </div>
-<p class="uf-hero-caption"><strong>UltimateFlow on a DSEC test sequence.</strong> Inside the tunnel the frame is dark, and at the exit it saturates. The events keep firing, and UltimateFlow estimates dense flow throughout, from the events (E) and the RGB frames (I).</p>
+<p class="uf-hero-caption"><strong>A tunnel in the DSEC test set.</strong> The frame goes dark, then saturates at the exit. The flow stays dense.</p>
 
 <div class="uf-facts">
 <div class="uf-fact">
 <span class="uf-fact-kicker">Benchmark Rank</span>
 <span class="uf-fact-num">1<small>st of 39</small></span>
 <span class="uf-fact-viz" aria-hidden="true"><span class="uf-frank"></span></span>
-<span class="uf-fact-text">First on the DSEC-Flow optical flow benchmark, by endpoint error.</span>
+<span class="uf-fact-text">DSEC-Flow benchmark, by endpoint error.</span>
 </div>
 <div class="uf-fact">
 <span class="uf-fact-kicker">Endpoint Error</span>
@@ -63,7 +63,7 @@ bibtex: |
 <span class="uf-fbar" style="--w: 100%"><span>Best Prior</span><span>0.623</span><i></i></span>
 <span class="uf-fbar is-ours" style="--w: 88.9%"><span>UltimateFlow</span><span>0.554</span><i></i></span>
 </span>
-<span class="uf-fact-text">11% below the best previously published method.</span>
+<span class="uf-fact-text">11% below the best published method.</span>
 </div>
 <div class="uf-fact">
 <span class="uf-fact-kicker">Oracle Gap Closed</span>
@@ -72,7 +72,7 @@ bibtex: |
 <span class="uf-fgap" style="--w: 52.5%"><i></i></span>
 <span class="uf-fends"><span>Blend 0.487</span><span>Oracle 0.388</span></span>
 </span>
-<span class="uf-fact-text">Of the gap between the best output blend and a per-pixel oracle.</span>
+<span class="uf-fact-text">From the best output blend to a per-pixel oracle.</span>
 </div>
 <div class="uf-fact">
 <span class="uf-fact-kicker">90% Fewer Events</span>
@@ -81,7 +81,7 @@ bibtex: |
 <span class="uf-fbar" style="--w: 100%"><span>Events Only</span><span>+66%</span><i></i></span>
 <span class="uf-fbar is-ours" style="--w: 12.1%"><span>UltimateFlow</span><span>+8%</span><i></i></span>
 </span>
-<span class="uf-fact-text">With 90% of the events removed, against +66% for events alone.</span>
+<span class="uf-fact-text">Against +66% for events alone.</span>
 </div>
 </div>
 
@@ -93,61 +93,50 @@ Event cameras capture fast motion and extreme lighting where frame cameras fail,
 
 ## See It Move
 
-Drag the slider. The right side is always UltimateFlow (E+I). The left side can show the inputs, another method, or our event-only model. All flow fields of a clip share one color scale.
+Drag the slider. The right side is always UltimateFlow (E+I).
 
 <div class="uf-explorer" id="uf-explorer"></div>
 
-<p class="uf-note">Clips from interlaken_00_b (Mountain Road, Tunnel) and zurich_city_12_a of the DSEC test set, and from the held-out validation sequence zurich_city_11_c. The labels give each method's EPE on the whole test sequence from the benchmark server, since the test ground truth is hidden. Baselines run from their public checkpoints, which were trained on the validation sequence. UltimateFlow (E+I) is the 5-model ensemble.</p>
+<p class="uf-note">Labels give the EPE on the whole test sequence, from the benchmark server. The public baseline checkpoints were trained on the validation sequence. UltimateFlow (E+I) is the 5-model ensemble.</p>
 
 ## Guide the Estimator, Do Not Blend Its Output
 
-Most platforms mount a frame camera beside the event sensor, and frames record exactly the texture that events miss. Frame-based flow, trained on far larger datasets, has improved markedly by building on depth foundation models. We call such a frozen frame-based model the <span class="uf-frame"><strong>guide</strong></span>. How should an event-based estimator use it?
+A frozen frame-based flow model, the <span class="uf-frame"><strong>guide</strong></span>, sees the texture that events miss. There are two ways to use it.
 
 <div class="uf-duo">
 <div class="uf-duo-card">
 <span class="uf-kicker">The Straightforward Way</span>
 <h4>Blend at the Output</h4>
 <span class="uf-duo-eq">$$f^{\star}=G\,\big[w\,f^{\mathrm{T}}+(1-w)\,\hat f\,\big]+(1-G)\,\hat f$$</span>
-<p>Wherever the guide flow $$f^{\mathrm{T}}$$ passes its consistency gate $$G$$, mix it with the event-based estimate $$\hat f$$. One weight $$w$$ serves every pixel, and the estimator never sees the guide.</p>
+<p>One weight $$w$$ serves every pixel inside the gate $$G$$. The estimator never sees the guide.</p>
 <div class="uf-duo-score"><b>0.670</b> test EPE with every component tuned</div>
 </div>
 <div class="uf-duo-card is-ours">
 <span class="uf-kicker">UltimateFlow</span>
 <h4>Guide at the Input</h4>
 <span class="uf-duo-eq">$$f^{0}=G\,f^{\mathrm{T}}+(1-G)\,f^{\text{init}},\quad \mathbf{g}=\big[f^{\mathrm{T}},\,G,\,r\big]$$</span>
-<p>The guide flow, its gate and its forward-backward residual $$r$$ enter the estimator as dense inputs $$\mathbf{g}$$, and the refinement starts from the guide wherever the gate accepts it. The estimator decides, per pixel, how much to trust the guide.</p>
+<p>Guide flow, gate and residual $$r$$ are inputs, and the refinement starts from the guide. The estimator decides per pixel.</p>
 <div class="uf-duo-score"><b>0.636</b> test EPE in a single pass</div>
 </div>
 </div>
 
-Dense guidance replaces the blend rather than supplementing it. Applied on top of the guided model, the blend makes it worse (0.636 to 0.662).
-
-<div class="key-idea"><strong>The takeaway.</strong> A frozen model of another sensor is most useful as an input and a starting point for the estimator, not as a second opinion blended at its output.</div>
+<div class="key-idea"><strong>The takeaway.</strong> Give the frozen model to the estimator as an input and a starting point, not as a second opinion blended at its output.</div>
 
 ## Method
 
-{% figure src="static/images/architecture.webp", alt="Architecture of UltimateFlow. Frame branch: the frozen FlowSeek-T estimates the guide flow, a forward-backward consistency check gives the residual and the gate, and a rotation-only warp brings them into the event view. Event branch: encoders, correlation with Depth AnyEvent features, motion bases from depth, a guidance encoder added to the context, an initial flow from the guide, and iterative ConvNeXt updates.", caption="**Architecture.** Frame branch: the frozen FlowSeek-T estimates the guide flow between the two frames in both directions, a forward-backward consistency check gives the residual and the gate, and a rotation-only warp brings all three into the event view. Event branch: a trained head feeds the Depth AnyEvent features into the correlation, and the predicted depth gives the motion bases. The dense guidance enters the context and sets the initial flow wherever the gate accepts it, and iterative ConvNeXt updates refine the flow." %}
+{% figure src="static/images/architecture.webp", alt="Architecture of UltimateFlow. Frame branch: the frozen FlowSeek-T estimates the guide flow, a forward-backward consistency check gives the residual and the gate, and a rotation-only warp brings them into the event view. Event branch: encoders, correlation with Depth AnyEvent features, motion bases from depth, a guidance encoder added to the context, an initial flow from the guide, and iterative ConvNeXt updates.", caption="**Architecture.** A frozen frame-based guide gives a flow, a gate and a residual. They enter the event-based estimator as inputs and as its starting point." %}
 
-**A guide that certifies itself.** A frozen FlowSeek-T, built on Depth Anything v2 and never trained on DSEC, estimates the flow between the two RGB frames in both directions. Where the frame flow is correct, following it forward and back returns to the start. The round-trip residual flags guide failures and occlusions, and the gate keeps the pixels below 1.5 px:
+**Guide.** A frozen FlowSeek-T estimates the frame flow in both directions. Its round-trip residual gates out the pixels above 1.5 px, with no ground truth and no events.
 
 $$
 r(\mathbf{u})=\big\|f^{\mathrm{F}\rightarrow}(\mathbf{u})+f^{\mathrm{F}\leftarrow}\big(\mathbf{u}+f^{\mathrm{F}\rightarrow}(\mathbf{u})\big)\big\|,\qquad G=\mathbb{1}[\,r<\tau\,]
 $$
 
-This check uses neither ground truth nor events, so it is available in training and at test time.
+**Estimator.** A recurrent event-based estimator, with frozen Depth AnyEvent features in its correlation and motion bases from the predicted depth.
 
-**An event estimator with a depth foundation prior.** The event branch builds on recurrent all-pairs correlation. Features of the frozen Depth AnyEvent model enter the correlation volume, and its predicted depth defines eight motion bases. To our knowledge, this is the first event-based flow estimator conditioned on a frozen event depth foundation model, and it is compact enough to train on a single GPU.
+**Dense guidance.** Guide flow, gate and residual join the context, and the refinement starts from the guide wherever the gate accepts it.
 
-**Dense guidance.** On the 1/8 grid of the estimator, the guide flow, the gate and the residual are stacked and added to the context by a small guidance encoder, so every update step sees them. The recurrent refinement then starts from the guide wherever the gate accepts it:
-
-$$
-\mathbf{g}=\big[\tfrac{1}{8}\mathcal{P}(f^{\mathrm{T}}),\;\mathcal{P}(G),\;\tanh\!\big(\tfrac{1}{3}\mathcal{P}(r)\big)\big],\qquad
-f^{0}=\mathcal{P}(G)\cdot\tfrac{1}{8}\mathcal{P}(f^{\mathrm{T}})+\big(1-\mathcal{P}(G)\big)\cdot f^{\text{init}}
-$$
-
-Here $$\mathcal{P}$$ is 8×8 average pooling and $$f^{\text{init}}$$ is the estimator's own first guess.
-
-**No new labels, and no imitation.** The guide is never a training target. LiDAR ground truth covers 18% of a training frame on average, whereas the gate accepts the guide on 66%, so the estimator sees a dense, self-certified estimate on most unsupervised pixels.
+**No new labels.** The guide is never a training target. The gate accepts it on 66% of a frame, where LiDAR ground truth covers 18%.
 
 <div id="results"></div>
 
@@ -155,11 +144,11 @@ Here $$\mathcal{P}$$ is 8×8 average pooling and $$f^{\text{init}}$$ is the esti
 
 ### DSEC-Flow Benchmark
 
-UltimateFlow ranks first of 39 entries by EPE on the DSEC-Flow test server (November 9, 2026), with 0.554 EPE, 6.01% 1PE, 1.94% 2PE, 1.11% 3PE and 2.08° AE. Even without model averaging, the single model scores 0.583 and leads every published method on all metrics except AE. Hover over a point for its numbers.
+First of 39 entries by EPE on the test server (November 9, 2026). The single model, at 0.583, leads every published method on all metrics except AE.
 
 <figure class="media-figure">
 <div class="uf-chart" id="uf-leaderboard"></div>
-<figcaption><strong>DSEC-Flow test server</strong> (416 frames in 7 sequences, hidden ground truth). EPE against 3PE for the published event-based methods. Circles use events, triangles use events and RGB frames. †Pretrained on synthetic event data. Lower left is better.</figcaption>
+<figcaption><strong>DSEC-Flow test server.</strong> EPE against 3PE of the published event-based methods. Circles use events, triangles use events and frames. †Pretrained on synthetic event data.</figcaption>
 </figure>
 
 | Method | Input | EPE | 1PE | 2PE | 3PE | AE |
@@ -173,20 +162,20 @@ UltimateFlow ranks first of 39 entries by EPE on the DSEC-Flow test server (Nove
 | **UltimateFlow† (E+I), single model** | E+I | 0.583 | 6.31 | 2.06 | 1.18 | 2.21 |
 | **UltimateFlow† (E+I), 5-model ensemble** | E+I | **0.554** | **6.01** | **1.94** | **1.11** | **2.08** |
 
-<p class="table-note">A selection of the methods in the chart, sorted by EPE (lower is better). 1PE to 3PE in percent, AE in degrees. Both UltimateFlow rows use the test-time steps of the paper, with the guide and depth models frozen and pretrained on other data.</p>
+<p class="table-note">Lower is better. 1PE to 3PE in percent, AE in degrees. Both UltimateFlow rows include the test-time steps shown below.</p>
 
 ### From 0.759 to 0.554
 
-Every step below is a separate evaluation on the test server. The left block builds the strongest output-level fusion we could find. The right block replaces it with dense guidance, which alone gains more (0.759 to 0.636) than the whole left block (0.759 to 0.670).
+Each step is one evaluation on the test server. Output-level fusion stops at 0.670. Dense guidance alone reaches 0.636.
 
 <figure class="media-figure">
 <div class="uf-chart" id="uf-stack"></div>
-<figcaption><strong>Ablation on the DSEC test set</strong>, from UltimateFlow (E) to the 5-model ensemble. Each step adds one change. Select a step to see what it adds.</figcaption>
+<figcaption><strong>Ablation on the DSEC test set.</strong> Select a step to see what it adds.</figcaption>
 </figure>
 
 ### Why Guidance Beats a Blend
 
-On the held-out validation split, the best output rule stays far from a per-pixel oracle that picks the better source at every pixel, because one weight serves every pixel and the rejected pixels fall back to the event estimate. Dense guidance, with no parameter fitted at inference, closes 53% of this gap.
+Dense guidance closes 53% of the gap between the best output blend and a per-pixel oracle, with no parameter fitted at inference.
 
 <figure class="media-figure">
 <div class="uf-panel uf-gap" role="img" aria-label="Validation EPE. Event-only model 0.546, best output blend 0.487, dense guidance 0.435, per-pixel oracle 0.388.">
@@ -198,12 +187,12 @@ On the held-out validation split, the best output rule stays far from a per-pixe
 <div class="uf-gap-mark is-oracle is-down" style="--x:100%"><span><b>0.388</b>Per-Pixel Oracle</span></div>
 </div>
 </div>
-<figcaption><strong>Output-level fusion against dense guidance</strong> on held-out validation (1,448 frames, single pass). The oracle uses the ground truth. The frames alone do not explain the result: RAFT, FlowSeek-T and MEMFOF, run on frames only with the same registration, score 0.527 to 0.538 on this split, close to the event-only model.</figcaption>
+<figcaption><strong>Held-out validation EPE</strong> (1,448 frames, single pass). The oracle uses the ground truth.</figcaption>
 </figure>
 
 ### Which Guidance Inputs Matter
 
-We remove the guidance inputs one at a time, feeding zeros instead, on a matched schedule. The guide flow alone closes most of the gap to the full model, and starting the refinement from the guide accounts for the rest.
+One guidance input removed at a time. The guide flow closes most of the gap, and starting from the guide closes the rest.
 
 <figure class="media-figure">
 <div class="uf-abl" role="table" aria-label="Guidance-input ablation, validation EPE">
@@ -215,28 +204,24 @@ We remove the guidance inputs one at a time, feeding zeros instead, on a matched
 <div class="uf-abl-row is-init" role="row"><div class="uf-abl-name">Gate, No Residual</div><div class="uf-abl-in"><span class="on">Flow</span><span class="on">Gate</span><span>Resid.</span><span class="on is-init">Init</span></div><div class="uf-abl-bar" style="--w:70.0%"><i></i><b>0.434</b></div></div>
 <div class="uf-abl-row is-init is-full" role="row"><div class="uf-abl-name">Full</div><div class="uf-abl-in"><span class="on">Flow</span><span class="on">Gate</span><span class="on">Resid.</span><span class="on is-init">Init</span></div><div class="uf-abl-bar" style="--w:70.0%"><i></i><b>0.434</b></div></div>
 </div>
-<figcaption><strong>Guidance-input ablation</strong> on held-out validation (every fourth frame), best EPE of matched 40k-step runs. Flow, Gate, Resid.: warped guide flow, gate and residual as context inputs. Init: the flow starts from the guide where the gate accepts. These are separate runs, so absolute values differ from the deployed models.</figcaption>
+<figcaption><strong>Validation EPE</strong> of matched 40k-step runs, which differ from the deployed models. Init: the refinement starts from the guide.</figcaption>
 </figure>
-
-The start matters because the refinement is local. The trained event-only estimator removes a wrong start of up to 16 px within six updates, but not larger ones. On 300 ms windows of the held-out sequences, the guided model reaches 0.842 px against 1.174 for the event-only model, and switching off its initialization at inference raises it to 2.254.
 
 <div id="robust"></div>
 
 ## Robustness to Sensor Degradation
 
-What happens when one sensor fails? Pick a degradation. The tiles show one validation frame, and the bars show the EPE over the validation set.
+Pick a degradation. The tiles show one validation frame, and the bars the whole validation set.
 
 <div class="uf-robust" id="uf-robust"></div>
 
-<p class="uf-note">One validation frame of zurich_city_11_c, single pass, against BFlow (E+I), which was trained on this sequence. Events are removed uniformly at random, and darkened frames are rescaled for display. With 95% of the events removed, BFlow is ahead on this frame, whereas UltimateFlow is ahead on average. Bars: every fourth validation frame, with the change from each method's own reference.</p>
-
-Removing 90% of the events raises the EPE of the guided model by 8% and of the event-only model by 66%, and a tenfold darker frame raises it by 6%. The failure mode is frame noise that collapses the gate.
+<p class="uf-note">BFlow (E+I) was trained on this sequence. With 95% of the events removed it is ahead on this frame, but not on average. Dark frames are brightened for display.</p>
 
 ## Beyond DSEC
 
 ### Fine-Tuned Evaluation on MVSEC
 
-MVSEC records frames and events on one pixel array, and its indoor sequences are hexacopter flights, far from the driving domain of DSEC. Under the standard protocol, UltimateFlow has the lowest EPE of the methods below on all three indoor sequences, and it trails the best EPE by 0.04 px on the outdoor sequence.
+Fine-tuned on MVSEC, UltimateFlow has the lowest EPE of these methods on the three indoor sequences, and trails by 0.04 px outdoors.
 
 | Method | indoor_flying1 | indoor_flying2 | indoor_flying3 | outdoor_day1 |
 |---|:---:|:---:|:---:|:---:|
@@ -246,13 +231,13 @@ MVSEC records frames and events on one pixel array, and its indoor sequences are
 | EDCFlow | 0.97 | 1.49 | 1.38 | **0.23** |
 | **UltimateFlow (E+I)** | **0.84** | **1.47** | **1.27** | 0.27 |
 
-<p class="table-note">EPE over one frame interval on pixels with ground truth and events (lower is better). Training on outdoor_day2, testing on the rest. Baselines as published. Self-supervised, model-based and event-plus-frame methods outside this table report lower indoor EPE.</p>
+<p class="table-note">EPE in px, standard protocol, baselines as published. Self-supervised, model-based and event-plus-frame methods outside this table report lower indoor EPE.</p>
 
 ### Camera Motion from Flow
 
-{% figure src="static/images/trajectories.webp", alt="Three top-view trajectories on MVSEC outdoor_day1 for the ground truth, UltimateFlow, E-RAFT and Spike-FlowNet, with the absolute trajectory error of each method", caption="**Trajectories from flow** on MVSEC outdoor_day1: the three non-overlapping 40 s windows with the largest heading change, each aligned by one similarity transform. ATE of each method in its color, best in bold." %}
+{% figure src="static/images/trajectories.webp", alt="Three top-view trajectories on MVSEC outdoor_day1 for the ground truth, UltimateFlow, E-RAFT and Spike-FlowNet, with the absolute trajectory error of each method", caption="**Trajectories from flow** on MVSEC outdoor_day1, three 40 s windows. ATE in each method's color, best in bold." %}
 
-To test flow on a downstream task, we fit an essential matrix to each method's flow on every consecutive-frame interval of MVSEC outdoor_day1 and chain the resulting poses. Under the KITTI protocol, UltimateFlow has the lowest translation drift (20.5% against 27.9% for E-RAFT and 31.2% for Spike-FlowNet), and the lowest absolute trajectory error in 66% of all 20 s windows. Indoors, however, UltimateFlow trails Spike-FlowNet on the translation direction.
+Poses chained from an essential matrix fitted to each flow. UltimateFlow has the lowest translation drift (20.5%, against 27.9% for E-RAFT and 31.2% for Spike-FlowNet). Indoors it trails Spike-FlowNet on the translation direction.
 
 <div id="video"></div>
 
@@ -262,9 +247,9 @@ To test flow on a downstream task, we fit an essential matrix to each method's f
 
 ## Limitations
 
-The guided model depends on its guide. Without it, or when frame noise collapses the gate, it falls below the event-only model. The guide reads the frame at the end of the interval and dominates the runtime, so the method is neither causal nor low latency, and it needs calibrated extrinsics. A causal guide that reads only past frames, and a lighter one, are the natural next steps.
+Without its guide, or when frame noise collapses the gate, the model falls below the event-only one. The guide reads the frame at the end of the interval and dominates the runtime, so the method is neither causal nor low latency.
 
-As frame-based foundation models keep improving, event cameras can now inherit that progress without new labels, and see in the fast and dark scenes where frames alone fail. Code and checkpoints will be released.
+Code and checkpoints will be released.
 
 ## Acknowledgments
 
