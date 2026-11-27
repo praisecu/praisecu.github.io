@@ -1123,3 +1123,262 @@ input[type="range"].slider::-moz-range-track {
 }
 .sem { font-weight: 800; }
 .content.page-content h2 .sem { color: var(--sem); }
+
+/* ---- TinyFlow page (research/TinyFlow) ------------------------------------
+   Interactive figures built by the inline script on that page. Model colors
+   follow the paper: TinyFlow orange, EdgeFlowNet blue, NanoFlowNet purple,
+   reference models grey. --tf-orange-text is the orange used for text, dark
+   enough for 4.5:1 on the light page. */
+:root {
+  --tf-orange: #ff7f0e;
+  --tf-orange-text: #b04f00;
+  --tf-blue: #1f77b4;
+  --tf-purple: #9467bd;
+  --tf-ref: #9a9a92;
+  --tf-ref-2: #c4c3bb;
+  --tf-grid: rgba(29, 30, 0, 0.10);
+}
+:root[data-theme="dark"] {
+  --tf-orange-text: #ffa04d;
+  --tf-blue: #4d9de0;
+  --tf-purple: #b48fe0;
+  --tf-ref: #8d8c85;
+  --tf-ref-2: #5f5e58;
+  --tf-grid: rgba(243, 239, 227, 0.10);
+}
+.publication-title .tf-accent { color: var(--tf-orange-text); }
+.content.page-content .tf-ours { color: var(--tf-orange-text); font-weight: 800; }
+
+.tf-widget {
+  margin: 1.75rem auto 2.25rem;
+  padding: 1.25rem 1.25rem 1rem;
+  border: 1px solid var(--pp-border);
+  border-radius: var(--pp-radius-lg);
+  background: var(--pp-surface);
+}
+.tf-widget figcaption,
+.tf-widget .tf-note {
+  margin-top: 0.85rem;
+  color: var(--pp-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+.tf-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.25rem;
+  margin-bottom: 1rem;
+}
+.tf-group { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; }
+.tf-group-label {
+  font-family: var(--pp-font-heading);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pp-muted);
+  margin-right: 0.25rem;
+}
+.tf-chip {
+  appearance: none;
+  border: 1px solid var(--pp-border);
+  background: var(--pp-bg);
+  color: var(--pp-text);
+  border-radius: var(--pp-radius-pill);
+  padding: 0.3rem 0.8rem;
+  font: 600 0.86rem/1.3 var(--pp-font-body);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.tf-chip:hover { border-color: var(--pp-gold); }
+.tf-chip:focus-visible { outline: 2px solid var(--pp-gold); outline-offset: 2px; }
+.tf-chip[aria-pressed="true"] {
+  background: var(--pp-ink);
+  border-color: var(--pp-ink);
+  color: var(--pp-bg);
+}
+.tf-chip .tf-dot {
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+  vertical-align: 0.02rem;
+}
+.tf-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.tf-svg text { font-family: var(--pp-font-body); fill: var(--pp-text); }
+.tf-svg .tf-axis { stroke: var(--pp-border); }
+.tf-svg .tf-gridline { stroke: var(--tf-grid); }
+.tf-svg .tf-muted { fill: var(--pp-muted); }
+.tf-svg .tf-strong { font-weight: 700; fill: var(--pp-ink); }
+.tf-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  margin-top: 0.6rem;
+  font-size: 0.86rem;
+  color: var(--pp-muted);
+}
+.tf-legend span::before {
+  content: "";
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 3px;
+  margin-right: 0.4rem;
+  vertical-align: -0.05rem;
+  background: var(--sw);
+}
+.tf-readout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+.tf-readout div {
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--pp-radius-md);
+  background: var(--pp-bg);
+  border: 1px solid var(--pp-border);
+}
+.tf-readout b {
+  display: block;
+  font: 800 1.35rem/1.2 var(--pp-font-heading);
+  color: var(--pp-ink);
+  font-variant-numeric: tabular-nums;
+}
+.tf-readout span { font-size: 0.82rem; color: var(--pp-muted); }
+.tf-status {
+  margin-top: 0.8rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--pp-radius-md);
+  font-size: 0.92rem;
+  background: var(--pp-gold-tint);
+  color: var(--pp-text);
+}
+.tf-status.tf-bad { background: rgba(214, 39, 40, 0.12); }
+
+/* Warp versus fixed window */
+.tf-warp { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 1.25rem; align-items: start; }
+.tf-warp svg { touch-action: none; cursor: crosshair; border-radius: var(--pp-radius-md); }
+.tf-warp svg:focus-visible { outline: 2px solid var(--pp-gold); outline-offset: 3px; }
+.tf-range-row { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr) 2.5rem; align-items: center; gap: 0.6rem; margin: 0.45rem 0; font-size: 0.9rem; }
+.tf-range-row input[type="range"] { width: 100%; accent-color: var(--tf-orange); }
+.tf-range-row output { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--pp-ink); text-align: right; }
+
+/* Flow explorer (reuses the site's .compare slider) */
+.tf-explorer .compare-figure { margin: 0; }
+.tf-explorer .tf-ex-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; align-items: start; }
+.content.page-content .tf-explorer .tf-ex-in { margin: 0; }
+.tf-explorer .tf-ex-in img { width: 100%; display: block; border-radius: var(--pp-radius-lg); box-shadow: 0 12px 34px var(--pp-shadow); }
+.tf-explorer .tf-ex-in figcaption { margin-top: 0.4rem; font-size: 0.84rem; text-align: center; color: var(--pp-muted); }
+.tf-explorer select {
+  border: 1px solid var(--pp-border);
+  background: var(--pp-bg);
+  color: var(--pp-text);
+  border-radius: var(--pp-radius-pill);
+  padding: 0.3rem 0.7rem;
+  font: 600 0.86rem var(--pp-font-body);
+}
+
+@media (max-width: 768px) {
+  .tf-widget { padding: 1rem 0.8rem 0.85rem; }
+  .tf-warp { grid-template-columns: minmax(0, 1fr); }
+  .tf-explorer .tf-ex-pair { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .tf-svg .tf-anim { transition: width 0.35s ease, x 0.35s ease, y 0.35s ease, height 0.35s ease, cx 0.35s ease, cy 0.35s ease; }
+}
+.tf-group[hidden] { display: none; }
+@media (max-width: 768px) {
+  .tf-range-row { grid-template-columns: 6.8rem minmax(0, 1fr) 2rem; font-size: 0.85rem; }
+  .tf-readout { grid-template-columns: repeat(auto-fit, minmax(7.2rem, 1fr)); }
+  .tf-readout b { font-size: 1.1rem; }
+}
+/* Illumination frames */
+.tf-illum-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0.75rem; margin-top: 0.8rem; }
+.content.page-content .tf-illum-grid figure:nth-child(-n+2) { grid-column: span 3; }
+.content.page-content .tf-illum-grid figure:nth-child(n+3) { grid-column: span 2; }
+.content.page-content .tf-illum-grid figure { margin: 0; }
+.content.page-content .tf-illum-grid img { display: block; width: 100%; border-radius: var(--pp-radius-sm); }
+.content.page-content .tf-illum-grid figcaption { display: flex; flex-direction: column; margin-top: 0.35rem; font-size: 0.86rem; line-height: 1.35; color: var(--pp-muted); text-align: center; font-style: normal; }
+.tf-illum-grid figcaption b { font-variant-numeric: tabular-nums; }
+@media (max-width: 768px) { .content.page-content .tf-illum-grid figure:nth-child(n) { grid-column: span 6; } .content.page-content .tf-illum-grid figure:nth-child(n+3) { grid-column: span 3; } }
+
+/* Compact warp widget */
+#tf-warp-widget { max-width: 620px; margin-left: auto; margin-right: auto; padding: 1rem; }
+#tf-warp-widget .tf-warp { grid-template-columns: 210px minmax(0, 1fr); gap: 1rem; align-items: center; }
+#tf-warp-widget .tf-range-row { grid-template-columns: 5.5rem minmax(0, 1fr) 1.2rem; margin: 0.25rem 0; font-size: 0.85rem; }
+#tf-warp-widget .tf-controls { margin: 0.4rem 0 0 !important; }
+#tf-warp-widget .tf-chip { padding: 0.2rem 0.65rem; font-size: 0.8rem; }
+.content.page-content #tf-warp-widget .tf-warp-line { margin: 0.5rem 0 0; font-size: 0.85rem; color: var(--pp-muted); font-variant-numeric: tabular-nums; }
+#tf-warp-widget .tf-warp-line b { color: var(--pp-ink); }
+#tf-warp-widget .tf-status { margin-top: 0.5rem; padding: 0.45rem 0.7rem; font-size: 0.84rem; }
+#tf-warp-widget figcaption { margin-top: 0.6rem; font-size: 0.84rem; }
+@media (max-width: 768px) { #tf-warp-widget .tf-warp { grid-template-columns: minmax(0, 1fr); } #tf-warp-widget svg { max-width: 220px; margin: 0 auto; } }
+/* Compact training widget */
+#tf-train-widget { max-width: 620px; margin-left: auto; margin-right: auto; padding: 0.9rem 1rem 0.8rem; }
+#tf-train-widget .tf-controls { margin-bottom: 0.5rem; }
+#tf-train-widget .tf-chip { padding: 0.2rem 0.65rem; font-size: 0.8rem; }
+#tf-train-widget figcaption { margin-top: 0.4rem; font-size: 0.84rem; }
+/* Motion-magnitude and Hailo-8 charts side by side */
+.tf-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.25rem; align-items: start; margin: 1.5rem 0 2rem; }
+.content.page-content .tf-pair h3 { margin: 0 0 0.6rem; font-size: 1.15rem; }
+.tf-pair .tf-widget { margin: 0; padding: 0.85rem 0.9rem 0.75rem; }
+.tf-pair .tf-controls { gap: 0.35rem 0.8rem; margin-bottom: 0.5rem; }
+.tf-pair .tf-chip { padding: 0.18rem 0.6rem; font-size: 0.78rem; }
+.tf-pair .tf-group-label { font-size: 0.7rem; }
+.tf-pair .tf-legend { font-size: 0.78rem; gap: 0.25rem 0.8rem; }
+.tf-pair figcaption { font-size: 0.82rem; margin-top: 0.4rem; }
+@media (max-width: 900px) { .tf-pair { grid-template-columns: minmax(0, 1fr); } }
+.tf-pair { align-items: stretch; }
+.tf-pair > div { display: flex; flex-direction: column; }
+.tf-pair .tf-widget { flex: 1; display: flex; flex-direction: column; }
+.tf-pair .tf-widget > figcaption { margin-top: auto; padding-top: 0.4rem; }
+/* Header buttons for items not released yet (url "#coming-soon") */
+.publication-links a[href="#coming-soon"] { pointer-events: none; cursor: default; opacity: 0.6; }
+/* TinyFlow: half the gap between the teaser and the stat cards */
+.content.page-content .stat-strip.tf-stats { margin-top: -40px; }
+/* TinyFlow: tighter space around display equations */
+.content.page-content:has(.tf-stats) .math-block { margin: 0.6rem 0; }
+.content.page-content:has(.tf-stats) .math-block .katex-display { margin: 0; }
+#tf-warp-widget { margin-top: 0.75rem; }
+/* TinyFlow: uniform chip height (glyphs from fallback fonts no longer stretch a chip) and tighter widgets */
+.tf-chip { display: inline-flex; align-items: center; height: 1.6rem; padding: 0 0.7rem; line-height: 1; font-size: 0.82rem; }
+.tf-widget { padding: 0.85rem 1rem 0.7rem; margin-top: 1.1rem; margin-bottom: 1.4rem; }
+.tf-controls { gap: 0.35rem 1rem; margin-bottom: 0.55rem; }
+.tf-widget figcaption, .tf-widget .tf-note { margin-top: 0.45rem; }
+#tf-warp-widget .tf-chip, #tf-train-widget .tf-chip, .tf-pair .tf-chip { height: 1.45rem; padding: 0 0.6rem; font-size: 0.78rem; }
+/* TinyFlow: centered widget captions */
+.content.page-content .tf-widget figcaption,
+.content.page-content .tf-widget > .tf-note { text-align: center; }
+/* TinyFlow: motion-magnitude chart as a single centred card */
+.tf-pair #tf-bins-widget { max-width: none; }
+/* TinyFlow explorer: the two predictions not in the slider */
+.tf-explorer .tf-ex-rest { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; margin-top: 0.9rem; }
+.content.page-content .tf-explorer .tf-ex-rest figure { margin: 0; }
+.tf-explorer .tf-ex-rest img { width: 100%; display: block; border-radius: var(--pp-radius-lg); }
+.content.page-content .tf-explorer .tf-ex-rest figcaption { display: flex; justify-content: center; gap: 0.4rem; margin-top: 0.35rem; font-size: 0.84rem; color: var(--pp-muted); font-style: normal; }
+.tf-explorer .tf-ex-rest figcaption b { color: var(--pp-ink); font-variant-numeric: tabular-nums; }
+.tf-pair .tf-widget > svg { margin-top: auto; margin-bottom: auto; }
+.content.page-content .tf-pair h3 { text-align: center; }
+/* TinyFlow: dropdowns with a custom chevron and room on the right */
+.tf-explorer select {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 1.6rem;
+  padding: 0 2rem 0 0.75rem;
+  line-height: 1;
+  font-size: 0.82rem;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%233b3b36' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 0.65rem auto;
+}
+:root[data-theme="dark"] .tf-explorer select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23d1d1ca' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.tf-explorer select:hover { border-color: var(--pp-gold); }
+.tf-explorer select:focus-visible { outline: 2px solid var(--pp-gold); outline-offset: 2px; }
