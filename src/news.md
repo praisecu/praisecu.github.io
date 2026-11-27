@@ -15,7 +15,7 @@ news:
     image_alt: A road after a tunnel exit, its events and the UltimateFlow optical flow estimate
     url: /research/UltimateFlow.html
     external: false
-    description: "The UltimateFlow preprint by Chahat Deep Singh, which guides an event camera optical flow network with RGB frames and depth foundation priors, is now available on arXiv."
+    description: "The UltimateFlow preprint, which guides an event camera optical flow network with RGB frames and depth foundation priors, is now available on arXiv."
 
   - title: "NibbleFlow: 4-Bit Optical Flow | Preprint Available"
     date: Nov 24, 2026
@@ -24,7 +24,7 @@ news:
     image_alt: A Sintel frame beside NibbleFlow's 4-bit optical flow with a linear output layer and with SEM
     url: /research/NibbleFlow.html
     external: false
-    description: "The NibbleFlow preprint by Xiao'ao Song and Chahat Deep Singh, whose sign-exponent-mantissa refinement keeps optical flow accurate with 4-bit weights, is now available on arXiv."
+    description: "The NibbleFlow preprint, whose sign-exponent-mantissa refinement keeps optical flow accurate with 4-bit weights, is now available on arXiv."
 
   - title: "TinyFlow: Warp-Free Edge Optical Flow | Preprint Available"
     date: Oct 23, 2026
@@ -32,7 +32,7 @@ news:
     image: /research/TinyFlow/static/images/card-home.jpg
     image_alt: A runner beside her TinyFlow optical flow, with the Hailo-8 INT8 accelerator chip
     url: /research/TinyFlow.html
-    description: "The TinyFlow preprint by Xiao'ao Song and Chahat Deep Singh, a 1.26M-parameter warp-free optical flow network for edge accelerators, is now available on arXiv (2610.33338)."
+    description: "The TinyFlow preprint, a 1.26M-parameter warp-free optical flow network for edge accelerators, is now available on arXiv (2610.33338)."
     external: false
 
   - title: Paper Presented in IROS 2026 (Workshop) | Fold-to-Fit
@@ -42,7 +42,7 @@ news:
     image_alt: TinyMorph folding from a quadrotor into a coaxial bicopter
     url: /research/fold-to-fit.html
     external: false
-    description: "Fold-to-Fit: Propeller Interaction and Control of a Coaxial-Bicopter Quadrotor by Pravesh Rana Vadapalli was presented at the IROS 2026 Workshop on Insect-scale Autonomy in Pittsburgh, PA."
+    description: "Fold-to-Fit: Propeller Interaction and Control of a Coaxial-Bicopter Quadrotor was presented at the IROS 2026 Workshop on Insect-scale Autonomy in Pittsburgh, PA."
 
   - title: Best Poster Award at IROS 2026 (Workshop) | TinyFlow
     date: Oct 1, 2026
@@ -51,7 +51,7 @@ news:
     image_alt: TinyFlow optical flow of a running figure
     url: /research/TinyFlow-workshop.html
     external: false
-    description: "Rethinking Warping for Optical Flow on Edge Accelerators (TinyFlow) by Xiao'ao Song won the Best Poster Award at the IROS 2026 Workshop on Insect-scale Autonomy in Pittsburgh, PA, as voted by the workshop attendees."
+    description: "Rethinking Warping for Optical Flow on Edge Accelerators (TinyFlow) won the Best Poster Award at the IROS 2026 Workshop on Insect-scale Autonomy in Pittsburgh, PA, as voted by the workshop attendees."
 
   - title: IROS Workshop accepted | Insect-scale Autonomy
     date: June 10, 2026
