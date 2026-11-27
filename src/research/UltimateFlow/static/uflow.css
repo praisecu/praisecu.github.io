@@ -139,13 +139,14 @@
 .uf-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-  gap: 0.75rem;
-  margin: 0 0 0.9rem;
+  gap: 0.6rem;
+  max-width: 44rem;                 /* about three quarters of the text column */
+  margin: 0 auto 0.9rem;
 }
 .uf-hero-inputs {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  gap: 0.75rem;
+  gap: 0.6rem;
 }
 .uf-hero .uf-tile { aspect-ratio: 640 / 460; }
 .uf-hero .uf-hero-out {
