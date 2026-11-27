@@ -53,6 +53,7 @@ Everything between the `---` lines at the top of `index.md` is YAML. Only `title
 | `math: true` | Needed for `$$...$$` equations to render. |
 | `bibtex` | Your BibTeX entry, after `bibtex: \|` and indented. A Copy button is added. |
 | `dark_mode: false` | Always light for this page, with no toggle. |
+| `extra_css` / `extra_js` | Optional lists of a page's own stylesheet and script, e.g. `[static/page.css]`, for interactive pieces the building blocks do not cover. They load after the shared files, so use the `--pp-*` color variables to stay theme-aware. See `UltimateFlow/`. |
 
 **Icons.** Some common choices:
 - `fas fa-file-pdf` (paper)
