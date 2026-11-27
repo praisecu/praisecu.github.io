@@ -32,7 +32,8 @@
   --uf-warn: #f0906f;
 }
 
-.publication-title .uf-accent,
+/* The name in PRAISe gold, in both themes. */
+.publication-title .uf-accent { color: var(--pp-gold); }
 .content .uf-ours { color: var(--uf-ours); }
 .content .uf-event { color: var(--uf-event); }
 .content .uf-frame { color: var(--uf-frame); }
