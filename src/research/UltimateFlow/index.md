@@ -172,23 +172,6 @@ Each step is one evaluation on the test server. Output-level fusion stops at 0.6
 <figcaption><strong>Ablation on the DSEC test set.</strong> Select a step to see what it adds.</figcaption>
 </figure>
 
-### Guidance-Input Ablation
-
-One guidance input removed at a time. The guide flow closes most of the gap, and starting from the guide closes the rest.
-
-<figure class="media-figure">
-<div class="uf-abl" role="table" aria-label="Guidance-input ablation, validation EPE">
-<div class="uf-abl-row uf-abl-head" role="row"><div>Variant</div><div class="uf-abl-in"><span>Flow</span><span>Gate</span><span>Resid.</span><span>Init</span></div><div>Validation EPE (px)</div></div>
-<div class="uf-abl-row" role="row"><div class="uf-abl-name">None (Events Only)</div><div class="uf-abl-in"><span>Flow</span><span>Gate</span><span>Resid.</span><span>Init</span></div><div class="uf-abl-bar" style="--w:91.8%"><i></i><b>0.569</b></div></div>
-<div class="uf-abl-row" role="row"><div class="uf-abl-name">Guide Flow Only</div><div class="uf-abl-in"><span class="on">Flow</span><span>Gate</span><span>Resid.</span><span>Init</span></div><div class="uf-abl-bar" style="--w:75.5%"><i></i><b>0.468</b></div></div>
-<div class="uf-abl-row" role="row"><div class="uf-abl-name">Full, No Guide Init</div><div class="uf-abl-in"><span class="on">Flow</span><span class="on">Gate</span><span class="on">Resid.</span><span>Init</span></div><div class="uf-abl-bar" style="--w:75.3%"><i></i><b>0.467</b></div></div>
-<div class="uf-abl-row is-init" role="row"><div class="uf-abl-name">Residual, No Gate</div><div class="uf-abl-in"><span class="on">Flow</span><span>Gate</span><span class="on">Resid.</span><span class="on is-init">Init</span></div><div class="uf-abl-bar" style="--w:70.5%"><i></i><b>0.437</b></div></div>
-<div class="uf-abl-row is-init" role="row"><div class="uf-abl-name">Gate, No Residual</div><div class="uf-abl-in"><span class="on">Flow</span><span class="on">Gate</span><span>Resid.</span><span class="on is-init">Init</span></div><div class="uf-abl-bar" style="--w:70.0%"><i></i><b>0.434</b></div></div>
-<div class="uf-abl-row is-init is-full" role="row"><div class="uf-abl-name">Full</div><div class="uf-abl-in"><span class="on">Flow</span><span class="on">Gate</span><span class="on">Resid.</span><span class="on is-init">Init</span></div><div class="uf-abl-bar" style="--w:70.0%"><i></i><b>0.434</b></div></div>
-</div>
-<figcaption><strong>Validation EPE</strong> of matched 40k-step runs, which differ from the deployed models. Init: the refinement starts from the guide.</figcaption>
-</figure>
-
 <div id="robust"></div>
 
 ## Robustness to Sensor Degradation
