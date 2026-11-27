@@ -8,15 +8,32 @@ tags:
 
 news:
 
-  - title: TinyFlow Preprint Available on arXiv
+  - title: "UltimateFlow: Frame-Guided Event Optical Flow | Preprint Available"
+    date: Nov 29, 2026
+    date_iso: 2026-11-29
+    image: /research/UltimateFlow/static/images/card-home.jpg
+    image_alt: A road after a tunnel exit, its events and the UltimateFlow optical flow estimate
+    url: /research/UltimateFlow.html
+    external: false
+    description: "The UltimateFlow preprint by Chahat Deep Singh, which guides an event camera optical flow network with RGB frames and depth foundation priors, is now available on arXiv."
+
+  - title: "NibbleFlow: 4-Bit Optical Flow | Preprint Available"
+    date: Nov 24, 2026
+    date_iso: 2026-11-24
+    image: /research/NibbleFlow/static/images/card-home.jpg
+    image_alt: A Sintel frame beside NibbleFlow's 4-bit optical flow with a linear output layer and with SEM
+    url: /research/NibbleFlow.html
+    external: false
+    description: "The NibbleFlow preprint by Xiao'ao Song and Chahat Deep Singh, whose sign-exponent-mantissa refinement keeps optical flow accurate with 4-bit weights, is now available on arXiv."
+
+  - title: "TinyFlow: Warp-Free Edge Optical Flow | Preprint Available"
     date: Oct 23, 2026
     date_iso: 2026-10-23
-    image: /research/TinyFlow-workshop/static/images/card-preprint.jpg
-    home_image: /research/TinyFlow-workshop/static/images/card-home.jpg
-    image_alt: A scene beside its TinyFlow optical flow estimate
-    url: https://arxiv.org/abs/2610.33338
+    image: /research/TinyFlow/static/images/card-home.jpg
+    image_alt: A runner beside her TinyFlow optical flow, with the Hailo-8 INT8 accelerator chip
+    url: /research/TinyFlow.html
     description: "The TinyFlow preprint by Xiao'ao Song and Chahat Deep Singh, a 1.26M-parameter warp-free optical flow network for edge accelerators, is now available on arXiv (2610.33338)."
-    external: true
+    external: false
 
   - title: Paper Presented in IROS 2026 (Workshop) | Fold-to-Fit
     date: Oct 1, 2026
