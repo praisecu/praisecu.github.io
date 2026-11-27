@@ -6,15 +6,11 @@ eleventyExcludeFromCollections: true
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
-
+  <meta name="theme-color" content="#ffffff">
   <title>Page Not Found | PRAISe Lab</title>
+  <link rel="icon" type="image/x-icon" href="/img/logo/praise.webp">
 
   <script>
     (() => {
@@ -28,32 +24,281 @@ eleventyExcludeFromCollections: true
         );
       }
     })();
+
+    /* Same theme as the rest of the site (js/theme-toggle.js stores it as praise-theme). */
+    (() => {
+      try {
+        if (window.localStorage.getItem("praise-theme") === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      } catch {
+        /* storage unavailable: stay light */
+      }
+    })();
   </script>
   {% include "components/analytics.njk" %}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700;800;900&family=Open+Sans:wght@400;600&display=swap">
+
+  <style>
+    /* PRAISe palette (css/markdown-pages.css, css/dark-mode.css) */
+    :root {
+      --praise-gold: #cfb97d;
+      --praise-gold-dark: #4f4604;
+      --praise-black: #1d1e00;
+      --praise-text: #55554f;
+      --praise-muted: #77776f;
+      --praise-background: #ffffff;
+      --praise-surface: #f7f4e9;
+      --praise-border: #ebe7d9;
+      --praise-glow: rgba(207, 185, 125, 0.22);
+    }
+
+    html[data-theme="dark"] {
+      --praise-gold: #d6bd72;
+      --praise-gold-dark: #d6bd72;
+      --praise-black: #f3efe3;
+      --praise-text: #d1d1ca;
+      --praise-muted: #aaa9a2;
+      --praise-background: #10110e;
+      --praise-surface: #191b17;
+      --praise-border: #34362f;
+      --praise-glow: rgba(214, 189, 114, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(60rem 28rem at 50% -6rem, var(--praise-glow), transparent 70%),
+        var(--praise-background);
+      color: var(--praise-text);
+      font-family: "Open Sans", Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      padding: 24px 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      align-self: center;
+      color: var(--praise-black);
+      font-family: "Nunito Sans", Arial, sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+    }
+
+    main {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .card { max-width: 560px; }
+
+    .code {
+      margin: 0;
+      color: var(--praise-black);
+      font-family: "Nunito Sans", Arial, sans-serif;
+      font-weight: 900;
+      font-size: clamp(88px, 22vw, 150px);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+
+    .code span { color: var(--praise-gold); }
+
+    .rule {
+      width: 56px;
+      height: 4px;
+      margin: 22px auto 24px;
+      border-radius: 999px;
+      background: var(--praise-gold);
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      color: var(--praise-black);
+      font-family: "Nunito Sans", Arial, sans-serif;
+      font-weight: 800;
+      font-size: clamp(24px, 4.5vw, 30px);
+      text-wrap: balance;
+    }
+
+    p {
+      margin: 0 auto;
+      max-width: 44ch;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .path {
+      display: inline-block;
+      max-width: 100%;
+      margin-top: 14px;
+      padding: 5px 12px;
+      overflow-wrap: anywhere;
+      border: 1px solid var(--praise-border);
+      border-radius: 999px;
+      background: var(--praise-surface);
+      color: var(--praise-muted);
+      font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+      font-size: 13px;
+    }
+
+    .path:empty { display: none; }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border: 1px solid var(--praise-black);
+      border-radius: 999px;
+      background: var(--praise-black);
+      color: var(--praise-gold);
+      font-family: "Nunito Sans", Arial, sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      text-decoration: none;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, color 160ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      border-color: var(--praise-gold);
+      background: var(--praise-gold);
+      color: #1d1e00;
+      transform: translateY(-1px);
+    }
+
+    html[data-theme="dark"] .button {
+      border-color: var(--praise-gold);
+      background: transparent;
+    }
+
+    html[data-theme="dark"] .button:hover,
+    html[data-theme="dark"] .button:focus-visible {
+      background: var(--praise-gold);
+      color: #10110e;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 22px;
+      margin-top: 26px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .links a {
+      color: var(--praise-gold-dark);
+      font-family: "Nunito Sans", Arial, sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 160ms ease;
+    }
+
+    .links a:hover,
+    .links a:focus-visible { border-bottom-color: currentColor; }
+
+    a:focus-visible {
+      outline: 2px solid var(--praise-gold);
+      outline-offset: 3px;
+    }
+
+    footer {
+      color: var(--praise-muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .button, .links a { transition: none; }
+      .button:hover, .button:focus-visible { transform: none; }
+    }
+  </style>
 </head>
 
 <body>
-  <main
-    style="
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:30px;
-      font-family:Arial,sans-serif;
-      text-align:center;
-    "
-  >
-    <div>
-      <h1>404</h1>
-      <p>Page not found.</p>
+  <div class="page">
+    <a class="brand" href="/">
+      <img src="/img/logo/praise-logo.webp" alt="" width="34" height="34">
+      PRAISe Lab
+    </a>
 
-      <p>
-        <a href="/">
-          Return to PRAISe Lab
-        </a>
-      </p>
-    </div>
-  </main>
+    <main>
+      <div class="card">
+        <p class="code" aria-hidden="true">4<span>0</span>4</p>
+        <div class="rule"></div>
+        <h1>This page took a wrong turn</h1>
+        <p>The page you are looking for has moved or no longer exists.</p>
+        <span class="path" id="missing-path"></span>
+
+        <div class="actions">
+          <a class="button" href="/">Back to PRAISe Lab</a>
+        </div>
+
+        <ul class="links" aria-label="Popular pages">
+          <li><a href="/research-areas.html">Research</a></li>
+          <li><a href="/publications.html">Publications</a></li>
+          <li><a href="/team.html">Team</a></li>
+          <li><a href="/news.html">News</a></li>
+          <li><a href="/openings.html">Openings</a></li>
+        </ul>
+      </div>
+    </main>
+
+    <footer>PRAISe Lab · University of Colorado Boulder</footer>
+  </div>
+
+  <script>
+    (() => {
+      const el = document.getElementById("missing-path");
+      const path = window.location.pathname;
+
+      if (el && path && path !== "/404.html") {
+        el.textContent = path;
+      }
+
+      if (document.documentElement.getAttribute("data-theme") === "dark") {
+        const meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", "#10110e");
+      }
+    })();
+  </script>
 </body>
 </html>
