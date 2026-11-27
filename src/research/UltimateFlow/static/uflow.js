@@ -34,7 +34,7 @@
     { id: "mountain", title: "Mountain Road", sub: "Test, Fast Motion", frames: 160,
       left: ["frame", "events", "eraft", "idnet", "bflow", "evo"],
       epe: { eraft: 1.39, idnet: 1.25, bflow: 1.11, evo: 1.36, ours: 0.91 } },
-    { id: "tunnel", title: "Tunnel", sub: "Test, Dark Frames", frames: 160,
+    { id: "tunnel", title: "Tunnel", sub: "Test, Dark Frames", frames: 112,
       left: ["frame", "events", "eraft", "idnet", "bflow", "evo"],
       epe: { eraft: 1.39, idnet: 1.25, bflow: 1.11, evo: 1.36, ours: 0.91 } },
     { id: "night", title: "City at Night", sub: "Test, Low Light", frames: 160,
