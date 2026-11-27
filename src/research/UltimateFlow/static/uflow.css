@@ -32,8 +32,17 @@
   --uf-warn: #f0906f;
 }
 
-/* The name in PRAISe gold, in both themes. */
-.publication-title .uf-accent { color: var(--pp-gold); }
+/* The name in PRAISe gold: a deeper gold on the white page, where the light
+   brand gold has too little contrast, and the brand gold on the dark page. */
+:root { --uf-title-gold: #9a781c; }
+:root[data-theme="dark"] { --uf-title-gold: var(--pp-gold); }
+.publication-title .uf-accent { color: var(--uf-title-gold); }
+.publication-affiliations { font-size: 1.12rem !important; }
+.publication-affiliations b { font-weight: 800; color: var(--uf-title-gold); }
+/* Dark page: the affiliation in white, so the gold letters stand out. */
+:root[data-theme="dark"] .publication-affiliations a { color: var(--pp-ink); }
+:root[data-theme="dark"] .publication-affiliations a:hover { color: var(--pp-gold-hover); }
+.publication-hero .publication-authors:not(.publication-affiliations) { font-size: 1.3rem !important; }
 .content .uf-ours { color: var(--uf-ours); }
 .content .uf-event { color: var(--uf-event); }
 .content .uf-frame { color: var(--uf-frame); }
@@ -101,7 +110,7 @@
   position: relative;
   overflow: hidden;
   border-radius: var(--pp-radius-md);
-  background: var(--uf-tile-bg);
+  background: transparent;          /* a white ground showed as a light hairline at the rounded corners of dark tiles */
   line-height: 0;
   box-shadow: 0 6px 18px var(--pp-shadow);
 }
@@ -140,7 +149,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   gap: 0.6rem;
-  max-width: 35.2rem;               /* desktop size, phones use the full width */
+  max-width: 80%;                   /* of the text column on desktop, full width on phones */
   margin: 0 auto 0.9rem;
 }
 .uf-hero-inputs {
@@ -172,7 +181,7 @@
   color: var(--pp-text);
 }
 @media (max-width: 640px) {
-  .uf-hero { grid-template-columns: 1fr; }
+  .uf-hero { grid-template-columns: 1fr; max-width: none; }
   .uf-hero-inputs { grid-template-rows: none; grid-template-columns: 1fr 1fr; order: 2; }
   .uf-hero .uf-hero-out { aspect-ratio: 640 / 460; }
 }
@@ -234,7 +243,13 @@
 /* --------------------------------------------------------------------------
    Video comparison explorer
    -------------------------------------------------------------------------- */
-.uf-explorer { margin: 1.4rem 0 0.4rem; }
+.uf-explorer {
+  max-width: 80%;                   /* as the teaser: 80% of the column on desktop, full width on phones */
+  margin: 1.4rem auto 0.4rem;
+}
+@media (max-width: 640px) {
+  .uf-explorer { max-width: none; }
+}
 .uf-scenes {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -245,8 +260,8 @@
   appearance: none;
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  padding: 0.4rem 0.7rem 0.4rem 0.4rem;
+  gap: 0.5rem;
+  padding: 0.35rem 0.55rem 0.35rem 0.35rem;
   border: 1px solid var(--pp-border);
   border-radius: var(--pp-radius-md);
   background: var(--pp-bg);
@@ -257,8 +272,8 @@
 }
 .uf-scene:hover { border-color: var(--pp-gold); }
 .uf-scene img {
-  width: 3.6rem;
-  height: 2.6rem;
+  width: 2.9rem;
+  height: 2.1rem;
   object-fit: cover;
   border-radius: 9px !important;
   flex: none;
@@ -266,12 +281,15 @@
 .uf-scene span { display: block; min-width: 0; }
 .uf-scene b {
   display: block;
-  font: 800 0.9rem/1.25 var(--pp-font-heading);
+  font: 800 0.84rem/1.25 var(--pp-font-heading);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: var(--pp-ink);
 }
 .uf-scene small {
   display: block;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   line-height: 1.3;
   color: var(--pp-muted);
   white-space: nowrap;
@@ -285,7 +303,7 @@
 }
 .compare.uf-stage {
   aspect-ratio: 640 / 460;
-  background: var(--uf-tile-bg);
+  background: transparent;
   touch-action: pan-y;
 }
 .uf-stage canvas {
@@ -431,9 +449,18 @@
 }
 .uf-chart .uf-grid { stroke: var(--pp-border); stroke-width: 1; }
 .uf-chart .uf-axis { stroke: var(--pp-muted); stroke-width: 1; }
-.uf-chart .uf-tick { fill: var(--pp-muted); font-size: 12px; font-weight: 600; }
-.uf-chart .uf-axis-title { fill: var(--pp-text); font-size: 13px; font-weight: 700; }
-.uf-chart .uf-pt { cursor: pointer; outline: none; }
+.uf-chart .uf-tick { fill: var(--pp-muted); font-size: 15px; font-weight: 600; }
+.uf-chart .uf-axis-title { fill: var(--pp-text); font-size: 17px; font-weight: 700; }
+.uf-chart .uf-pt {
+  cursor: pointer;
+  outline: none;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1.2);
+}
+/* Entrance: every point drops in from the upper right of its place. */
+.uf-chart svg.is-animating .uf-pt:not(.is-shown) { opacity: 0; transform: translate(14px, -14px) scale(0.4); }
+.uf-chart svg.is-animating .uf-pt.is-ours:not(.is-shown) { transform: translate(28px, -28px) scale(0.2); }
 .uf-chart .uf-pt .uf-mark {
   fill: var(--pp-bg);
   stroke: var(--uf-base);
@@ -556,72 +583,6 @@
 @media (max-width: 640px) {
   .uf-stepcard { grid-template-columns: auto minmax(0, 1fr); }
   .uf-steps { grid-column: 1 / -1; justify-content: center; }
-}
-
-/* --------------------------------------------------------------------------
-   Gap to the per-pixel oracle
-   -------------------------------------------------------------------------- */
-.content .uf-gap {
-  margin: 1.8rem 0 1.2rem;
-  padding: 3.4rem 1.2rem 3.3rem;
-}
-.uf-gap-track {
-  position: relative;
-  height: 12px;
-  margin: 0 2.2rem;
-  border-radius: 6px;
-  background: var(--pp-border);
-}
-.uf-gap-fill {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: var(--a);
-  width: calc(var(--b) - var(--a));
-  border-radius: 6px;
-  background: var(--uf-ours);
-  transform-origin: left center;
-  transform: scaleX(0);
-  transition: transform 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s;
-}
-.uf-in .uf-gap-fill { transform: none; }
-.uf-gap-mark {
-  position: absolute;
-  left: var(--x);
-  top: 50%;
-  width: 16px;
-  height: 16px;
-  margin: -8px 0 0 -8px;
-  border: 3px solid var(--uf-base);
-  border-radius: 50%;
-  background: var(--pp-bg);
-}
-.uf-gap-mark.is-ours { border-color: var(--uf-ours); background: var(--uf-ours); }
-.uf-gap-mark.is-oracle { border-style: dashed; }
-.uf-gap-mark span {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  text-align: center;
-  font: 700 0.8rem/1.3 var(--pp-font-heading);
-  color: var(--pp-text);
-}
-.uf-gap-mark.is-up span { bottom: 1.25rem; }
-.uf-gap-mark.is-down span { top: 1.25rem; }
-.uf-gap-mark span b {
-  display: block;
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: var(--pp-ink);
-  font-variant-numeric: tabular-nums;
-}
-.uf-gap-mark.is-ours span,
-.uf-gap-mark.is-ours span b { color: var(--uf-ours); }
-@media (max-width: 640px) {
-  .uf-gap-track { margin: 0 2.6rem; }
-  .uf-gap-mark span { font-size: 0.7rem; }
-  .uf-gap-mark span b { font-size: 0.92rem; }
 }
 
 /* --------------------------------------------------------------------------
@@ -752,7 +713,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .uf-gap-fill,
   .uf-abl-bar i,
   .uf-rbar i,
   .uf-tip { transition: none; }
@@ -862,44 +822,6 @@
 .uf-fbar.is-ours { color: var(--pp-ink); font-weight: 700; }
 .uf-fbar.is-ours i { background: var(--uf-ours); }
 
-/* The gap from the best blend (left) to the oracle (right), and how far we get. */
-.uf-fgap {
-  position: relative;
-  display: block;
-  height: 6px;
-  margin: 0.35rem 0 0.1rem;
-  border-radius: 3px;
-  background: var(--pp-border);
-}
-.uf-fgap i {
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: var(--w);
-  border-radius: 3px;
-  background: var(--uf-ours);
-}
-.uf-fgap i::after {
-  content: "";
-  position: absolute;
-  right: -7px;
-  top: 50%;
-  width: 14px;
-  height: 14px;
-  margin-top: -7px;
-  border-radius: 50%;
-  background: var(--uf-ours);
-  box-shadow: 0 0 0 3px var(--pp-surface);
-}
-.uf-fends {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.5rem;
-  font-size: 0.7rem;
-  font-weight: 600;
-  line-height: 1.2;
-  font-variant-numeric: tabular-nums;
-  color: var(--pp-muted);
-}
 @media (max-width: 900px) {
   .content.page-content .uf-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .uf-fact:nth-child(odd) { border-left: 0; }
@@ -909,8 +831,7 @@
   .uf-fact { padding: 0.95rem 0.85rem 0.9rem; }
   .uf-fact-num { font-size: 2rem; }
   .uf-fact-text { font-size: 0.78rem; }
-  .uf-fbar, .uf-fends { font-size: 0.64rem; }
-  .uf-fends { gap: 0.3rem; }
+  .uf-fbar { font-size: 0.64rem; }
 }
 @media (max-width: 340px) {
   .content.page-content .uf-facts { grid-template-columns: minmax(0, 1fr); }
@@ -918,3 +839,164 @@
   .uf-fact:nth-child(n + 2) { border-top: 1px solid var(--pp-border); }
   .uf-fact-viz { min-height: 0; }
 }
+
+/* ---- Architecture diagram ------------------------------------------------
+   Two lanes on one grid, so every connector is straight: the frame branch on
+   top, the event branch below, and the guide outputs dropping straight into
+   the refinement. */
+.uf-arch {
+  display: grid;
+  grid-template-columns: 9rem 1.6rem minmax(11rem, 1fr) 1.6rem minmax(17rem, 1.4fr) 1.6rem 10.5rem;
+  grid-template-rows: auto 3.6rem auto;
+  align-items: center;
+  min-width: 57rem;
+  padding: 1.2rem 1.3rem;
+  border: 1px solid var(--pp-border);
+  border-radius: var(--pp-radius-lg);
+  background: var(--pp-surface);
+}
+.uf-arch-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+  text-align: center;
+}
+.uf-arch-tile img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 320 / 230;
+  object-fit: cover;
+  border: 1px solid var(--pp-border);
+  border-radius: 10px !important;
+  background: #fff;
+}
+.uf-arch-tile span {
+  font: 800 0.92rem/1.2 var(--pp-font-heading);
+  color: var(--pp-ink);
+}
+.uf-arch-tile span i { margin-right: 0.15rem; color: var(--pp-muted); }
+.uf-arch-tile.is-small span { font-size: 0.86rem; }
+.uf-arch-tile em {
+  margin-top: -0.15rem;
+  font-style: normal;
+  font-size: 0.76rem;
+  line-height: 1.2;
+  color: var(--pp-muted);
+}
+.uf-arch-tile.is-out img { border: 2px solid var(--uf-ours); }
+.uf-arch-tile.is-out span { color: var(--uf-ours); font-weight: 800; }
+.uf-arch-guide {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem;
+  padding: 0.5rem;
+  border: 1px solid var(--uf-frame);
+  border-radius: 12px;
+  background: var(--uf-frame-soft);
+}
+.uf-arch-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--pp-border);
+  border-radius: 12px;
+  background: var(--pp-bg);
+  box-shadow: 0 4px 14px var(--pp-shadow);
+}
+.uf-arch-box b { font: 800 1.12rem/1.2 var(--pp-font-heading); color: var(--pp-ink); }
+.uf-arch-box small { font-size: 0.86rem; line-height: 1.4; color: var(--pp-text); }
+.uf-arch-kicker {
+  font: 800 0.72rem/1.2 var(--pp-font-heading);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.uf-arch-box.is-frame { border-top: 3px solid var(--uf-frame); }
+.uf-arch-box.is-frame .uf-arch-kicker { color: var(--uf-frame); }
+.uf-arch-box.is-event { border-top: 3px solid var(--uf-event); }
+.uf-arch-box.is-event .uf-arch-kicker { color: var(--uf-event); }
+.uf-arch-box.is-ours { border-top: 3px solid var(--uf-ours); background: var(--uf-ours-soft); }
+.uf-arch-box.is-ours .uf-arch-kicker { color: var(--uf-ours); }
+
+/* Straight connectors with a small head. */
+.uf-arch-arrow {
+  position: relative;
+  height: 2px;
+  margin: 0 0.3rem 0 0.2rem;
+  background: var(--pp-muted);
+}
+.uf-arch-arrow::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: -4px;
+  border: 5px solid transparent;
+  border-right: 0;
+  border-left: 7px solid var(--pp-muted);
+}
+.uf-arch-down {
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.uf-arch-down::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0.2rem;
+  bottom: 0.45rem;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--uf-frame);
+}
+.uf-arch-down::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0.1rem;
+  margin-left: -5px;
+  border: 5px solid transparent;
+  border-bottom: 0;
+  border-top: 7px solid var(--uf-frame);
+}
+.uf-arch-down span {
+  position: relative;
+  z-index: 1;
+  padding: 0.15rem 0.6rem;
+  border-radius: var(--pp-radius-pill);
+  background: var(--pp-surface);
+  font: 800 0.86rem/1.2 var(--pp-font-heading);
+  color: var(--uf-frame);
+  white-space: nowrap;
+}
+
+/* ---- Acknowledgment with the Google Cloud logo ----------------------------- */
+.content .uf-sponsor {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 34rem;
+  margin: 0.4rem auto 1.2rem;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--pp-border);
+  border-radius: var(--pp-radius-md);
+  background: var(--pp-surface);
+}
+.content .uf-sponsor img {
+  flex: none;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.content .uf-sponsor p { margin: 0; line-height: 1.5; }
+
+/* A one-line instruction above a widget, centered on it. */
+.content .uf-lead { text-align: center; }
+
+/* Every section and subsection title centered, as the section titles of the template. */
+.content.page-content h3 { text-align: center; }
+#BibTeX h2 { text-align: center; }

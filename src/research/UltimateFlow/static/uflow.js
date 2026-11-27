@@ -40,7 +40,7 @@
     { id: "night", title: "City at Night", sub: "Test, Low Light", frames: 160,
       left: ["frame", "events", "eraft", "idnet", "bflow", "evo"],
       epe: { eraft: 0.61, idnet: 0.60, bflow: 0.54, evo: 0.57, ours: 0.48 } },
-    { id: "street", title: "Residential Street", sub: "Validation, With GT", frames: 100,
+    { id: "street", title: "Street", sub: "Validation, With GT", frames: 100,
       left: ["frame", "events", "eraft", "idnet", "bflow", "evo", "gt"],
       epe: {} }
   ];
@@ -364,11 +364,10 @@
       ["STFlow†", "E+I", 0.630, 7.93, 2.61, 1.45, 2.29, [10, 14, "start"]],
       ["EDCPT†", "E+I", 0.625, 6.87, 2.35, 1.52, 2.17, [-11, 13, "end"]],
       ["E-WAVE†", "E+I", 0.623, 7.26, 2.54, 1.56, 2.24, [-11, -5, "end"]],
-      ["UltimateFlow† (E+I), single model", "E+I", 0.583, 6.31, 2.06, 1.18, 2.21, [13, -9, "start", "Single Model"]],
       ["UltimateFlow† (E+I), 5-model ensemble", "E+I", 0.554, 6.01, 1.94, 1.11, 2.08, [14, 18, "start", "UltimateFlow (E+I)"]]
     ];
 
-    var W = 720, H = 430, m = { l: 58, r: 20, t: 16, b: 50 };
+    var W = 720, H = 436, m = { l: 70, r: 20, t: 16, b: 58 };
     var x0 = 0.52, x1 = 0.82, y0 = 0.9, y1 = 2.9;
     function sx(v) { return m.l + (v - x0) / (x1 - x0) * (W - m.l - m.r); }
     function sy(v) { return H - m.b - (v - y0) / (y1 - y0) * (H - m.t - m.b); }
@@ -378,15 +377,15 @@
     var v;
     for (v = 0.55; v < x1 + 1e-6; v += 0.05) {
       chart.appendChild(svg("line", { class: "uf-grid", x1: sx(v), x2: sx(v), y1: sy(y0), y2: sy(y1) }));
-      chart.appendChild(svg("text", { class: "uf-tick", x: sx(v), y: sy(y0) + 18, "text-anchor": "middle", text: v.toFixed(2) }));
+      chart.appendChild(svg("text", { class: "uf-tick", x: sx(v), y: sy(y0) + 21, "text-anchor": "middle", text: v.toFixed(2) }));
     }
     for (v = 1.0; v < y1 + 1e-6; v += 0.5) {
       chart.appendChild(svg("line", { class: "uf-grid", x1: sx(x0), x2: sx(x1), y1: sy(v), y2: sy(v) }));
       chart.appendChild(svg("text", { class: "uf-tick", x: sx(x0) - 9, y: sy(v) + 4, "text-anchor": "end", text: v.toFixed(1) }));
     }
     chart.appendChild(svg("text", { class: "uf-axis-title", x: (sx(x0) + sx(x1)) / 2, y: H - 8, "text-anchor": "middle", text: "Endpoint Error, EPE (px)" }));
-    chart.appendChild(svg("text", { class: "uf-axis-title", x: 15, y: (sy(y0) + sy(y1)) / 2, "text-anchor": "middle",
-      transform: "rotate(-90 15 " + (sy(y0) + sy(y1)) / 2 + ")", text: "3-Pixel Error, 3PE (%)" }));
+    chart.appendChild(svg("text", { class: "uf-axis-title", x: 17, y: (sy(y0) + sy(y1)) / 2, "text-anchor": "middle",
+      transform: "rotate(-90 17 " + (sy(y0) + sy(y1)) / 2 + ")", text: "3-Pixel Error, 3PE (%)" }));
     chart.appendChild(svg("path", { class: "uf-better-line", d: "M" + (sx(0.60)) + " " + sy(2.62) + " L" + sx(0.555) + " " + sy(2.62) + " m6 -4 l-6 4 l6 4" }));
     chart.appendChild(svg("text", { class: "uf-better", x: sx(0.605), y: sy(2.62) + 4, text: "Better" }));
 
@@ -440,6 +439,21 @@
 
     root.appendChild(el("div", { class: "uf-scroll" }, [chart]));
     root.appendChild(legend);
+
+    /* The field fills in from the top right (highest error) to the bottom left,
+       in the order of the rows (EPE from high to low), and UltimateFlow lands last. */
+    if (!reduceMotion) {
+      chart.classList.add("is-animating");
+      onceVisible(root, function () {
+        var step = 110, t = 200;
+        points.forEach(function (point, i) {
+          if (i === points.length - 1) t += 350;
+          setTimeout(function () { point.node.classList.add("is-shown"); }, t);
+          t += step;
+        });
+        setTimeout(function () { chart.classList.remove("is-animating"); }, t + 700);
+      });
+    }
   })();
 
   /* ---- From 0.759 to 0.554, one server evaluation per step --------------- */
@@ -460,13 +474,13 @@
       [0.587, "Four update iterations", "Run four refinement iterations at inference instead of the six used in training."],
       [0.583, "Epipolar projection", "Project every flow vector onto its epipolar line under an essential matrix fitted to the prediction."],
       [0.564, "Two large-motion models", "Average two models that are also trained on intervals of 200 and 300 ms."],
-      [0.554, "5-model ensemble", "Average five models that use three sets of guide inputs. First of 39 entries on the benchmark."]
+      [0.554, "5-model ensemble", "Average five models that use three sets of guide inputs. 1 out of 39 entries on the benchmark, as of Nov 10, 2026."]
     ];
     var SPLIT = 6;                       /* first dense-guidance step */
     var current = steps.length - 1;
     var pinned = current;                /* hovering previews a step, leaving the chart returns here */
 
-    var W = 720, H = 330, m = { l: 50, r: 24, t: 34, b: 30 };
+    var W = 720, H = 330, m = { l: 64, r: 24, t: 34, b: 30 };
     var y0 = 0.53, y1 = 0.78;
     function sx(i) { return m.l + 16 + i * (W - m.l - m.r - 32) / (steps.length - 1); }
     function sy(v) { return H - m.b - (v - y0) / (y1 - y0) * (H - m.t - m.b); }
@@ -483,8 +497,8 @@
       chart.appendChild(svg("line", { class: "uf-grid", x1: m.l, x2: W - m.r, y1: sy(v), y2: sy(v) }));
       chart.appendChild(svg("text", { class: "uf-tick", x: m.l - 8, y: sy(v) + 4, "text-anchor": "end", text: v.toFixed(2) }));
     }
-    chart.appendChild(svg("text", { class: "uf-axis-title", x: 13, y: (sy(y0) + sy(y1)) / 2, "text-anchor": "middle",
-      transform: "rotate(-90 13 " + (sy(y0) + sy(y1)) / 2 + ")", text: "Test EPE (px)" }));
+    chart.appendChild(svg("text", { class: "uf-axis-title", x: 19, y: (sy(y0) + sy(y1)) / 2, "text-anchor": "middle",
+      transform: "rotate(-90 19 " + (sy(y0) + sy(y1)) / 2 + ")", text: "Test EPE (px)" }));
 
     function path(from, to) {
       var d = "";
