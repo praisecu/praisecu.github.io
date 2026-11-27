@@ -95,6 +95,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="/css/research-project/project.css">
+  {%- for sheet in extra_css %}
+  <link rel="stylesheet" href="{{ sheet | researchUrl }}">
+  {%- endfor %}
   {%- if math %}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -266,5 +269,8 @@
 <script src="/js/research-project/bulma-carousel.min.js"></script>
 <script src="/js/research-project/bulma-slider.min.js"></script>
 <script src="/js/research-project/project.js"></script>
+{%- for script in extra_js %}
+<script src="{{ script | researchUrl }}"></script>
+{%- endfor %}
 </body>
 </html>
