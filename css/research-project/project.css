@@ -215,9 +215,20 @@ body {
   border-color: var(--pp-gold);
   transform: rotate(-15deg);
 }
-.theme-toggle .fa-sun { display: none; }
-:root[data-theme="dark"] .theme-toggle .fa-sun { display: inline-block; }
-:root[data-theme="dark"] .theme-toggle .fa-moon { display: none; }
+/* Outline sun and moon, the same drawings as the main site header (components/modern-header.njk) */
+.theme-toggle .theme-icon {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.theme-toggle .theme-icon .fill { fill: currentColor; stroke: none; }
+.theme-toggle .theme-icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .theme-icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .theme-icon-moon { display: none; }
 
 /* --------------------------------------------------------------------------
    Header: title, authors, links

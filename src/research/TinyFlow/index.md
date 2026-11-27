@@ -169,7 +169,7 @@ INT8 flow into the same pose estimator, no depth. TinyFlow has the lowest ATE on
 
 ## Robustness to illumination change
 
-Gamma, brightness and offset changes on the second frame. TinyFlow stays within **5.92 to 8.99 EPE**, while EdgeFlowNet rises to 27 to 61 and NanoFlowNet to 18 to 90.
+Gamma and brightness changes on the second frame. TinyFlow stays within **5.92 to 8.99 EPE**, while EdgeFlowNet rises to 27 to 61 and NanoFlowNet to 18 to 90.
 
 <figure class="tf-widget" id="tf-illum-widget">
 <div class="tf-controls"><div class="tf-group" id="tf-illum-scenes"><span class="tf-group-label">Pair</span><button class="tf-chip" type="button" data-illum-scene="runner_" aria-pressed="true">Synthetic · runner</button><button class="tf-chip" type="button" data-illum-scene="ambush7_" aria-pressed="false">Clean · ambush_7</button><button class="tf-chip" type="button" data-illum-scene="" aria-pressed="false">Clean · alley_2</button></div></div>
@@ -640,11 +640,11 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
   (function () {
     var root = document.getElementById("tf-illum-widget"); if (!root) return;
     var svg = document.getElementById("tf-illum-svg"), chips = document.getElementById("tf-illum-chips");
-    var CND = ["Unchanged", "Gamma 0.70", "Gamma 0.85", "Gamma 1.20", "Gamma 1.50", "Brightness ×0.80", "Brightness ×1.25", "Offset +20", "Offset −20"];
+    var CND = ["Unchanged", "Gamma 0.70", "Gamma 0.85", "Gamma 1.20", "Gamma 1.50", "Brightness ×0.80", "Brightness ×1.25"];
     var E = {
-      edgeflownet: [6.02, 60.92, 29.00, 41.94, 60.05, 40.38, 26.99, 52.05, 50.55],
-      nanoflownet: [7.73, 90.12, 17.78, 23.17, 61.68, 21.16, 20.24, 75.15, 41.38],
-      tinyflow: [5.65, 6.78, 5.92, 6.08, 6.67, 6.29, 8.99, 6.29, 6.57]
+      edgeflownet: [6.02, 60.92, 29.00, 41.94, 60.05, 40.38, 26.99],
+      nanoflownet: [7.73, 90.12, 17.78, 23.17, 61.68, 21.16, 20.24],
+      tinyflow: [5.65, 6.78, 5.92, 6.08, 6.67, 6.29, 8.99]
     };
     var cur = 4;
     var bs = CND.map(function (c, i) {
@@ -654,15 +654,15 @@ Contact: [xiaoao.song@colorado.edu](mailto:xiaoao.song@colorado.edu), [chahat.si
       chips.appendChild(b); return b;
     });
     var PAIRS = {
-      "": { tinyflow: [0.90, 1.08, 0.98, 0.95, 1.06, 1.05, 3.19, 1.12, 0.99],
-            edgeflownet: [0.92, 30.18, 11.76, 23.34, 38.43, 36.46, 19.54, 22.10, 32.46],
-            nanoflownet: [2.35, 30.22, 5.90, 7.25, 11.39, 11.00, 6.79, 8.92, 9.37] },
-      "ambush7_": { tinyflow: [1.66, 2.18, 1.74, 2.00, 2.10, 1.91, 1.88, 1.86, 1.84],
-            edgeflownet: [3.30, 83.06, 53.32, 55.18, 74.24, 53.45, 49.18, 71.83, 69.01],
-            nanoflownet: [9.37, 86.00, 41.43, 46.03, 154.63, 49.19, 43.35, 144.38, 111.23] },
-      "runner_": { tinyflow: [0.55, 0.59, 0.56, 0.58, 0.67, 0.61, 0.57, 0.55, 0.61],
-            edgeflownet: [0.79, 49.01, 39.03, 43.62, 38.90, 42.06, 46.41, 45.50, 43.68],
-            nanoflownet: [3.39, 98.18, 52.73, 78.49, 89.59, 79.45, 83.73, 99.19, 90.56] }
+      "": { tinyflow: [0.90, 1.08, 0.98, 0.95, 1.06, 1.05, 3.19],
+            edgeflownet: [0.92, 30.18, 11.76, 23.34, 38.43, 36.46, 19.54],
+            nanoflownet: [2.35, 30.22, 5.90, 7.25, 11.39, 11.00, 6.79] },
+      "ambush7_": { tinyflow: [1.66, 2.18, 1.74, 2.00, 2.10, 1.91, 1.88],
+            edgeflownet: [3.30, 83.06, 53.32, 55.18, 74.24, 53.45, 49.18],
+            nanoflownet: [9.37, 86.00, 41.43, 46.03, 154.63, 49.19, 43.35] },
+      "runner_": { tinyflow: [0.55, 0.59, 0.56, 0.58, 0.67, 0.61, 0.57],
+            edgeflownet: [0.79, 49.01, 39.03, 43.62, 38.90, 42.06, 46.41],
+            nanoflownet: [3.39, 98.18, 52.73, 78.49, 89.59, 79.45, 83.73] }
     };
     var pair = "runner_";
     chipGroup(root, "data-illum-scene", function (v) { pair = v; draw(); });
