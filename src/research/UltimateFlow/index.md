@@ -40,7 +40,7 @@ bibtex: |
     title  = {UltimateFlow: Frame-Guided Event Optical Flow with Depth Foundation Priors},
     author = {Singh, Chahat Deep},
     year   = {2026},
-    url    = {https://www.praisecu.com/research/UltimateFlow.html}
+    url    = {https://www.praisecu.com/research/UltimateFlow}
   }
 ---
 

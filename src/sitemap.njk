@@ -7,7 +7,7 @@ eleventyExcludeFromCollections: true
 {%- for item in collections.all %}
 {%- if "/markdown-test" not in item.url and "/offline" not in item.url and "/404" not in item.url %}
   <url>
-    <loc>https://www.praisecu.com{{ item.url }}</loc>
+    <loc>https://www.praisecu.com{{ item.url | publicUrl }}</loc>
     <lastmod>{{ item.date.toISOString() }}</lastmod>
   </url>
 {%- endif %}

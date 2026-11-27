@@ -44,7 +44,7 @@ bibtex: |
     howpublished = {IROS 2026 Workshop on Insect-scale Autonomy, Pittsburgh, PA, USA},
     month        = oct,
     year         = {2026},
-    url          = {https://www.praisecu.com/research/TinyFlow-workshop.html}
+    url          = {https://www.praisecu.com/research/TinyFlow-workshop}
   }
 ---
 
