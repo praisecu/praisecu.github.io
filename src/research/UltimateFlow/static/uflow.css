@@ -497,7 +497,7 @@
 .uf-chart .uf-stair { fill: none; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
 .uf-chart .uf-stair.is-a { stroke: var(--uf-frame); }
 .uf-chart .uf-stair.is-b { stroke: var(--uf-ours); }
-.uf-chart .uf-stair.is-ghost { stroke: var(--pp-border); }
+.uf-chart .uf-stair.is-ghost { stroke: var(--pp-muted); stroke-width: 2.5; opacity: 0.45; }
 .uf-chart .uf-branch { fill: none; stroke: var(--uf-warn); stroke-width: 2; stroke-dasharray: 5 4; }
 .uf-chart .uf-branch-dot { fill: var(--pp-bg); stroke: var(--uf-warn); stroke-width: 2; }
 .uf-chart .uf-branch-label { fill: var(--uf-warn); font-size: 12px; font-weight: 700; }
@@ -505,11 +505,11 @@
 .uf-chart .uf-step circle { fill: var(--pp-bg); stroke-width: 2.5; transition: r 0.15s ease; }
 .uf-chart .uf-step.is-a circle { stroke: var(--uf-frame); }
 .uf-chart .uf-step.is-b circle { stroke: var(--uf-ours); }
-.uf-chart .uf-step.is-future circle { stroke: var(--pp-border); }
+.uf-chart .uf-step.is-future circle { stroke: var(--pp-muted); }
 .uf-chart .uf-step.is-active.is-a circle { fill: var(--uf-frame); }
 .uf-chart .uf-step.is-active.is-b circle { fill: var(--uf-ours); }
 .uf-chart .uf-step text { fill: var(--pp-text); font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
-.uf-chart .uf-step.is-future text { fill: var(--pp-border); }
+.uf-chart .uf-step.is-future text { fill: var(--pp-muted); }
 .uf-chart .uf-step.is-active text { fill: var(--pp-ink); font-weight: 800; font-size: 13.5px; }
 .uf-stepcard {
   display: grid;
