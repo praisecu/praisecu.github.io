@@ -464,6 +464,7 @@
     ];
     var SPLIT = 6;                       /* first dense-guidance step */
     var current = steps.length - 1;
+    var pinned = current;                /* hovering previews a step, leaving the chart returns here */
 
     var W = 720, H = 330, m = { l: 50, r: 24, t: 34, b: 30 };
     var y0 = 0.53, y1 = 0.78;
@@ -515,9 +516,9 @@
           ? svg("text", { x: cx + 14, y: cy + 4, "text-anchor": "start", text: step[0].toFixed(3) })
           : svg("text", { x: cx, y: cy + (up ? -13 : 22), "text-anchor": "middle", text: step[0].toFixed(3) })
       ]);
-      group.addEventListener("click", function () { select(i); });
+      group.addEventListener("click", function () { pinned = i; select(i); });
       group.addEventListener("pointerenter", function () { select(i); });
-      group.addEventListener("focus", function () { select(i); });
+      group.addEventListener("focus", function () { pinned = i; select(i); });
       group.addEventListener("keydown", function (event) {
         if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
           event.preventDefault();
@@ -551,7 +552,7 @@
       });
       lineA.setAttribute("d", path(0, Math.min(i, SPLIT - 1)));
       lineB.setAttribute("d", i >= SPLIT ? path(SPLIT - 1, i) : "");
-      branch.style.opacity = i >= SPLIT ? 1 : 0.25;
+      branch.style.opacity = i >= SPLIT ? 1 : 0.6;
       score.textContent = steps[i][0].toFixed(3);
       delta.textContent = i === 0 ? "start" : ((steps[i][0] / steps[0][0] - 1) * 100).toFixed(0) + "% from start";
       kicker.textContent = "Step " + (i + 1) + " of " + steps.length + (i < SPLIT ? (i === 0 ? ", events only" : ", output-level fusion") : ", dense guidance");
@@ -560,8 +561,9 @@
       prev.disabled = i === 0;
       next.disabled = i === steps.length - 1;
     }
-    prev.addEventListener("click", function () { select(Math.max(0, current - 1)); });
-    next.addEventListener("click", function () { select(Math.min(steps.length - 1, current + 1)); });
+    prev.addEventListener("click", function () { pinned = Math.max(0, current - 1); select(pinned); });
+    next.addEventListener("click", function () { pinned = Math.min(steps.length - 1, current + 1); select(pinned); });
+    chart.addEventListener("pointerleave", function () { if (current !== pinned) select(pinned); });
 
     root.appendChild(el("div", { class: "uf-scroll" }, [chart]));
     root.appendChild(card);
