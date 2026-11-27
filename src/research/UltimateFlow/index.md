@@ -1,6 +1,6 @@
 ---
 title: "UltimateFlow: Frame-Guided Event Optical Flow with Depth Foundation Priors"
-title_html: '<span class="uf-accent">Ultimate</span>Flow: Frame-Guided Event Optical Flow with Depth Foundation Priors'
+title_html: '<span class="uf-accent">UltimateFlow</span>: Frame-Guided Event Optical Flow with Depth Foundation Priors'
 description: "UltimateFlow gives a frozen RGB optical flow network to an event-based estimator as a dense input and a starting point, instead of blending the two at the output. It ranks first on the DSEC-Flow benchmark with an endpoint error of 0.554."
 image: static/images/social.jpg
 keywords: [event camera, optical flow, event-based vision, depth foundation models, sensor fusion, DSEC, MVSEC, UltimateFlow]
