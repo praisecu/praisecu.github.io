@@ -1393,3 +1393,16 @@ input[type="range"].slider::-moz-range-track {
 }
 .tf-explorer select:hover { border-color: var(--pp-gold); }
 .tf-explorer select:focus-visible { outline: 2px solid var(--pp-gold); outline-offset: 2px; }
+
+/* --------------------------------------------------------------------------
+   Shared header pieces first made for the TinyFlow and UltimateFlow pages.
+   .title-gold: the method name in PRAISe gold, set through title_html
+   (a darker gold on the light page, where the brand gold has too little
+   contrast). affiliations_html: bold letters (the P, R, AI, S of PRAISe) in
+   that gold; on the dark page the linked affiliation is white so they stand out. */
+:root { --pp-title-gold: #9a781c; }
+:root[data-theme="dark"] { --pp-title-gold: var(--pp-gold); }
+.publication-title .title-gold { color: var(--pp-title-gold); }
+.publication-affiliations b { font-weight: 800; color: var(--pp-title-gold); }
+:root[data-theme="dark"] .publication-affiliations a { color: var(--pp-ink); }
+:root[data-theme="dark"] .publication-affiliations a:hover { color: var(--pp-gold-hover); }
