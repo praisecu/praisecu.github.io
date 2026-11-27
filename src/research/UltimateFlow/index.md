@@ -49,11 +49,40 @@ bibtex: |
 </div>
 <p class="uf-hero-caption"><strong>UltimateFlow on a DSEC test sequence.</strong> Inside the tunnel the frame is dark, and at the exit it saturates. The events keep firing, and UltimateFlow estimates dense flow throughout, from the events (E) and the RGB frames (I).</p>
 
-<div class="stat-strip">
-  <div class="stat-card"><span class="stat-value">1<small>st of 39</small></span><span class="stat-label">on the DSEC-Flow optical flow benchmark, by endpoint error</span></div>
-  <div class="stat-card"><span class="stat-value">0.554<small> px</small></span><span class="stat-label">endpoint error, 11% below the best previously published method</span></div>
-  <div class="stat-card"><span class="stat-value">53<small>%</small></span><span class="stat-label">of the gap between the best output blend and a per-pixel oracle, closed</span></div>
-  <div class="stat-card"><span class="stat-value">+8<small>%</small></span><span class="stat-label">error with 90% of the events removed, against +66% for events alone</span></div>
+<div class="uf-facts">
+<div class="uf-fact">
+<span class="uf-fact-kicker">Benchmark Rank</span>
+<span class="uf-fact-num">1<small>st of 39</small></span>
+<span class="uf-fact-viz" aria-hidden="true"><span class="uf-frank"></span></span>
+<span class="uf-fact-text">First on the DSEC-Flow optical flow benchmark, by endpoint error.</span>
+</div>
+<div class="uf-fact">
+<span class="uf-fact-kicker">Endpoint Error</span>
+<span class="uf-fact-num">0.554<small>px</small></span>
+<span class="uf-fact-viz" aria-hidden="true">
+<span class="uf-fbar" style="--w: 100%"><span>Best Prior</span><span>0.623</span><i></i></span>
+<span class="uf-fbar is-ours" style="--w: 88.9%"><span>UltimateFlow</span><span>0.554</span><i></i></span>
+</span>
+<span class="uf-fact-text">11% below the best previously published method.</span>
+</div>
+<div class="uf-fact">
+<span class="uf-fact-kicker">Oracle Gap Closed</span>
+<span class="uf-fact-num">53<small>%</small></span>
+<span class="uf-fact-viz" aria-hidden="true">
+<span class="uf-fgap" style="--w: 52.5%"><i></i></span>
+<span class="uf-fends"><span>Blend 0.487</span><span>Oracle 0.388</span></span>
+</span>
+<span class="uf-fact-text">Of the gap between the best output blend and a per-pixel oracle.</span>
+</div>
+<div class="uf-fact">
+<span class="uf-fact-kicker">90% Fewer Events</span>
+<span class="uf-fact-num">+8<small>% error</small></span>
+<span class="uf-fact-viz" aria-hidden="true">
+<span class="uf-fbar" style="--w: 100%"><span>Events Only</span><span>+66%</span><i></i></span>
+<span class="uf-fbar is-ours" style="--w: 12.1%"><span>UltimateFlow</span><span>+8%</span><i></i></span>
+</span>
+<span class="uf-fact-text">With 90% of the events removed, against +66% for events alone.</span>
+</div>
 </div>
 
 ## Abstract
