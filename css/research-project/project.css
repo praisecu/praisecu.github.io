@@ -215,9 +215,19 @@ body {
   border-color: var(--pp-gold);
   transform: rotate(-15deg);
 }
-.theme-toggle .fa-sun { display: none; }
-:root[data-theme="dark"] .theme-toggle .fa-sun { display: inline-block; }
-:root[data-theme="dark"] .theme-toggle .fa-moon { display: none; }
+/* Outline sun and moon, the same drawings as the main site header (components/modern-header.njk) */
+.theme-toggle .theme-icon {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.theme-toggle .theme-icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .theme-icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .theme-icon-moon { display: none; }
 
 /* --------------------------------------------------------------------------
    Header: title, authors, links
