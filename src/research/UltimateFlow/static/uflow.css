@@ -140,7 +140,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   gap: 0.6rem;
-  max-width: 44rem;                 /* about three quarters of the text column */
+  max-width: 35.2rem;               /* desktop size, phones use the full width */
   margin: 0 auto 0.9rem;
 }
 .uf-hero-inputs {
