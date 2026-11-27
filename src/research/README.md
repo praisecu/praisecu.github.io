@@ -2,25 +2,26 @@
 
 Each folder here is one paper's project page, written in **Markdown**. The pages use the [Nerfies](https://nerfies.github.io) layout (title, authors and link buttons, a teaser video, a results carousel, sections, and BibTeX) in the lab's colors, with an optional dark mode.
 
-A folder `src/research/<name>/` is published at **`https://www.praisecu.com/research/<name>.html`**.
+A folder `src/research/<name>/` is published at **`https://www.praisecu.com/research/<name>`**. Always link to that address, without `.html` (the `.html` address also works, but links, BibTeX and the publications and news entries use the short one).
 
-The [example page](example/index.md) uses every building block. Copy it to start your own.
+The [example page](example/index.md) uses every building block. Copy it to start your own. [TinyFlow](TinyFlow/index.md) and [UltimateFlow](UltimateFlow/index.md) are complete pages to learn from.
 
 ---
 
 ## Add a page for your paper
 
-1. **Pick a short folder name.** Use lowercase words with hyphens, e.g. `minimal-perception`. It becomes the URL.
+1. **Pick a short folder name.** Usually the method's name, e.g. `TinyFlow`, or lowercase words with hyphens, e.g. `minimal-perception`. It becomes the URL.
 2. **Create `src/research/<name>/index.md`.** Copy in the contents of [`example/index.md`](example/index.md), then edit it:
    - Delete the `noindex` and `eleventyExcludeFromCollections` lines. They keep the example out of search engines; your page should be found.
    - Fill in the header between the two `---` lines. The reference below covers every field.
    - Replace the example sections with your own Markdown.
 3. **Add your media** under `src/research/<name>/static/`, e.g. `static/videos/teaser.mp4` and `static/images/teaser.jpg`. Paths in `index.md` are relative to your folder.
-4. **Open a pull request.** The site's GitHub Action builds every pull request, so a green check means the page built. Once the pull request is merged, the page goes live within a couple of minutes.
+4. **List the paper on the publications and news pages** (see [below](#list-the-paper-on-the-site)).
+5. **Open a pull request.** The site's GitHub Action builds every pull request, so a green check means the page built. Once the pull request is merged, the page goes live within a couple of minutes.
 
 **Without installing anything:** press `.` on the repository's GitHub page to open it in a web-based VS Code editor. Create your folder, paste in the example, drag your media into `static/`, and commit to a new branch to start the pull request.
 
-**With a local preview:** install Node.js 22 or newer, then in the repository run the two commands below. Open `http://localhost:8080/research/<name>.html`. The page rebuilds whenever you save.
+**With a local preview:** install Node.js 22 or newer, then in the repository run the two commands below. Open `http://localhost:8080/research/<name>`. The page rebuilds whenever you save.
 
 ```bash
 npm ci
@@ -39,16 +40,16 @@ Everything between the `---` lines at the top of `index.md` is YAML. Only `title
 | Field | What it does |
 |---|---|
 | `title` | Paper title. **Wrap it in quotes if it contains a colon.** |
-| `title_html` | Optional. The title with HTML markup for the page heading only, e.g. `'<span class="title-accent">Nibble</span>Flow: ...'` to color a word. The browser tab and link previews keep using `title`. |
-| `affiliations_html` | Optional. The affiliation line with HTML markup (links, bold letters, a line break), shown instead of `affiliations` under the authors. Keep `affiliations` as plain text for the citation metadata. |
+| `title_html` | Optional. The title with HTML markup for the page heading only. `'<span class="title-gold">TinyFlow</span>: ...'` puts the method name in PRAISe gold (theme-aware); `title-accent` colors it green instead. The browser tab and link previews keep using `title`. |
+| `affiliations_html` | Optional. The affiliation line with HTML markup (links, bold letters, a line break), shown instead of `affiliations` under the authors. Letters in `<b>` turn bold gold, as in UltimateFlow's linked **P**erception, **R**obotics, **AI** and **S**ensing (**PRAISe**) Lab line; the example page has it ready to uncomment. Keep `affiliations` as plain text for the citation metadata. |
 | `subtitle` | Optional line under the title. |
 | `description` | One or two sentences, used by search engines and link previews. |
-| `image` | Preview image for link previews on Slack, X, etc. (JPG/PNG, about 1200×630). |
+| `image` | Link-preview image for Slack, X, LinkedIn, etc. (JPG, 1200×630): a strong result image with the method name on a dark band. When you change it, give the file a new name; those sites keep the old image under the old name. |
 | `venue` / `award` | Shown as chips under the title, e.g. `"CVPR 2026"`, `"Best Paper Award"`. |
 | `authors` | List of `name`, optional `url`, `affiliations: [1, 2]`, and `note: "*"`. |
 | `affiliations` | List of institutions. Superscript numbers appear automatically when there is more than one. |
 | `author_notes` | Line under the affiliations, e.g. `"*Equal contribution"`. |
-| `links` | Buttons: `text`, `url`, `icon`. The same icons appear in the footer. |
+| `links` | Buttons: `text`, `url`, `icon`. The same icons appear in the footer. The usual set, in this order: arXiv (or Paper), Results (`#results`), Code, Video (`#video` or YouTube), BibTeX (`#BibTeX`). For something not released yet, write `(Coming Soon)` in the text and use `url: "#coming-soon"`: the button is dimmed and not clickable. |
 | `teaser` | A video or photo path (`static/videos/teaser.mp4`, `static/images/teaser.jpg`), or `video:` / `image:` / `youtube:` with optional `poster:` (videos only), `alt:` and `caption:`. |
 | `carousel` | List of videos and/or photos for the results strip. Every slot is 16:9 and media is cropped to fill it; `carousel_ratio: "4 / 3"` (or `"1 / 1"`, `"3 / 4"`) changes the shape. `carousel_slides: 2` shows two at a time (default 3). |
 | `math: true` | Needed for `$$...$$` equations to render. |
@@ -107,6 +108,25 @@ What each one does:
 - `compare`: a before/after slider; both images must be the same size.
 - `frameslider`: the Nerfies scrubbing slider over numbered frames.
 
+**Headline numbers** under the teaser, one card each (two to four cards):
+
+```html
+<div class="stat-strip">
+  <div class="stat-card"><span class="stat-value">1.26<small>M</small></span><span class="stat-label">parameters, warp-free</span></div>
+  <div class="stat-card"><span class="stat-value">54%</span><span class="stat-label">fewer parameters than the baseline</span></div>
+</div>
+```
+
+**One key sentence** in a highlighted box:
+
+```html
+<div class="key-idea"><strong>Key insight.</strong> The one thing to remember from the paper.</div>
+```
+
+**Anchors for the header buttons:** put `<div id="results"></div>` (or `video`) on its own line just before the section a button should jump to.
+
+**Interactive pieces** beyond these blocks (charts, sliders over your own results, explorers) go in a page stylesheet and script loaded with `extra_css` / `extra_js`; see `UltimateFlow/static/uflow.css` and `uflow.js`. In raw HTML inside `index.md`, write media paths as `<name>/static/...`; the building blocks above take `static/...`.
+
 **Two columns** (text next to a video):
 
 ```text
@@ -153,6 +173,60 @@ Export numbered frames for `frameslider` (10 per second, 720 px wide):
 
 ```bash
 ffmpeg -i interpolation.mp4 -vf "fps=10,scale=720:-2" -start_number 0 -q:v 4 static/frames/%06d.jpg
+```
+
+---
+
+## Writing style
+
+The lab pages keep the text short and let the figures carry the page (see TinyFlow). Headings in Title Case, US spelling (color, labeled), one-line captions that say what to look at, and no venue names for papers under double-blind review.
+
+---
+
+## List the paper on the site
+
+Each paper also gets an entry on the [publications page](../publications.md) and a news item in [`news.md`](../news.md), both near the top (newest first). Both use the short address `/research/<name>`.
+
+**Images.** Put three versions of one result image in `static/images/`:
+
+| File | Size | Used by |
+|---|---|---|
+| `card.jpg` | 1200×675 | the publications entry |
+| `card-home.jpg` | 768×768 | the news item on the news and home pages (shown as a small square) |
+| your `image:` file | 1200×630 | link previews |
+
+The lab's cards split the image with white diagonals into the input and the result (TinyFlow: frame | flow, with the INT8 accelerator chip; UltimateFlow: frame | events | flow; NibbleFlow: input | 4-bit linear | 4-bit SEM, with short tags). Keep text off the publications card; short tags are fine.
+
+**Publications entry** (in `src/publications.md`): buttons in the order Project, PDF (the arXiv link once there is one), Video, then the automatic Cite button; give the BibTeX from the page.
+
+```yaml
+  - title: "YourMethod: Full Paper Title"
+    date: "Preprint · Nov 2026"
+    year: 2026
+    image: "/research/YourMethod/static/images/card.jpg"
+    primary_url: "/research/YourMethod"
+    venue: "Preprint"
+    authors: "First Author, Second Author"
+    links:
+      - label: Project
+        type: project
+        url: "/research/YourMethod"
+      - label: PDF
+        type: pdf
+        url: "https://arxiv.org/abs/<id>"
+```
+
+**News item** (in `src/news.md`): the title names the method and what it does in three or four words, then what happened, e.g. `"TinyFlow: Warp-Free Edge Optical Flow | Preprint Available"`. The description has no author names, and the item links to the project page.
+
+```yaml
+  - title: "YourMethod: Three-Word Topic | Preprint Available"
+    date: Nov 24, 2026
+    date_iso: 2026-11-24
+    image: /research/YourMethod/static/images/card-home.jpg
+    image_alt: What the image shows
+    url: /research/YourMethod
+    external: false
+    description: "The YourMethod preprint, which does X, is now available on arXiv."
 ```
 
 ---

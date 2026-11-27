@@ -10,9 +10,11 @@
 noindex: true
 eleventyExcludeFromCollections: true
 
-title: "Your Paper Title: A Project Page in Markdown"
+title: "YourMethod: A Project Page in Markdown"
+# Optional: the same title with markup for the heading only, here the method name in PRAISe gold.
+title_html: '<span class="title-gold">YourMethod</span>: A Project Page in Markdown'
 description: "One or two sentences about the paper. Used for search engines and for link previews on Twitter/X and Slack."
-image: static/images/teaser.jpg          # link-preview image (JPG/PNG, ~1200x630)
+image: static/images/teaser.jpg          # link-preview image (JPG/PNG, 1200x630), see the README
 keywords: [robotics, perception, template]
 
 venue: "Conference Name 2026"            # optional
@@ -37,23 +39,26 @@ affiliations:
   - First Institution
   - Second Institution
 author_notes: "*Equal contribution"
+# A single-lab paper can link its affiliation instead, with the PRAISe letters in bold gold:
+# affiliations: [Perception, Robotics, AI and Sensing (PRAISe) Lab, University of Colorado Boulder]
+# affiliations_html: '<a href="/"><b>P</b>erception, <b>R</b>obotics, <b>AI</b> and <b>S</b>ensing (<b>PRAISe</b>) Lab</a><br><a href="https://www.colorado.edu/" target="_blank" rel="noopener">University of Colorado Boulder</a>'
 
 links:                                   # buttons under the authors; any Font Awesome / Academicons icon works
-  - text: Paper
-    url: "#"
-    icon: fas fa-file-pdf
   - text: arXiv
-    url: "#"
+    url: "#"                             # https://arxiv.org/abs/<id>
     icon: ai ai-arxiv
-  - text: Video
-    url: "#"
-    icon: fab fa-youtube
-  - text: Code
-    url: https://github.com/praisecu
+  - text: Results
+    url: "#results"                      # jumps to <div id="results"></div> in the body
+    icon: fas fa-chart-line
+  - text: Code (Coming Soon)
+    url: "#coming-soon"                  # shown dimmed and not clickable until released
     icon: fab fa-github
-  - text: Data
-    url: "#"
-    icon: fas fa-database
+  - text: Video
+    url: "#video"
+    icon: fab fa-youtube
+  - text: BibTeX
+    url: "#BibTeX"                       # jumps to the BibTeX box at the bottom
+    icon: fas fa-quote-right
 
 teaser:
   video: static/videos/teaser.mp4        # or `image: static/images/teaser.jpg`
@@ -70,13 +75,20 @@ carousel:                                # optional strip of videos and/or photo
 math: true                               # set when the page has equations
 
 bibtex: |
-  @inproceedings{author2026paper,
-    title     = {Your Paper Title: A Project Page in Markdown},
+  @inproceedings{author2026yourmethod,
+    title     = {YourMethod: A Project Page in Markdown},
     author    = {Author, First and Author, Second and Author, Third and Author, Fourth},
     booktitle = {Conference Name},
     year      = {2026}
   }
 ---
+
+<div class="stat-strip">
+  <div class="stat-card"><span class="stat-value">1<small>st</small></span><span class="stat-label">on a public benchmark, with the date of the ranking</span></div>
+  <div class="stat-card"><span class="stat-value">54%</span><span class="stat-label">fewer parameters than the strongest baseline</span></div>
+  <div class="stat-card"><span class="stat-value">0.43<small>px</small></span><span class="stat-label">one headline number per card, with its unit</span></div>
+  <div class="stat-card"><span class="stat-value">10×</span><span class="stat-label">a short label that says what the number means</span></div>
+</div>
 
 ## Abstract
 
@@ -84,9 +96,7 @@ This page shows every building block of the lab's research page template, which 
 
 The page uses the colors of the [PRAISe Lab](/) and has an optional dark mode behind the button at the top right. Replace this text with your abstract.
 
-## Video
-
-{% youtube id="MrKrnHhk8IA" %}
+<div class="key-idea"><strong>Key insight.</strong> One or two sentences that a reader should remember from the paper.</div>
 
 ## Method
 
@@ -111,6 +121,8 @@ Use `###` for subsections. Two columns side by side, text next to a video the wa
 {% endcolumn %}
 {% endcolumns %}
 
+<div id="results"></div>
+
 ## Results
 
 {% grid items="static/videos/result2.mp4, static/videos/result3.mp4, static/videos/result4.mp4", captions="Ours | Baseline A | Baseline B", columns=3 %}
@@ -131,10 +143,16 @@ The Nerfies interpolation slider scrubs through a folder of numbered frames, whi
 
 {% frameslider dir="static/frames", frames=24, start="static/images/frame_start.jpg", end="static/images/frame_end.jpg" %}
 
+<div id="video"></div>
+
+## Video
+
+{% youtube id="MrKrnHhk8IA" %}
+
 ## Related Work
 
 Point readers to concurrent and related projects here. [Nerfies](https://nerfies.github.io) is the origin of this layout, and the lab's [Research Areas](/research-areas.html) page lists its other projects. Ordinary Markdown links are fine.
 
-## Acknowledgements
+## Acknowledgments
 
 Thank your funding sources and colleagues. This section, like every other one on the page, is just a `##` heading followed by text.
