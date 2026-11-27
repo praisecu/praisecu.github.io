@@ -32,7 +32,8 @@
   --uf-warn: #f0906f;
 }
 
-.publication-title .uf-accent,
+/* The name in PRAISe gold, in both themes. */
+.publication-title .uf-accent { color: var(--pp-gold); }
 .content .uf-ours { color: var(--uf-ours); }
 .content .uf-event { color: var(--uf-event); }
 .content .uf-frame { color: var(--uf-frame); }
@@ -138,13 +139,14 @@
 .uf-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-  gap: 0.75rem;
-  margin: 0 0 0.9rem;
+  gap: 0.6rem;
+  max-width: 35.2rem;               /* desktop size, phones use the full width */
+  margin: 0 auto 0.9rem;
 }
 .uf-hero-inputs {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  gap: 0.75rem;
+  gap: 0.6rem;
 }
 .uf-hero .uf-tile { aspect-ratio: 640 / 460; }
 .uf-hero .uf-hero-out {
@@ -754,4 +756,165 @@
   .uf-abl-bar i,
   .uf-rbar i,
   .uf-tip { transition: none; }
+}
+
+/* ---- Four results under the teaser ---------------------------------------
+   One panel instead of four cards. Every number sits above the comparison
+   that backs it: the field of 39 entries, the best prior method, the two ends
+   of the oracle gap, the event-only model. Green marks UltimateFlow, as in
+   the charts below. */
+.content.page-content .uf-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0.6rem 0 2.4rem;
+  border: 1px solid var(--pp-border);
+  border-radius: var(--pp-radius-lg);
+  background: var(--pp-surface);
+  overflow: hidden;
+}
+.uf-fact {
+  display: flex;
+  flex-direction: column;
+  padding: 1.15rem 1.25rem 1.1rem;
+  border-left: 1px solid var(--pp-border);
+  text-align: left;
+}
+.uf-fact:first-child { border-left: 0; }
+.uf-fact-kicker {
+  font-family: var(--pp-font-heading);
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pp-gold-text);
+}
+.uf-fact-num {
+  margin-top: 0.5rem;
+  font-family: var(--pp-font-heading);
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--pp-ink);
+}
+.uf-fact-num small {
+  margin-left: 0.2em;
+  font-size: 0.38em;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--pp-muted);
+}
+.uf-fact-viz {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 3.9rem;
+  margin: 0.7rem 0 0.65rem;
+}
+.uf-fact-text {
+  font-size: 0.84rem;
+  line-height: 1.4;
+  color: var(--pp-muted);
+}
+
+/* 39 entries as dots, 13 by 3, the first one lit. */
+.uf-frank {
+  position: relative;
+  display: block;
+  height: 42px;
+  background: radial-gradient(circle, var(--uf-base) 0 2.5px, transparent 3.2px) 0 0 / calc(100% / 13) 14px;
+  opacity: 0.9;
+}
+.uf-frank::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(100% / 13);
+  height: 14px;
+  background: radial-gradient(circle, var(--uf-ours) 0 5px, transparent 5.7px), var(--pp-surface);
+}
+
+/* A labeled bar: name, value, then the bar on its own row. */
+.uf-fbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.2rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+  color: var(--pp-muted);
+}
+.uf-fbar i {
+  grid-column: 1 / -1;
+  display: block;
+  width: var(--w);
+  min-width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--uf-base);
+}
+.uf-fbar.is-ours { color: var(--pp-ink); font-weight: 700; }
+.uf-fbar.is-ours i { background: var(--uf-ours); }
+
+/* The gap from the best blend (left) to the oracle (right), and how far we get. */
+.uf-fgap {
+  position: relative;
+  display: block;
+  height: 6px;
+  margin: 0.35rem 0 0.1rem;
+  border-radius: 3px;
+  background: var(--pp-border);
+}
+.uf-fgap i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--w);
+  border-radius: 3px;
+  background: var(--uf-ours);
+}
+.uf-fgap i::after {
+  content: "";
+  position: absolute;
+  right: -7px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  margin-top: -7px;
+  border-radius: 50%;
+  background: var(--uf-ours);
+  box-shadow: 0 0 0 3px var(--pp-surface);
+}
+.uf-fends {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+  color: var(--pp-muted);
+}
+@media (max-width: 900px) {
+  .content.page-content .uf-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .uf-fact:nth-child(odd) { border-left: 0; }
+  .uf-fact:nth-child(n + 3) { border-top: 1px solid var(--pp-border); }
+}
+@media (max-width: 480px) {
+  .uf-fact { padding: 0.95rem 0.85rem 0.9rem; }
+  .uf-fact-num { font-size: 2rem; }
+  .uf-fact-text { font-size: 0.78rem; }
+  .uf-fbar, .uf-fends { font-size: 0.64rem; }
+  .uf-fends { gap: 0.3rem; }
+}
+@media (max-width: 340px) {
+  .content.page-content .uf-facts { grid-template-columns: minmax(0, 1fr); }
+  .uf-fact { border-left: 0; }
+  .uf-fact:nth-child(n + 2) { border-top: 1px solid var(--pp-border); }
+  .uf-fact-viz { min-height: 0; }
 }
