@@ -15,15 +15,18 @@ affiliations:
 affiliations_html: '<a href="/"><b>P</b>erception, <b>R</b>obotics, <b>AI</b> and <b>S</b>ensing (<b>PRAISe</b>) Lab</a><br><a href="https://www.colorado.edu/" target="_blank" rel="noopener">University of Colorado Boulder</a>'
 
 links:
-  - text: Video
-    url: "#video"
-    icon: fas fa-circle-play
-  - text: Explore
-    url: "#explore"
-    icon: fas fa-sliders
+  - text: arXiv (Coming Soon)
+    url: "#coming-soon"
+    icon: ai ai-arxiv
   - text: Results
     url: "#results"
     icon: fas fa-chart-line
+  - text: Code (Coming Soon)
+    url: "#coming-soon"
+    icon: fab fa-github
+  - text: Video
+    url: "#video"
+    icon: fab fa-youtube
   - text: BibTeX
     url: "#BibTeX"
     icon: fas fa-quote-right
