@@ -163,16 +163,28 @@ With 86% of its weights in 4 bits, NibbleFlow loses less than one pixel of EPE a
 
 ## Downstream: visual odometry
 
-{% figure src="static/images/vo_traj.png", alt="Estimated trajectories of NibbleFlow, EdgeFlowNet and NanoFlowNet against the ground truth on two UZH-FPV flights and two TartanAir trajectories", caption="**Visual odometry trajectories from optical flow alone with the INT4 models.** Estimated paths of NibbleFlow (orange), EdgeFlowNet (blue) and NanoFlowNet (purple) against the ground truth (black) for two UZH-FPV flights (a, b) and two TartanAir trajectories (c, d). NibbleFlow has the lowest ATE on all four and keeps the shape of the loops and of the turns, EdgeFlowNet keeps the shape but drifts further from the ground truth path, and the path of NanoFlowNet jitters and leaves it." %}
+INT4 flow into the same pose estimator, no depth. NibbleFlow has the lowest ATE on **7 of 11** sequences.
 
+{% figure src="static/videos/vo_trajectories.mp4", poster="static/videos/vo_trajectories.jpg", alt="Animation of the estimated visual odometry trajectories of NibbleFlow, EdgeFlowNet and NanoFlowNet being drawn against the ground truth on two UZH-FPV flights and two TartanAir trajectories, next to the input frames", caption="Trajectories drawn frame by frame against the ground truth (black)." %}
+
+{# Static trajectory figure, hidden for now. Remove this comment wrapper to show it again.
+{% figure src="static/images/vo_traj.png", alt="Estimated trajectories of NibbleFlow, EdgeFlowNet and NanoFlowNet against the ground truth on two UZH-FPV flights and two TartanAir trajectories", caption="**Visual odometry trajectories from optical flow alone with the INT4 models.** Estimated paths of NibbleFlow (orange), EdgeFlowNet (blue) and NanoFlowNet (purple) against the ground truth (black) for two UZH-FPV flights (a, b) and two TartanAir trajectories (c, d). NibbleFlow has the lowest ATE on all four and keeps the shape of the loops and of the turns, EdgeFlowNet keeps the shape but drifts further from the ground truth path, and the path of NanoFlowNet jitters and leaves it." %}
+#}
+
+{# Longer text, hidden for now. Remove this comment wrapper to show it again.
 Dense flow on a small robot is rarely the end product, so we test whether the ranking survives a downstream task. The three deployable networks run in INT4 and feed the same pose estimator, the five point algorithm inside RANSAC. No depth is used and the translation scale is taken from the ground truth, so the metrics measure only how well the flow constrains the camera rotation and the direction of travel.
+#}
 
 | Mean ATE (m) | NibbleFlow | EdgeFlowNet | NanoFlowNet | Ground truth flow |
 |---|:---:|:---:|:---:|:---:|
 | TartanAir, 8 synthetic trajectories | **4.95** | 6.70 | 10.64 | 0.26 |
 | UZH-FPV, 3 real drone flights | **5.46** | 8.89 | 18.76 | n/a |
 
+<p class="table-note">ATE after SE(3) alignment, mean over the sequences.</p>
+
+{# Longer table note, hidden for now.
 <p class="table-note">Absolute trajectory error after SE(3) alignment, unweighted mean over the sequences. NibbleFlow has the lowest ATE on seven of the eleven sequences, EdgeFlowNet on four and NanoFlowNet on none.</p>
+#}
 
 ## Beyond optical flow
 
