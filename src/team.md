@@ -29,7 +29,7 @@ current_students:
     links:
       - label: Google Scholar
         type: scholar
-        url: "https://scholar.google.com/citations?hl=en&user=88aAUZMAAAAJ"
+        url: "https://scholar.google.com/citations?hl=en&user=Nvmjf1gAAAAJ"
       - label: GitHub
         type: github
         url: https://github.com/lineojcd

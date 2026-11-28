@@ -13,7 +13,7 @@ paper_title: "Rethinking Warping for Optical Flow on Edge Accelerators"
 
 authors:
   - name: "Xiao'ao Song"
-    url: "https://scholar.google.com/citations?hl=en&user=88aAUZMAAAAJ"
+    url: "https://scholar.google.com/citations?hl=en&user=Nvmjf1gAAAAJ"
   - name: Chahat Deep Singh
     url: https://chahatdeep.github.io/
 affiliations:
