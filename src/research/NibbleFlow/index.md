@@ -127,7 +127,11 @@ Drag the slider. Both sides are the same network in INT4, with its linear output
 
 ### SEM in existing networks
 
+We replace only the output layer of three iterative networks with SEM and train both versions identically on FlyingChairs. In floating point, RAFT-small and RAPIDFlow lose no accuracy; with 4-bit weights, SEM loses far less.
+
+{# Previous text, hidden for now. Remove this comment wrapper to show it again.
 RAFT-small iterates a GRU at a single scale, RAPIDFlow refines from coarse to fine with a shared block, and IRR-PWC refines a feature pyramid with shared weights. In each network, we replace the convolution that regresses the update by the SEM head, with the same exponents for all networks and no tuning, and change nothing else. Both versions are trained from scratch on FlyingChairs with the official settings and the same seed. Replacing the output layer costs no accuracy in RAFT-small and RAPIDFlow in floating point. **The picture changes completely once the weights are quantized to 4 bits.**
+#}
 
 | Network | FP32 | INT4, linear | INT4, SEM |
 |---|:---:|:---:|:---:|
