@@ -132,8 +132,8 @@ RAFT-small iterates a GRU at a single scale, RAPIDFlow refines from coarse to fi
 | Network | FP32 | INT4, linear | INT4, SEM |
 |---|:---:|:---:|:---:|
 | RAFT-small | 2.84 | 17.83 | **8.79** |
-| RAPIDFlow, 12 iterations | 2.57 | 4.85 | **3.27** |
-| RAPIDFlow, 1 iteration | 5.32 | 9.73 | **5.84** |
+| RAPIDFlow-it12 | 2.57 | 4.85 | **3.27** |
+| RAPIDFlow-it1 | 5.32 | 9.73 | **5.84** |
 | IRR-PWC | 2.94 | 5.72 | **4.43** |
 
 <p class="table-note">Sintel clean EPE (lower is better). FP32 is the linear version. INT4 is 4-bit weights with 8-bit activations, simulated with the same quantizer for both versions. Only in IRR-PWC are two layers kept in 8 bits in both versions. With one iteration of RAPIDFlow, 4-bit weights add 4.41 EPE to the linear version and only 0.61 to SEM, which removes 86% of the added error.</p>
