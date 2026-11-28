@@ -166,7 +166,11 @@ RAFT-small iterates a GRU at a single scale, RAPIDFlow refines from coarse to fi
 | EdgeFlowNet | 2.75M | 19.98 | 8.65 | 9.22 | 5.50 | 76.30 |
 | **NibbleFlow (ours)** | **0.51M** | 6.97 | **4.76** | **5.68** | **3.14** | 15.19 |
 
+<p class="table-note">EPE of the INT4 networks on the Hailo-8, on Sintel and the FlyingChairs validation set. In FP32, NibbleFlow reaches 3.88 / 4.76 on Sintel clean / final. No network is trained or calibrated on Sintel.</p>
+
+{# Previous table note, hidden for now.
 <p class="table-note">EPE of the INT4 networks quantized for the Hailo-8 (lower is better), on all 1041 Sintel pairs and 640 FlyingChairs validation pairs. In FP32, NibbleFlow reaches 3.88 / 4.76 on Sintel clean / final. No network is trained or calibrated on Sintel.</p>
+#}
 
 With 86% of its weights in 4 bits, NibbleFlow loses less than one pixel of EPE and reaches 4.76 and 5.68, which cuts the error of EdgeFlowNet, the best deployable baseline, by **up to 45%**, with **5.4× fewer parameters**. NanoFlowNet is smaller and faster, but its INT4 error is more than twice as high.
 
