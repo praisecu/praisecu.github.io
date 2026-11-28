@@ -103,9 +103,15 @@ Because only the output layer changes, SEM drops into **any network that refines
 
 ## NibbleFlow
 
+{% figure src="static/images/architecture.png", alt="NibbleFlow architecture: features at 1/8, 1/16 and 1/32 are correlated along fixed directions without warping, and one shared SEM update block refines the flow coarse to fine", caption="**(a)** No warp: each level correlates along fixed directions, and the flow is refined coarse to fine from zero. **(b)** One SEM update block, shared across the levels except its first layer." %}
+
+NibbleFlow compiles to **a single static graph** and runs on a Hailo-8 with **0.51M parameters** and **86% of its weights in 4 bits**. It is quantized with the Hailo compiler and its quantization-aware fine-tuning, which uses no Sintel data.
+
+{# Previous caption and text, hidden for now. Remove this comment wrapper to show them again.
 {% figure src="static/images/architecture.png", alt="NibbleFlow architecture: features at 1/8, 1/16 and 1/32 are correlated along fixed directions without warping, and one shared SEM update block refines the flow coarse to fine", caption="**(a)** Features at 1/8, 1/16 and 1/32 are correlated along fixed directions, so nothing is warped, and the flow is refined coarse to fine from zero. **(b)** The SEM update block predicts each step as the product of a sign, an exponent and a mantissa." %}
 
 We build a network around SEM that an edge accelerator can run as **a single static graph**. Without a warp, each level correlates the two frames only along a few directions through each pixel, eight directions at 1/32, six at 1/16 and four at 1/8, and all three levels use **a single SEM update block** of width 96. NibbleFlow has **0.51M parameters** and runs on a Hailo-8 with **86% of its weights in 4 bits**. It is quantized with the Hailo compiler and its quantization-aware fine-tuning, which uses no Sintel data.
+#}
 
 <div id="compare"></div>
 
