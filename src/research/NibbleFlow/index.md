@@ -142,7 +142,11 @@ RAFT-small iterates a GRU at a single scale, RAPIDFlow refines from coarse to fi
 
 <p class="table-note">Sintel clean EPE (lower is better). FP32 is the linear version. INT4 is 4-bit weights with 8-bit activations, simulated with the same quantizer for both versions. Only in IRR-PWC are two layers kept in 8 bits in both versions. With one iteration of RAPIDFlow, 4-bit weights add 4.41 EPE to the linear version and only 0.61 to SEM, which removes 86% of the added error.</p>
 
+<div class="key-idea"><strong>Where the error comes from.</strong> In RAPIDFlow, the 4-bit weights of the last convolution, the layer that SEM replaces, account for nearly all of the loss of the linear version. SEM lets this layer use 4-bit weights like every other layer.</div>
+
+{# Previous text, hidden for now. Remove this comment wrapper to show it again.
 **Attribution of the quantization error.** Quantizing one part of the network at a time locates this loss in a single layer. In RAPIDFlow, the 4-bit weights of the last convolution alone, which is the layer that SEM replaces, account for **nearly all of the loss of the linear version**. Keeping this one layer in 8 bits also rescues the linear version, which then matches SEM. The value of SEM is that its output layer tolerates 4-bit weights like every other layer, so no layer needs special treatment.
+#}
 
 ### Comparison with edge optical flow networks
 
