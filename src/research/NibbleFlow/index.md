@@ -99,7 +99,7 @@ Taking the logarithm turns the product into a sum, so the network's outputs set 
 
 <div class="key-idea"><strong>Why it suits integer hardware.</strong> Every predicted quantity lies in a fixed interval, $$\tanh(a)\in(-1,1)$$, $$\boldsymbol{\pi}\in[0,1]^K$$ and $$2\sigma(b)\in(0,2)$$, so each quantizes to 8 bits with a static scale. Decoding needs only a softmax, a fixed 1×1 convolution with weights $$2^k$$ and two elementwise products, all of which edge accelerators support.</div>
 
-Because only the output layer changes, SEM drops into **any network that refines its flow by increments**, with no tuning.
+SEM drops into **any network that refines its flow by increments**: swap its linear output layer, then train as usual.
 
 ## NibbleFlow
 
