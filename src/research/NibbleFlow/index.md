@@ -136,7 +136,7 @@ RAFT-small iterates a GRU at a single scale, RAPIDFlow refines from coarse to fi
 | RAPIDFlow, 1 iteration | 5.32 | 9.73 | **5.84** |
 | IRR-PWC | 2.94 | 5.72 | **4.43** |
 
-<p class="table-note">Sintel clean EPE (lower is better). FP32 is the linear version. INT4 is 4-bit weights with 8-bit activations, simulated with the same quantizer for both versions. With one iteration of RAPIDFlow, 4-bit weights add 4.41 EPE to the linear version and only 0.61 to SEM, which removes 86% of the added error.</p>
+<p class="table-note">Sintel clean EPE (lower is better). FP32 is the linear version. INT4 is 4-bit weights with 8-bit activations, simulated with the same quantizer for both versions. Only in IRR-PWC are two layers kept in 8 bits in both versions. With one iteration of RAPIDFlow, 4-bit weights add 4.41 EPE to the linear version and only 0.61 to SEM, which removes 86% of the added error.</p>
 
 **Attribution of the quantization error.** Quantizing one part of the network at a time locates this loss in a single layer. In RAPIDFlow with a single iteration, the 4-bit weights of the last convolution alone, which is the layer that SEM replaces, cost the linear version **4.98 of the 5.00 EPE** that quantizing every layer costs, and SEM only **0.10**. Keeping this one layer in 8 bits also rescues the linear version, which then matches SEM. The value of SEM is that its output layer tolerates 4-bit weights like every other layer, so no layer needs special treatment.
 
