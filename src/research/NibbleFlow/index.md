@@ -60,9 +60,13 @@ We introduce <strong class="sem">SEM</strong>, an output layer that instead pred
 
 ## Motivation
 
+Optical flow underpins visual odometry, tracking and navigation, and its accuracy today comes from iterative refinement. Small robots, however, run on edge AI accelerators such as the Hailo-8, which execute only a static integer graph. These chips keep all weights in their limited on-chip memory, so the weights often have to be quantized to **4 bits**. At 4 bits, iterative flow networks lose much of their accuracy, while the networks designed for these chips are far less accurate to begin with. **Our goal is to bring accurate iterative optical flow to these chips, by finding where the 4-bit error arises and removing it.**
+
+{# Previous text, hidden for now. Remove this comment wrapper to show it again.
 Optical flow underpins visual odometry, structure from motion, tracking and navigation, and its accuracy today is driven by iterative refinement, in which an update block repeatedly corrects the current estimate. These methods run in floating point on desktop GPUs, whereas small robots and other battery-powered devices rely on edge AI accelerators such as the Hailo-8 and the Coral Edge TPU, which deliver several TOPS within a few watts.
 
 This efficiency comes at a price, since these accelerators execute only a **static graph with integer weights** and keep all weights in the memory on the chip, which often leaves **only 4 bits per weight**. Under such quantization, iterative flow networks lose much of their accuracy, while the networks that were designed for these chips are far less accurate to begin with. As a result, accurate optical flow has remained out of reach on the very hardware that needs it.
+#}
 
 ## The problem lives in one layer
 
