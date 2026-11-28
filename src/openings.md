@@ -6,6 +6,7 @@ kicker: Join the Lab
 summary: We welcome motivated researchers interested in perception, robotics, artificial intelligence, computational imaging, and autonomous systems.
 description: PhD, MS, and undergraduate research openings at the PRAISe Lab, CU Boulder, in perception, robotics, AI, computational imaging, and autonomous systems.
 permalink: /openings.html
+social_image: https://www.praisecu.com/img/social/praise-card-hiring.png
 application_url: https://docs.google.com/forms/d/e/1FAIpQLSfA0xLpkuVtN-qBf3MbCOWhOdaIUAixtstRAHOpWJuliOD89g/viewform?usp=sf_link
 application_label: Submit an Application
 secondary_url: /research-areas.html
