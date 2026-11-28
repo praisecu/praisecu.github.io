@@ -172,12 +172,12 @@ With 86% of its weights in 4 bits, NibbleFlow loses less than one pixel of EPE a
 
 ### A controlled test of the update alone
 
-| Update | Sintel clean | Sintel final | Clean, last 50 epochs | Final, last 50 epochs | Range (octaves) | Largest step |
+| Update | Clean | Final | Clean, last 50 | Final, last 50 | Range (oct.) | Max step |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|
 | Linear | 4.89 | 6.10 | 5.04 ± 0.07 | 6.23 ± 0.07 | 5.6 | 2<sup>−0.6</sup> px |
 | **SEM** | **4.85** | **5.84** | **4.95 ± 0.06** | **5.99 ± 0.06** | **7.0** | **2<sup>0.1</sup> px** |
 
-<p class="table-note">The same network, trained on FlyingChairs only with the same seed, changing only the output of the update block. The range and the largest step are measured at the first update of the 1/32 level.</p>
+<p class="table-note">Sintel EPE of the same network, trained on FlyingChairs only with the same seed, changing only the output of the update block; last 50: mean ± std over the last 50 epochs. The range and the largest step are measured at the first update of the 1/32 level.</p>
 
 ## Downstream: visual odometry
 
